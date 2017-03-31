@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies { 
+
+// spring 
+	// boot
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+	// aop
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+	// web
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	// jms-activemq
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-activemq'
+	// amqp
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp'
+	// integration
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-integration'
+	// mail
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail'
+	
+	// integration
+	compile group: 'org.springframework.integration', name: 'spring-integration-feed'
+	compile group: 'org.springframework.integration', name: 'spring-integration-java-dsl'
+	compile group: 'org.springframework.integration', name: 'spring-integration-file'
+	compile group: 'org.springframework.integration', name: 'spring-integration-mail'
+	
+	// 为支持 el demo
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+	
+// lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+
+// test
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
