@@ -9,7 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 class TempTest {
 
     public static void main( String[] args ) throws Throwable {
-	System.out.println( ( Long.MAX_VALUE - System.nanoTime() ) / 1000_000_0000L / 60 / 60 / 24 / 365 );
+	System.out.println( (int)'m' );
+	System.out.println( (int)'t' );
     }
 
 }
