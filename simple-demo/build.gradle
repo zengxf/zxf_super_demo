@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile(
+		'commons-codec:commons-codec:1.10'
+	);
+	compile(
+		'mysql:mysql-connector-java:5.1.18'
+	)
+	compile(
+		'org.jsoup:jsoup:1.9.2'
+	)
+	compile(
+		'com.alibaba:fastjson:1.2.10'
+	)
+	
+	// /lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+	compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.24'
+
+	compile files('lib/tools.jar')
+}
