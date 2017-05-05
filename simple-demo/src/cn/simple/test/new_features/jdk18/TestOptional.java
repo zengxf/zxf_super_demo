@@ -15,4 +15,24 @@ public class TestOptional {
 	System.out.println( optional.orElse( "fallback" ) ); // "BAM"
 	optional.ifPresent( ( s ) -> System.out.println( s.charAt( 0 ) ) ); // "B"
     }
+
+    static void maina() throws Throwable {
+	Optional.of( new Outer() )//
+	        .flatMap( o -> Optional.ofNullable( o.nested ) )//
+	        .flatMap( n -> Optional.ofNullable( n.inner ) )//
+	        .flatMap( i -> Optional.ofNullable( i.foo ) )//
+	        .ifPresent( System.out::println );
+    }
+}
+
+class Outer {
+    Nested nested;
+}
+
+class Nested {
+    Inner inner;
+}
+
+class Inner {
+    String foo;
 }

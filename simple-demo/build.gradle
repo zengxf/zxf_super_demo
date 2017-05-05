@@ -1,12 +1,16 @@
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     maven {
         url "http://maven.aliyun.com/nexus/content/groups/public/"
     }
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -16,10 +20,15 @@ dependencies {
 	compile( 'com.alibaba:fastjson:1.2.10' )
 	
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
 	
 	// lombok
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
-	compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.24'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+	
+	compile group: 'cn.zxf', name: 'commons-basic', version: '1.2.0'
 
 	compile files('lib/tools.jar')
 }
