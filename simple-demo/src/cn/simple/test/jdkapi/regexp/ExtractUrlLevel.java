@@ -1,4 +1,4 @@
-package cn.simple.test.regexp;
+package cn.simple.test.jdkapi.regexp;
 
 import java.util.Arrays;
 import java.util.regex.Matcher;

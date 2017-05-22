@@ -1,4 +1,4 @@
-package cn.simple.test.serial;
+package cn.simple.test.jdkapi.serial;
 
 import cn.simple.util.serial.SerialUtil;
 import lombok.extern.slf4j.Slf4j;

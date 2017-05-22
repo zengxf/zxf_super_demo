@@ -1,4 +1,4 @@
-package cn.simple.test.serial;
+package cn.simple.test.jdkapi.serial;
 
 import java.io.IOException;
 import java.io.Serializable;

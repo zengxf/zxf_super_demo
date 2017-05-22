@@ -1,4 +1,4 @@
-package cn.simple.test.list;
+package cn.simple.test.jdkapi.list;
 
 import java.util.ArrayList;
 import java.util.List;
