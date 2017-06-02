@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies { 
+
+// spring 
+	// boot
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+	// web
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	// data-MongoDB
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
+
+// fast-json	
+	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.32'
+	
+// apache-commons
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+
+// lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+
+// test
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}

@@ -1,0 +1,6 @@
+server:
+  port: 8088
+  
+mongodb:
+  database: test_data
+  list: localhost:27017
