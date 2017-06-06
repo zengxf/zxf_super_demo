@@ -17,6 +17,7 @@ public class BuryDataBo {
     private String		requestMethod; // 请求用的方法类型
     private String		path;
     private Integer		result;	       // 1: 正常，0: error
+    private Integer		status;	       // HTTP 响应码
 
     private Map<String, Object>	param;
 

@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PositionController {
 
     @GetMapping( "find-all" )
+    @Deprecated
     public List<Object> findAll() {
 	return Collections.emptyList();
     }
 
     @GetMapping( "get/{userId}/{positionId}" )
+    @Deprecated
     public List<Object> get( //
             @PathVariable String userId, //
             @PathVariable String positionId //
@@ -38,6 +40,7 @@ public class PositionController {
     }
 
     @GetMapping
+    @Deprecated
     public List<Object> get() {
 	return Collections.emptyList();
     }

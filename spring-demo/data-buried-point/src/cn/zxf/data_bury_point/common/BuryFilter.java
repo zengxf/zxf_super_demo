@@ -19,6 +19,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,6 +46,7 @@ public class BuryFilter implements Filter {
     @Override
     public void doFilter( ServletRequest request, ServletResponse response, FilterChain chain ) throws IOException, ServletException {
 	HttpServletRequest hsr = (HttpServletRequest) request;
+	HttpServletResponse hsRes = (HttpServletResponse) response;
 	BodyReaderHttpServletRequestWrapper wrapper = new BodyReaderHttpServletRequestWrapper( hsr );
 
 	String userId = GetUserUtil.getUserId( hsr );
@@ -52,10 +54,12 @@ public class BuryFilter implements Filter {
 	String method = GetMethodUtil.getMethod( hsr );
 	Map<String, Object> param = GetParamUtil.getParam( wrapper );
 	int result = 1;
+	int status = 200;
 
 	Exception ex = null;
 	try {
 	    chain.doFilter( wrapper, response );
+	    status = hsRes.getStatus();
 	} catch ( Exception e ) {
 	    log.error( "error : {}", e.getMessage() );
 	    result = 0;
@@ -63,23 +67,33 @@ public class BuryFilter implements Filter {
 	}
 	log.info( "path: {}, userId: {}, result: {}", path, userId, result );
 
-	try {
-	    BuryDataBo item = BuryDataBo.builder() //
-	            .userId( userId ) //
-	            .path( path ) //
-	            .requestMethod( method )//
-	            .param( param ) //
-	            .result( result ) //
-	            .build();
-	    service.handle( item );
-	} catch ( Exception e ) {
-	    log.error( "handle bury data error!!!", e );
-	}
-	System.out.println();
+	this.handleBury( userId, path, method, param, result, status );
 
 	if ( ex != null ) {
 	    throw new ServletException( ex ); // 包装下抛出
 	}
+    }
+
+    // 处理埋点
+    private void handleBury( String userId, String path, String method, Map<String, Object> param, int result, int status ) {
+	if ( status != 404 ) {
+	    try {
+		BuryDataBo item = BuryDataBo.builder() //
+		        .userId( userId ) //
+		        .path( path ) //
+		        .requestMethod( method )//
+		        .param( param ) //
+		        .result( result ) //
+		        .status( status ) //
+		        .build();
+		service.handle( item );
+	    } catch ( Exception e ) {
+		log.error( "handle bury data error!!!", e );
+	    }
+	} else {
+	    log.info( "用户请求 404，不做记录！！！" );
+	}
+	System.out.println();
     }
 
     @Override

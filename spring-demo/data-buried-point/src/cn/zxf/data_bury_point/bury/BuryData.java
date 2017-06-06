@@ -29,6 +29,7 @@ public class BuryData {
     private String	 path;		// 未处理的路径
     private List<String> paths;
     private Integer	 result;	// 1: 正常，0: error
+    private Integer	 status;	// HTTP 响应码
 
     private Object	 param;
 
