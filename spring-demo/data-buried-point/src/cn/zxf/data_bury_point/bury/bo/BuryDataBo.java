@@ -18,6 +18,7 @@ public class BuryDataBo {
     private String		path;
     private Integer		result;	       // 1: 正常，0: error
     private Integer		status;	       // HTTP 响应码
+    private String		contentJson;
 
     private Map<String, Object>	param;
 

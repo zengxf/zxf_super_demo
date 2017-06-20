@@ -3,8 +3,12 @@ package cn.zxf.data_bury_point.bury;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+
+import com.alibaba.fastjson.JSONObject;
 
 import cn.zxf.data_bury_point.bury.bo.BuryDataBo;
 import cn.zxf.data_bury_point.bury.util.FilterUtil;
@@ -29,6 +33,7 @@ public class BuryDataService {
      * 
      * @param item
      */
+    @Async
     public void handle( BuryDataBo data ) {
 	if ( FilterUtil.fliter( data ) ) {
 	    log.info( "BuryDataService filtered: [{}]-[{}]", data.getRequestMethod(), data.getPath() );
@@ -41,10 +46,14 @@ public class BuryDataService {
 	BuryData item = new BuryData();
 	BeanUtil.copyProperties( data, item );
 	item.setPaths( paths );
+	if ( StringUtils.isNoneBlank( item.getContentJson() ) ) {
+	    Object content = JSONObject.parse( item.getContentJson() );
+	    item.setContent( content );
+	}
 
 	dao.create( item );
 
-	log.info( "BuryDataService create: {}", item );
+	log.info( "BuryDataService create: {}", item.getId() );
     }
 
 }

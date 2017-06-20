@@ -1,5 +1,6 @@
 package cn.zxf.data_bury_point.biz.position;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,7 +37,8 @@ public class PositionController {
 
     @DeleteMapping
     public List<Object> delete() {
-	return Collections.emptyList();
+	// return Collections.emptyList();
+	return Arrays.asList( "test1", "test2" );
     }
 
     @GetMapping

@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @Document( collection = "bury_data" )
 @Data
-public class BuryData {
+public class BuryData implements BuryDataConstant {
 
     @Id
     private String	 id;
@@ -30,7 +30,9 @@ public class BuryData {
     private List<String> paths;
     private Integer	 result;	// 1: 正常，0: error
     private Integer	 status;	// HTTP 响应码
+    private String	 contentJson;
 
     private Object	 param;
+    private Object	 content;
 
 }
