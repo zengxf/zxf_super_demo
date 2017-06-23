@@ -56,8 +56,8 @@ public class BuryFilter implements Filter {
 	Exception ex = null;
 	try {
 	    chain.doFilter( reqWrapper, resWrapper );
-	    byte[] content = resWrapper.getContent();
 
+	    byte[] content = resWrapper.getContent();
 	    status = resWrapper.getStatus();
 
 	    String resType = resWrapper.getContentType();

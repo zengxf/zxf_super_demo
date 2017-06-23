@@ -2,6 +2,8 @@ package cn.zxf.data_bury_point.common.wrapper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
@@ -12,6 +14,7 @@ public class MyHttpServletResponseWrapper extends HttpServletResponseWrapper {
 
     private ByteArrayOutputStream buffer;
     private ServletOutputStream	  out;
+    private Map<String, Object>	  hander = new HashMap<>();
 
     public MyHttpServletResponseWrapper( HttpServletResponse response ) {
 	super( response );
@@ -31,9 +34,52 @@ public class MyHttpServletResponseWrapper extends HttpServletResponseWrapper {
 	}
     }
 
+    @Override
+    public void addHeader( String name, String value ) {
+	hander.put( name, value );
+	super.addHeader( name, value );
+    }
+
+    @Override
+    public void setHeader( String name, String value ) {
+	hander.put( name, value );
+	super.setHeader( name, value );
+    }
+
+    @Override
+    public void setIntHeader( String name, int value ) {
+	hander.put( name, value );
+	super.setIntHeader( name, value );
+    }
+
+    @Override
+    public void addIntHeader( String name, int value ) {
+	hander.put( name, value );
+	super.addIntHeader( name, value );
+    }
+
+    @Override
+    public void setDateHeader( String name, long date ) {
+	hander.put( name, date );
+	super.setDateHeader( name, date );
+    }
+
+    @Override
+    public void addDateHeader( String name, long date ) {
+	hander.put( name, date );
+	super.addDateHeader( name, date );
+    }
+
+    // ---------------------
+    // ---------------------
+
     public byte[] getContent() throws IOException {
 	this.flushBuffer();
 	return buffer.toByteArray();
+    }
+
+    public Map<String, Object> getAllHandler() {
+	return this.hander;
     }
 
     // ---------
