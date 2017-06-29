@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zxf-cloud-config-client
+  cloud:
+    bus:
+      trace:
+        enabled: true         # 开启消息跟踪
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+  
+# 关闭安全验证
+management:
+  security:
+    enabled: false
+
+
+# 需要结合：@RefreshScope 注解
+# 刷新 当前的 => curl -X POST http://127.0.0.1:8002/refresh
+# 刷新 所有的 => curl -X POST http://127.0.0.1:8002/bus/refresh
