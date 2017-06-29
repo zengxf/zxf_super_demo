@@ -33,7 +33,7 @@ public class CreateImage1 {
 	String[] fonts = { "方正兰亭黑简体", "FZLanTingHeiS-R-GB", "微软雅黑", "宋体", "方正楷体简体", "Liberation Mono" };
 
 	for ( int i = 0; i < fonts.length; i++ ) {
-	    AttributedCharacterIterator iter = buildFont( content + "     —— " + fonts[i], fonts[i], 28 );
+	    AttributedCharacterIterator iter = buildFont( content + "     —— " + fonts[i], fonts[i], 36 );
 	    Color color = Color.decode( CSSCOLOR );
 	    g2d.setColor( color );
 	    g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_ATOP, ALPHA ) );
