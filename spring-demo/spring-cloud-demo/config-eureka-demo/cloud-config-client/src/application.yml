@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: zxf-cloud-config-client
+
+server:
+  port: 8002
+  
+management:
+  security:
+    enabled: false
+
+# 需要结合：@RefreshScope 注解
+# refresh => curl -X POST http://127.0.0.1:8002/refresh
