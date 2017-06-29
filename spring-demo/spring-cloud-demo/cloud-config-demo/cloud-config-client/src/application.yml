@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: zxf-cloud-config-client
+
+server:
+  port: 8002

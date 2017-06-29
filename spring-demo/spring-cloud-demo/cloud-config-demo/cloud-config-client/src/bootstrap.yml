@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://127.0.0.1:8001/
+      label: master
+      name: neo-config
+      profile: pro
