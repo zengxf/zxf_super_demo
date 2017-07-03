@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 
 public class CreateImage1 {
 
-    static int	  width	   = 800;
+    static int	  width	   = 1200;
     static int	  height   = 400;
     static String CSSCOLOR = "#666666";
     static float  ALPHA	   = 1.0f;
@@ -30,7 +30,8 @@ public class CreateImage1 {
 	g2d.clearRect( 0, 0, width, height ); // 用背景色进行填充来清除指定的矩形
 
 	String content = "2017年5月12日  星期五";
-	String[] fonts = { "方正兰亭黑简体", "FZLanTingHeiS-R-GB", "微软雅黑", "宋体", "方正楷体简体", "Liberation Mono" };
+	String[] fonts = { "方正兰亭黑简体", "FZLanTingHeiS-R-GB", "微软雅黑", "宋体", "方正楷体简体" //
+	        , "Liberation Mono", "方正字迹-柏求楷书简体" };
 
 	for ( int i = 0; i < fonts.length; i++ ) {
 	    AttributedCharacterIterator iter = buildFont( content + "     —— " + fonts[i], fonts[i], 36 );
