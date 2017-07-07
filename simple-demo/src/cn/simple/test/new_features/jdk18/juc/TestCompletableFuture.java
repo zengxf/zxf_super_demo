@@ -6,9 +6,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -29,9 +27,28 @@ public class TestCompletableFuture {
 	// testAnyOf();
 	// testHandle();
 	// testExceptionally();
-	howStart();
+	// howStart();
+	testWhenComplete();
 
 	executor.shutdown();
+    }
+
+    /**
+     * 完成后处理
+     */
+    public static void testWhenComplete() throws InterruptedException, ExecutionException {
+	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
+	    System.out.println( "f1 run ..." );
+	    if ( System.currentTimeMillis() % 2 == 0 ) {
+		throw new RuntimeException( "random error !!!" );
+	    }
+	    return "zero";
+	}, executor );
+	f1.whenComplete( ( str, e ) -> {
+	    System.out.println( "result: " + str );
+	    System.out.println( "e: " + e );
+	} );
+	// System.out.println( "f1 get result: " + f1.join() );
     }
 
     /**
@@ -57,13 +74,10 @@ public class TestCompletableFuture {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
 	    return "zero";
 	}, executor );
-	CompletableFuture<String> cf = f1.handle( new BiFunction<String, Throwable, String>() {
-	    @Override
-	    public String apply( String t, Throwable u ) {
-		System.out.println( "result: " + t );
-		System.out.println( "u: " + u );
-		return "test-" + t;
-	    }
+	CompletableFuture<String> cf = f1.handle( ( String t, Throwable u ) -> {
+	    System.out.println( "result: " + t );
+	    System.out.println( "u: " + u );
+	    return "test-" + t;
 	} );
 	System.out.println( "cf result: " + cf.get() );
     }
@@ -75,12 +89,9 @@ public class TestCompletableFuture {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
 	    return "zero";
 	}, executor );
-	CompletableFuture<String> cf = f1.exceptionally( new Function<Throwable, String>() {
-	    @Override
-	    public String apply( Throwable t ) {
-		System.out.println( "t: " + t ); // 异常时才调用
-		return "def";
-	    }
+	CompletableFuture<String> cf = f1.exceptionally( ( t ) -> {
+	    System.out.println( "t: " + t ); // 异常时才调用
+	    return "def";
 	} );
 	System.out.println( "cf result: " + cf.get() );
     }
@@ -217,13 +228,10 @@ public class TestCompletableFuture {
 	    return "hello";
 	}, executor );
 
-	CompletableFuture<Void> reslutFuture = f1.thenAcceptBoth( f2, new BiConsumer<String, String>() {
-	    @Override
-	    public void accept( String t, String u ) {
-		System.out.println( "f3 start to accept at:" + System.currentTimeMillis() );
-		System.out.println( t + " over" );
-		System.out.println( u + " over" );
-	    }
+	CompletableFuture<Void> reslutFuture = f1.thenAcceptBoth( f2, ( t, u ) -> {
+	    System.out.println( "f3 start to accept at:" + System.currentTimeMillis() );
+	    System.out.println( t + " over" );
+	    System.out.println( u + " over" );
 	} );
 
 	System.out.println( reslutFuture.get() );
@@ -328,11 +336,8 @@ public class TestCompletableFuture {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
 	    return "zero";
 	}, executor );
-	f1.thenRun( new Runnable() {
-	    @Override
-	    public void run() {
-		System.out.println( "finished" );
-	    }
+	f1.thenRun( () -> {
+	    System.out.println( "finished" );
 	} );
     }
 

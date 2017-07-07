@@ -2,8 +2,6 @@ package cn.simple.test.new_features.jdk18.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.Collectors;
 
 public class Test1WList {
 

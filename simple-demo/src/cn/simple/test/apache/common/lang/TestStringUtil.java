@@ -13,7 +13,7 @@ public class TestStringUtil {
     public static void main( String[] args ) {
 	// test();
 
-	String enumName = "RECOMMEND_CV_TO_COUNT";
+	String enumName = "RECEIVE_CDD_PROCESS_COUNT";
 
 	enumName = enumName.toLowerCase();
 	String[] arr = enumName.split( "_" );

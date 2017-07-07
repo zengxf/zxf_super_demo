@@ -19,6 +19,7 @@ public class TestDate {
 	LocalDate today = LocalDate.now();
 	LocalDate tomorrow = today.plus( 1, ChronoUnit.DAYS );
 	LocalDate yesterday = tomorrow.minusDays( 2 );
+	System.out.println( yesterday );
 	LocalDate independenceDay = LocalDate.of( 2014, Month.JULY, 4 );
 	DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();
 	System.out.println( dayOfWeek );

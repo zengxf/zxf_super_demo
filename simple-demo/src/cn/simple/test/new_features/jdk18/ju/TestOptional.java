@@ -3,6 +3,12 @@ package cn.simple.test.new_features.jdk18.ju;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+/**
+ * 在Java 8中，不推荐你返回null而是返回Optional
+ * 
+ * <p>
+ * Created by zxf on 2017-07-06
+ */
 public class TestOptional {
 
     public static void main( String[] args ) {
