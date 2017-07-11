@@ -6,6 +6,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.invoke.MutableCallSite;
 import java.lang.invoke.VolatileCallSite;
+import java.lang.invoke.WrongMethodTypeException;
 
 /**
  * 测试回调点
@@ -21,12 +22,37 @@ public class TestCallSite {
 	public static void test2( String msg ) {
 	    System.out.println( "test static 2 msg => " + msg );
 	}
+
+	public static void testNum( Number num ) {
+	    System.out.println( "test static num => " + num );
+	}
     }
 
     public static void main( String[] args ) throws Throwable {
-	// testConstant();
+	// testVolatile();
 	// testMutable();
-	testVolatile();
+	// testConstant();
+	testInvoke();
+    }
+
+    /**
+     * 测试 invoke 与 invokeExact
+     * 
+     * @throws NoSuchMethodException
+     * @throws IllegalAccessException
+     * @throws Throwable
+     */
+    static void testInvoke() throws NoSuchMethodException, IllegalAccessException, Throwable {
+	Integer num = 33;
+
+	MethodType mt = MethodType.methodType( void.class, Number.class );
+	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "testNum", mt );
+	try {
+	    mh.invokeExact( num ); // 类型要完全匹配
+	} catch ( WrongMethodTypeException e ) {
+	    System.err.println( "类型没有完全匹配！-> e: " + e.getMessage() );
+	}
+	mh.invoke( num ); // 类型不需要完全匹配，可以是子类型
     }
 
     /**
@@ -44,9 +70,9 @@ public class TestCallSite {
 	MethodHandle mh2 = cs.dynamicInvoker();
 
 	try {
-	    cs.setTarget( mh2 );
+	    cs.setTarget( mh2 ); // 不能设置
 	} catch ( UnsupportedOperationException e ) {
-	    System.out.println( "常量调用点不支持设置 target ！" );
+	    System.err.println( "常量调用点不支持设置 target ！" );
 	}
 
 	mh2.invokeExact( "ok 1" );
@@ -65,7 +91,7 @@ public class TestCallSite {
 	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "test1", mt );
 	MethodHandle mh2 = MethodHandles.lookup().findStatic( MyClass.class, "test2", mt );
 
-	MutableCallSite cs = new MutableCallSite( mh );
+	MutableCallSite cs = new MutableCallSite( mh ); // 普通可变调用点
 
 	MethodHandle mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "ok 1" );
@@ -90,7 +116,7 @@ public class TestCallSite {
 	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "test1", mt );
 	MethodHandle mh2 = MethodHandles.lookup().findStatic( MyClass.class, "test2", mt );
 
-	VolatileCallSite cs = new VolatileCallSite( mh );
+	VolatileCallSite cs = new VolatileCallSite( mh ); // 线程安全调用点
 
 	MethodHandle mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "ok 1" );

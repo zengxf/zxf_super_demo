@@ -7,9 +7,17 @@ public class TestArrays {
 
     public static void main( String[] args ) {
 	test_fill();
-	test_parallelPrefix();
-
 	print();
+	
+	test_parallelPrefix();
+	print();
+	
+	test_setAll();
+	print();
+    }
+
+    static void test_setAll() {
+	Arrays.setAll( arr, i -> 2 * i );
     }
 
     // 填充相同的值

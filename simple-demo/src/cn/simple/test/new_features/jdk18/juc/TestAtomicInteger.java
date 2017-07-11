@@ -1,30 +1,43 @@
 package cn.simple.test.new_features.jdk18.juc;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TestAtomicInteger extends Util {
     public static void main( String[] args ) {
-	AtomicInteger atomicInt = new AtomicInteger( 0 );
-	ExecutorService executor = Executors.newFixedThreadPool( 2 );
-	IntStream.range( 0, 1000 ).forEach( i -> {
-	    Runnable task = () -> atomicInt.accumulateAndGet( i, ( n, m ) -> n + m );
-	    executor.submit( task );
-	} );
-	stop( executor );
-	System.out.println( atomicInt.get() ); // => 499500
+	test_updateAndGet();
+	// test_accumulateAndGet();
+	// test_getAndUpdate();
+	// test_getAndAccumulate();
     }
 
-    static void updateAndGet() {
-	AtomicInteger atomicInt = new AtomicInteger( 0 );
-	ExecutorService executor = Executors.newFixedThreadPool( 2 );
-	IntStream.range( 0, 1000 ).forEach( i -> {
-	    Runnable task = () -> atomicInt.updateAndGet( n -> n + 2 ); // 在内部累加
-	    executor.submit( task );
-	} );
-	stop( executor );
-	System.out.println( atomicInt.get() ); // => 2000
+    // 返回计算前的值
+    static void test_getAndAccumulate() {
+	AtomicInteger atomic = new AtomicInteger( 0 );
+	int get = atomic.getAndAccumulate( 2, ( i, base ) -> ( i + 2 ) * base );
+	log.info( "prev: {}, current: {}", get, atomic.get() );
+    }
+
+    // 返回更新前的值
+    static void test_getAndUpdate() {
+	AtomicInteger atomic = new AtomicInteger( 0 );
+	int get = atomic.getAndUpdate( i -> i + 2 );
+	log.info( "prev: {}, current: {}", get, atomic.get() );
+    }
+
+    // 返回计算后的值
+    static void test_accumulateAndGet() {
+	AtomicInteger atomic = new AtomicInteger( 0 );
+	int get = atomic.accumulateAndGet( 2, ( i, base ) -> ( i + 2 ) * base );
+	log.info( "current: {}, current: {}", get, atomic.get() );
+    }
+
+    // 返回更新后的值
+    static void test_updateAndGet() {
+	AtomicInteger atomic = new AtomicInteger( 0 );
+	int get = atomic.updateAndGet( i -> i + 2 );
+	log.info( "current: {}, current: {}", get, atomic.get() );
     }
 }

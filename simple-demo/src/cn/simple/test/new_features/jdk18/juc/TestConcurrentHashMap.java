@@ -2,24 +2,43 @@ package cn.simple.test.new_features.jdk18.juc;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Operates with keys and values (forEach, reduce, search) <br>
+ * Operates with keys (forEachKey, reduceKeys, searchKeys) <br>
+ * Operates with values (forEachValue, reduceValues, searchValues) <br>
+ * Operates with Map.Entry objects (forEachEntry, reduceEntries, searchEntries) <br>
+ * 
+ * <p>
+ * Created by zxf on 2017-07-10
+ */
 public class TestConcurrentHashMap {
-    public static void main( String[] args ) {
-	ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+    static ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+    static {
 	map.put( "foo", "bar" );
 	map.put( "han", "solo" );
 	map.put( "r2", "d2" );
 	map.put( "c3", "p0" );
-
-	// forEach( map );
-
-	// search( map );
-
-	// searchValues( map );
-
-	reduce( map );
     }
 
-    static void reduce( ConcurrentHashMap<String, String> map ) {
+    public static void main( String[] args ) {
+	// forEach( );
+	// search( );
+	// searchValues( );
+	// reduce();
+	reduceValuesToInt();
+
+	System.out.println( "mappingCount: " + map.mappingCount() );
+    }
+
+    // reduceValuesToInt
+    // reduceValuesToDouble
+    // reduceValuesToLong
+    static void reduceValuesToInt() {
+	int len = map.reduceValuesToInt( 2, ( value ) -> value.length(), 0, ( i1, i2 ) -> i1 + i2 );
+	System.out.println( "len: " + len );
+    }
+
+    static void reduce() {
 	String result = map.reduce( 1, ( key, value ) -> {
 	    String v = key + "=" + value;
 	    System.out.println( "Transform: " + Thread.currentThread().getName() + "\t" + v );
@@ -32,7 +51,7 @@ public class TestConcurrentHashMap {
 	System.out.println( "Result: " + result );
     }
 
-    static void searchValues( ConcurrentHashMap<String, String> map ) {
+    static void searchValues() {
 	String result = map.searchValues( 1, value -> {
 	    System.out.println( Thread.currentThread().getName() );
 	    if ( value.length() > 3 ) {
@@ -43,7 +62,7 @@ public class TestConcurrentHashMap {
 	System.out.println( "Result: " + result );
     }
 
-    static void search( ConcurrentHashMap<String, String> map ) {
+    static void search() {
 	String result = map.search( 1, ( key, value ) -> {
 	    System.out.println( Thread.currentThread().getName() );
 	    if ( "foo".equals( key ) ) {
@@ -54,7 +73,7 @@ public class TestConcurrentHashMap {
 	System.out.println( "Result: " + result );
     }
 
-    static void forEach( ConcurrentHashMap<String, String> map ) {
+    static void forEach() {
 	map.forEach( 1, ( key, value ) -> //
 	System.out.printf( "key: %s; value: %s; thread: %s\n", key, value, Thread.currentThread().getName() ) );
     }
