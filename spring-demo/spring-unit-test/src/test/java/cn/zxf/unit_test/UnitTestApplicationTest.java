@@ -1,16 +1,14 @@
 package cn.zxf.unit_test;
 
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Value;
+public class UnitTestApplicationTest // extends AbstractApplicationTest
+{
 
-public class UnitTestApplicationTest extends AbstractApplicationTest {
-
-    @Value( "${server.port}" )
+//    @Value( "${server.port}" )
     private int port;
 
-    @Test
+//    @Test
     public void print() {
-	super.info( "port: {}", port );
+//	super.info( "port: {}", port );
     }
 
 }
