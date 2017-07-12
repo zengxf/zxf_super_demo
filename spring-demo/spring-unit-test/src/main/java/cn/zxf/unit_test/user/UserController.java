@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +23,7 @@ public class UserController {
     private UserService service;
 
     /**
-     * http://localhost:8088/api/user/find-all
+     * /api/user/find-all
      * 
      * @return
      */
@@ -31,17 +33,31 @@ public class UserController {
     }
 
     /**
-     * http://localhost:8088/api/user/find-one
+     * /api/user/find-one
      * 
      * @return
      */
+
     @GetMapping( "find-one" )
     public UserDto findOne() {
 	return service.findAll().get( 0 );
     }
 
     /**
-     * http://localhost:8088/api/user/login
+     * /api/user/save
+     * 
+     * @param user
+     */
+    @PostMapping( "save" )
+    public String save( //
+            @RequestBody UserDto user //
+    ) {
+	log.info( "save user: {}", user );
+	return "ok";
+    }
+
+    /**
+     * /api/user/login
      * 
      * @return
      */
@@ -49,10 +65,11 @@ public class UserController {
     public String login( //
             HttpServletRequest request //
     ) {
-	request.getSession().getAttribute( "login" );
+	log.info( "session-attr: {}", request.getSession().getAttribute( "login" ) );
 	log.info( "param -> username: {}, password: {}" //
 	        , request.getParameter( "username" ) //
 	        , request.getParameter( "password" ) );
+	log.info( "request-attr: {}", request.getAttribute( "user-name" ) );
 	return "ok";
     }
 

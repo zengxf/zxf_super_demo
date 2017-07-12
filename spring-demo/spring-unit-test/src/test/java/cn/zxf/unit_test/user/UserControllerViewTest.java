@@ -26,10 +26,6 @@ public class UserControllerViewTest extends AbstractApplicationTest {
 
     @Test
     public void login_view() throws Exception {
-	session.setAttribute( "login", "ok" );
-	request.setAttribute( "test", "fuck" );
-	request.addParameter( "username", "zxf" );
-	request.addParameter( "password", "admin" );
 	String url = "http://localhost:" + port + "/api/user/login";
 	super.info( "url: {}", url );
 	String result = super.restTemplate.getForObject( url, String.class );

@@ -6,6 +6,7 @@ import static org.springframework.restdocs.headers.HeaderDocumentation.responseH
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import org.springframework.http.MediaType;
 
 import cn.zxf.unit_test.AbstractApplicationTest;
+import cn.zxf.unit_test.user.dto.UserDto;
 
 /**
  * {@link UserController}
@@ -38,6 +40,23 @@ public class UserControllerTest extends AbstractApplicationTest {
     }
 
     @Test
+    public void save_assert() throws Exception {
+	String json = mapper.writeValueAsString( new UserDto( "zxf-t1", 32, 1 ) );
+	super.info( "json: {}", json );
+
+	Object res = //
+	        mockMvc.perform( post( "/api/user/save" ) //
+	                .content( json ) //
+	                .contentType( MediaType.APPLICATION_JSON ) //
+	                .accept( MediaType.APPLICATION_JSON_UTF8 ) ) //
+	                //
+	                .andExpect( status().isOk() ) //
+	                .andReturn().getResponse().getContentAsString() //
+	;
+	super.info( "res: {}", res );
+    }
+
+    @Test
     public void findOne_assert() throws Exception {
 	mockMvc.perform( get( "/api/user/find-one" ) //
 	        .accept( MediaType.APPLICATION_JSON_UTF8 ) ) //
@@ -57,11 +76,16 @@ public class UserControllerTest extends AbstractApplicationTest {
 
     @Test
     public void login_assert() throws Exception {
-	session.setAttribute( "login", "ok" );
-	request.setAttribute( "test", "fuck" );
-	request.addParameter( "username", "zxf" );
-	request.addParameter( "password", "admin" );
 	mockMvc.perform( get( "/api/user/login" ) //
+	        // mock request, session start
+	        .with( req -> { //
+	            req.addParameter( "username", "zxf" );
+	            req.addParameter( "password", "admin" );
+	            return req;
+	        } ) //
+	        .requestAttr( "user-name", "zxf-admin" ) //
+	        .sessionAttr( "login", "user-zxf-id" ) //
+	        // mock end
 	        .accept( MediaType.APPLICATION_JSON_UTF8 ) ) //
 	        .andExpect( status().isOk() ) //
 	        .andExpect( content().string( containsString( "ok" ) ) ) //
