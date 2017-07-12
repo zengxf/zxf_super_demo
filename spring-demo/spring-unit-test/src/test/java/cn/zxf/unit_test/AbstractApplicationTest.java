@@ -29,20 +29,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class AbstractApplicationTest {
 
-    @Autowired
-    protected MockHttpServletRequest	     request;
-    @Autowired
-    protected MockHttpSession		     session;
-
     protected RestTemplate		     restTemplate      = new RestTemplateBuilder().build();
     protected int			     port	       = 8088;
 
-    @Autowired
-    protected WebApplicationContext	     context;
     @Rule
     public JUnitRestDocumentation	     restDocumentation = new JUnitRestDocumentation();
     protected RestDocumentationResultHandler documentationHandler;
     protected MockMvc			     mockMvc;
+
+    @Autowired
+    protected MockHttpServletRequest	     request;
+    @Autowired
+    protected MockHttpSession		     session;
+    @Autowired
+    protected WebApplicationContext	     context;
 
     @Before
     public void setupMockMvc() {
