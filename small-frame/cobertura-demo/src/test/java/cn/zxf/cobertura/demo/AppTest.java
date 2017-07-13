@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import cn.zxf.cobertura.demo.App;
+
 public class AppTest {
     private App app;
 
@@ -29,6 +31,13 @@ public class AppTest {
 	System.out.println( "\nresult: " + result );
 	System.out.println();
 	// Assert.assertEquals( a - b, result );
+    }
+
+    @Test
+    public void add() {
+	int result = app.add( 3 );
+	System.out.println( "\nresult: " + result );
+	System.out.println();
     }
 
     @After

@@ -10,4 +10,12 @@ public class App {
 	a *= c;
 	return a - b;
     }
+
+    public int add( int a ) {
+	if ( a > 10 )
+	    return a * 10 + 5;
+	else
+	    return a * 100 + 5;
+    }
+
 }
