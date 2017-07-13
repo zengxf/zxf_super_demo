@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
@@ -26,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootTest(
 // classes = UnitTestApplication.class
 )
+@AutoConfigureMockMvc
 @Slf4j
 public abstract class AbstractApplicationTest {
 
@@ -34,6 +36,7 @@ public abstract class AbstractApplicationTest {
     @Rule
     public JUnitRestDocumentation	     restDocumentation = new JUnitRestDocumentation();
     protected RestDocumentationResultHandler documentationHandler;
+    // 可能用 @AutoConfigureMockMvc 和 @Autowired 自动配置
     protected MockMvc			     mockMvc;
 
     @Autowired

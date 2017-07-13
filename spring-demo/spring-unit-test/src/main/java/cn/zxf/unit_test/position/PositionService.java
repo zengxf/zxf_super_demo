@@ -1,7 +1,7 @@
 package cn.zxf.unit_test.position;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,23 @@ public class PositionService {
 
     public List<PositionDto> findAll() {
 	List<Position> all = dao.findAll();
-	List<PositionDto> dtoList = all.stream().map( pos -> {
+	List<PositionDto> dtoList = new ArrayList<>();
+	for ( Position pos : all ) {
 	    PositionDto dto = new PositionDto();
 	    BeanUtils.copyProperties( pos, dto );
-	    return dto;
-	} ).collect( Collectors.toList() );
+	    dtoList.add( dto );
+	}
 	return dtoList;
     }
+
+//    public List<PositionDto> findAll1() {
+//	List<Position> all = dao.findAll();
+//	List<PositionDto> dtoList = all.stream().map( pos -> {
+//	    PositionDto dto = new PositionDto();
+//	    BeanUtils.copyProperties( pos, dto );
+//	    return dto;
+//	} ).collect( Collectors.toList() );
+//	return dtoList;
+//    }
 
 }

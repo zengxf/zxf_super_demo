@@ -3,6 +3,7 @@ package cn.zxf.unit_test.position;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 
@@ -15,6 +16,7 @@ import cn.zxf.unit_test.position.dto.PositionDto;
  * <p>
  * Created by zxf on 2017-07-13
  */
+@Ignore
 public class PositionControllerTest extends AbstractApplicationTest {
 
     @Test
