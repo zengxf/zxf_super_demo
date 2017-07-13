@@ -1,9 +1,9 @@
 package cn.zxf.unit_test.position;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 
@@ -16,13 +16,12 @@ import cn.zxf.unit_test.position.dto.PositionDto;
  * <p>
  * Created by zxf on 2017-07-13
  */
-@Ignore
 public class PositionControllerTest extends AbstractApplicationTest {
 
     @Test
     public void insert() throws Exception {
 	PositionDto dto = PositionDto.builder() //
-	        .name( "test-1" )//
+	        .name( "test-10" )//
 	        .status( 0 )//
 	        .build();
 	String json = super.toJson( dto );
