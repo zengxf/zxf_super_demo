@@ -65,7 +65,7 @@ use of HTTP status codes.
 
 Every response has the following header(s):
 
-include::{snippets}/find-all_assert/response-headers.adoc[]
+include::{snippets}/find-all/response-headers.adoc[]
 
 [[overview-errors]]
 == Errors

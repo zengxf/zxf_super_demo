@@ -9,16 +9,15 @@ import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +29,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class AbstractApplicationTest {
 
-    protected RestTemplate		     restTemplate      = new RestTemplateBuilder().build();
-    protected int			     port	       = 8088;
     protected ObjectMapper		     mapper	       = new ObjectMapper();
 
     @Rule
@@ -52,6 +49,10 @@ public abstract class AbstractApplicationTest {
 	        .apply( MockMvcRestDocumentation.documentationConfiguration( this.restDocumentation ) ) //
 	        .alwaysDo( this.documentationHandler ) //
 	        .build();
+    }
+
+    public String toJson( Object obj ) throws JsonProcessingException {
+	return mapper.writeValueAsString( obj );
     }
 
     public void info( String format, Object... arguments ) {

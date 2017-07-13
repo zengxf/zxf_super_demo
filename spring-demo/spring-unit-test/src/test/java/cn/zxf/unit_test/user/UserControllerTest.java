@@ -26,9 +26,10 @@ import cn.zxf.unit_test.user.dto.UserDto;
 public class UserControllerTest extends AbstractApplicationTest {
 
     @Test
-    public void findAll_assert() throws Exception {
+    public void findAll() throws Exception {
 	mockMvc.perform( get( "/api/user/find-all" ) //
 	        .accept( MediaType.APPLICATION_JSON_UTF8 ) ) //
+	        //
 	        .andExpect( status().isOk() ) //
 	        .andExpect( content().string( containsString( "zxf" ) ) ) //
 	        .andExpect( jsonPath( "$[0].name" ).value( "zxf" ) ) //
@@ -40,8 +41,8 @@ public class UserControllerTest extends AbstractApplicationTest {
     }
 
     @Test
-    public void save_assert() throws Exception {
-	String json = mapper.writeValueAsString( new UserDto( "zxf-t1", 32, 1 ) );
+    public void save() throws Exception {
+	String json = super.toJson( new UserDto( "zxf-t1", 32, 1 ) );
 	super.info( "json: {}", json );
 
 	Object res = //
@@ -57,9 +58,10 @@ public class UserControllerTest extends AbstractApplicationTest {
     }
 
     @Test
-    public void findOne_assert() throws Exception {
+    public void findOne() throws Exception {
 	mockMvc.perform( get( "/api/user/find-one" ) //
 	        .accept( MediaType.APPLICATION_JSON_UTF8 ) ) //
+	        //
 	        .andExpect( status().isOk() ) //
 	        .andExpect( content().string( containsString( "zxf" ) ) ) //
 	        .andExpect( jsonPath( "name" ).value( "zxf" ) ) //
@@ -75,7 +77,7 @@ public class UserControllerTest extends AbstractApplicationTest {
     }
 
     @Test
-    public void login_assert() throws Exception {
+    public void login() throws Exception {
 	mockMvc.perform( get( "/api/user/login" ) //
 	        // mock request, session start
 	        .with( req -> { //

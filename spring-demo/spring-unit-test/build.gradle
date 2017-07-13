@@ -40,6 +40,8 @@ dependencies {
 // spring 
 	// web
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	// mongodb
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
 	
 // lombok
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
