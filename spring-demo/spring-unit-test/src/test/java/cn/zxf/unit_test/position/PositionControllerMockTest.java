@@ -1,6 +1,8 @@
 package cn.zxf.unit_test.position;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,6 +23,7 @@ import cn.zxf.unit_test.position.dto.PositionDto;
  * <p>
  * Created by zxf on 2017-07-13
  */
+// @Ignore
 public class PositionControllerMockTest extends AbstractApplicationTest {
 
     @MockBean

@@ -11,6 +11,16 @@ import lombok.Data;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * <pre>
+ * 并行流对拥有大量输入元素的数据流具有极大的性能提升。但是要记住一些
+ * 并行流的操作，例如 reduce 和 collect 需要额外的计算（组合操作） ，这在串
+ * 行执行时并不需要
+ * </pre>
+ * 
+ * <p>
+ * Created by zxf on 2017-07-17
+ */
 @Slf4j
 public class TestStream {
     public static void main( String[] args ) {

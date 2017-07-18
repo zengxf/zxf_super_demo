@@ -16,7 +16,7 @@ public class TestAtomicInteger extends Util {
     // 返回计算前的值
     static void test_getAndAccumulate() {
 	AtomicInteger atomic = new AtomicInteger( 0 );
-	int get = atomic.getAndAccumulate( 2, ( i, base ) -> ( i + 2 ) * base );
+	int get = atomic.getAndAccumulate( 2, ( prev, base ) -> ( prev + 3 ) * base ); // 2 是 base
 	log.info( "prev: {}, current: {}", get, atomic.get() );
     }
 

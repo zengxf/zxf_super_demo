@@ -6,6 +6,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
+
+/**
+ * –≈∫≈¡ø-≤‚ ‘
+ * 
+ * <p>
+ * Created by zxf on 2017-07-18
+ */
 public class TestSemaphore extends Util {
 
     public static void main( String[] args ) {

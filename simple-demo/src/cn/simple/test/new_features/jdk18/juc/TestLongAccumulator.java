@@ -9,7 +9,8 @@ import java.util.stream.IntStream;
 public class TestLongAccumulator extends Util {
 
     public static void main( String[] args ) {
-	// test1();
+	test1();
+	System.out.println( "--" );
 	test2();
     }
 
@@ -18,19 +19,19 @@ public class TestLongAccumulator extends Util {
 	LongAccumulator accumulator = new LongAccumulator( op, 1L );
 	accumulator.accumulate( 10 );
 	accumulator.accumulate( 10 );
-	System.out.println( accumulator.get() );
-	System.out.println( accumulator.getThenReset() );
+	System.out.println( accumulator.get() ); // 21
+	System.out.println( accumulator.getThenReset() ); // 21
     }
 
     static void test1() {
-	LongBinaryOperator op = ( x, y ) -> 2 * x + y;
-	LongAccumulator accumulator = new LongAccumulator( op, 1L );
-	ExecutorService executor = Executors.newFixedThreadPool( 2 );
+	LongBinaryOperator op = ( v, x ) -> 2 * v + x; // x ÊÇ²ÎÊý
+	LongAccumulator accumulator = new LongAccumulator( op, 1L ); // base: 1
+	ExecutorService executor = Executors.newFixedThreadPool( 4 );
 	int end = 4;
 	IntStream.range( 0, end ).forEach( i -> executor.submit( () -> accumulator.accumulate( i ) ) );
 	stop( executor );
-	System.out.println( accumulator.getThenReset() ); // => 2539
-	IntStream.range( 0, end ).forEach( System.out::println );
+	System.out.println( accumulator.getThenReset() ); // => 38
+	IntStream.range( 0, end ).forEach( System.out::println ); // 0 1 2 3
     }
 
 }

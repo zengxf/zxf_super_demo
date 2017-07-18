@@ -1,6 +1,7 @@
 package cn.simple.test.new_features.jdk18.juc;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiFunction;
 
 /**
  * Operates with keys and values (forEach, reduce, search) <br>
@@ -25,9 +26,17 @@ public class TestConcurrentHashMap {
 	// search( );
 	// searchValues( );
 	// reduce();
-	reduceValuesToInt();
+	// reduceValuesToInt();
+	marge();
 
 	System.out.println( "mappingCount: " + map.mappingCount() );
+    }
+
+    static void marge() {
+	BiFunction<? super String, ? super String, ? extends String> remappingFunction = ( k, v ) -> null;
+	String key = "#non#";
+	String value = "";
+	map.merge( key, value, remappingFunction );
     }
 
     // reduceValuesToInt

@@ -13,6 +13,10 @@ import cn.zxf.unit_test.position.dto.PositionDto;
 /**
  * 会真正的插入到数据库，{@link PositionController}
  * 
+ * <pre>
+ * service 会被 Mock Dao 影响
+ * </pre>
+ * 
  * <p>
  * Created by zxf on 2017-07-13
  */

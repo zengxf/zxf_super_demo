@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.UserPrincipal;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,14 +30,22 @@ public class TestFiles {
 
 	// filesNewBufferedWriter();
 
+	// probeContentType();
+
+	getOwner();
+    }
+
+    static void getOwner() throws IOException {
 	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
-	try ( BufferedReader reader = Files.newBufferedReader( path ) ) {
-	    long countPrints = reader//
-	            .lines()//
-	            .filter( line -> line.contains( "fuck" ) )//
-	            .count();
-	    System.out.println( countPrints );
-	}
+	UserPrincipal principal = Files.getOwner( path );
+	System.out.println( principal );
+	System.out.println( principal.getName() );
+    }
+
+    static void probeContentType() throws IOException {
+	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
+	String type = Files.probeContentType( path );
+	System.out.println( type );
     }
 
     static void filesNewBufferedWriter() throws IOException {
