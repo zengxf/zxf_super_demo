@@ -1,0 +1,9 @@
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+      
+      
+server:
+  port: 9000
+  address: 127.0.0.1
