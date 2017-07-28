@@ -13,6 +13,7 @@ public class SimilarDegreeByCos {
      * @param str2
      * @return 返回计算的相识度
      */
+    @SuppressWarnings( "rawtypes" )
     public static double getSimilarDegree( String str1, String str2 ) {
 	// 创建向量空间模型，使用map实现，主键为词项，值为长度为2的数组，存放着对应词项在字符串中的出现次数
 	Map<String, int[]> vectorSpace = new HashMap<String, int[]>();

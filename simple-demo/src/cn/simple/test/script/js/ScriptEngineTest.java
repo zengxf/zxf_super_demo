@@ -8,6 +8,7 @@ import javax.script.ScriptEngineManager;
 
 public class ScriptEngineTest {
 
+    @SuppressWarnings( "unchecked" )
     public static void main( String[] args ) throws Exception {
 	ScriptEngineManager sem = new ScriptEngineManager();
 	ScriptEngine engine = sem.getEngineByName( "javascript" ); // python or jython,
@@ -23,7 +24,7 @@ public class ScriptEngineTest {
 	String name = (String) engine.get( "name" );
 	String[] hb = (String[]) engine.get( "hobbies" );
 	System.out.println( msg );
-//	System.out.println( name + ":" + hb[0] );
+	System.out.println( name + ":" + hb[0] );
 
 	// 定义数学函数
 	engine.eval( "function add (a, b) {c = a + b; return c; }" );
@@ -64,13 +65,13 @@ public class ScriptEngineTest {
 
 	String jsCode = "importPackage(java.util);  var list2 = Arrays.asList(['A', 'B', 'C']); ";
 
-//	engine.eval( jsCode );
+	engine.eval( jsCode );
 
 	List<String> list2 = (List<String>) engine.get( "list2" );
 
-//	for ( String val : list2 ) {
-//	    System.out.println( val );
-//	}
+	for ( String val : list2 ) {
+	    System.out.println( val );
+	}
 
     }
 }

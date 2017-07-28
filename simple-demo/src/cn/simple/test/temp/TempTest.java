@@ -1,18 +1,15 @@
 
 package cn.simple.test.temp;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TempTest {
 
     public static void main( String[] args ) {
-	List<String> list = new ArrayList<>();
-	list.add( "a" );
-	Stream<String> str = list.stream();
-	list.add( "c" );
-	str.forEach( System.out::println );
+	String folder = "/C:/Users/Administrator/Desktop/aaa/debug";
+	Path folder1 = Paths.get( folder );
+	System.out.println( folder1 );
     }
 
 }
