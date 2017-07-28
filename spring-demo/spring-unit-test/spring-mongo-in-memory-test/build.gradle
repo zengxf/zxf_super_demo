@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+group = 'cn.zxf'
+version = '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies { 
+
+// spring 
+	// web
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	// mongodb
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
+	
+// lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+
+// test
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'de.svenkubiak', name: 'embedded-mongodb', version: '4.4.1'
+	// testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.0.0"
+
+}

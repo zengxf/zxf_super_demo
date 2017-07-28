@@ -1,0 +1,22 @@
+  
+spring:
+  profiles: default
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
+      
+server:
+  port: 8088
+      
+---
+
+spring:
+  profiles: unit
+  data:
+    mongodb:
+      port: 28028
+      
+
+server:
+  port: 8088
+  

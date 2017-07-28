@@ -1,8 +1,10 @@
 */.gradle
 */*/*/.gradle
+*/*/*/*/.gradle
 
 */.settings
 */*/*/.settings
+*/*/*/*/.settings
 
 */bin
 */*/*/bin
