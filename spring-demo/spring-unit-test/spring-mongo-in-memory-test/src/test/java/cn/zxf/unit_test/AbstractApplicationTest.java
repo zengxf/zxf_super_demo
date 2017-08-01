@@ -27,16 +27,4 @@ public abstract class AbstractApplicationTest extends LogUtil {
 	return mapper.writeValueAsString( obj );
     }
 
-//    @BeforeClass
-//    public static void startup() {
-//	info( "startup mongodb ..." );
-//	EmbeddedMongo.DB.port( 28028 ).start();
-//    }
-//
-//    @AfterClass
-//    public static void shutdown() {
-//	info( "\n shutdown mongodb ..." );
-//	EmbeddedMongo.DB.stop();
-//    }
-
 }
