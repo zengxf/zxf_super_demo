@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk17;
+package cn.simple.test.new_features.jdk17.nio2;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
