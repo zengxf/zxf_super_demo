@@ -15,9 +15,12 @@ import org.jxls.transform.poi.PoiTransformer;
 import org.jxls.util.UtilWrapper;
 
 import cn.zxf.jxls.demo.dto.GroupDto;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Deprecated
+@Getter
+@Setter
 public class MergeRowCommand extends AbstractCommand {
 
     private UtilWrapper util = new UtilWrapper();

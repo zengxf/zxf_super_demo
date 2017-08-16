@@ -31,6 +31,7 @@ import lombok.extern.slf4j.Slf4j;
  * <p>
  * Created by zxf on 2017-07-27
  */
+@Deprecated
 @Slf4j
 public class ExportGroupMergeTest {
 
