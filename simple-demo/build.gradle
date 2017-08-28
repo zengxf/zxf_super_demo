@@ -34,4 +34,5 @@ dependencies {
 	compile group: 'com.github.xuwei-k', name: 'html2image', version: '0.1.0'
 
 	compile files('lib/tools.jar')
+	compile files('lib/sa-jdi.jar')
 }
