@@ -16,41 +16,41 @@ import java.util.Locale;
 
 public class TestDate {
     public static void main( String[] args ) {
-	LocalDate today = LocalDate.now();
-	LocalDate tomorrow = today.plus( 1, ChronoUnit.DAYS );
-	LocalDate yesterday = tomorrow.minusDays( 2 );
-	System.out.println( yesterday );
-	LocalDate independenceDay = LocalDate.of( 2014, Month.JULY, 4 );
-	DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();
-	System.out.println( dayOfWeek );
+        LocalDate today = LocalDate.now();
+        LocalDate tomorrow = today.plus( 1, ChronoUnit.DAYS );
+        LocalDate yesterday = tomorrow.minusDays( 2 );
+        System.out.println( yesterday );
+        LocalDate independenceDay = LocalDate.of( 2014, Month.JULY, 4 );
+        DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();
+        System.out.println( dayOfWeek );
 
-	DateTimeFormatter germanFormatter = DateTimeFormatter.ofLocalizedDate( FormatStyle.MEDIUM ) //
-	        .withLocale( Locale.GERMAN );
-	LocalDate xmas = LocalDate.parse( "24.12.2014", germanFormatter );
-	System.out.println( xmas );
+        DateTimeFormatter germanFormatter = DateTimeFormatter.ofLocalizedDate( FormatStyle.MEDIUM ) //
+                .withLocale( Locale.GERMAN );
+        LocalDate xmas = LocalDate.parse( "24.12.2014", germanFormatter );
+        System.out.println( xmas );
     }
 
     static void test1() {
-	Clock clock = Clock.systemDefaultZone();
+        Clock clock = Clock.systemDefaultZone();
 
-	long millis = clock.millis();
-	long millis2 = System.currentTimeMillis();
-	System.out.println( millis );
-	System.out.println( millis2 );
+        long millis = clock.millis();
+        long millis2 = System.currentTimeMillis();
+        System.out.println( millis );
+        System.out.println( millis2 );
 
-	Instant instant = clock.instant();
-	Date legacyDate = Date.from( instant ); // legacy java.util.Date
-	System.out.println( String.format( "%tF %<tT", legacyDate ) );
+        Instant instant = clock.instant();
+        Date legacyDate = Date.from( instant ); // legacy java.util.Date
+        System.out.println( String.format( "%tF %<tT", legacyDate ) );
 
-	LocalTime late = LocalTime.of( 23, 59, 59 );
-	System.out.println( late );
+        LocalTime late = LocalTime.of( 23, 59, 59 );
+        System.out.println( late );
 
-	LocalDate today = LocalDate.now();
-	System.out.println( today );
+        LocalDate today = LocalDate.now();
+        System.out.println( today );
 
-	LocalDateTime date = LocalDateTime.of( 2014, Month.DECEMBER, 31, 23, 59, 59 );
-	System.out.println( date );
+        LocalDateTime date = LocalDateTime.of( 2014, Month.DECEMBER, 31, 23, 59, 59 );
+        System.out.println( date );
 
-	System.out.println( IsoChronology.INSTANCE.isLeapYear( 2016 ) ); // 判断是不是闰年
+        System.out.println( IsoChronology.INSTANCE.isLeapYear( 2016 ) ); // 判断是不是闰年
     }
 }

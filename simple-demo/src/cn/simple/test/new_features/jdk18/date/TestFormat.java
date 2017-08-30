@@ -13,72 +13,72 @@ import java.util.Locale;
 
 public class TestFormat {
     public static void main( String[] args ) {
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "dd/MM/yyyy" );
-	LocalDate date1 = LocalDate.of( 2014, 3, 18 );
-	String formattedDate = date1.format( formatter );
-	System.out.println( formattedDate );
-	LocalDate date2 = LocalDate.parse( formattedDate, formatter );
-	System.out.println( date2 );
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "dd/MM/yyyy" );
+        LocalDate date1 = LocalDate.of( 2014, 3, 18 );
+        String formattedDate = date1.format( formatter );
+        System.out.println( formattedDate );
+        LocalDate date2 = LocalDate.parse( formattedDate, formatter );
+        System.out.println( date2 );
 
-	test1();
-	testLocal();
-	testLocal1();
-	testZone();
+        test1();
+        testLocal();
+        testLocal1();
+        testZone();
     }
 
     static void testZone() {
 
-	System.out.println( ZoneId.systemDefault() );
-	
-	ZoneId romeZone = ZoneId.of( "Europe/Rome" );
-	LocalDate date = LocalDate.of( 2014, Month.MARCH, 18 );
-	ZonedDateTime zdt1 = date.atStartOfDay( romeZone );
-	System.out.println( zdt1 );
+        System.out.println( ZoneId.systemDefault() );
 
-	LocalDateTime dateTime = LocalDateTime.of( 2014, Month.MARCH, 18, 13, 45 );
-	ZonedDateTime zdt2 = dateTime.atZone( romeZone );
-	System.out.println( zdt2 );
+        ZoneId romeZone = ZoneId.of( "Europe/Rome" );
+        LocalDate date = LocalDate.of( 2014, Month.MARCH, 18 );
+        ZonedDateTime zdt1 = date.atStartOfDay( romeZone );
+        System.out.println( zdt1 );
 
-	Instant instant = Instant.now();
-	ZonedDateTime zdt3 = instant.atZone( romeZone );
-	System.out.println( zdt3 );
-	
-	ZonedDateTime zdt4 = ZonedDateTime.now();
-	System.out.println( zdt4 );
+        LocalDateTime dateTime = LocalDateTime.of( 2014, Month.MARCH, 18, 13, 45 );
+        ZonedDateTime zdt2 = dateTime.atZone( romeZone );
+        System.out.println( zdt2 );
+
+        Instant instant = Instant.now();
+        ZonedDateTime zdt3 = instant.atZone( romeZone );
+        System.out.println( zdt3 );
+
+        ZonedDateTime zdt4 = ZonedDateTime.now();
+        System.out.println( zdt4 );
     }
 
     static void test1() {
-	LocalDate date1 = LocalDate.parse( "20140318", DateTimeFormatter.BASIC_ISO_DATE );
-	LocalDate date2 = LocalDate.parse( "2014-03-18", DateTimeFormatter.ISO_LOCAL_DATE );
-	System.out.println( date1 );
-	System.out.println( date2 );
+        LocalDate date1 = LocalDate.parse( "20140318", DateTimeFormatter.BASIC_ISO_DATE );
+        LocalDate date2 = LocalDate.parse( "2014-03-18", DateTimeFormatter.ISO_LOCAL_DATE );
+        System.out.println( date1 );
+        System.out.println( date2 );
     }
 
     static void testLocal() {
-	DateTimeFormatter italianFormatter = DateTimeFormatter.ofPattern( "dd. MMMM yyyy", Locale.ITALIAN );
-	System.out.println( italianFormatter );
-	LocalDate date1 = LocalDate.of( 2014, 3, 1 );
-	String formattedDate = date1.format( italianFormatter ); // 01. marzo 2014
-	System.out.println( formattedDate );
-	LocalDate date2 = LocalDate.parse( formattedDate, italianFormatter );
-	System.out.println( date2 );
+        DateTimeFormatter italianFormatter = DateTimeFormatter.ofPattern( "dd. MMMM yyyy", Locale.ITALIAN );
+        System.out.println( italianFormatter );
+        LocalDate date1 = LocalDate.of( 2014, 3, 1 );
+        String formattedDate = date1.format( italianFormatter ); // 01. marzo 2014
+        System.out.println( formattedDate );
+        LocalDate date2 = LocalDate.parse( formattedDate, italianFormatter );
+        System.out.println( date2 );
     }
 
     static void testLocal1() {
-	DateTimeFormatter italianFormatter = new DateTimeFormatterBuilder() //
-	        .appendText( ChronoField.DAY_OF_MONTH ) //
-	        .appendLiteral( ". " )//
-	        .appendText( ChronoField.MONTH_OF_YEAR )//
-	        .appendLiteral( " " )//
-	        .appendText( ChronoField.YEAR )//
-	        .parseCaseInsensitive()//
-	        .toFormatter( Locale.ITALIAN );
-	System.out.println( italianFormatter );
-	LocalDate date1 = LocalDate.of( 2014, 3, 1 );
-	String formattedDate = date1.format( italianFormatter ); // 01. marzo 2014
-	System.out.println( formattedDate );
-	LocalDate date2 = LocalDate.parse( formattedDate, italianFormatter );
-	System.out.println( date2 );
+        DateTimeFormatter italianFormatter = new DateTimeFormatterBuilder() //
+                .appendText( ChronoField.DAY_OF_MONTH ) //
+                .appendLiteral( ". " )//
+                .appendText( ChronoField.MONTH_OF_YEAR )//
+                .appendLiteral( " " )//
+                .appendText( ChronoField.YEAR )//
+                .parseCaseInsensitive()//
+                .toFormatter( Locale.ITALIAN );
+        System.out.println( italianFormatter );
+        LocalDate date1 = LocalDate.of( 2014, 3, 1 );
+        String formattedDate = date1.format( italianFormatter ); // 01. marzo 2014
+        System.out.println( formattedDate );
+        LocalDate date2 = LocalDate.parse( formattedDate, italianFormatter );
+        System.out.println( date2 );
     }
 
 }
