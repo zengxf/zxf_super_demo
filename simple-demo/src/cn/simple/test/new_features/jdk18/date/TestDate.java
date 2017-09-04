@@ -18,6 +18,12 @@ public class TestDate {
     public static void main( String[] args ) {
         LocalDate today = LocalDate.now();
         LocalDate tomorrow = today.plus( 1, ChronoUnit.DAYS );
+        System.out.println( today.until( tomorrow, ChronoUnit.DAYS ) );
+    }
+
+    static void test0() {
+        LocalDate today = LocalDate.now();
+        LocalDate tomorrow = today.plus( 1, ChronoUnit.DAYS );
         LocalDate yesterday = tomorrow.minusDays( 2 );
         System.out.println( yesterday );
         LocalDate independenceDay = LocalDate.of( 2014, Month.JULY, 4 );
