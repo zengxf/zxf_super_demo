@@ -24,11 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TestStream {
     public static void main( String[] args ) {
-	// test_generate();
-	// test_iterate();
-	// test_multilevelGrouping();
-	// test_collectingAndThen();
-	test_partitioningBy();
+        // test_generate();
+        // test_iterate();
+        // test_multilevelGrouping();
+        // test_collectingAndThen();
+        test_partitioningBy();
     }
 
     static Supplier<Stream<User>> sup = () -> Stream.of( //
@@ -41,77 +41,77 @@ public class TestStream {
 
     // 以布尔值分组
     static void test_partitioningBy() {
-	Stream<User> stream = sup.get();
-	Map<?, ?> booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15 ) );
-	log.info( "booleanMap: {}", booleanMap );
-	System.out.println( "----------" );
+        Stream<User> stream = sup.get();
+        Map<?, ?> booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15 ) );
+        log.info( "booleanMap: {}", booleanMap );
+        System.out.println( "----------" );
 
-	// 分组后再统计
-	stream = sup.get();
-	booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
-	        Collectors.counting() ) );
-	log.info( "booleanMap: {}", booleanMap );
-	System.out.println( "----------" );
+        // 分组后再统计
+        stream = sup.get();
+        booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
+                Collectors.counting() ) );
+        log.info( "booleanMap: {}", booleanMap );
+        System.out.println( "----------" );
 
-	// 分组后再分组
-	stream = sup.get();
-	booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
-	        Collectors.groupingBy( User::getCity ) ) );
-	log.info( "booleanMap: {}", booleanMap );
-	System.out.println( "----------" );
+        // 分组后再分组
+        stream = sup.get();
+        booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
+                Collectors.groupingBy( User::getCity ) ) );
+        log.info( "booleanMap: {}", booleanMap );
+        System.out.println( "----------" );
     }
 
     static void test_multilevelGrouping() {
-	// 先用 city 分组，再用 age 分组
-	Stream<User> stream = sup.get();
-	Map<String, Map<Integer, List<User>>> cityMap = //
-	        stream.collect( Collectors.groupingBy( User::getCity, Collectors.groupingBy( User::getAge ) ) );
-	cityMap.forEach( ( k, v ) -> {
-	    log.info( "k: {}, v: {}", k, v );
-	} );
+        // 先用 city 分组，再用 age 分组
+        Stream<User> stream = sup.get();
+        Map<String, Map<Integer, List<User>>> cityMap = //
+                stream.collect( Collectors.groupingBy( User::getCity, Collectors.groupingBy( User::getAge ) ) );
+        cityMap.forEach( ( k, v ) -> {
+            log.info( "k: {}, v: {}", k, v );
+        } );
 
-	// 分组再统计
-	stream = sup.get();
-	Map<String, Long> countMap = stream.collect( Collectors.groupingBy( User::getCity, Collectors.counting() ) );
-	log.info( "countMap: {}", countMap );
+        // 分组再统计
+        stream = sup.get();
+        Map<String, Long> countMap = stream.collect( Collectors.groupingBy( User::getCity, Collectors.counting() ) );
+        log.info( "countMap: {}", countMap );
     }
 
     static void test_collectingAndThen() {
-	// 分组后的组数
-	Stream<User> stream = sup.get();
-	Integer mapLen = stream.collect( Collectors.collectingAndThen( Collectors.groupingBy( User::getCity ), map -> map.size() ) );
-	log.info( "mapLen: {}", mapLen );
+        // 分组后的组数
+        Stream<User> stream = sup.get();
+        Integer mapLen = stream.collect( Collectors.collectingAndThen( Collectors.groupingBy( User::getCity ), map -> map.size() ) );
+        log.info( "mapLen: {}", mapLen );
     }
 
     static void test_iterate() {
-	// 0 2 4 ...
-	Stream.iterate( 0, n -> n + 2 ) //
-	        .limit( 3 ) //
-	        .forEach( System.out::println );
-	System.out.println( "------" );
+        // 0 2 4 ...
+        Stream.iterate( 0, n -> n + 2 ) //
+                .limit( 3 ) //
+                .forEach( System.out::println );
+        System.out.println( "------" );
 
-	// 1 1 2 3 5 8 ...
-	Stream.iterate( new int[] { 1, 1 }, t -> new int[] { t[1], t[0] + t[1] } ) //
-	        .limit( 6 )//
-	        .map( t -> t[0] )//
-	        .forEach( System.out::println );
-	System.out.println( "------" );
+        // 1 1 2 3 5 8 ...
+        Stream.iterate( new int[] { 1, 1 }, t -> new int[] { t[1], t[0] + t[1] } ) //
+                .limit( 6 )//
+                .map( t -> t[0] )//
+                .forEach( System.out::println );
+        System.out.println( "------" );
     }
 
     static void test_generate() {
-	Stream.generate( Math::random ) //
-	        .limit( 3 ) //
-	        .forEach( System.out::println );
-	System.out.println( "------" );
+        Stream.generate( Math::random ) //
+                .limit( 3 ) //
+                .forEach( System.out::println );
+        System.out.println( "------" );
     }
 
     @Data
     @ToString( includeFieldNames = false )
     @AllArgsConstructor
     static class User {
-	String	city;
-	Integer	age;
-	String	name;
+        String  city;
+        Integer age;
+        String  name;
     }
 
 }
