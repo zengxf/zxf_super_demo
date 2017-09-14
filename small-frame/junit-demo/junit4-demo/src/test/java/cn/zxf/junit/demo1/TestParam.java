@@ -1,4 +1,4 @@
-package test.cn.zxf.junit.demo1;
+package cn.zxf.junit.demo1;
 
 import java.util.Arrays;
 import java.util.Collection;

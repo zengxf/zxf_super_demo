@@ -1,4 +1,4 @@
-package test.cn.zxf.junit.suite;
+package cn.zxf.junit.suite;
 
 import org.junit.Test;
 
