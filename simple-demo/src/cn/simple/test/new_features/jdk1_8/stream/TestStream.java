@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.stream;
+package cn.simple.test.new_features.jdk1_8.stream;
 
 import java.util.List;
 import java.util.Map;

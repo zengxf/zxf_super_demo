@@ -5,4 +5,4 @@
  * Created by zxf on 2017-07-21
  */
 @java.lang.Deprecated
-package cn.simple.test.new_features.jdk16.apt;
+package cn.simple.test.new_features.jdk1_6.apt;

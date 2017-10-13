@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.jl;
+package cn.simple.test.new_features.jdk1_8.jl;
 
 import lombok.extern.slf4j.Slf4j;
 

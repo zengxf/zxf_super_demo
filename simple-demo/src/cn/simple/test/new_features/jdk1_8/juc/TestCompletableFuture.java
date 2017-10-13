@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.juc;
+package cn.simple.test.new_features.jdk1_8.juc;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.file;
+package cn.simple.test.new_features.jdk1_8.file;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

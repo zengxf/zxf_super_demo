@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.stream;
+package cn.simple.test.new_features.jdk1_8.stream;
 
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;

@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.ju;
+package cn.simple.test.new_features.jdk1_8.ju;
 
 import java.util.Optional;
 import java.util.function.Supplier;

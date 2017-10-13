@@ -5,29 +5,26 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * 输出GC日志。和 -XX:+PringGC 一样 <br>
+ * 打印 GC 暂停时间 <br>
  * <br>
  * 
  * 参数
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
- * -verbose:gc
- * 或 -verbosegc 
+ * -XX:+PrintGCApplicationStoppedTime
  * </pre>
  * 
  * 输出示例
  * 
  * <pre>
- * [GC (System.gc())  25344K->25572K(202240K), 0.0218945 secs]
- * [Full GC (System.gc())  25572K->803K(202240K), 0.0053540 secs]
- * [GC (Allocation Failure)  3748K->3011K(202240K), 0.0022981 secs]
+ * Total time for which application threads were stopped: 0.0318549 seconds, Stopping threads took: 0.0000291 seconds
  * </pre>
  * 
  * <p>
  * Created by zengxf on 2017-09-20
  */
-public class TestVerboseGC {
+public class TestPrintGCApplicationStoppedTime {
     public static void main( String[] args ) {
         int k = 1024;
         while ( true ) {

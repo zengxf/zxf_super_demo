@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.lambda;
+package cn.simple.test.new_features.jdk1_8.lambda;
 
 import java.util.ArrayList;
 import java.util.List;

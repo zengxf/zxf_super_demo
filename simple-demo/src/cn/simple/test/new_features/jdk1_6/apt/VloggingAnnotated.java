@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk16.apt;
+package cn.simple.test.new_features.jdk1_6.apt;
 
 import java.util.HashMap;
 

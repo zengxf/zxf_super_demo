@@ -1,16 +1,16 @@
-package cn.simple.test.new_features.jdk14.nio;
+package cn.simple.test.new_features.jdk1_4.nio;
 
 import java.nio.CharBuffer;
 
 public class TestBuffer {
     public static void main( String[] args ) {
         CharBuffer buf = CharBuffer.allocate( 1024 );
-        buf.put( 'c' ); // 写数据
+        buf.put( 'c' ); // 写数�?
         // inChannel.read(buf); // read into buffer
 
         buf.flip(); // 从写模式切换到读模式
 
-        char c = buf.get(); // 读数据
+        char c = buf.get(); // 读数�?
         // inChannel.write(buf); // read from buffer into channel.
         System.out.println( c );
 
@@ -19,7 +19,7 @@ public class TestBuffer {
 
         {
             System.out.println( "-==-=-===--=-=-=" );
-            buf.clear(); // 重置position为0，limit为capacity，一些数据没有读取完，调用clear就会导致这部分数据被“遗忘”
+            buf.clear(); // 重置position�?0，limit为capacity，一些数据没有读取完，调用clear就会导致这部分数据被“遗忘�??
             buf.put( 'a' );
             buf.put( 'b' );
             buf.flip();
@@ -35,7 +35,7 @@ public class TestBuffer {
 
         {
             buf.clear();
-            // 通过mark方法可以标记当前的position，通过reset来恢复mark的位置
+            // 通过mark方法可以标记当前的position，�?�过reset来恢复mark的位�?
             buf.put( 'a' );
             buf.put( 'b' );
             buf.put( 'c' );
@@ -53,7 +53,7 @@ public class TestBuffer {
         }
 
         {
-            // equals() 需满足： • 类型相同 • buffer中剩余字节数相同 • 所有剩余字节相等
+            // equals() �?满足�? �? 类型相同 �? buffer中剩余字节数相同 �? �?有剩余字节相�?
             // compareTo() 也是比较buffer中的剩余元素
         }
     }

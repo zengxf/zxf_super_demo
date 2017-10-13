@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18.juf;
+package cn.simple.test.new_features.jdk1_8.juf;
 
 import java.util.function.Function;
 

@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk17;
+package cn.simple.test.new_features.jdk1_7;
 
 import java.io.Closeable;
 import java.io.IOException;

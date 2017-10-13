@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk14;
+package cn.simple.test.new_features.jdk1_4;
 
 import java.util.logging.Logger;
 

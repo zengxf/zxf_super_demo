@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk18;
+package cn.simple.test.new_features.jdk1_8;
 
 import java.util.HashMap;
 

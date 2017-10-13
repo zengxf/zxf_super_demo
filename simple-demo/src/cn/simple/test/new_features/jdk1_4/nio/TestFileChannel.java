@@ -1,4 +1,4 @@
-package cn.simple.test.new_features.jdk14.nio;
+package cn.simple.test.new_features.jdk1_4.nio;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
