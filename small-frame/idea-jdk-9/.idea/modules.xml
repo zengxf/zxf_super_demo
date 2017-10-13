@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/idea-jdk-9.iml" filepath="$PROJECT_DIR$/idea-jdk-9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-base-test/j9-base-test.iml" filepath="$PROJECT_DIR$/j9-base-test/j9-base-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-jar-v1_8/j9-jar-v1_8.iml" filepath="$PROJECT_DIR$/j9-jar-v1_8/j9-jar-v1_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-jar-v9/j9-jar-v9.iml" filepath="$PROJECT_DIR$/j9-jar-v9/j9-jar-v9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-jmod-v9/j9-jmod-v9.iml" filepath="$PROJECT_DIR$/j9-jmod-v9/j9-jmod-v9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-open/j9-module-open.iml" filepath="$PROJECT_DIR$/j9-module-open/j9-module-open.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-optional1/j9-module-optional1.iml" filepath="$PROJECT_DIR$/j9-module-optional1/j9-module-optional1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-optional2/j9-module-optional2.iml" filepath="$PROJECT_DIR$/j9-module-optional2/j9-module-optional2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-service/j9-module-service.iml" filepath="$PROJECT_DIR$/j9-module-service/j9-module-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-service2/j9-module-service2.iml" filepath="$PROJECT_DIR$/j9-module-service2/j9-module-service2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-test/j9-module-test.iml" filepath="$PROJECT_DIR$/j9-module-test/j9-module-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j9-module-user/j9-module-user.iml" filepath="$PROJECT_DIR$/j9-module-user/j9-module-user.iml" />
+    </modules>
+  </component>
+</project>
