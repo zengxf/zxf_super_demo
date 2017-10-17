@@ -8,7 +8,7 @@ import org.apache.catalina.webresources.StandardRoot;
 
 public class StartMain {
 
-    static final int PORT = 9090;
+    static final int PORT = 9091;
 
     public static void main( String[] args ) throws Exception {
         String webDir = StartMain.class.getResource( "/webapp" ).getPath();

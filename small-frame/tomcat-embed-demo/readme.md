@@ -1,4 +1,11 @@
 # 嵌入式 Tomcat Demo
-[hello.html](http://localhost:9090/hello.html)
-[test.html](http://localhost:9090/test.html)
-[hello-servlet](http://localhost:9090/hello)
+
+## html
+- [hello.html](http://localhost:9091/hello.html)
+- [test.html](http://localhost:9091/test.html)
+
+## servlet
+- [hello-servlet](http://localhost:9091/hello)
+
+## jsp
+- [test.jsp](http://localhost:9091/test.jsp)
