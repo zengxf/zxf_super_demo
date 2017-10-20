@@ -64,3 +64,17 @@ javap module-info.class
 javadoc -d C:\Users\Administrator\Desktop\aaa -encoding utf-8 -sourcepath src -subpackages cn
 javadoc -d C:\Users\Administrator\Desktop\aaa -encoding utf-8 src\cn\simple\test\new_features\jdk9\jl\*.java
 ```
+
+--- 
+## jcmd
+用法 
+```
+jcmd -l     # 列出所有 jvm 进程
+jcmd <pid> help         # 首先查看 <pid> 支持的命令
+jcmd <pid> {command}    # 执行相关命令
+jcmd <pid> VM.flags     # 打印启动 VM 参数
+jcmd <pid> VM.system_properties     # 获取系统 Properties 内容
+jcmd <pid> GC.heap_dump C:\Users\Administrator\Desktop\aaa\test.bin  # 导出堆
+jcmd <pid> GC.class_histogram      # 查看系统中类统计信息
+jcmd <pid> VM.uptime   # 查看虚拟机启动时间
+```
