@@ -1,54 +1,52 @@
 package cn.simple.test.string.xml;
 
+import java.io.File;
 import java.io.StringReader;
-import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.transform.stream.StreamSource;
 
-public class ParseSscTest extends ReadXmlUtil {
+import lombok.ToString;
+
+public class ParseUserTest extends ReadXmlUtil {
 
     public static void main( String[] args ) {
+        testUser();
+    }
+
+    static void testUser() {
         JAXBContext jaxbContext;
         try {
-            String xmlContent = readXml( "ssc.xml" );
+            String xmlContent = readXml( "user.xml" );
 
             // 加载映射bean类
-            jaxbContext = JAXBContext.newInstance( ParseResult.class );
+            jaxbContext = JAXBContext.newInstance( User.class );
             // 创建解析
             Unmarshaller um = jaxbContext.createUnmarshaller();
             StreamSource streamSource = new StreamSource( new StringReader( xmlContent ) );
-            ParseResult root = (ParseResult) um.unmarshal( streamSource );
+            User root = (User) um.unmarshal( streamSource );
             System.out.println( root );
+
+            jaxbContext.createMarshaller().marshal( root, new File( "D:/user.xml" ) );
         } catch ( Exception e ) {
             e.printStackTrace();
         }
     }
 
-    @XmlRootElement( name = "xml" )
-    static class ParseResult {
+    @ToString
+    @XmlRootElement( name = "user" )
+    public static class User {
 
-        @XmlElement
-        public List<Row> row;
-
-    }
-
-    /**
-     * 行记录
-     */
-    @XmlRootElement( name = "row" )
-    static class Row {
-
-        @XmlAttribute
-        public String expect;
-        @XmlAttribute
-        public String opencode;
-        @XmlAttribute
-        public String opentime;
+        public String name;
+        @XmlElement( name = "token" )
+        public String pwd;
+        // public String token;
+        public int    age;
+        public String address;
+        public String note;
 
     }
 

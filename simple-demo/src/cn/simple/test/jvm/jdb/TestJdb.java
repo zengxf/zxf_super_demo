@@ -41,7 +41,6 @@ public class TestJdb {
     }
 
     /**
-     * 
      * ำร jdb ต๗สิ
      * <p>
      * 

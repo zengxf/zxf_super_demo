@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Log Remark="关联审计日志" pri="16" tablename="bd_dbaudit_log">
+	<LogID Remark="记录ID">123456789</LogID>
+	<Subject Remark="事件主体">
+		<Node Remark="主体IP地址">172.16.1.190</Node>
+		<Node Remark="主体ID">WD-WMC6N0J00CDK</Node>
+		<ComputerName Remark="计算机名称">zj-pc</ComputerName>
+		<UserName Remark="用户名或责任人">zj</UserName>
+		<Department Remark="部门">研发中心</Department>
+		<Program Remark="部件">plsql.exe</Program>
+		<Facility Remark="类型"></Facility>
+	</Subject>
+	<Object Remark="事件客体">
+		<ObjectName Remark="事件客体">select * from test</ObjectName>
+	</Object>
+	<Details Remark="事件内容">1	2	3	4	select * from test	172.16.1.190	172.16.1.245</Details>
+	<Result Remark="事件结果">成功</Result>
+	<EntryStamp Remark="发生时间">2017-10-24 10:00:00</EntryStamp>
+	<Level Remark="事件风险级别">4</Level>
+	<Type Remark="事件类型">a</Type>
+	<ProductType Remark="产品类型">d</ProductType>
+	<BehaviourType Remark="行为类型">一般行为</BehaviourType>
+	<Reservation Remark="保留项"></Reservation>
+</Log>
