@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * HTML ×ª»»³ÉÍ¼Æ¬µÄ°ïÖúÀà
+ * HTML è½¬æ¢æˆå›¾ç‰‡çš„å¸®åŠ©ç±»
  * <p>
  * Created by zxf on 2017-05-11
  */
@@ -27,7 +27,7 @@ public class HtmlToImageUtil3 {
     private final static Color BG_COLOR = new Color( 255, 255, 255 );
 
     /**
-     * ×ª»»³ÉÍ¼Æ¬
+     * è½¬æ¢æˆå›¾ç‰‡
      * 
      * @param html
      * @param headImagePath
@@ -55,16 +55,16 @@ public class HtmlToImageUtil3 {
 
 	SwingUtilities.paintComponent( g2d, ed, new JPanel(), 0, headHeight, image.getWidth(), image.getHeight() );
 
-	{ // ÉèÖÃÍ·
-	    g2d.setBackground( BG_COLOR ); // ÉèÖÃ±³¾°É«
-	    g2d.clearRect( 0, 0, width, headHeight ); // ÓÃ±³¾°É«½øĞĞÌî³äÀ´Çå³ıÖ¸¶¨µÄ¾ØĞÎ
+	{ // è®¾ç½®å¤´
+	    g2d.setBackground( BG_COLOR ); // è®¾ç½®èƒŒæ™¯è‰²
+	    g2d.clearRect( 0, 0, width, headHeight ); // ç”¨èƒŒæ™¯è‰²è¿›è¡Œå¡«å……æ¥æ¸…é™¤æŒ‡å®šçš„çŸ©å½¢
 
 	    int x = ( width - headWidth ) / 2;
 	    int y = 0;
 	    g2d.drawImage( headImage, x, y, headWidth, headHeight, null );
 	}
 
-	{ // ÉèÖÃË®Ó¡
+	{ // è®¾ç½®æ°´å°
 	    File paperFile = new File( paperImagePath );
 	    Image paperImage = ImageIO.read( paperFile );
 	    int paperWidth = paperImage.getWidth( null );
@@ -74,13 +74,13 @@ public class HtmlToImageUtil3 {
 	    g2d.drawImage( paperImage, x, y, paperWidth, paperHeight, null );
 	}
 
-	g2d.dispose(); // ½áÊø
+	g2d.dispose(); // ç»“æŸ
 
 	return image;
     }
 
     /**
-     * ½«ÎÄ¼şÂ·¾¶×ª»»ÎªURL
+     * å°†æ–‡ä»¶è·¯å¾„è½¬æ¢ä¸ºURL
      * 
      * @param filePath
      * @return

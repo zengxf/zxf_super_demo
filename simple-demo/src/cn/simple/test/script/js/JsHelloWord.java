@@ -15,7 +15,7 @@ public class JsHelloWord {
 
 	engine.eval( new FileReader( JsHelloWord.class.getResource( "js-folder/script.js" ).getPath() ) );
 
-	// 对于简单的单行函数，我们可以去掉花括号
+	// 瀵逛簬绠�鍗曠殑鍗曡鍑芥暟锛屾垜浠彲浠ュ幓鎺夎姳鎷彿
 	engine.eval( "function sqr(x) x * x; print(sqr(3));" );
 
 	engine.eval( "print(__FILE__, __LINE__, __DIR__);" );

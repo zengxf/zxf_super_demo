@@ -25,9 +25,9 @@ public class ParseLogSqlTest extends ReadXmlUtil {
             String xmlContent = readXml( "log-sql.xml" );
             StreamSource streamSource = new StreamSource( new StringReader( xmlContent ) );
 
-            // º”‘ÿ”≥…‰bean¿‡
+            // Âä†ËΩΩÊò†Â∞ÑbeanÁ±ª
             jaxbContext = JAXBContext.newInstance( Log.class );
-            // ¥¥Ω®Ω‚Œˆ
+            // ÂàõÂª∫Ëß£Êûê
             Unmarshaller um = jaxbContext.createUnmarshaller();
             Log Log = (Log) um.unmarshal( streamSource );
             System.out.println( Log );

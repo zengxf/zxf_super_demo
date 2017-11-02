@@ -5,8 +5,8 @@ import java.util.stream.IntStream;
 
 /**
  * <pre>
- * 导出：jstack 21400 > thread.log
- * 在线分析：http://fastthread.io
+ * 瀵煎嚭锛歫stack 21400 > thread.log
+ * 鍦ㄧ嚎鍒嗘瀽锛歨ttp://fastthread.io
  * </pre>
  * 
  * <p>

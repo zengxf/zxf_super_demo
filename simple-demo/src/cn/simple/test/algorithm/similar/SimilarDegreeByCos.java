@@ -7,19 +7,19 @@ import java.util.Map;
 public class SimilarDegreeByCos {
 
     /**
-     * ¼ÆËãÁ½¸ö×Ö·û´®µÄÏàËÆ¶È£¬¼òµ¥µÄÓàÏÒ¼ÆËã£¬Î´ÌíÈ¨ÖØ
+     * è®¡ç®—ä¸¤ä¸ªå­—ç¬¦ä¸²çš„ç›¸ä¼¼åº¦ï¼Œç®€å•çš„ä½™å¼¦è®¡ç®—ï¼Œæœªæ·»æƒé‡
      * 
      * @param str1
      * @param str2
-     * @return ·µ»Ø¼ÆËãµÄÏàÊ¶¶È
+     * @return è¿”å›è®¡ç®—çš„ç›¸è¯†åº¦
      */
     @SuppressWarnings( "rawtypes" )
     public static double getSimilarDegree( String str1, String str2 ) {
-	// ´´½¨ÏòÁ¿¿Õ¼äÄ£ĞÍ£¬Ê¹ÓÃmapÊµÏÖ£¬Ö÷¼üÎª´ÊÏî£¬ÖµÎª³¤¶ÈÎª2µÄÊı×é£¬´æ·Å×Å¶ÔÓ¦´ÊÏîÔÚ×Ö·û´®ÖĞµÄ³öÏÖ´ÎÊı
+	// åˆ›å»ºå‘é‡ç©ºé—´æ¨¡å‹ï¼Œä½¿ç”¨mapå®ç°ï¼Œä¸»é”®ä¸ºè¯é¡¹ï¼Œå€¼ä¸ºé•¿åº¦ä¸º2çš„æ•°ç»„ï¼Œå­˜æ”¾ç€å¯¹åº”è¯é¡¹åœ¨å­—ç¬¦ä¸²ä¸­çš„å‡ºç°æ¬¡æ•°
 	Map<String, int[]> vectorSpace = new HashMap<String, int[]>();
-	int[] itemCountArray = null;// ÎªÁË±ÜÃâÆµ·±²úÉú¾Ö²¿±äÁ¿£¬ËùÒÔ½«itemCountArrayÉùÃ÷ÔÚ´Ë
+	int[] itemCountArray = null;// ä¸ºäº†é¿å…é¢‘ç¹äº§ç”Ÿå±€éƒ¨å˜é‡ï¼Œæ‰€ä»¥å°†itemCountArrayå£°æ˜åœ¨æ­¤
 
-	// ÒÔ¿Õ¸ñÎª·Ö¸ô·û£¬·Ö½â×Ö·û´®
+	// ä»¥ç©ºæ ¼ä¸ºåˆ†éš”ç¬¦ï¼Œåˆ†è§£å­—ç¬¦ä¸²
 	String strArray[] = str1.split( " " );
 	for ( int i = 0; i < strArray.length; ++i ) {
 	    if ( vectorSpace.containsKey( strArray[i] ) )
@@ -43,10 +43,10 @@ public class SimilarDegreeByCos {
 		vectorSpace.put( strArray[i], itemCountArray );
 	    }
 	}
-	// ¼ÆËãÏàËÆ¶È
-	double vector1Modulo = 0.00;// ÏòÁ¿1µÄÄ£
-	double vector2Modulo = 0.00;// ÏòÁ¿2µÄÄ£
-	double vectorProduct = 0.00; // ÏòÁ¿»ı
+	// è®¡ç®—ç›¸ä¼¼åº¦
+	double vector1Modulo = 0.00;// å‘é‡1çš„æ¨¡
+	double vector2Modulo = 0.00;// å‘é‡2çš„æ¨¡
+	double vectorProduct = 0.00; // å‘é‡ç§¯
 	Iterator iter = vectorSpace.entrySet().iterator();
 	while ( iter.hasNext() ) {
 	    Map.Entry entry = (Map.Entry) iter.next();
@@ -60,26 +60,26 @@ public class SimilarDegreeByCos {
 	vector1Modulo = Math.sqrt( vector1Modulo );
 	vector2Modulo = Math.sqrt( vector2Modulo );
 
-	// ·µ»ØÏàËÆ¶È
+	// è¿”å›ç›¸ä¼¼åº¦
 	return ( vectorProduct / ( vector1Modulo * vector2Modulo ) );
     }
 
     /**
-     * Ö÷·½·¨
+     * ä¸»æ–¹æ³•
      */
     public static void main( String args[] ) {
-	String str1 = "Ñô¹â»îÆÃ ÓğÃ«Çò ÅÜ²½";
-	String str2 = "°®ÃÀÊ³ ÅÜ²½ ÀºÇò ×ãÇò ±ù°ôÇò ÆïÂí ÓÎÓ¾";
-	String str3 = "90ºó ¶¯Âş ÂÃÓÎ °®ÃÀÅ®";
-	String str4 = "Ñô¹â»îÆÃ °®ÓÎÏ· °®´úÂë ÂëÅ©";
-	String str5 = "ÓğÃ«Çò ÅÜ²½ ÔË¶¯";
-	String str6 = "Ñô¹â»îÆÃ ÅÜ²½ ÓğÃ«Çò";
+	String str1 = "é˜³å…‰æ´»æ³¼ ç¾½æ¯›çƒ è·‘æ­¥";
+	String str2 = "çˆ±ç¾é£Ÿ è·‘æ­¥ ç¯®çƒ è¶³çƒ å†°æ£’çƒ éª‘é©¬ æ¸¸æ³³";
+	String str3 = "90å åŠ¨æ¼« æ—…æ¸¸ çˆ±ç¾å¥³";
+	String str4 = "é˜³å…‰æ´»æ³¼ çˆ±æ¸¸æˆ çˆ±ä»£ç  ç å†œ";
+	String str5 = "ç¾½æ¯›çƒ è·‘æ­¥ è¿åŠ¨";
+	String str6 = "é˜³å…‰æ´»æ³¼ è·‘æ­¥ ç¾½æ¯›çƒ";
 
-	System.out.println( "str1ºÍstr2ÏàÊ¶¶È£º" + SimilarDegreeByCos.getSimilarDegree( str1, str2 ) );
-	System.out.println( "str1ºÍstr3ÏàÊ¶¶È£º" + SimilarDegreeByCos.getSimilarDegree( str1, str3 ) );
-	System.out.println( "str1ºÍstr4ÏàÊ¶¶È£º" + SimilarDegreeByCos.getSimilarDegree( str1, str4 ) );
-	System.out.println( "str1ºÍstr5ÏàÊ¶¶È£º" + SimilarDegreeByCos.getSimilarDegree( str1, str5 ) );
-	System.out.println( "str1ºÍstr6ÏàÊ¶¶È£º" + SimilarDegreeByCos.getSimilarDegree( str1, str6 ) );
+	System.out.println( "str1å’Œstr2ç›¸è¯†åº¦ï¼š" + SimilarDegreeByCos.getSimilarDegree( str1, str2 ) );
+	System.out.println( "str1å’Œstr3ç›¸è¯†åº¦ï¼š" + SimilarDegreeByCos.getSimilarDegree( str1, str3 ) );
+	System.out.println( "str1å’Œstr4ç›¸è¯†åº¦ï¼š" + SimilarDegreeByCos.getSimilarDegree( str1, str4 ) );
+	System.out.println( "str1å’Œstr5ç›¸è¯†åº¦ï¼š" + SimilarDegreeByCos.getSimilarDegree( str1, str5 ) );
+	System.out.println( "str1å’Œstr6ç›¸è¯†åº¦ï¼š" + SimilarDegreeByCos.getSimilarDegree( str1, str6 ) );
     }
 
 }

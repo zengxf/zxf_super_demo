@@ -6,7 +6,7 @@ public class RenameThread {
 
     public static void main(String[] args) {
 
-	new Thread(new MyRun(), "test-aa-0").start(); // OK£¬Eclipse ÒªÇĞ»»ÊÓÍ¼
+	new Thread(new MyRun(), "test-aa-0").start(); // OKï¼ŒEclipse è¦åˆ‡æ¢è§†å›¾
 
     }
 

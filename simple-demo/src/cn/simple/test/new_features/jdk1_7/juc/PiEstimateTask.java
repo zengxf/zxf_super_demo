@@ -10,7 +10,7 @@ public class PiEstimateTask extends RecursiveTask<Double> {
     private static final long serialVersionUID = 1L;
     private final long	      begin;
     private final long	      end;
-    private final long	      threshold;	    // ·Ö¸îÈÎÎñµÄÁÙ½çÖµ
+    private final long	      threshold;	    // åˆ†å‰²ä»»åŠ¡çš„ä¸´ç•Œå€¼
 
     public PiEstimateTask( long begin, long end, long threshold ) {
 	this.begin = begin;
@@ -22,7 +22,7 @@ public class PiEstimateTask extends RecursiveTask<Double> {
     protected Double compute() {
 	if ( end - begin <= threshold ) {
 
-	    int sign = 1; // ·ûºÅ£¬È¡ 1 »òÕß -1
+	    int sign = 1; // ç¬¦å·ï¼Œå– 1 æˆ–è€… -1
 	    double result = 0.0;
 	    for ( long i = begin; i < end; i++ ) {
 		result += sign / ( i * 2.0 + 1 );
@@ -32,18 +32,18 @@ public class PiEstimateTask extends RecursiveTask<Double> {
 	    return result * 4;
 	}
 
-	// ·Ö¸îÈÎÎñ
+	// åˆ†å‰²ä»»åŠ¡
 	long middle = ( begin + end ) / 2;
 	PiEstimateTask leftTask = new PiEstimateTask( begin, middle, threshold );
 	PiEstimateTask rightTask = new PiEstimateTask( middle, end, threshold );
 
-	leftTask.fork(); // Òì²½Ö´ĞĞ leftTask
-	rightTask.fork(); // Òì²½Ö´ĞĞ rightTask
+	leftTask.fork(); // å¼‚æ­¥æ‰§è¡Œ leftTask
+	rightTask.fork(); // å¼‚æ­¥æ‰§è¡Œ rightTask
 
-	double leftResult = leftTask.join(); // ×èÈû£¬Ö±µ½ leftTask Ö´ĞĞÍê±Ï·µ»Ø½á¹û
-	double rightResult = rightTask.join(); // ×èÈû£¬Ö±µ½ rightTask Ö´ĞĞÍê±Ï·µ»Ø½á¹û
+	double leftResult = leftTask.join(); // é˜»å¡ï¼Œç›´åˆ° leftTask æ‰§è¡Œå®Œæ¯•è¿”å›ç»“æœ
+	double rightResult = rightTask.join(); // é˜»å¡ï¼Œç›´åˆ° rightTask æ‰§è¡Œå®Œæ¯•è¿”å›ç»“æœ
 
-	return leftResult + rightResult; // ºÏ²¢½á¹û
+	return leftResult + rightResult; // åˆå¹¶ç»“æœ
     }
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * ÎÄ¼şÄ¿Â¼²Ù×÷¼àÌı
+ * æ–‡ä»¶ç›®å½•æ“ä½œç›‘å¬
  * 
  * <p>
  * Created by zxf on 2017-06-30
@@ -25,7 +25,7 @@ public class TestFileWatch {
 
 	Path path = Paths.get( "C:/Users/Administrator/Desktop" );
 	WatchService watcher = FileSystems.getDefault().newWatchService();
-	path.register( watcher, StandardWatchEventKinds.ENTRY_MODIFY ); // Ö»¼àÌıĞŞ¸Ä
+	path.register( watcher, StandardWatchEventKinds.ENTRY_MODIFY ); // åªç›‘å¬ä¿®æ”¹
 
 	new Thread( () -> {
 	    while ( true ) {

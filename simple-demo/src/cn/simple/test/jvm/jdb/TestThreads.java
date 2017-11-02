@@ -1,7 +1,7 @@
 package cn.simple.test.jvm.jdb;
 
 /**
- * ¶àÏß³Ì²âÊÔ
+ * å¤šçº¿ç¨‹æµ‹è¯•
  * 
  * <p>
  * Created by zengxf on 2017-10-23
@@ -38,31 +38,31 @@ public class TestThreads {
     }
 
     /**
-     * ÓÃ jdb µ÷ÊÔ
+     * ç”¨ jdb è°ƒè¯•
      * <p>
      * 
-     * ÃüÁî
+     * å‘½ä»¤
      * 
      * <pre>
-     * bin> jdb -sourcepath ../src cn.simple.test.jvm.jdb.TestThreads      # ¿ÉÓÃÓÚ²é¿´Ô´Âë
-     * stop at cn.simple.test.jvm.jdb.TestThreads:15    # ĞĞ£¬ÀàÒªÈ«Ãû
-     * run          # ¿ªÊ¼ÔËĞĞ
-     * next         # ÏÂÒ»ĞĞ(F6)
-     * step         # ½øÈë·½·¨Ìå(F5)
-     * step up      # Ìø³ö·½·¨Ìå(F7)
-     * cont         # ÔËĞĞµ½ÏÂÒ»¸ö¶Ïµã(F8)
-     * list         # ²é¿´Ô´Âë
-     * -- Ïß³ÌÓĞ¹Ø
-     * threads [threadgroup]     -- ÁĞ³öÏß³Ì
-     * thread {thread id}        -- ÉèÖÃÄ¬ÈÏÏß³Ì
-     * suspend [thread id(s)]    -- ¹ÒÆğÏß³Ì (Ä¬ÈÏÖµ: all)
-     * resume [thread id(s)]     -- »Ö¸´Ïß³Ì (Ä¬ÈÏÖµ: all)
-     * threadgroups              -- ÁĞ³öÏß³Ì×é
-     * threadgroup {name}        -- ÉèÖÃµ±Ç°Ïß³Ì×é
-     * -- µ÷ÊÔ½¨Òé
-     * 1) ÏÈÔİÍ£ËùÓĞµÄÏß³Ì
-     * 2) »Ö¸´Ä³¸öÒªµ÷ÊÔµÄÏß³Ì
-     * 3) µ÷ÊÔÍê£¬Èç¹ûÒªµ÷ÊÔÁíÒ»¸öÏß³Ì£ºÔòÓÃ thread {tId} Ìø×ª
+     * bin> jdb -sourcepath ../src cn.simple.test.jvm.jdb.TestThreads      # å¯ç”¨äºæŸ¥çœ‹æºç 
+     * stop at cn.simple.test.jvm.jdb.TestThreads:15    # è¡Œï¼Œç±»è¦å…¨å
+     * run          # å¼€å§‹è¿è¡Œ
+     * next         # ä¸‹ä¸€è¡Œ(F6)
+     * step         # è¿›å…¥æ–¹æ³•ä½“(F5)
+     * step up      # è·³å‡ºæ–¹æ³•ä½“(F7)
+     * cont         # è¿è¡Œåˆ°ä¸‹ä¸€ä¸ªæ–­ç‚¹(F8)
+     * list         # æŸ¥çœ‹æºç 
+     * -- çº¿ç¨‹æœ‰å…³
+     * threads [threadgroup]     -- åˆ—å‡ºçº¿ç¨‹
+     * thread {thread id}        -- è®¾ç½®é»˜è®¤çº¿ç¨‹
+     * suspend [thread id(s)]    -- æŒ‚èµ·çº¿ç¨‹ (é»˜è®¤å€¼: all)
+     * resume [thread id(s)]     -- æ¢å¤çº¿ç¨‹ (é»˜è®¤å€¼: all)
+     * threadgroups              -- åˆ—å‡ºçº¿ç¨‹ç»„
+     * threadgroup {name}        -- è®¾ç½®å½“å‰çº¿ç¨‹ç»„
+     * -- è°ƒè¯•å»ºè®®
+     * 1) å…ˆæš‚åœæ‰€æœ‰çš„çº¿ç¨‹
+     * 2) æ¢å¤æŸä¸ªè¦è°ƒè¯•çš„çº¿ç¨‹
+     * 3) è°ƒè¯•å®Œï¼Œå¦‚æœè¦è°ƒè¯•å¦ä¸€ä¸ªçº¿ç¨‹ï¼šåˆ™ç”¨ thread {tId} è·³è½¬
      * </pre>
      * 
      * <p>

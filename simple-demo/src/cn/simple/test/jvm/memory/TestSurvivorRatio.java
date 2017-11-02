@@ -5,13 +5,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * ²ÎÊıÉèÖÃ²âÊÔ£ºSurvivor ºÍ Eden µÄ±ÈÀı
+ * å‚æ•°è®¾ç½®æµ‹è¯•ï¼šSurvivor å’Œ Eden çš„æ¯”ä¾‹
  * 
  * <pre>
  * -Xmx800m -Xms800m -XX:SurvivorRatio=2
  * 
- * SurvivorRatio=2 ±íÊ¾£ºS0:S1:Eden = 1:1:2 => Sall:Eden = 2:2
- * Ä¬ÈÏÖµÎª 8
+ * SurvivorRatio=2 è¡¨ç¤ºï¼šS0:S1:Eden = 1:1:2 => Sall:Eden = 2:2
+ * é»˜è®¤å€¼ä¸º 8
  * </pre>
  * 
  * <p>

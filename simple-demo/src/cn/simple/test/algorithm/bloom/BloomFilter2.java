@@ -4,59 +4,59 @@ import java.util.BitSet;
 
 public class BloomFilter2 {
 
-    private static final int	DEFAULT_SIZE = 2 << 24;			       // ²¼Â¡¹ýÂËÆ÷µÄ±ÈÌØ³¤¶È
-    private static final int[]	seeds	     = { 3, 5, 7, 11, 13, 31, 37, 61 };// ÕâÀïÒªÑ¡È¡ÖÊÊý£¬ÄÜºÜºÃµÄ½µµÍ´íÎóÂÊ
-    private static BitSet	bits	     = new BitSet( DEFAULT_SIZE );
-    private static SimpleHash[]	func	     = new SimpleHash[seeds.length];
+    private static final int    DEFAULT_SIZE = 2 << 24;                // ç”¯å†®æ®•æ©å›¨æŠ¤é£ã„§æ®‘å§£æ—‚å£’é—€åž®å®³
+    private static final int[]  seeds        = { 3, 5, 7, 11, 13, 31, 37, 61 };// æ©æ¬“å™·ç‘•ä¾€ï¿½å¤Šå½‡ç’ã„¦æšŸé”›å²ƒå…˜å¯°å ã‚½é¨å‹¯æª·æµ£åº¨æ•Šç’‡îˆœå·¼
+    private static BitSet   bits         = new BitSet( DEFAULT_SIZE );
+    private static SimpleHash[] func         = new SimpleHash[seeds.length];
 
     public static void addValue( String value ) {
-	for ( SimpleHash f : func ) { // ½«×Ö·û´®value¹þÏ£Îª8¸ö»ò¶à¸öÕûÊý£¬È»ºóÔÚÕâÐ©ÕûÊýµÄbitÉÏ±äÎª1
-	    int hash = f.hash( value );
-	    System.out.println( hash );
-	    bits.set( hash, true );
-	}
+    for ( SimpleHash f : func ) { // çå——ç“§ç»—ï¸¿è¦†valueéå ç¬‡æ¶“ï¿½8æ¶“î…åž¨æ¾¶æ°«é‡œéå­˜æšŸé”›å²€åŠ§éšåº¡æ¹ªæ©æ¬Žç°ºéå­˜æšŸé¨åˆ¡itæ¶“å©‚å½‰æ¶“ï¿½1
+        int hash = f.hash( value );
+        System.out.println( hash );
+        bits.set( hash, true );
+    }
     }
 
     public static void add( String value ) {
-	if ( value != null )
-	    addValue( value );
+    if ( value != null )
+        addValue( value );
     }
 
     public static boolean contains( String value ) {
-	if ( value == null )
-	    return false;
-	boolean ret = true;
-	for ( SimpleHash f : func )// ÕâÀïÆäÊµÃ»±ØÒªÈ«²¿ÅÜÍê£¬Ö»ÒªÒ»´Îret==falseÄÇÃ´¾Í²»°üº¬Õâ¸ö×Ö·û´®
-	    ret = ret && bits.get( f.hash( value ) );
-	return ret;
+    if ( value == null )
+        return false;
+    boolean ret = true;
+    for ( SimpleHash f : func )// æ©æ¬“å™·éè·ºç–„å¨Œâ€³ç¹€ç‘•ä½¸åé–®ã„¨çª‡ç€¹å²‹ç´é™î‡î›¦æ¶“ï¿½å¨†î“¸et==falseé–­ï½„ç®žçå˜ç¬‰é–å‘­æƒˆæ©æ¬Žé‡œç€›æ¥ƒîƒæ¶“ï¿½
+        ret = ret && bits.get( f.hash( value ) );
+    return ret;
     }
 
     public static void main( String[] args ) {
-	String value = "xkeyideal@gmail.com";
-	for ( int i = 0; i < seeds.length; i++ ) {
-	    func[i] = new SimpleHash( DEFAULT_SIZE, seeds[i] );
-	}
-	add( value );
-	System.out.println( contains( value ) );
+    String value = "xkeyideal@gmail.com";
+    for ( int i = 0; i < seeds.length; i++ ) {
+        func[i] = new SimpleHash( DEFAULT_SIZE, seeds[i] );
+    }
+    add( value );
+    System.out.println( contains( value ) );
     }
 }
 
-class SimpleHash {// ÕâÍæÒâÏàµ±ÓÚC++ÖÐµÄ½á¹¹Ìå
+class SimpleHash {// æ©æ¬‘å¸ºéŽ°å¿•æµ‰è¤°æ’²ç°¬C++æ¶“î… æ®‘ç¼æ’´ç€¯æµ£ï¿½
 
-    private int	cap;
-    private int	seed;
+    private int cap;
+    private int seed;
 
     public SimpleHash( int cap, int seed ) {
-	this.cap = cap;
-	this.seed = seed;
+    this.cap = cap;
+    this.seed = seed;
     }
 
-    public int hash( String value ) {// ×Ö·û´®¹þÏ££¬Ñ¡È¡ºÃµÄ¹þÏ£º¯ÊýºÜÖØÒª
-	int result = 0;
-	int len = value.length();
-	for ( int i = 0; i < len; i++ ) {
-	    result = seed * result + value.charAt( i );
-	}
-	return ( cap - 1 ) & result;
+    public int hash( String value ) {// ç€›æ¥ƒîƒæ¶“æ’æ±ç”¯å²‹ç´é–«å¤Šå½‡æ¿‚ç•Œæ®‘éå ç¬‡é‘èŠ¥æšŸå¯°å ¥å™¸ç‘•ï¿½
+    int result = 0;
+    int len = value.length();
+    for ( int i = 0; i < len; i++ ) {
+        result = seed * result + value.charAt( i );
+    }
+    return ( cap - 1 ) & result;
     }
 }

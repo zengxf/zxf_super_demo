@@ -15,7 +15,7 @@ public class TestTemporalAdjusters {
         next = now.with( TemporalAdjusters.lastDayOfMonth() );
         System.out.println( next );
 
-        next = now.with( ( t ) -> t.plus( 1, ChronoUnit.DAYS ) ); // ×Ô¶¨Òå
+        next = now.with( ( t ) -> t.plus( 1, ChronoUnit.DAYS ) ); // è‡ªå®šä¹‰
         System.out.println( next );
     }
 }

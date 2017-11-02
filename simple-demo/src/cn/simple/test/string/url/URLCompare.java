@@ -22,7 +22,7 @@ public class URLCompare {
 
     public static void compare( RequestVO v1, RequestVO v2 ) {
 	if ( !v1.getMainUrl().equals( v2.getMainUrl() ) ) {
-	    System.out.println( "Ö÷URL²»Ò»Ñù£º" );
+	    System.out.println( "ä¸»URLä¸ä¸€æ ·ï¼š" );
 	    System.out.println( "v1: " + v1.getMainUrl() );
 	    System.out.println( "v2: " + v2.getMainUrl() );
 	}
@@ -35,17 +35,17 @@ public class URLCompare {
 	    String p1V = v1.getParam().get( key );
 	    String p2V = v2.getParam().get( key );
 	    if ( p1V == null ) {
-		System.out.printf( "v1Ã»ÓĞ²ÎÊı[%s]£¬v2: [%s] %n", key, p2V );
+		System.out.printf( "v1æ²¡æœ‰å‚æ•°[%s]ï¼Œv2: [%s] %n", key, p2V );
 	    }
 	    else if ( p2V == null ) {
-		System.out.printf( "v2Ã»ÓĞ²ÎÊı[%s]£¬v1: [%s] %n", key, p1V );
+		System.out.printf( "v2æ²¡æœ‰å‚æ•°[%s]ï¼Œv1: [%s] %n", key, p1V );
 	    }
 	    else if ( !p1V.equals( p2V ) ) {
-		System.out.printf( "v1Óëv2²ÎÊı[%s]²»Ò»ÖÂ£¬v1£º[%s]£¬v2: [%s] %n", key, p1V, p2V );
+		System.out.printf( "v1ä¸v2å‚æ•°[%s]ä¸ä¸€è‡´ï¼Œv1ï¼š[%s]ï¼Œv2: [%s] %n", key, p1V, p2V );
 	    }
 	}
 
-	System.out.println( "±È½ÏÍê±Ï£¡" );
+	System.out.println( "æ¯”è¾ƒå®Œæ¯•ï¼" );
     }
 
     public static RequestVO analyzeOriginalURL( String url ) throws UnsupportedEncodingException {
@@ -61,7 +61,7 @@ public class URLCompare {
 	for ( int i = 1; i < params.length; i++ ) {
 	    String param = params[i];
 	    String[] kv = param.split( "=" );
-	    vo.getParam().put( kv[0], kv.length > 1 ? kv[1] : "ÎŞ" );
+	    vo.getParam().put( kv[0], kv.length > 1 ? kv[1] : "æ— " );
 	}
 
 	return vo;

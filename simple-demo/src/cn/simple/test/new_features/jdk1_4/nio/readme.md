@@ -1,11 +1,11 @@
-»ù±¾¸ÅÄîËµÃ÷
+åŸºæœ¬æ¦‚å¿µè¯´æ˜Ž
 
 ```
-inChannel.read( buf )	// ´ÓÍ¨µÀ¶ÁÈ¡Êý¾Ýµ½»º´æ	-> »º´æÓÐÊý¾Ý¿ÉÒÔ¶Á
-inChannel.write( buf );	// ´Ó»º´æÐ´Èëµ½Í¨µÀ	-> »º´æ¿ÉÒÔ±»±£´æ
+inChannel.read( buf )	// ä»Žé€šé“è¯»å–æ•°æ®åˆ°ç¼“å­˜	-> ç¼“å­˜æœ‰æ•°æ®å¯ä»¥è¯»
+inChannel.write( buf );	// ä»Žç¼“å­˜å†™å…¥åˆ°é€šé“	-> ç¼“å­˜å¯ä»¥è¢«ä¿å­˜
 ```
 
 Gathering Write
-´Ó¶à¸ö»º´æÐ´Èëµ½Ò»¸öÍ¨µÀ
+ä»Žå¤šä¸ªç¼“å­˜å†™å…¥åˆ°ä¸€ä¸ªé€šé“
 Scattering Read
-´ÓÒ»¸öÍ¨µÀ¶ÁÈ¡Êý¾Ýµ½¶à¸ö»º´æ
+ä»Žä¸€ä¸ªé€šé“è¯»å–æ•°æ®åˆ°å¤šä¸ªç¼“å­˜

@@ -5,8 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * "/test.txt" ÔÚ windows ÏÂÏà¶ÔÓÚµ±Ç°´ÅÅÌÏÂµÄÂ·¾¶¡£<br>
- * Èç£ºM:/test.txt
+ * "/test.txt" åœ¨ windows ä¸‹ç›¸å¯¹äºå½“å‰ç£ç›˜ä¸‹çš„è·¯å¾„ã€‚<br>
+ * å¦‚ï¼šM:/test.txt
  * 
  * <p>
  * Created by zengxf on 2017-08-09

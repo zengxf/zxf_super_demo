@@ -38,7 +38,7 @@ public class BuildGenerate {
 	    Class<?> type = m.getParameters()[0].getType();
 	    String pType = getSimpleName( type );
 
-	    // ·ºĞÍ´¦Àí
+	    // æ³›å‹å¤„ç†
 	    Type genericType = m.getGenericParameterTypes()[0];
 	    if ( ParameterizedType.class.isAssignableFrom( genericType.getClass() ) ) {
 		Type[] genericTypes = ( (ParameterizedType) genericType ).getActualTypeArguments();

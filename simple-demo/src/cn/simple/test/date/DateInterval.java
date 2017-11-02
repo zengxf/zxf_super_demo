@@ -26,8 +26,8 @@ public class DateInterval {
 
 	long interval = now.getTime() - pre.getTime();
 	long dayNum = interval / 1000 / 60 / 60 / 24;
-	System.out.println("ÌìÊı£º" + dayNum);
-	System.out.println("ÖÜÊı£º" + dayNum / 7 + "." + dayNum % 7);
+	System.out.println("å¤©æ•°ï¼š" + dayNum);
+	System.out.println("å‘¨æ•°ï¼š" + dayNum / 7 + "." + dayNum % 7);
 
     }
 

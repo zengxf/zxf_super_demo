@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Log Remark="关联审计日志" pri="16" tablename="bd_dbaudit_log">
-	<LogID Remark="记录ID">123456789</LogID>
-	<Subject Remark="事件主体">
-		<Node Remark="主体IP地址">172.16.1.190</Node>
-		<Node Remark="主体ID">WD-WMC6N0J00CDK</Node>
-		<ComputerName Remark="计算机名称">zj-pc</ComputerName>
-		<UserName Remark="用户名或责任人">zj</UserName>
-		<Department Remark="部门">研发中心</Department>
-		<Program Remark="部件">plsql.exe</Program>
-		<Facility Remark="类型"></Facility>
+<Log Remark="鍏宠仈瀹¤鏃ュ織" pri="16" tablename="bd_dbaudit_log">
+	<LogID Remark="璁板綍ID">123456789</LogID>
+	<Subject Remark="浜嬩欢涓讳綋">
+		<Node Remark="涓讳綋IP鍦板潃">172.16.1.190</Node>
+		<Node Remark="涓讳綋ID">WD-WMC6N0J00CDK</Node>
+		<ComputerName Remark="璁＄畻鏈哄悕绉�">zj-pc</ComputerName>
+		<UserName Remark="鐢ㄦ埛鍚嶆垨璐ｄ换浜�">zj</UserName>
+		<Department Remark="閮ㄩ棬">鐮斿彂涓績</Department>
+		<Program Remark="閮ㄤ欢">plsql.exe</Program>
+		<Facility Remark="绫诲瀷"></Facility>
 	</Subject>
-	<Object Remark="事件客体">
-		<ObjectName Remark="事件客体">select * from test</ObjectName>
+	<Object Remark="浜嬩欢瀹綋">
+		<ObjectName Remark="浜嬩欢瀹綋">select * from test</ObjectName>
 	</Object>
-	<Details Remark="事件内容">1	2	3	4	select * from test	172.16.1.190	172.16.1.245</Details>
-	<Result Remark="事件结果">成功</Result>
-	<EntryStamp Remark="发生时间">2017-10-24 10:00:00</EntryStamp>
-	<Level Remark="事件风险级别">4</Level>
-	<Type Remark="事件类型">a</Type>
-	<ProductType Remark="产品类型">d</ProductType>
-	<BehaviourType Remark="行为类型">一般行为</BehaviourType>
-	<Reservation Remark="保留项"></Reservation>
+	<Details Remark="浜嬩欢鍐呭">1	2	3	4	select * from test	172.16.1.190	172.16.1.245</Details>
+	<Result Remark="浜嬩欢缁撴灉">鎴愬姛</Result>
+	<EntryStamp Remark="鍙戠敓鏃堕棿">2017-10-24 10:00:00</EntryStamp>
+	<Level Remark="浜嬩欢椋庨櫓绾у埆">4</Level>
+	<Type Remark="浜嬩欢绫诲瀷">a</Type>
+	<ProductType Remark="浜у搧绫诲瀷">d</ProductType>
+	<BehaviourType Remark="琛屼负绫诲瀷">涓�鑸涓�</BehaviourType>
+	<Reservation Remark="淇濈暀椤�"></Reservation>
 </Log>

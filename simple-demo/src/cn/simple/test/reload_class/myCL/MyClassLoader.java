@@ -12,16 +12,16 @@ public class MyClassLoader extends ClassLoader {
     protected Class<?> loadClass( String name, boolean resolve ) throws ClassNotFoundException {
 	Class<?> klass = null;
 	try {
-	    klass = super.findLoadedClass( name ); // ¼ì²é¸ÃÀàÊÇ·ñÒÑ¾­±»×°ÔØ¡£
+	    klass = super.findLoadedClass( name ); // æ£€æŸ¥è¯¥ç±»æ˜¯å¦å·²ç»è¢«è£…è½½ã€‚
 	    if ( klass != null ) {
 		return klass;
 	    }
 
-	    byte[] bs = this.getClassBytes( name );// ´ÓÒ»¸öÌØ¶¨µÄĞÅÏ¢Ô´Ñ°ÕÒ²¢¶ÁÈ¡¸ÃÀàµÄ×Ö½Ú¡£
+	    byte[] bs = this.getClassBytes( name );// ä»ä¸€ä¸ªç‰¹å®šçš„ä¿¡æ¯æºå¯»æ‰¾å¹¶è¯»å–è¯¥ç±»çš„å­—èŠ‚ã€‚
 	    if ( bs != null && bs.length > 0 ) {
 		klass = super.defineClass( name, bs, 0, bs.length );
 	    }
-	    if ( klass == null ) { // Èç¹û¶ÁÈ¡×Ö½ÚÊ§°Ü£¬ÔòÊÔÍ¼´ÓJDKµÄÏµÍ³APIÖĞÑ°ÕÒ¸ÃÀà¡£
+	    if ( klass == null ) { // å¦‚æœè¯»å–å­—èŠ‚å¤±è´¥ï¼Œåˆ™è¯•å›¾ä»JDKçš„ç³»ç»ŸAPIä¸­å¯»æ‰¾è¯¥ç±»ã€‚
 		klass = super.findSystemClass( name );
 	    }
 	    if ( resolve && klass != null ) {

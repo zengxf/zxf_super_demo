@@ -14,7 +14,7 @@ public class TestRecursive {
 	System.out.println( result );
     }
 
-    // Î²µÝ¹é - java Ã»ÓÐÓÅ»¯£¬Ã»ÂÑÓÃ
+    // å°¾é€’å½’ - java æ²¡æœ‰ä¼˜åŒ–ï¼Œæ²¡åµç”¨
     static long factorialTailRecursive( long n ) {
 	return factorialHelper( 1, n );
     }
@@ -23,17 +23,17 @@ public class TestRecursive {
 	return n == 1 ? acc : factorialHelper( acc * n, n - 1 );
     }
 
-    // ´«Í³µÝ¹é
+    // ä¼ ç»Ÿé€’å½’
     static long factorialRecursive( long n ) {
 	return n == 1 ? 1 : n * factorialRecursive( n - 1 );
     }
 
-    // java8 Á÷
+    // java8 æµ
     static long factorialStreams( long n ) {
 	return LongStream.rangeClosed( 1, n ).reduce( 1, ( long a, long b ) -> a * b );
     }
 
-    // µü´ú
+    // è¿­ä»£
     static long factorialIterative( long n ) {
 	long r = 1;
 	for ( long i = 1; i <= n; i++ ) {

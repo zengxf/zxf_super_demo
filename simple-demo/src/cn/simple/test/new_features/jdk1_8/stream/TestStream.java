@@ -13,9 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * <pre>
- * ²¢ĞĞÁ÷¶ÔÓµÓĞ´óÁ¿ÊäÈëÔªËØµÄÊı¾İÁ÷¾ßÓĞ¼«´óµÄĞÔÄÜÌáÉı¡£µ«ÊÇÒª¼Ç×¡Ò»Ğ©
- * ²¢ĞĞÁ÷µÄ²Ù×÷£¬ÀıÈç reduce ºÍ collect ĞèÒª¶îÍâµÄ¼ÆËã£¨×éºÏ²Ù×÷£© £¬ÕâÔÚ´®
- * ĞĞÖ´ĞĞÊ±²¢²»ĞèÒª
+ * å¹¶è¡Œæµå¯¹æ‹¥æœ‰å¤§é‡è¾“å…¥å…ƒç´ çš„æ•°æ®æµå…·æœ‰æå¤§çš„æ€§èƒ½æå‡ã€‚ä½†æ˜¯è¦è®°ä½ä¸€äº›
+ * å¹¶è¡Œæµçš„æ“ä½œï¼Œä¾‹å¦‚ reduce å’Œ collect éœ€è¦é¢å¤–çš„è®¡ç®—ï¼ˆç»„åˆæ“ä½œï¼‰ ï¼Œè¿™åœ¨ä¸²
+ * è¡Œæ‰§è¡Œæ—¶å¹¶ä¸éœ€è¦
  * </pre>
  * 
  * <p>
@@ -39,21 +39,21 @@ public class TestStream {
             new User( "sy", 22, "ds" ) //
     );
 
-    // ÒÔ²¼¶ûÖµ·Ö×é
+    // ä»¥å¸ƒå°”å€¼åˆ†ç»„
     static void test_partitioningBy() {
         Stream<User> stream = sup.get();
         Map<?, ?> booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15 ) );
         log.info( "booleanMap: {}", booleanMap );
         System.out.println( "----------" );
 
-        // ·Ö×éºóÔÙÍ³¼Æ
+        // åˆ†ç»„åå†ç»Ÿè®¡
         stream = sup.get();
         booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
                 Collectors.counting() ) );
         log.info( "booleanMap: {}", booleanMap );
         System.out.println( "----------" );
 
-        // ·Ö×éºóÔÙ·Ö×é
+        // åˆ†ç»„åå†åˆ†ç»„
         stream = sup.get();
         booleanMap = stream.collect( Collectors.partitioningBy( u -> u.getAge() > 15, //
                 Collectors.groupingBy( User::getCity ) ) );
@@ -62,7 +62,7 @@ public class TestStream {
     }
 
     static void test_multilevelGrouping() {
-        // ÏÈÓÃ city ·Ö×é£¬ÔÙÓÃ age ·Ö×é
+        // å…ˆç”¨ city åˆ†ç»„ï¼Œå†ç”¨ age åˆ†ç»„
         Stream<User> stream = sup.get();
         Map<String, Map<Integer, List<User>>> cityMap = //
                 stream.collect( Collectors.groupingBy( User::getCity, Collectors.groupingBy( User::getAge ) ) );
@@ -70,14 +70,14 @@ public class TestStream {
             log.info( "k: {}, v: {}", k, v );
         } );
 
-        // ·Ö×éÔÙÍ³¼Æ
+        // åˆ†ç»„å†ç»Ÿè®¡
         stream = sup.get();
         Map<String, Long> countMap = stream.collect( Collectors.groupingBy( User::getCity, Collectors.counting() ) );
         log.info( "countMap: {}", countMap );
     }
 
     static void test_collectingAndThen() {
-        // ·Ö×éºóµÄ×éÊı
+        // åˆ†ç»„åçš„ç»„æ•°
         Stream<User> stream = sup.get();
         Integer mapLen = stream.collect( Collectors.collectingAndThen( Collectors.groupingBy( User::getCity ), map -> map.size() ) );
         log.info( "mapLen: {}", mapLen );

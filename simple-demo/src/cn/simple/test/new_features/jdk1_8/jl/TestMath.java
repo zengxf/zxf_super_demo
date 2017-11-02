@@ -22,11 +22,11 @@ public class TestMath {
             a = 2147483648L;
             Math.toIntExact( a );
         } catch ( ArithmeticException e ) {
-            log.info( "{} => {} to int 溢出!!!", a );
+            log.info( "{} => {} to int 婧㈠嚭!!!", a );
         }
     }
 
-    // 变负
+    // 鍙樿礋
     static void negateExact() {
         int a = 10;
         log.info( "{} => {} ", a, Math.negateExact( a ) );
@@ -34,11 +34,11 @@ public class TestMath {
             a = Integer.MIN_VALUE;
             Math.negateExact( a );
         } catch ( ArithmeticException e ) {
-            log.info( "{} => {} 变负溢出!!!", a );
+            log.info( "{} => {} 鍙樿礋婧㈠嚭!!!", a );
         }
     }
 
-    // 自减
+    // 鑷噺
     static void decrementExact() {
         int a = 10;
         log.info( "{} => {} ", a, Math.decrementExact( a ) );
@@ -46,11 +46,11 @@ public class TestMath {
             a = Integer.MIN_VALUE;
             Math.decrementExact( a );
         } catch ( ArithmeticException e ) {
-            log.info( "{} => {} 自减溢出!!!", a );
+            log.info( "{} => {} 鑷噺婧㈠嚭!!!", a );
         }
     }
 
-    // 自增
+    // 鑷
     static void incrementExact() {
         int a = 10;
         log.info( "{} => {} ", a, Math.incrementExact( a ) );
@@ -58,11 +58,11 @@ public class TestMath {
             a = Integer.MAX_VALUE;
             Math.incrementExact( a );
         } catch ( ArithmeticException e ) {
-            log.info( "{} => {} 自增溢出!!!", a );
+            log.info( "{} => {} 鑷婧㈠嚭!!!", a );
         }
     }
 
-    // 乘法
+    // 涔樻硶
     static void multiplyExact() {
         int a = 10, b = 10;
         log.info( "{} * {} = {}", a, b, Math.multiplyExact( a, b ) );
@@ -71,11 +71,11 @@ public class TestMath {
             b = 2;
             Math.multiplyExact( a, b );
         } catch ( ArithmeticException e ) {
-            log.info( "{} * {} 相乘溢出!!!", a, b );
+            log.info( "{} * {} 鐩镐箻婧㈠嚭!!!", a, b );
         }
     }
 
-    // 加法
+    // 鍔犳硶
     static void addExact() {
         int a = 10, b = 10;
         log.info( "{} + {} = {}", a, b, Math.addExact( a, b ) );
@@ -84,11 +84,11 @@ public class TestMath {
             b = 1;
             Math.addExact( a, b );
         } catch ( ArithmeticException e ) {
-            log.info( "{} + {} 相加溢出!!!", a, b );
+            log.info( "{} + {} 鐩稿姞婧㈠嚭!!!", a, b );
         }
     }
 
-    // 减法
+    // 鍑忔硶
     static void subtractExact() {
         int a = 10, b = 10;
         log.info( "{} - {} = {}", a, b, Math.subtractExact( a, b ) );
@@ -97,7 +97,7 @@ public class TestMath {
             b = 1;
             Math.subtractExact( a, b );
         } catch ( ArithmeticException e ) {
-            log.info( "{} - {} 相减溢出!!!", a, b );
+            log.info( "{} - {} 鐩稿噺婧㈠嚭!!!", a, b );
         }
     }
 

@@ -6,7 +6,7 @@ import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
 
 /**
- * 测试方法句柄与反射的性能
+ * 娴嬭瘯鏂规硶鍙ユ焺涓庡弽灏勭殑鎬ц兘
  * 
  * @author zengxf
  */
@@ -32,7 +32,7 @@ public class TestMethodHandlePerformance {
     }
 
     /**
-     * 测试-方法句柄
+     * 娴嬭瘯-鏂规硶鍙ユ焺
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -54,7 +54,7 @@ public class TestMethodHandlePerformance {
     }
 
     /**
-     * 测试-反射
+     * 娴嬭瘯-鍙嶅皠
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException

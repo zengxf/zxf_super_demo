@@ -23,7 +23,7 @@ import javax.swing.JLabel;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Deprecated // 导出图片的效果不好
+@Deprecated // 瀵煎嚭鍥剧墖鐨勬晥鏋滀笉濂�
 @Slf4j
 public class HtmlToImage {
     static String CSSCOLOR = "#bf8f79";
@@ -50,15 +50,15 @@ public class HtmlToImage {
 	Graphics2D g2d = img.createGraphics();
 	label.printAll( g2d );
 
-	{ // 设置水印
+	{ // 璁剧疆姘村嵃
 	    int width = img.getWidth( null );
 	    int height = img.getHeight( null );
 	    System.out.println( width + "\t" + height );
 
-	    AttributedCharacterIterator iter = buildFont( "小 fuck aa", "黑体", 16 );
+	    AttributedCharacterIterator iter = buildFont( "灏� fuck aa", "榛戜綋", 16 );
 	    Color color = Color.decode( CSSCOLOR );
 	    g2d.setColor( color );
-	    // 设置水印旋转
+	    // 璁剧疆姘村嵃鏃嬭浆
 	    g2d.rotate( Math.toRadians( 45 ), (double) img.getWidth() / 2, (double) img.getHeight() / 2 );
 	    g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_ATOP, ALPHA ) );
 	    g2d.drawString( iter, 10, height );
@@ -72,7 +72,7 @@ public class HtmlToImage {
 	}
     }
 
-    // 形成字体属性
+    // 褰㈡垚瀛椾綋灞炴��
     static AttributedCharacterIterator buildFont( String markContent, String fontType, int fontSize ) {
 	AttributedString ats = new AttributedString( markContent );
 	Font f = new Font( fontType, Font.PLAIN, fontSize );

@@ -68,7 +68,7 @@ public class TestReadImg {
 
 	BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF8"));
 
-	// ¹¹ÔìHTTPÇëÇóÍ·(request header)
+	// æ„é€ HTTPè¯·æ±‚å¤´(request header)
 	String requestStr = "GET " + path + " HTTP/1.1\r\n";
 	String hostHeader = "Host: " + host + "\r\n";
 	String acceptHeader = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n";
@@ -76,14 +76,14 @@ public class TestReadImg {
 	String languageHeader = "Accept-Language: zh-CN,zh;q=0.8\r\n";
 	String keepHeader = "Connection: close\r\n";
 
-	// ·¢ËÍHTTPÇëÇó
+	// å‘é€HTTPè¯·æ±‚
 	bufferedWriter.write(requestStr);
 	bufferedWriter.write(hostHeader);
 	bufferedWriter.write(acceptHeader);
 	bufferedWriter.write(charsetHeader);
 	bufferedWriter.write(languageHeader);
 	bufferedWriter.write(keepHeader);
-	bufferedWriter.write("\r\n"); // ÇëÇóÍ·ĞÅÏ¢·¢ËÍ½áÊø±êÖ¾
+	bufferedWriter.write("\r\n"); // è¯·æ±‚å¤´ä¿¡æ¯å‘é€ç»“æŸæ ‡å¿—
 	bufferedWriter.flush();
     }
 

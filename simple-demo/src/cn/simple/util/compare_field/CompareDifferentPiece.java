@@ -1,16 +1,16 @@
 package cn.simple.util.compare_field;
 
 /**
- * ±È½ÏµÄ¾ßÌå½á¹ûÆ¬¶Î
+ * æ¯”è¾ƒçš„å…·ä½“ç»“æœç‰‡æ®µ
  * 
  * @author zengxf
  */
 public class CompareDifferentPiece {
 
-    private String field;     // ×Ö¶ÎÃû
-    private Object newValue;  // ĞÂÖµ
+    private String field;     // å­—æ®µå
+    private Object newValue;  // æ–°å€¼
     /**
-     * ²Ù×÷ÀàĞÍ
+     * æ“ä½œç±»å‹
      * 
      * @see ActionDetailType
      */

@@ -26,15 +26,15 @@ public class CreateImage1 {
 	BufferedImage img = new BufferedImage( width, height, BufferedImage.TYPE_INT_ARGB );
 	Graphics2D g2d = img.createGraphics();
 
-	g2d.setBackground( BG_COLOR ); // ÉèÖÃ±³¾°É«
-	g2d.clearRect( 0, 0, width, height ); // ÓÃ±³¾°É«½øĞĞÌî³äÀ´Çå³ıÖ¸¶¨µÄ¾ØĞÎ
+	g2d.setBackground( BG_COLOR ); // è®¾ç½®èƒŒæ™¯è‰²
+	g2d.clearRect( 0, 0, width, height ); // ç”¨èƒŒæ™¯è‰²è¿›è¡Œå¡«å……æ¥æ¸…é™¤æŒ‡å®šçš„çŸ©å½¢
 
-	String content = "2017Äê5ÔÂ12ÈÕ  ĞÇÆÚÎå";
-	String[] fonts = { "·½ÕıÀ¼Í¤ºÚ¼òÌå", "FZLanTingHeiS-R-GB", "Î¢ÈíÑÅºÚ", "ËÎÌå", "·½Õı¿¬Ìå¼òÌå" //
-	        , "Liberation Mono", "·½Õı×Ö¼£-°ØÇó¿¬Êé¼òÌå" };
+	String content = "2017å¹´5æœˆ12æ—¥  æ˜ŸæœŸäº”";
+	String[] fonts = { "æ–¹æ­£å…°äº­é»‘ç®€ä½“", "FZLanTingHeiS-R-GB", "å¾®è½¯é›…é»‘", "å®‹ä½“", "æ–¹æ­£æ¥·ä½“ç®€ä½“" //
+	        , "Liberation Mono", "æ–¹æ­£å­—è¿¹-æŸæ±‚æ¥·ä¹¦ç®€ä½“" };
 
 	for ( int i = 0; i < fonts.length; i++ ) {
-	    AttributedCharacterIterator iter = buildFont( content + "     ¡ª¡ª " + fonts[i], fonts[i], 36 );
+	    AttributedCharacterIterator iter = buildFont( content + "     â€”â€” " + fonts[i], fonts[i], 36 );
 	    Color color = Color.decode( CSSCOLOR );
 	    g2d.setColor( color );
 	    g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_ATOP, ALPHA ) );
@@ -56,7 +56,7 @@ public class CreateImage1 {
 	}
     }
 
-    // ĞÎ³É×ÖÌåÊôĞÔ
+    // å½¢æˆå­—ä½“å±æ€§
     static AttributedCharacterIterator buildFont( String markContent, String fontType, int fontSize ) {
 	AttributedString ats = new AttributedString( markContent );
 	Font f = new Font( fontType, Font.PLAIN, fontSize );

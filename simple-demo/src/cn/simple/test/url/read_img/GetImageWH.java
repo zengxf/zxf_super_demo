@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * ¶ÁÈ¡Í¼Æ¬¿íºÍ¸ß
+ * è¯»å–å›¾ç‰‡å®½å’Œé«˜
  * 
  * @author zengxf
  */
@@ -20,7 +20,7 @@ public class GetImageWH {
 		System.out.printf("W: %d, H: %d%n", buf.getWidth(), buf.getHeight());
 	    }
 	    long useTime = System.currentTimeMillis() - start;
-	    System.out.printf("%nÓÃÊ±£º%d ms", useTime);
+	    System.out.printf("%nç”¨æ—¶ï¼š%d ms", useTime);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}

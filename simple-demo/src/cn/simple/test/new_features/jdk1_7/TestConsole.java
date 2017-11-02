@@ -4,7 +4,7 @@ import java.io.Console;
 import java.io.PrintWriter;
 
 /**
- * ֻ�����ڱ�׼���롢�����δ���ض����ԭʼ����̨��ʹ�ã��� Eclipse �������� IDE �Ŀ���̨���ò��˵�
+ * 只能用在标准输入、输出流未被重定向的原始控制台中使用，在 Eclipse 或者其他 IDE 的控制台是用不了的
  * 
  * @author zengxf
  */

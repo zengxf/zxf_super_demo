@@ -1,110 +1,108 @@
 package cn.simple.test.algorithm.bloom;
 
 import java.util.BitSet;
+
 /**
- * ¾ÍÊÇÕâ¸ö¹ıÂËÆ÷£¬ÓĞ²åÈë¡¢²éÑ¯µÈ¹¦ÄÜ£¬¿ÉÒÔÉèÖÃÎ»¼¯µÄ´óĞ¡¡£ËäÈ»ÓĞÉ¾³ı¹¦ÄÜ£¬µ«ÊÇ×îºÃ²»ÒªÓÃ
+ * çè¾¨æ§¸æ©æ¬é‡œæ©å›¨æŠ¤é£îŸ’ç´éˆå¤‹å½ƒéãƒ£ï¿½ä½¹ç…¡ç’‡ãˆ¢ç“‘é”ç†»å…˜é”›å±½å½²æµ ãƒ¨î†•ç¼ƒî†»ç¶…é—†å—™æ®‘æ¾¶Ñƒçš¬éŠ†å‚æ«§é’èˆµæ¹é’çŠ»æ«é”ç†»å…˜é”›å±¼çµ¾é„îˆ›æ¸¶æ¿‚æˆ’ç¬‰ç‘•ä½ºæ•¤
+ * 
  * @author chouyou
  *
  */
 public class bloomFilter {
-    private int defaultSize = 5000 << 10000;// <<ÊÇÒÆÎ»ÔËËã
+    private int    defaultSize = 5000 << 10000;            // <<é„îˆœĞ©æµ£å¶ˆç¹ç» ï¿½
     /**
-     * ´ÓbasicµÄÊ¹ÓÃÀ´¿´£¬hashCode×îºóµÄ½á¹û»á²úÉúÒ»¸öintÀàĞÍµÄÊı£¬¶øÕâ¸öintÀàĞÍµÄÊıµÄ·¶Î§¾ÍÊÇ0µ½baisc
-     * ËùÒÔbasicµÄµÄÖµÎªdefaultsize¼õÒ»
+     * æµ å·„asicé¨å‹ªå¨‡é¢ã„¦æ½µéªå¬¶ç´hashCodeéˆï¿½éšåº£æ®‘ç¼æ’´ç‰æµ¼æ°«éª‡é¢ç†¶ç«´æ¶“çŒ§ntç»«è¯²ç€·é¨å‹¬æšŸé”›å²ƒï¿½å²ƒç¹–æ¶“çŒ§ntç»«è¯²ç€·é¨å‹¬æšŸé¨å‹®å¯–é¥æ‘æ°¨é„ï¿½0é’ç™°aisc éµï¿½æµ î™¨asicé¨å‹­æ®‘éŠé—´è´Ÿdefaultsizeé‘å¿ç«´
      */
-    private int basic = defaultSize -1;
+    private int    basic       = defaultSize - 1;
 
-    private BitSet bits = new BitSet(defaultSize);//³õÊ¼»¯Ò»¸öÒ»¶¨´óĞ¡µÄÎ»¼¯
-    
-    public bloomFilter(){
+    private BitSet bits        = new BitSet( defaultSize );// é’æ¿†îé–æ ¦ç«´æ¶“îƒç«´ç€¹æ°¬ã‡çå¿•æ®‘æµ£å¶‰æ³¦
+
+    public bloomFilter() {
     }
+
     /**
-     * Õë¶ÔÒ»¸ökey£¬ÓÃ8¸ö²»Í¬µÄhashº¯Êı£¬²úÉú8¸ö²»Í¬µÄÊı£¬ÊıµÄ·¶Î§0µ½defaultSize-1
-     * ÒÔÕâ¸ö8¸öÊıÎªÏÂ±ê£¬½«Î»¼¯ÖĞµÄÏàÓ¦Î»ÖÃÉèÖÃ³É1
+     * é–½å î‡®æ¶“ï¿½æ¶“çŒ­eyé”›å²€æ•¤8æ¶“îƒç¬‰éšå²€æ®‘hashé‘èŠ¥æšŸé”›å±¼éª‡é¢ï¿½8æ¶“îƒç¬‰éšå²€æ®‘éå¸®ç´éæ‰®æ®‘é‘¼å†¨æ´¿0é’ç™²efaultSize-1 æµ ãƒ¨ç¹–æ¶“ï¿½8æ¶“î…æšŸæ¶“è½°ç¬…éå›·ç´çå—•ç¶…é—†å—•è…‘é¨å‹­æµ‰æ´æ–¾ç¶…ç¼ƒî†¿î†•ç¼ƒî†½åš1
+     * 
      * @return
      */
-    private int[] indexInSet(element ele){
+    private int[] indexInSet( element ele ) {
         int[] indexes = new int[8];
-        for (int i = 0;i<8;i++){
-        	indexes[i] = hashCode(ele.getKey(),i);
+        for ( int i = 0; i < 8; i++ ) {
+            indexes[i] = hashCode( ele.getKey(), i );
         }
         return indexes;
     }
+
     /**
-     * Ìí¼ÓÒ»¸öÔªËØµ½Î»¼¯ÄÚ
+     * å¨£è¯²å§æ¶“ï¿½æ¶“î„å“ç»±çŠ²åŸŒæµ£å¶‰æ³¦éï¿½
      */
-    private void add(element ele){
-        if(exist(ele)){
-            System.out.println("ÒÑ¾­°üº¬("+ele.getKey()+")");
+    private void add( element ele ) {
+        if ( exist( ele ) ) {
+            System.out.println( "å®¸èŒ¬ç²¡é–å‘­æƒˆ(" + ele.getKey() + ")" );
             return;
         }
-        int keyCode[] = indexInSet(ele);
-        for (int i = 0;i<8;i++){
-        	bits.set(keyCode[i]);
+        int keyCode[] = indexInSet( ele );
+        for ( int i = 0; i < 8; i++ ) {
+            bits.set( keyCode[i] );
         }
     }
+
     /**
-     * ÅĞ¶ÏÊÇ·ñ´æÔÚ
+     * é’ã‚†æŸ‡é„îˆšæƒç€›æ¨ºæ¹ª
+     * 
      * @return
      */
-    private boolean exist(element ele){
-        int keyCode[] = indexInSet(ele);
-        if(bits.get(keyCode[0])
-        		&&bits.get(keyCode[1])
-                &&bits.get(keyCode[2])
-                &&bits.get(keyCode[3])
-                &&bits.get(keyCode[4])
-                &&bits.get(keyCode[5])
-                &&bits.get(keyCode[6])
-                &&bits.get(keyCode[7])){
-            return true; 
+    private boolean exist( element ele ) {
+        int keyCode[] = indexInSet( ele );
+        if ( bits.get( keyCode[0] ) && bits.get( keyCode[1] ) && bits.get( keyCode[2] ) && bits.get( keyCode[3] ) && bits.get( keyCode[4] ) && bits.get( keyCode[5] ) && bits.get( keyCode[6] )
+                && bits.get( keyCode[7] ) ) {
+            return true;
         }
         return false;
     }
+
     /**
-     * Òª½øĞĞ¼¯ºÏÉ¾³ıÄ³¸öÔªËØ
-     * ÄÇÃ´ÔÚÎ»¼¯ÖĞ½«ÏàÓ¦µÄÏÂ±êÉèÖÃÎª0¼´¿É
-     * µ«ÊÇÕâÑùÆñ²»ÊÇÓĞ¿ÉÄÜ»áÈÃÓ°Ïìµ½±ğµÄÔªËØ£¬ÒòÎª¶à¸öÔªËØ¹«ÓÃÒ»¸öÏÂ±êÑ½
-     * ÄÇÑùÆñ²»ÊÇÈÃ±ğµÄÔªËØÒ²²»´æÔÚÁËÃ´
-     * ¾­²éÖ¤£¬Õâ¾ÍÊÇbloom FilterµÄÈ±µã£¬²»ÄÜÉ¾³ıÔªËØ¡£
+     * ç‘•ä½½ç¹˜ç›å²„æ³¦éšå å¹é—„ã‚†ç…‡æ¶“î„å“ç»±ï¿½ é–­ï½„ç®é¦ã„¤ç¶…é—†å—•è…‘çå—™æµ‰æ´æ—‚æ®‘æ¶“å¬«çˆ£ç’å‰§ç–†æ¶“ï¿½0é—å†²å½² æµ£å—˜æ§¸æ©æ¬ç‰±å®€å‚™ç¬‰é„îˆ›æ¹é™îˆå…˜æµ¼æ°³î†€è¤°åæ·é’æ¿åŸ†é¨å‹«å“ç»±ç‹…ç´é¥çŠ±è´Ÿæ¾¶æ°«é‡œéå†ªç¤Œéî„‚æ•¤æ¶“ï¿½æ¶“îƒç¬…éå›§æ†– é–­ï½†ç‰±å®€å‚™ç¬‰é„îˆî†€é’î‚¤æ®‘éå†ªç¤Œæ¶”ç†¶ç¬‰ç€›æ¨ºæ¹ªæµœå—•ç® ç¼å¿”ç…¡ç’‡ä¾Šç´æ©æ¬æ°¨é„ç—“loom Filteré¨å‹­å·±éç™¸ç´æ¶“å¶ˆå…˜é’çŠ»æ«éå†ªç¤ŒéŠ†ï¿½
+     * 
      * @return
      */
-    private boolean deleteElement(element ele){
-        if(exist(ele)){
-            int keyCode[] = indexInSet(ele);
-            for (int i = 0;i<8;i++){
-            	bits.clear(keyCode[i]);
+    private boolean deleteElement( element ele ) {
+        if ( exist( ele ) ) {
+            int keyCode[] = indexInSet( ele );
+            for ( int i = 0; i < 8; i++ ) {
+                bits.clear( keyCode[i] );
             }
             return true;
         }
         return false;
     }
+
     /**
-     * Q´«Èë²»Í¬µÄQ¾Í¿ÉÒÔµÃµ½¼òµ¥µÄ²»Í¬µÄhashº¯Êı
+     * Qæµ¼çŠ²å†æ¶“å¶…æ‚“é¨å‡²çåå½²æµ ãƒ¥ç·±é’æ‰®ç•é—æ› æ®‘æ¶“å¶…æ‚“é¨åˆªashé‘èŠ¥æšŸ
      */
-    private int hashCode(String key,int Q){
+    private int hashCode( String key, int Q ) {
         int h = 0;
         int off = 0;
         char val[] = key.toCharArray();
         int len = key.length();
-        for (int i = 0; i < len; i++) {
-            h = (30 + Q) * h + val[off++];
+        for ( int i = 0; i < len; i++ ) {
+            h = ( 30 + Q ) * h + val[off++];
         }
-        return changeInteger(h);
+        return changeInteger( h );
     }
-    
-    private int changeInteger(int h) {
-        return basic & h;//&ÊÇÎ»ÓëÔËËã·û
+
+    private int changeInteger( int h ) {
+        return basic & h;// &é„îˆ™ç¶…æ¶“åº¤ç¹ç» æ¥ƒîƒ
     }
-    
-    public static void main(String[] args) {
+
+    public static void main( String[] args ) {
         // TODO Auto-generated method stub
-    	bloomFilter f=new bloomFilter();
-        element ele = new element("blog.csdn.net/zy825316");
-        System.out.println("Î»¼¯´óĞ¡£º"+f.defaultSize);
-        f.add(ele);
-        System.out.println(f.exist(ele));
-        f.deleteElement(ele);
-        System.out.println(f.exist(ele));
+        bloomFilter f = new bloomFilter();
+        element ele = new element( "blog.csdn.net/zy825316" );
+        System.out.println( "æµ£å¶‰æ³¦æ¾¶Ñƒçš¬é”›ï¿½" + f.defaultSize );
+        f.add( ele );
+        System.out.println( f.exist( ele ) );
+        f.deleteElement( ele );
+        System.out.println( f.exist( ele ) );
     }
 }

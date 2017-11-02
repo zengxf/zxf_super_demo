@@ -57,6 +57,6 @@ public class TestDate {
         LocalDateTime date = LocalDateTime.of( 2014, Month.DECEMBER, 31, 23, 59, 59 );
         System.out.println( date );
 
-        System.out.println( IsoChronology.INSTANCE.isLeapYear( 2016 ) ); // ÅĞ¶ÏÊÇ²»ÊÇÈòÄê
+        System.out.println( IsoChronology.INSTANCE.isLeapYear( 2016 ) ); // åˆ¤æ–­æ˜¯ä¸æ˜¯é—°å¹´
     }
 }

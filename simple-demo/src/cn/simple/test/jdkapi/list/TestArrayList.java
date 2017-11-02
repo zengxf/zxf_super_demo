@@ -3,7 +3,7 @@ package cn.simple.test.jdkapi.list;
 import java.util.ArrayList;
 
 /**
- * trimToSize(); // Çå¿Õ list ÄÚ²¿Êı×éÎ²²¿Îª null µÄÔªËØ£¬ÒÔ½ÚÊ¡¿Õ¼ä
+ * trimToSize(); // æ¸…ç©º list å†…éƒ¨æ•°ç»„å°¾éƒ¨ä¸º null çš„å…ƒç´ ï¼Œä»¥èŠ‚çœç©ºé—´
  * 
  * <p>
  * Created by zengxf on 2017-09-29

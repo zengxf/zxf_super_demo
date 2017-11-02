@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * ÓÃ FindBugs ÕÒ bug <br>
- * ÏÂÔØµØÖ·£ºhttps://github.com/spotbugs/spotbugs
+ * ç”¨ FindBugs æ‰¾ bug <br>
+ * ä¸‹è½½åœ°å€ï¼šhttps://github.com/spotbugs/spotbugs
  * 
  * <p>
  * Created by zengxf on 2017-09-26

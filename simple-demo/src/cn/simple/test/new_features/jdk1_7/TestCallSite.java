@@ -9,7 +9,7 @@ import java.lang.invoke.VolatileCallSite;
 import java.lang.invoke.WrongMethodTypeException;
 
 /**
- * ²âÊÔ»Øµ÷µã
+ * æµ‹è¯•å›è°ƒç‚¹
  * 
  * @author zengxf
  */
@@ -36,7 +36,7 @@ public class TestCallSite {
     }
 
     /**
-     * ²âÊÔ invoke Óë invokeExact
+     * æµ‹è¯• invoke ä¸ invokeExact
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -48,15 +48,15 @@ public class TestCallSite {
 	MethodType mt = MethodType.methodType( void.class, Number.class );
 	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "testNum", mt );
 	try {
-	    mh.invokeExact( num ); // ÀàĞÍÒªÍêÈ«Æ¥Åä
+	    mh.invokeExact( num ); // ç±»å‹è¦å®Œå…¨åŒ¹é…
 	} catch ( WrongMethodTypeException e ) {
-	    System.err.println( "ÀàĞÍÃ»ÓĞÍêÈ«Æ¥Åä£¡-> e: " + e.getMessage() );
+	    System.err.println( "ç±»å‹æ²¡æœ‰å®Œå…¨åŒ¹é…ï¼-> e: " + e.getMessage() );
 	}
-	mh.invoke( num ); // ÀàĞÍ²»ĞèÒªÍêÈ«Æ¥Åä£¬¿ÉÒÔÊÇ×ÓÀàĞÍ
+	mh.invoke( num ); // ç±»å‹ä¸éœ€è¦å®Œå…¨åŒ¹é…ï¼Œå¯ä»¥æ˜¯å­ç±»å‹
     }
 
     /**
-     * ²»¿É±äµÄµ÷ÓÃµã
+     * ä¸å¯å˜çš„è°ƒç”¨ç‚¹
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -70,9 +70,9 @@ public class TestCallSite {
 	MethodHandle mh2 = cs.dynamicInvoker();
 
 	try {
-	    cs.setTarget( mh2 ); // ²»ÄÜÉèÖÃ
+	    cs.setTarget( mh2 ); // ä¸èƒ½è®¾ç½®
 	} catch ( UnsupportedOperationException e ) {
-	    System.err.println( "³£Á¿µ÷ÓÃµã²»Ö§³ÖÉèÖÃ target £¡" );
+	    System.err.println( "å¸¸é‡è°ƒç”¨ç‚¹ä¸æ”¯æŒè®¾ç½® target ï¼" );
 	}
 
 	mh2.invokeExact( "ok 1" );
@@ -80,7 +80,7 @@ public class TestCallSite {
     }
 
     /**
-     * ÆÕÍ¨¿É±äµ÷ÓÃµã
+     * æ™®é€šå¯å˜è°ƒç”¨ç‚¹
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -91,13 +91,13 @@ public class TestCallSite {
 	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "test1", mt );
 	MethodHandle mh2 = MethodHandles.lookup().findStatic( MyClass.class, "test2", mt );
 
-	MutableCallSite cs = new MutableCallSite( mh ); // ÆÕÍ¨¿É±äµ÷ÓÃµã
+	MutableCallSite cs = new MutableCallSite( mh ); // æ™®é€šå¯å˜è°ƒç”¨ç‚¹
 
 	MethodHandle mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "ok 1" );
 	mhNew.invoke( "ok 2" );
 
-	cs.setTarget( mh2 ); // ·ÇÏß³Ì°²È«
+	cs.setTarget( mh2 ); // éçº¿ç¨‹å®‰å…¨
 
 	mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "mut ok 1" );
@@ -105,7 +105,7 @@ public class TestCallSite {
     }
 
     /**
-     * Ïß³Ì°²È«µ÷ÓÃµã
+     * çº¿ç¨‹å®‰å…¨è°ƒç”¨ç‚¹
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -116,13 +116,13 @@ public class TestCallSite {
 	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "test1", mt );
 	MethodHandle mh2 = MethodHandles.lookup().findStatic( MyClass.class, "test2", mt );
 
-	VolatileCallSite cs = new VolatileCallSite( mh ); // Ïß³Ì°²È«µ÷ÓÃµã
+	VolatileCallSite cs = new VolatileCallSite( mh ); // çº¿ç¨‹å®‰å…¨è°ƒç”¨ç‚¹
 
 	MethodHandle mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "ok 1" );
 	mhNew.invoke( "ok 2" );
 
-	cs.setTarget( mh2 ); // Ïß³Ì°²È«
+	cs.setTarget( mh2 ); // çº¿ç¨‹å®‰å…¨
 
 	mhNew = cs.dynamicInvoker();
 	mhNew.invokeExact( "vol ok 1" );

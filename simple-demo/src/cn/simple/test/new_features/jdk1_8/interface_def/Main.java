@@ -15,10 +15,10 @@ public class Main {
     }
 
     public static void main( String[] args ) {
-	// ¼Ì³Ğ¹æÔò£º¸¸Àà > ½Ó¿ÚÀà(×Ó) > ½Ó¿ÚÀà
+	// ç»§æ‰¿è§„åˆ™ï¼šçˆ¶ç±» > æ¥å£ç±»(å­) > æ¥å£ç±»
 	new User().say();
 
-	// ×Ó½Ó¿Ú¸ü¾ßÌå
+	// å­æ¥å£æ›´å…·ä½“
 	new Test1().print();
 
 	//  

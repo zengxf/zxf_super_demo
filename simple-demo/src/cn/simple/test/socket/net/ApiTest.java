@@ -10,7 +10,7 @@ public class ApiTest {
     public static void main( String[] args ) throws MalformedURLException, IOException {
 
 	String userId = "zxf";
-	String[] keys = { "ÖÆÔì", "ÄÜÔ´" }; // "²âÊÔ", "¿ª·¢", "ÔËÓª", "°á×©", "Éè¼Æ"
+	String[] keys = { "åˆ¶é€ ", "èƒ½æº" }; // "æµ‹è¯•", "å¼€å‘", "è¿è¥", "æ¬ç –", "è®¾è®¡"
 	for ( int i = 0; i < 100; i++ ) {
 	    int r = new Random().nextInt( keys.length );
 	    int md = i % ( r + 1 );

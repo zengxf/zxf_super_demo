@@ -7,7 +7,7 @@ public class ExtMain {
 	    System.out.println( cl );
 	    cl = cl.getParent();
 	    if ( cl == null ) {
-		System.out.println( "无：BootClassLoader" );
+		System.out.println( "鏃狅細BootClassLoader" );
 		break;
 	    }
 	}

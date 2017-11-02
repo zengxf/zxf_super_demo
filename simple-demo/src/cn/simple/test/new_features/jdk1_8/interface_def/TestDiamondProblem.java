@@ -12,7 +12,7 @@ public class TestDiamondProblem {
     }
 
     static interface C extends A {
-	// void hello(); // ¼ÓÉÏ³éÏó·½·¨Ê±£¬C ¸ü¾ßÌå£¬Òò´Ë D ĞèÊµÏÖ C µÄ·½·¨
+	// void hello(); // åŠ ä¸ŠæŠ½è±¡æ–¹æ³•æ—¶ï¼ŒC æ›´å…·ä½“ï¼Œå› æ­¤ D éœ€å®ç° C çš„æ–¹æ³•
     }
 
     static class D implements B, C {

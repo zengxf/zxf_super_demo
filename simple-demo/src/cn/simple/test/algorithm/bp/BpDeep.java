@@ -3,12 +3,12 @@ package cn.simple.test.algorithm.bp;
 import java.util.Random;
 
 public class BpDeep {
-    public double[][]	layer;		   // Éñ¾­ÍøÂç¸÷²ã½Úµã
-    public double[][]	layerErr;	   // Éñ¾­ÍøÂç¸÷½ÚµãÎó²î
-    public double[][][]	layer_weight;	   // ¸÷²ã½ÚµãÈ¨ÖØ
-    public double[][][]	layer_weight_delta;// ¸÷²ã½ÚµãÈ¨ÖØ¶¯Á¿
-    public double	mobp;		   // ¶¯Á¿ÏµÊı
-    public double	rate;		   // Ñ§Ï°ÏµÊı
+    public double[][]	layer;		   // ç¥ç»ç½‘ç»œå„å±‚èŠ‚ç‚¹
+    public double[][]	layerErr;	   // ç¥ç»ç½‘ç»œå„èŠ‚ç‚¹è¯¯å·®
+    public double[][][]	layer_weight;	   // å„å±‚èŠ‚ç‚¹æƒé‡
+    public double[][][]	layer_weight_delta;// å„å±‚èŠ‚ç‚¹æƒé‡åŠ¨é‡
+    public double	mobp;		   // åŠ¨é‡ç³»æ•°
+    public double	rate;		   // å­¦ä¹ ç³»æ•°
 
     public BpDeep( int[] layernum, double rate, double mobp ) {
 	this.mobp = mobp;
@@ -26,12 +26,12 @@ public class BpDeep {
 		layer_weight_delta[l] = new double[layernum[l] + 1][layernum[l + 1]];
 		for ( int j = 0; j < layernum[l] + 1; j++ )
 		    for ( int i = 0; i < layernum[l + 1]; i++ )
-			layer_weight[l][j][i] = random.nextDouble();// Ëæ»ú³õÊ¼»¯È¨ÖØ
+			layer_weight[l][j][i] = random.nextDouble();// éšæœºåˆå§‹åŒ–æƒé‡
 	    }
 	}
     }
 
-    // Öğ²ãÏòÇ°¼ÆËãÊä³ö
+    // é€å±‚å‘å‰è®¡ç®—è¾“å‡º
     public double[] computeOut( double[] in ) {
 	for ( int l = 1; l < layer.length; l++ ) {
 	    for ( int j = 0; j < layer[l].length; j++ ) {
@@ -46,7 +46,7 @@ public class BpDeep {
 	return layer[layer.length - 1];
     }
 
-    // Öğ²ã·´Ïò¼ÆËãÎó²î²¢ĞŞ¸ÄÈ¨ÖØ
+    // é€å±‚åå‘è®¡ç®—è¯¯å·®å¹¶ä¿®æ”¹æƒé‡
     public void updateWeight( double[] tar ) {
 	int l = layer.length - 1;
 	for ( int j = 0; j < layerErr[l].length; j++ )
@@ -57,14 +57,14 @@ public class BpDeep {
 		double z = 0.0;
 		for ( int i = 0; i < layerErr[l + 1].length; i++ ) {
 		    z = z + l > 0 ? layerErr[l + 1][i] * layer_weight[l][j][i] : 0;
-		    layer_weight_delta[l][j][i] = mobp * layer_weight_delta[l][j][i] + rate * layerErr[l + 1][i] * layer[l][j];// Òşº¬²ã¶¯Á¿µ÷Õû
-		    layer_weight[l][j][i] += layer_weight_delta[l][j][i];// Òşº¬²ãÈ¨ÖØµ÷Õû
+		    layer_weight_delta[l][j][i] = mobp * layer_weight_delta[l][j][i] + rate * layerErr[l + 1][i] * layer[l][j];// éšå«å±‚åŠ¨é‡è°ƒæ•´
+		    layer_weight[l][j][i] += layer_weight_delta[l][j][i];// éšå«å±‚æƒé‡è°ƒæ•´
 		    if ( j == layerErr[l].length - 1 ) {
-			layer_weight_delta[l][j + 1][i] = mobp * layer_weight_delta[l][j + 1][i] + rate * layerErr[l + 1][i];// ½Ø¾à¶¯Á¿µ÷Õû
-			layer_weight[l][j + 1][i] += layer_weight_delta[l][j + 1][i];// ½Ø¾àÈ¨ÖØµ÷Õû
+			layer_weight_delta[l][j + 1][i] = mobp * layer_weight_delta[l][j + 1][i] + rate * layerErr[l + 1][i];// æˆªè·åŠ¨é‡è°ƒæ•´
+			layer_weight[l][j + 1][i] += layer_weight_delta[l][j + 1][i];// æˆªè·æƒé‡è°ƒæ•´
 		    }
 		}
-		layerErr[l][j] = z * layer[l][j] * ( 1 - layer[l][j] );// ¼ÇÂ¼Îó²î
+		layerErr[l][j] = z * layer[l][j] * ( 1 - layer[l][j] );// è®°å½•è¯¯å·®
 	    }
 	}
     }

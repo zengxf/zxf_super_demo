@@ -30,17 +30,17 @@ public class CookieCompare {
 	    String p1V = v1.getParam().get( key );
 	    String p2V = v2.getParam().get( key );
 	    if ( p1V == null ) {
-		System.out.printf( "v1Ã»ÓĞCookie[%s]£¬v2: [%s] %n", key, p2V );
+		System.out.printf( "v1æ²¡æœ‰Cookie[%s]ï¼Œv2: [%s] %n", key, p2V );
 	    }
 	    else if ( p2V == null ) {
-		System.out.printf( "v2Ã»ÓĞCookie[%s]£¬v1: [%s] %n", key, p1V );
+		System.out.printf( "v2æ²¡æœ‰Cookie[%s]ï¼Œv1: [%s] %n", key, p1V );
 	    }
 	    else if ( !p1V.equals( p2V ) ) {
-		System.out.printf( "v1Óëv2µÄCookie[%s]²»Ò»ÖÂ£¬v1£º[%s]£¬v2: [%s] %n", key, p1V, p2V );
+		System.out.printf( "v1ä¸v2çš„Cookie[%s]ä¸ä¸€è‡´ï¼Œv1ï¼š[%s]ï¼Œv2: [%s] %n", key, p1V, p2V );
 	    }
 	}
 
-	System.out.println( "±È½ÏÍê±Ï£¡" );
+	System.out.println( "æ¯”è¾ƒå®Œæ¯•ï¼" );
     }
 
     public static RequestVO analyzeOriginalCookie( String cookie ) throws UnsupportedEncodingException {
@@ -53,7 +53,7 @@ public class CookieCompare {
 	for ( int i = 1; i < params.length; i++ ) {
 	    String param = params[i];
 	    String[] kv = param.split( "=" );
-	    vo.getParam().put( kv[0], kv.length > 1 ? kv[1] : "ÎŞ" );
+	    vo.getParam().put( kv[0], kv.length > 1 ? kv[1] : "æ— " );
 	}
 
 	return vo;

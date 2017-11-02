@@ -15,10 +15,10 @@ class StampedLockTest extends Util {
 	    long stamp = lock.readLock();
 	    try {
 		if ( count == 0 ) {
-		    stamp = lock.tryConvertToWriteLock( stamp ); // ����ת��Ϊд���������ٴν����ͼ���ʮ��ʵ��
+		    stamp = lock.tryConvertToWriteLock( stamp ); // 读锁转换为写锁而不用再次解锁和加锁十分实用
 		    if ( stamp == 0L ) {
 			System.out.println( "Could not convert to write lock" );
-			stamp = lock.writeLock(); // ������ǰ�̣߳�ֱ���п��õ�д��
+			stamp = lock.writeLock(); // 阻塞当前线程，直到有可用的写锁
 		    }
 		    count = 23;
 		}
@@ -30,9 +30,9 @@ class StampedLockTest extends Util {
 	stop( executor );
     }
 
-    // �����ֹ���
-    // * �ֹ����ڸո��õ���֮������Ч�ġ�д��������ȴ��ֹ۵Ķ������ͷš�
-    // * ��д���ͷ�ʱ���ֹ۵Ķ� ����������Ч״̬�� ������ʹ���ֹ���ʱ������Ҫÿ���ڷ����κι����ɱ����֮��Ҫ���������ȷ ��������Ȼ��Ч
+    // 测试乐观锁
+    // * 乐观锁在刚刚拿到锁之后是有效的。写锁而无需等待乐观的读锁被释放。
+    // * 当写锁释放时，乐观的读 锁还处于无效状态。 所以在使用乐观锁时，你需要每次在访问任何共享可变变量之后都要检查锁，来确 保读锁仍然有效
     static void testOptimisticRead() {
 	ExecutorService executor = Executors.newFixedThreadPool( 2 );
 	StampedLock lock = new StampedLock();

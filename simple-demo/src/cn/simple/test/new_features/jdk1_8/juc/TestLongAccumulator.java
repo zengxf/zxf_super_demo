@@ -24,7 +24,7 @@ public class TestLongAccumulator extends Util {
     }
 
     static void test1() {
-	LongBinaryOperator op = ( v, x ) -> 2 * v + x; // x ÊÇ²ÎÊı
+	LongBinaryOperator op = ( v, x ) -> 2 * v + x; // x æ˜¯å‚æ•°
 	LongAccumulator accumulator = new LongAccumulator( op, 1L ); // base: 1
 	ExecutorService executor = Executors.newFixedThreadPool( 4 );
 	int end = 4;

@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Êä³öGCµÄÏêÏ¸ÈÕÖ¾ <br>
+ * è¾“å‡ºGCçš„è¯¦ç»†æ—¥å¿— <br>
  * <br>
  * 
- * ²ÎÊı
+ * å‚æ•°
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -XX:+PrintGCDetails
  * </pre>
  * 
- * Êä³öÊ¾Àı
+ * è¾“å‡ºç¤ºä¾‹
  * 
  * <pre>
  * [GC (System.gc()) [PSYoungGen: 3971K->1472K(5632K)] 25360K->25452K(202240K), 0.0221434 secs] [Times: user=0.25 sys=0.00, real=0.02 secs] 

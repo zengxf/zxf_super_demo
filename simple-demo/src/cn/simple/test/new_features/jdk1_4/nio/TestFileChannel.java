@@ -46,18 +46,18 @@ public class TestFileChannel {
     }
 
     /**
-     * scatter / gather ·Ö¿ª´¦ÀíheaderÓëbodyµÄ×ö·¨»áÊ¹¿ª·¢¸ü¼òÃ÷
+     * scatter / gather åˆ†å¼€å¤„ç†headerä¸bodyçš„åšæ³•ä¼šä½¿å¼€å‘æ›´ç®€æ˜
      * <p>
-     * "scattering read"ÊÇ°ÑÊı¾İ´Óµ¥¸öChannelĞ´Èëµ½¶à¸öbuffer
+     * "scattering read"æ˜¯æŠŠæ•°æ®ä»å•ä¸ªChannelå†™å…¥åˆ°å¤šä¸ªbuffer
      * 
      * <pre>
      * ByteBuffer header = ByteBuffer.allocate( 128 );
      * ByteBuffer body = ByteBuffer.allocate( 1024 );
      * ByteBuffer[] bufferArray = { header, body };
-     * channel.read( bufferArray ); // Ò»¸öbufferĞ´Âúºó£¬½Ó×ÅĞ´µ½ÏÂÒ»¸öbufferÖĞ
+     * channel.read( bufferArray ); // ä¸€ä¸ªbufferå†™æ»¡åï¼Œæ¥ç€å†™åˆ°ä¸‹ä¸€ä¸ªbufferä¸­
      * </pre>
      * 
-     * "gathering write"°Ñ¶à¸öbufferµÄÊı¾İĞ´Èëµ½Í¬Ò»¸öchannelÖĞ
+     * "gathering write"æŠŠå¤šä¸ªbufferçš„æ•°æ®å†™å…¥åˆ°åŒä¸€ä¸ªchannelä¸­
      * 
      * <pre>
      * // write data into buffers
@@ -70,7 +70,7 @@ public class TestFileChannel {
     }
 
     /**
-     * transferFrom·½·¨°ÑÊı¾İ´ÓÍ¨µÀÔ´´«Êäµ½FileChannel
+     * transferFromæ–¹æ³•æŠŠæ•°æ®ä»é€šé“æºä¼ è¾“åˆ°FileChannel
      * 
      * @throws IOException
      */
@@ -84,14 +84,14 @@ public class TestFileChannel {
         ) {
             FileChannel fromChannel = fromFile.getChannel();
             FileChannel toChannel = toFile.getChannel();
-            long position = toChannel.size(); // to Channel µÄÎ»ÖÃ
+            long position = toChannel.size(); // to Channel çš„ä½ç½®
             long count = fromChannel.size();
-            toChannel.transferFrom( fromChannel, position, count ); // ²»»á¸²¸Ç
+            toChannel.transferFrom( fromChannel, position, count ); // ä¸ä¼šè¦†ç›–
         }
     }
 
     /**
-     * transferTo·½·¨°ÑFileChannelÊı¾İ´«Êäµ½ÁíÒ»¸öchannel
+     * transferToæ–¹æ³•æŠŠFileChannelæ•°æ®ä¼ è¾“åˆ°å¦ä¸€ä¸ªchannel
      * 
      * @throws IOException
      */
@@ -105,9 +105,9 @@ public class TestFileChannel {
         ) {
             FileChannel fromChannel = fromFile.getChannel();
             FileChannel toChannel = toFile.getChannel();
-            long position = 0; // from Channel µÄÎ»ÖÃ¡£ÒªÈ«²¿Ğ´ÔòÎª 0
+            long position = 0; // from Channel çš„ä½ç½®ã€‚è¦å…¨éƒ¨å†™åˆ™ä¸º 0
             long count = 10;
-            fromChannel.transferTo( position, count, toChannel ); // »á¸²¸Ç...
+            fromChannel.transferTo( position, count, toChannel ); // ä¼šè¦†ç›–...
         }
     }
 

@@ -1,7 +1,7 @@
 package cn.simple.test.algorithm.shift_bit;
 
 /**
- * ×Ö½Ú¸ßµÍÎ»½»»»
+ * å­—èŠ‚é«˜ä½ä½äº¤æ¢
  * 
  * @author zengxf
  */
@@ -16,7 +16,7 @@ public class ShiftBit1 {
     }
 
     /**
-     * µûÊ½½»»»
+     * è¶å¼äº¤æ¢
      */
     static void ds() {
 	int data = 0b1101_1001;
@@ -31,7 +31,7 @@ public class ShiftBit1 {
     }
 
     /**
-     * Öğ¸ö½»»»Æä¸ßµÍÎ»
+     * é€ä¸ªäº¤æ¢å…¶é«˜ä½ä½
      */
     static void zg() {
 	int data = 0b1010_1001;

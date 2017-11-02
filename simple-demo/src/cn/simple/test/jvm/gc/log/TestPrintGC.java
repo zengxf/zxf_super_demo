@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * 输出GC日志 <br>
+ * 杈撳嚭GC鏃ュ織 <br>
  * <br>
  * 
- * 参数
+ * 鍙傛暟
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -XX:+PrintGC
  * </pre>
  * 
- * 输出示例
+ * 杈撳嚭绀轰緥
  * 
  * <pre>
  * [GC (System.gc())  25344K->25572K(202240K), 0.0218945 secs]

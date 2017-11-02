@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ���̰߳�ȫ
+ * 非线程安全
  * 
  * @author zxf
  */

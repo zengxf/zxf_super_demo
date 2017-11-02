@@ -16,11 +16,11 @@ public class NetworkClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass( String name ) throws ClassNotFoundException {
 	Class<?> clazz = null;
-	byte[] classData = getClassData( name ); // 根据类的二进制名称,获得该class文件的字节码数组
+	byte[] classData = getClassData( name ); // 鏍规嵁绫荤殑浜岃繘鍒跺悕绉�,鑾峰緱璇lass鏂囦欢鐨勫瓧鑺傜爜鏁扮粍
 	if ( classData == null ) {
 	    throw new ClassNotFoundException();
 	}
-	clazz = defineClass( name, classData, 0, classData.length ); // 将class的字节码数组转换成Class类的实例
+	clazz = defineClass( name, classData, 0, classData.length ); // 灏哻lass鐨勫瓧鑺傜爜鏁扮粍杞崲鎴怌lass绫荤殑瀹炰緥
 	return clazz;
     }
 

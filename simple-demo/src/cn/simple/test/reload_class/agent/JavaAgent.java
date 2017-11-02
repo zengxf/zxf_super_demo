@@ -34,39 +34,39 @@ public class JavaAgent {
 	jarPath = getJarPath();
 	logger.log( Level.INFO, "java agent:jarPath:" + jarPath );
 
-	// µ±Ç°½ø³Ìpid
+	// å½“å‰è¿›ç¨‹pid
 	String name = ManagementFactory.getRuntimeMXBean().getName();
 	pid = name.split( "@" )[0];
-	logger.log( Level.INFO, "µ±Ç°½ø³Ìpid£º" + pid );
+	logger.log( Level.INFO, "å½“å‰è¿›ç¨‹pidï¼š" + pid );
     }
 
     /**
-     * »ñÈ¡jar°üÂ·¾¶
+     * è·å–jaråŒ…è·¯å¾„
      * 
      * @return
      */
     public static String getJarPath() {
-	// StringUtilsÊÇjarÎÄ¼şÄÚÈİ
+	// StringUtilsæ˜¯jaræ–‡ä»¶å†…å®¹
 	URL url = JavaAgent.class.getProtectionDomain().getCodeSource().getLocation();
 	String filePath = null;
 	try {
-	    filePath = URLDecoder.decode( url.getPath(), "utf-8" );// ×ª»¯Îªutf-8±àÂë
+	    filePath = URLDecoder.decode( url.getPath(), "utf-8" );// è½¬åŒ–ä¸ºutf-8ç¼–ç 
 	} catch ( Exception e ) {
 	    e.printStackTrace();
 	}
-	if ( filePath.endsWith( ".jar" ) ) {// ¿ÉÖ´ĞĞjar°üÔËĞĞµÄ½á¹ûÀï°üº¬".jar"
-	    // ½ØÈ¡Â·¾¶ÖĞµÄjar°üÃû
+	if ( filePath.endsWith( ".jar" ) ) {// å¯æ‰§è¡ŒjaråŒ…è¿è¡Œçš„ç»“æœé‡ŒåŒ…å«".jar"
+	    // æˆªå–è·¯å¾„ä¸­çš„jaråŒ…å
 	    filePath = filePath.substring( 0, filePath.lastIndexOf( "/" ) + 1 );
 	}
 
 	File file = new File( filePath );
 
-	filePath = file.getAbsolutePath();// µÃµ½windowsÏÂµÄÕıÈ·Â·¾¶
+	filePath = file.getAbsolutePath();// å¾—åˆ°windowsä¸‹çš„æ­£ç¡®è·¯å¾„
 	return filePath;
     }
 
     private static void init() throws IOException, AttachNotSupportedException, AgentLoadException, AgentInitializationException {
-	// ĞéÄâ»ú¼ÓÔØ
+	// è™šæ‹ŸæœºåŠ è½½
 	vm = VirtualMachine.attach( pid );
 	vm.loadAgent( jarPath + "/javaagent.jar" );
 
@@ -83,7 +83,7 @@ public class JavaAgent {
     }
 
     /**
-     * ÖØĞÂ¼ÓÔØÀà
+     * é‡æ–°åŠ è½½ç±»
      *
      * @param classArr
      * @throws Exception
@@ -92,7 +92,7 @@ public class JavaAgent {
 	init();
 
 	try {
-	    // 1.ÕûÀíĞèÒªÖØ¶¨ÒåµÄÀà
+	    // 1.æ•´ç†éœ€è¦é‡å®šä¹‰çš„ç±»
 	    List<ClassDefinition> classDefList = new ArrayList<ClassDefinition>();
 	    for ( String className : classArr ) {
 		Class<?> c = Class.forName( className );

@@ -34,10 +34,10 @@ public class TelnetTest {
 		    if (exitSign) {
 			if (password.equals(cmd)) {
 			    os.write("\r\nShutdown OK !!!".getBytes());
-			    System.out.printf("Ô¶³ÌIP [%s] Ö÷»úÒÑÉèÖÃÎª¹Ø±Õ£¡%n", sc.getInetAddress().getHostAddress());
+			    System.out.printf("è¿œç¨‹IP [%s] ä¸»æœºå·²è®¾ç½®ä¸ºå…³é—­ï¼%n", sc.getInetAddress().getHostAddress());
 			    break connection;
 			} else {
-			    os.write("ÃÜÂë²»¶Ô£¡password: ".getBytes());
+			    os.write("å¯†ç ä¸å¯¹ï¼password: ".getBytes());
 			}
 		    }
 		    if (!exitSign) {
@@ -50,10 +50,10 @@ public class TelnetTest {
 				break session;
 			    case "shutdown":
 				exitSign = true;
-				os.write("password£º".getBytes());
+				os.write("passwordï¼š".getBytes());
 				break;
 			    default:
-				os.write("Ã»ÓĞ´ËÃüÁî\r\n".getBytes());
+				os.write("æ²¡æœ‰æ­¤å‘½ä»¤\r\n".getBytes());
 				break;
 			}
 		    }

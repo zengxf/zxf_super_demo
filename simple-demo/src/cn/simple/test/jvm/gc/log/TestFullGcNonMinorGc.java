@@ -2,10 +2,10 @@ package cn.simple.test.jvm.gc.log;
 
 /**
  * 
- * 验证 FullGC 没有调用 MinorGC <br>
+ * 楠岃瘉 FullGC 娌℃湁璋冪敤 MinorGC <br>
  * <br>
  * 
- * 参数
+ * 鍙傛暟
  * 
  * <pre>
  * -verbose:gc

@@ -12,7 +12,7 @@ public class ReadXmlUtil {
     static String readXml( String fileName ) throws IOException {
         StringBuffer buffer = null;
         String path = ParseUserTest.class.getResource( "" ).getPath() + fileName;
-        // ¶ÁÈëxmlÎÄ¼şÁ÷
+        // è¯»å…¥xmlæ–‡ä»¶æµ
         InputStream is = new FileInputStream( new File( path ) );
         BufferedReader in = new BufferedReader( new InputStreamReader( is, "UTF8" ) );
         buffer = new StringBuffer();

@@ -34,7 +34,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * Íê³Éºó´¦Àí
+     * å®Œæˆåå¤„ç†
      */
     public static void testWhenComplete() throws InterruptedException, ExecutionException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -52,7 +52,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * ÈçºÎ´´½¨ºÍ»ñÈ¡
+     * å¦‚ä½•åˆ›å»ºå’Œè·å–
      */
     public static void howStart() throws InterruptedException, ExecutionException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -68,7 +68,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * Òì³£´¦Àí
+     * å¼‚å¸¸å¤„ç†
      */
     public static void testHandle() throws InterruptedException, ExecutionException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -83,21 +83,21 @@ public class TestCompletableFuture {
     }
 
     /**
-     * Òì³£´¦Àí
+     * å¼‚å¸¸å¤„ç†
      */
     public static void testExceptionally() throws InterruptedException, ExecutionException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
 	    return "zero";
 	}, executor );
 	CompletableFuture<String> cf = f1.exceptionally( ( t ) -> {
-	    System.out.println( "t: " + t ); // Òì³£Ê±²Åµ÷ÓÃ
+	    System.out.println( "t: " + t ); // å¼‚å¸¸æ—¶æ‰è°ƒç”¨
 	    return "def";
 	} );
 	System.out.println( "cf result: " + cf.get() );
     }
 
     /**
-     * µÈ´ı¶à¸ö future µ±ÖĞ×î¿ìµÄÒ»¸ö·µ»Ø
+     * ç­‰å¾…å¤šä¸ª future å½“ä¸­æœ€å¿«çš„ä¸€ä¸ªè¿”å›
      */
     public static void testAnyOf() throws InterruptedException {
 	List<CompletableFuture<String>> futures = IntStream.range( 1, 10 )//
@@ -110,7 +110,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * µÈ´ı¶à¸ö future ·µ»Ø
+     * ç­‰å¾…å¤šä¸ª future è¿”å›
      */
     public static void testAllOf() throws InterruptedException {
 	List<CompletableFuture<String>> futures = IntStream.range( 1, 10 ) //
@@ -143,8 +143,8 @@ public class TestCompletableFuture {
     }
 
     /**
-     * È¡ÆäÖĞ·µ»Ø×î¿ìµÄÒ»¸ö<br>
-     * µ±ÈÎÒâÒ»¸ö CompletionStage Íê³ÉµÄÊ±ºò£¬action Õâ¸öÏû·ÑÕß¾Í»á±»Ö´ĞĞ¡£Õâ¸ö·½·¨·µ»Ø CompletableFuture<Void>
+     * å–å…¶ä¸­è¿”å›æœ€å¿«çš„ä¸€ä¸ª<br>
+     * å½“ä»»æ„ä¸€ä¸ª CompletionStage å®Œæˆçš„æ—¶å€™ï¼Œaction è¿™ä¸ªæ¶ˆè´¹è€…å°±ä¼šè¢«æ‰§è¡Œã€‚è¿™ä¸ªæ–¹æ³•è¿”å› CompletableFuture<Void>
      */
     public static void testAcceptEither() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -175,7 +175,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * µ±ÈÎÒâÒ»¸ö CompletionStage Íê³ÉµÄÊ±ºò£¬fn »á±»Ö´ĞĞ,ËüµÄ·µ»ØÖµ»áµ±×öĞÂµÄ CompletableFuture<U> µÄ¼ÆËã½á¹û
+     * å½“ä»»æ„ä¸€ä¸ª CompletionStage å®Œæˆçš„æ—¶å€™ï¼Œfn ä¼šè¢«æ‰§è¡Œ,å®ƒçš„è¿”å›å€¼ä¼šå½“åšæ–°çš„ CompletableFuture<U> çš„è®¡ç®—ç»“æœ
      */
     public static void testApplyToEither() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -204,7 +204,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * thenAcceptBoth ÓÃÓÚ×éºÏÁ½¸ö²¢·¢µÄÈÎÎñ, ²úÉúĞÂµÄ future Ã»ÓĞ·µ»ØÖµ
+     * thenAcceptBoth ç”¨äºç»„åˆä¸¤ä¸ªå¹¶å‘çš„ä»»åŠ¡, äº§ç”Ÿæ–°çš„ future æ²¡æœ‰è¿”å›å€¼
      */
     public static void testThenAcceptBoth() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -239,7 +239,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * thenCombine ÓÃÓÚ×éºÏÁ½¸ö²¢·¢µÄÈÎÎñ, ²úÉúĞÂµÄ future ÓĞ·µ»ØÖµ
+     * thenCombine ç”¨äºç»„åˆä¸¤ä¸ªå¹¶å‘çš„ä»»åŠ¡, äº§ç”Ÿæ–°çš„ future æœ‰è¿”å›å€¼
      */
     public static void testThenCombine() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -276,7 +276,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * compose Ïàµ±ÓÚ flatMap, ±ÜÃâ CompletableFuture<CompletableFuture<String>> ÕâÖÖ
+     * compose ç›¸å½“äº flatMap, é¿å… CompletableFuture<CompletableFuture<String>> è¿™ç§
      */
     public static void testThenCompose() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -301,7 +301,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * ½á¹û´«µİ(±ä»»)
+     * ç»“æœä¼ é€’(å˜æ¢)
      */
     public static void testThenApply() throws ExecutionException, InterruptedException {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -318,7 +318,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * future Íê³É´¦Àí, ¿É»ñÈ¡½á¹û
+     * future å®Œæˆå¤„ç†, å¯è·å–ç»“æœ
      */
     public static void testThenAccept() {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {
@@ -330,7 +330,7 @@ public class TestCompletableFuture {
     }
 
     /**
-     * future Íê³É´¦Àí
+     * future å®Œæˆå¤„ç†
      */
     public static void testThenRun() {
 	CompletableFuture<String> f1 = CompletableFuture.supplyAsync( () -> {

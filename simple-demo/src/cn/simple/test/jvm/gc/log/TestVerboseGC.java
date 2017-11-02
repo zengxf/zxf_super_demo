@@ -5,18 +5,18 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Êä³öGCÈÕÖ¾¡£ºÍ -XX:+PringGC Ò»Ñù <br>
+ * è¾“å‡ºGCæ—¥å¿—ã€‚å’Œ -XX:+PringGC ä¸€æ · <br>
  * <br>
  * 
- * ²ÎÊı
+ * å‚æ•°
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -verbose:gc
- * »ò -verbosegc 
+ * æˆ– -verbosegc 
  * </pre>
  * 
- * Êä³öÊ¾Àı
+ * è¾“å‡ºç¤ºä¾‹
  * 
  * <pre>
  * [GC (System.gc())  25344K->25572K(202240K), 0.0218945 secs]

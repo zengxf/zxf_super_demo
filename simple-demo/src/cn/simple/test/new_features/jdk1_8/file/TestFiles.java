@@ -55,7 +55,7 @@ public class TestFiles {
 	}
     }
 
-    // ¾«Ï¸¿ØÖÆ
+    // ç²¾ç»†æ§åˆ¶
     static void filesNewBufferedReader() throws IOException {
 	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
 	try ( BufferedReader reader = Files.newBufferedReader( path ) ) {
@@ -63,7 +63,7 @@ public class TestFiles {
 	}
     }
 
-    // ÄÚ´æ¸ßĞ§¡£²»ÊÇÒ»´ÎĞÔ°ÑËùÓĞĞĞ¶¼¶Á½øÄÚ´æ¡£
+    // å†…å­˜é«˜æ•ˆã€‚ä¸æ˜¯ä¸€æ¬¡æ€§æŠŠæ‰€æœ‰è¡Œéƒ½è¯»è¿›å†…å­˜ã€‚
     static void filesLines() throws IOException {
 	Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
 	try ( Stream<String> stream = Files.lines( curPath.resolve( "a.txt" ) ) ) {
@@ -74,7 +74,7 @@ public class TestFiles {
 	}
     }
 
-    // ¶ÔÄÚ´æ²¢²»Ê®·Ö¸ßĞ§£¬ÒòÎªÕû¸öÎÄ¼ş¶¼»á¶Á½øÄÚ´æ
+    // å¯¹å†…å­˜å¹¶ä¸ååˆ†é«˜æ•ˆï¼Œå› ä¸ºæ•´ä¸ªæ–‡ä»¶éƒ½ä¼šè¯»è¿›å†…å­˜
     static void readAllAndWrite() throws IOException {
 	Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
 	System.out.println( curPath );

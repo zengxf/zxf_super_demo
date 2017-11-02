@@ -8,7 +8,7 @@ public class ClassLoaderTest {
 	    String rootUrl = "https://raw.githubusercontent.com/zengxf/GitTest/master/classes";
 	    NetworkClassLoader networkClassLoader = new NetworkClassLoader( rootUrl );
 	    /**
-	     * ²âÊÔÊ±£¬ĞèÒªÏÈ°Ñ NetClassLoaderTestC1 É¾³ı
+	     * æµ‹è¯•æ—¶ï¼Œéœ€è¦å…ˆæŠŠ NetClassLoaderTestC1 åˆ é™¤
 	     */
 	    String classname = "cn.simple.test.reload_class.netCL.NetClassLoaderTestC1";
 	    Class<?> clazz = networkClassLoader.loadClass( classname );

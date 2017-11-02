@@ -4,10 +4,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * JIT ±àÒë²âÊÔ
+ * JIT ç¼–è¯‘æµ‹è¯•
  * 
  * <pre>
- * ²ÎÊı
+ * å‚æ•°
  * 
  * -XX:CompileThreshold=1500 -XX:+PrintCompilation -XX:+CITime
  * </pre>

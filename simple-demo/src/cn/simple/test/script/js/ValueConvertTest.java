@@ -9,7 +9,7 @@ public class ValueConvertTest {
     public static void main( String[] args ) throws ScriptException {
 	ScriptEngine engine = new ScriptEngineManager().getEngineByName( "js" );
 	System.out.println( engine );
-	// ¶¨ÒåÀàuser
+	// å®šä¹‰ç±»user
 	String str = "var obj = { value: 1, key: 'zxf' };  obj;";
 	Bindings msg = (Bindings) engine.eval( str );
 	System.out.println( msg.get( "value" ) );

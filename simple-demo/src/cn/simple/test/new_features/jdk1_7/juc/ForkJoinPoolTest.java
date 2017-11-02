@@ -8,29 +8,29 @@ public class ForkJoinPoolTest {
 	ForkJoinPool forkJoinPool = new ForkJoinPool( 4 );
 
 	PiEstimateTask task = new PiEstimateTask( 0, 1_000_000_000, 10_000_000 );
-	Future<Double> future = forkJoinPool.submit( task ); // ²»×èÈû
+	Future<Double> future = forkJoinPool.submit( task ); // ä¸é˜»å¡
 
 	double pi = future.get();
-	System.out.println( "(my  ) ¦Ğ µÄÖµ£º" + pi );
+	System.out.println( "(my  ) Ï€ çš„å€¼ï¼š" + pi );
 	System.out.println();
-	System.out.println( "(java) ¦Ğ µÄÖµ£º" + Math.PI );
-	System.out.println( "future Ö¸ÏòµÄ¶ÔÏóÊÇ task Âğ£º" + ( future == task ) );
+	System.out.println( "(java) Ï€ çš„å€¼ï¼š" + Math.PI );
+	System.out.println( "future æŒ‡å‘çš„å¯¹è±¡æ˜¯ task å—ï¼š" + ( future == task ) );
 
-	forkJoinPool.shutdown(); // ÏòÏß³Ì³Ø·¢ËÍ¹Ø±ÕµÄÖ¸Áî
+	forkJoinPool.shutdown(); // å‘çº¿ç¨‹æ± å‘é€å…³é—­çš„æŒ‡ä»¤
     }
 
     static void forkJoin() {
 	ForkJoinPool forkJoinPool = new ForkJoinPool( 8 );
 
-	// ¼ÆËã 10 ÒÚÏî£¬·Ö¸îÈÎÎñµÄÁÙ½çÖµÎª 1 Ç§Íò
+	// è®¡ç®— 10 äº¿é¡¹ï¼Œåˆ†å‰²ä»»åŠ¡çš„ä¸´ç•Œå€¼ä¸º 1 åƒä¸‡
 	PiEstimateTask task = new PiEstimateTask( 0, 1_000_000_000, 10_000_000 );
 
-	double pi = forkJoinPool.invoke( task ); // ×èÈû£¬Ö±µ½ÈÎÎñÖ´ĞĞÍê±Ï·µ»Ø½á¹û
+	double pi = forkJoinPool.invoke( task ); // é˜»å¡ï¼Œç›´åˆ°ä»»åŠ¡æ‰§è¡Œå®Œæ¯•è¿”å›ç»“æœ
 
-	System.out.println( "(my  ) ¦Ğ µÄÖµ£º" + pi );
+	System.out.println( "(my  ) Ï€ çš„å€¼ï¼š" + pi );
 	System.out.println();
-	System.out.println( "(java) ¦Ğ µÄÖµ£º" + Math.PI );
+	System.out.println( "(java) Ï€ çš„å€¼ï¼š" + Math.PI );
 
-	forkJoinPool.shutdown(); // ÏòÏß³Ì³Ø·¢ËÍ¹Ø±ÕµÄÖ¸Áî
+	forkJoinPool.shutdown(); // å‘çº¿ç¨‹æ± å‘é€å…³é—­çš„æŒ‡ä»¤
     }
 }

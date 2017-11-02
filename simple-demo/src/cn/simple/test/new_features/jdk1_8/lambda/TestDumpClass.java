@@ -3,10 +3,10 @@ package cn.simple.test.new_features.jdk1_8.lambda;
 import java.util.function.Function;
 
 /**
- * 测试产生的中间类 <br>
+ * 娴嬭瘯浜х敓鐨勪腑闂寸被 <br>
  * -Djdk.internal.lambda.dumpProxyClasses<br>
  * 
- * 测试-查看私有方法：javap -p TestDumpClass.class
+ * 娴嬭瘯-鏌ョ湅绉佹湁鏂规硶锛歫avap -p TestDumpClass.class
  * 
  * @author zengxf
  */

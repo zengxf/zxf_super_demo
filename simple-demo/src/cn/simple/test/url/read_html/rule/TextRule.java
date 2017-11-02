@@ -2,7 +2,7 @@ package cn.simple.test.url.read_html.rule;
 
 public class TextRule {
 
-    public final String cssQuery; // ¿¼ÂÇĞ§ÂÊ£¬²»±ØÍêÈ«Ğ´³öÎ¨Ò»µÄ
+    public final String cssQuery; // è€ƒè™‘æ•ˆç‡ï¼Œä¸å¿…å®Œå…¨å†™å‡ºå”¯ä¸€çš„
     public final int index;
 
     /**

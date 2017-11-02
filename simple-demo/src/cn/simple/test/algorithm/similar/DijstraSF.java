@@ -7,9 +7,9 @@ public class DijstraSF {
 	int n = 99;
 	int[] num = new int[m.length];
 	num = zhaoqian( m, n );
-	System.out.println( n + "µÄÕÒÇ®·½°¸£º" );
+	System.out.println( n + "çš„æ‰¾é’±æ–¹æ¡ˆï¼š" );
 	for ( int i = 0; i < m.length; i++ )
-	    System.out.println( num[i] + "Ã¶" + m[i] + "ÃæÖµ" );
+	    System.out.println( num[i] + "æžš" + m[i] + "é¢å€¼" );
     }
 
     public static int[] zhaoqian( int m[], int n ) {

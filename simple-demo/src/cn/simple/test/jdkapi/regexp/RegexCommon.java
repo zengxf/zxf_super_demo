@@ -38,7 +38,7 @@ public class RegexCommon {
     }
 
     /**
-     * Base64·½Ê½½âÂë
+     * Base64æ–¹å¼è§£ç 
      * 
      * @param old
      * @param charset
@@ -52,7 +52,7 @@ public class RegexCommon {
     }
 
     /**
-     * ³£¹æ·½Ê½½âÂë
+     * å¸¸è§„æ–¹å¼è§£ç 
      * 
      * @param old
      * @param charset
@@ -84,7 +84,7 @@ public class RegexCommon {
     }
 
     /**
-     * ½«¡°=D6=D0=CE=C4¡±×ª»»³É¡°ÖĞÎÄ¡±
+     * å°†â€œ=D6=D0=CE=C4â€è½¬æ¢æˆâ€œä¸­æ–‡â€
      * 
      * @param old
      * @param charset

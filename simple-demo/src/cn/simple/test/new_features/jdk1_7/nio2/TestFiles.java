@@ -14,7 +14,7 @@ import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
 
 /**
- * {@link Files#move}Óë{@link java.io.File#renameTo}ÓĞµãÀàËÆ
+ * {@link Files#move}ä¸{@link java.io.File#renameTo}æœ‰ç‚¹ç±»ä¼¼
  * 
  * <p>
  * Created by zengxf on 2017-08-14
@@ -31,7 +31,7 @@ public class TestFiles {
         Files.walkFileTree( Paths.get( "" ), new SimpleFileVisitor<Path>() {
         } );
 
-        { // µİ¹éÉ¾³ıÄ¿Â¼£¬ÔÚvisitFile()½Ó¿ÚÖĞÉ¾³ıËùÓĞÎÄ¼ş£¬×îºóÔÚpostVisitDirectory()ÄÚÉ¾³ıÄ¿Â¼±¾Éí
+        { // é€’å½’åˆ é™¤ç›®å½•ï¼Œåœ¨visitFile()æ¥å£ä¸­åˆ é™¤æ‰€æœ‰æ–‡ä»¶ï¼Œæœ€ååœ¨postVisitDirectory()å†…åˆ é™¤ç›®å½•æœ¬èº«
             Path rootPath = Paths.get( "data/to-delete" );
             try {
                 Files.walkFileTree( rootPath, new SimpleFileVisitor<Path>() {
@@ -57,7 +57,7 @@ public class TestFiles {
 
     static void test_exists() {
         Path path = Paths.get( "data/logging.properties" );
-        boolean pathExists = Files.exists( path, LinkOption.NOFOLLOW_LINKS ); // ±íÊ¾¼ì²âÊ±²»°üº¬·ûºÅÁ´½ÓÎÄ¼ş
+        boolean pathExists = Files.exists( path, LinkOption.NOFOLLOW_LINKS ); // è¡¨ç¤ºæ£€æµ‹æ—¶ä¸åŒ…å«ç¬¦å·é“¾æ¥æ–‡ä»¶
         System.out.println( pathExists );
     }
 

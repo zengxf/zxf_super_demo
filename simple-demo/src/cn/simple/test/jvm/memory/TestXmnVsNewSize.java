@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * ²ÎÊıÓÅÏÈ¼¶ÉèÖÃ²âÊÔ£ºÄêÇá´ú´óĞ¡
+ * å‚æ•°ä¼˜å…ˆçº§è®¾ç½®æµ‹è¯•ï¼šå¹´è½»ä»£å¤§å°
  * 
  * <pre>
  * -Xmx200m -Xms200m -Xmn100m -XX:NewSize=20m -XX:MaxNewSize=150m
  * 
- * -XX:NewSize Óë -XX:MaxNewSize ÓÅÏÈ¼¶¸ß
+ * -XX:NewSize ä¸ -XX:MaxNewSize ä¼˜å…ˆçº§é«˜
  * </pre>
  * 
  * <p>

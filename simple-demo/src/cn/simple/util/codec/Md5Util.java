@@ -3,37 +3,37 @@ package cn.simple.util.codec;
 import java.security.MessageDigest;
 
 /**
- * MD5 ¼ÓÃÜ°ïÖúÀà
+ * MD5 åŠ å¯†å¸®åŠ©ç±»
  * 
  * @author zxf
  */
 public class Md5Util {
 
-    // ÓÃÓÚ MD5 ¼ÓÃÜµÄ×Ö·û
+    // ç”¨äº MD5 åŠ å¯†çš„å­—ç¬¦
     private static final char MD5_DIGITS_LOWER[] = //
             { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
     /**
-     * ·µ»Ø 32 Î»³¤¶ÈĞ¡Ğ´×Ö·û
+     * è¿”å› 32 ä½é•¿åº¦å°å†™å­—ç¬¦
      * 
      * @param v
      * @return
      */
     public static String crypt( String v ) {
 	try {
-	    // Ê¹ÓÃÆ½Ì¨µÄÄ¬ÈÏ×Ö·û¼¯½«´Ë String ±àÂëÎª byteĞòÁĞ£¬²¢½«½á¹û´æ´¢µ½Ò»¸öĞÂµÄ byteÊı×éÖĞ
+	    // ä½¿ç”¨å¹³å°çš„é»˜è®¤å­—ç¬¦é›†å°†æ­¤ String ç¼–ç ä¸º byteåºåˆ—ï¼Œå¹¶å°†ç»“æœå­˜å‚¨åˆ°ä¸€ä¸ªæ–°çš„ byteæ•°ç»„ä¸­
 	    byte[] btInput = v.getBytes();
 
-	    // ĞÅÏ¢ÕªÒªÊÇ°²È«µÄµ¥Ïò¹şÏ£º¯Êı£¬Ëü½ÓÊÕÈÎÒâ´óĞ¡µÄÊı¾İ£¬²¢Êä³ö¹Ì¶¨³¤¶ÈµÄ¹şÏ£Öµ¡£
+	    // ä¿¡æ¯æ‘˜è¦æ˜¯å®‰å…¨çš„å•å‘å“ˆå¸Œå‡½æ•°ï¼Œå®ƒæ¥æ”¶ä»»æ„å¤§å°çš„æ•°æ®ï¼Œå¹¶è¾“å‡ºå›ºå®šé•¿åº¦çš„å“ˆå¸Œå€¼ã€‚
 	    MessageDigest mdInst = MessageDigest.getInstance( "MD5" );
 
-	    // MessageDigest¶ÔÏóÍ¨¹ıÊ¹ÓÃ update·½·¨´¦ÀíÊı¾İ£¬ Ê¹ÓÃÖ¸¶¨µÄbyteÊı×é¸üĞÂÕªÒª
+	    // MessageDigestå¯¹è±¡é€šè¿‡ä½¿ç”¨ updateæ–¹æ³•å¤„ç†æ•°æ®ï¼Œ ä½¿ç”¨æŒ‡å®šçš„byteæ•°ç»„æ›´æ–°æ‘˜è¦
 	    mdInst.update( btInput );
 
-	    // ÕªÒª¸üĞÂÖ®ºó£¬Í¨¹ıµ÷ÓÃdigest£¨£©Ö´ĞĞ¹şÏ£¼ÆËã£¬»ñµÃÃÜÎÄ
+	    // æ‘˜è¦æ›´æ–°ä¹‹åï¼Œé€šè¿‡è°ƒç”¨digestï¼ˆï¼‰æ‰§è¡Œå“ˆå¸Œè®¡ç®—ï¼Œè·å¾—å¯†æ–‡
 	    byte[] md = mdInst.digest();
 
-	    // °ÑÃÜÎÄ×ª»»³ÉÊ®Áù½øÖÆµÄ×Ö·û´®ĞÎÊ½
+	    // æŠŠå¯†æ–‡è½¬æ¢æˆåå…­è¿›åˆ¶çš„å­—ç¬¦ä¸²å½¢å¼
 	    int j = md.length;
 	    char str[] = new char[j * 2];
 	    int k = 0;
@@ -43,7 +43,7 @@ public class Md5Util {
 		str[k++] = MD5_DIGITS_LOWER[byte0 & 0xf]; // F
 	    }
 
-	    // ·µ»Ø¾­¹ı¼ÓÃÜºóµÄ×Ö·û´®
+	    // è¿”å›ç»è¿‡åŠ å¯†åçš„å­—ç¬¦ä¸²
 	    return new String( str );
 	} catch ( Exception e ) {
 	    return null;
@@ -51,7 +51,7 @@ public class Md5Util {
     }
 
     /**
-     * ·µ»Ø 16 Î»³¤¶ÈĞ¡Ğ´×Ö·û
+     * è¿”å› 16 ä½é•¿åº¦å°å†™å­—ç¬¦
      * 
      * @param v
      * @return

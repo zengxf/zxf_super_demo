@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
- * HTML ×ª»»³ÉÍ¼Æ¬µÄ°ïÖúÀà
+ * HTML è½¬æ¢æˆå›¾ç‰‡çš„å¸®åŠ©ç±»
  * <p>
  * Created by zengxf on 2017/5/11.
  */
@@ -27,7 +27,7 @@ public class HtmlToImageUtil {
     public final static int    IMAGE_WIDTH  = 750;
 
     /**
-     * ×ª»»³ÉÍ¼Æ¬
+     * è½¬æ¢æˆå›¾ç‰‡
      *
      * @param html
      * @param headImageUrl
@@ -64,9 +64,9 @@ public class HtmlToImageUtil {
 	int height = image.getHeight( null );
 	log( "imageWidth: %s, imageHeight: %s", width, height );
 
-	{ // ÉèÖÃÍ·
-	    g2d.setBackground( BG_COLOR ); // ÉèÖÃ±³¾°É«
-	    g2d.clearRect( 0, 0, width, height ); // ÓÃ±³¾°É«½øĞĞÌî³äÀ´Çå³ıÖ¸¶¨µÄ¾ØĞÎ
+	{ // è®¾ç½®å¤´
+	    g2d.setBackground( BG_COLOR ); // è®¾ç½®èƒŒæ™¯è‰²
+	    g2d.clearRect( 0, 0, width, height ); // ç”¨èƒŒæ™¯è‰²è¿›è¡Œå¡«å……æ¥æ¸…é™¤æŒ‡å®šçš„çŸ©å½¢
 
 	    int x = ( width - headWidth ) / 2;
 	    int y = 0;
@@ -75,7 +75,7 @@ public class HtmlToImageUtil {
 
 	SwingUtilities.paintComponent( g2d, ed, new JPanel(), 0, headHeight, prefWidth, prefHeight );
 
-	{ // ÉèÖÃË®Ó¡
+	{ // è®¾ç½®æ°´å°
 	    int x = ( width - paperWidth ) / 2;
 	    int startY = headHeight + 24 * 2 + 10;
 	    int blank = height - headHeight;
@@ -91,7 +91,7 @@ public class HtmlToImageUtil {
 	    }
 	}
 
-	g2d.dispose(); // ½áÊø
+	g2d.dispose(); // ç»“æŸ
 
 	return image;
     }

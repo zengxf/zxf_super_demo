@@ -9,7 +9,7 @@ import com.mysql.jdbc.Driver;
 public class ConnectionUtil {
 
     /**
-     * 获取本地连接
+     * 鑾峰彇鏈湴杩炴帴
      * 
      * @return
      */

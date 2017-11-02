@@ -39,7 +39,7 @@ public class TestIntStream {
 
         IntStream.rangeClosed( 1, 3 )//
                 .boxed() //
-                .flatMap( a -> IntStream.rangeClosed( a, 3 ) // ºÏ²¢Á÷
+                .flatMap( a -> IntStream.rangeClosed( a, 3 ) // åˆå¹¶æµ
                         .mapToObj( i -> i ) //
                 ) //
                 .forEach( System.out::println );

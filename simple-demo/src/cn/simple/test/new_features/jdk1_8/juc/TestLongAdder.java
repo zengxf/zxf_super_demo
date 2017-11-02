@@ -8,8 +8,8 @@ import java.util.stream.IntStream;
 public class TestLongAdder extends Util {
     public static void main( String[] args ) {
 	// LongAdder
-	// 当多线程的更新比读取更频繁时，这个类通常比原子数值类性能更好
-	// 缺点是较高的内存开销，因为它在内存中储存了一系列变量
+	// 褰撳绾跨▼鐨勬洿鏂版瘮璇诲彇鏇撮绻佹椂锛岃繖涓被閫氬父姣斿師瀛愭暟鍊肩被鎬ц兘鏇村ソ
+	// 缂虹偣鏄緝楂樼殑鍐呭瓨寮�閿�锛屽洜涓哄畠鍦ㄥ唴瀛樹腑鍌ㄥ瓨浜嗕竴绯诲垪鍙橀噺
 	LongAdder adder = new LongAdder();
 	ExecutorService executor = Executors.newFixedThreadPool( 2 );
 	IntStream.range( 0, 1000 ).forEach( i -> executor.submit( adder::increment ) );

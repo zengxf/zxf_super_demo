@@ -5,7 +5,7 @@ import java.util.concurrent.ForkJoinPool;
 /**
  * list.parallelStream()
  * <p>
- * ÐèÒª±ÜÃâÊµÏÖÓÖÂýÓÖ¿¨µÄÁ÷Ê½²Ù×÷£¬ÒòÎªËü¿ÉÄÜ »áÍÏÂýÄãÓ¦ÓÃÖÐÑÏÖØÒÀÀµ²¢ÐÐÁ÷µÄÆäËü²¿·Ö¡£
+ * éœ€è¦é¿å…å®žçŽ°åˆæ…¢åˆå¡çš„æµå¼æ“ä½œï¼Œå› ä¸ºå®ƒå¯èƒ½ ä¼šæ‹–æ…¢ä½ åº”ç”¨ä¸­ä¸¥é‡ä¾èµ–å¹¶è¡Œæµçš„å…¶å®ƒéƒ¨åˆ†ã€‚
  * 
  * <p>
  * Created by zxf on 2017-04-24

@@ -49,7 +49,7 @@ public class TestDelayQueue {
 	}
 
 	@Override
-	public long getDelay( TimeUnit unit ) { // DelayQueue ÓÃµÄÊÇ NANOSECONDS
+	public long getDelay( TimeUnit unit ) { // DelayQueue ç”¨çš„æ˜¯ NANOSECONDS
 	    long convert = unit.convert( time - System.nanoTime(), TimeUnit.NANOSECONDS );
 	    System.out.println( "unit: " + unit );
 	    System.out.println( "c: " + convert );

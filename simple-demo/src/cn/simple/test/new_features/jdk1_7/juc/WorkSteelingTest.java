@@ -7,8 +7,8 @@ import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Èç¹ûÈÎÎñµÄºÄÊ±ºÜÆ½¾ù£¬Ôò´ËÊ± Work-Stealing ²¢²»ÊÊºÏ£¬<br>
- * ÒòÎªÇÔÈ¡ÈÎÎñÊ±Ò²ÊÇĞèÒªÇÀÕ¼ËøµÄ£¬Õâ»áÔì³É¶îÍâµÄÊ±¼äÏûºÄ£¬¶øÇÒÃ¿¸öÏß³ÌÎ¬»¤Ë«¶Ë¶ÓÁĞÒ²»áÔì³É¸ü´óµÄÄÚ´æÏûºÄ
+ * å¦‚æœä»»åŠ¡çš„è€—æ—¶å¾ˆå¹³å‡ï¼Œåˆ™æ­¤æ—¶ Work-Stealing å¹¶ä¸é€‚åˆï¼Œ<br>
+ * å› ä¸ºçªƒå–ä»»åŠ¡æ—¶ä¹Ÿæ˜¯éœ€è¦æŠ¢å é”çš„ï¼Œè¿™ä¼šé€ æˆé¢å¤–çš„æ—¶é—´æ¶ˆè€—ï¼Œè€Œä¸”æ¯ä¸ªçº¿ç¨‹ç»´æŠ¤åŒç«¯é˜Ÿåˆ—ä¹Ÿä¼šé€ æˆæ›´å¤§çš„å†…å­˜æ¶ˆè€—
  * 
  * <p>
  * Created by zxf on 2017-07-03
@@ -36,12 +36,12 @@ public class WorkSteelingTest {
 	forkJoinPool.shutdown();
 	forkJoinPool.awaitTermination( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
 
-	System.out.println( "±»ÇÔÈ¡µÄÈÎÎñÊıÁ¿£º" + forkJoinPool.getStealCount() );
+	System.out.println( "è¢«çªƒå–çš„ä»»åŠ¡æ•°é‡ï¼š" + forkJoinPool.getStealCount() );
 
 	long finishedTime = System.nanoTime();
 	double time = ( finishedTime - startTime ) / 1E9;
 
-	System.out.printf( "%-18s ÓÃÊ±: %.3f Ãë\n\n", "ForkJoinPool", time );
+	System.out.printf( "%-18s ç”¨æ—¶: %.3f ç§’\n\n", "ForkJoinPool", time );
     }
 
     public static void testThreadPoolExecutor() throws InterruptedException {
@@ -60,7 +60,7 @@ public class WorkSteelingTest {
 	long finishedTime = System.nanoTime();
 	double time = ( finishedTime - startTime ) / 1E9;
 
-	System.out.printf( "%-18s ÓÃÊ±: %.3f Ãë\n\n", "ThreadPoolExecutor", time );
+	System.out.printf( "%-18s ç”¨æ—¶: %.3f ç§’\n\n", "ThreadPoolExecutor", time );
     }
 
     @SuppressWarnings( "serial" )
@@ -82,7 +82,7 @@ public class WorkSteelingTest {
 		}
 	    } else {
 		int sleepTime1 = sleepTime / 2;
-		// (sleepTime & 1) == 0 ±íÊ¾ sleepTime ÎªÅ¼Êı
+		// (sleepTime & 1) == 0 è¡¨ç¤º sleepTime ä¸ºå¶æ•°
 		int sleepTime2 = ( sleepTime & 1 ) == 0 ? sleepTime1 : sleepTime1 + 1;
 
 		SimpleAction subTask1 = new SimpleAction( sleepTime1 );

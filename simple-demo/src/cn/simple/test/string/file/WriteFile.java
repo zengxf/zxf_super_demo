@@ -9,7 +9,7 @@ public class WriteFile {
 	String file = "C:/Users/Administrator/Desktop/test.txt";
 	FileOutputStream fis = new FileOutputStream( file );
 	OutputStreamWriter osw = new OutputStreamWriter( fis, "UTF8" );
-	osw.write( "test 1, ÷–“™" );
+	osw.write( "test 1, ‰∏≠Ë¶Å" );
 	osw.flush();
 	osw.close();
     }

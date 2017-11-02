@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Êä³ö TenuringThreshold µÄĞÂÖµ <br>
+ * è¾“å‡º TenuringThreshold çš„æ–°å€¼ <br>
  * <br>
  * 
- * ²ÎÊı
+ * å‚æ•°
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -XX:+PrintTenuringDistribution
  * </pre>
  * 
- * Êä³öÊ¾Àı
+ * è¾“å‡ºç¤ºä¾‹
  * 
  * <pre>
  * Desired survivor size 2621440 bytes, new threshold 1 (max 15)

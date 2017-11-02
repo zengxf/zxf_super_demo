@@ -18,7 +18,7 @@ public class ExtractUrlLevel {
     }
 
     /**
-     * ÌáÈ¡URLÀïÃæLv1, Lv2µÄÖµ
+     * æå–URLé‡Œé¢Lv1, Lv2çš„å€¼
      * 
      * @param url
      * @return

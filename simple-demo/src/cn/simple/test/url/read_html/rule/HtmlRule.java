@@ -8,6 +8,6 @@ public class HtmlRule {
     public TextRule labelRule;
     public TextRule titleRule;
     public ImageRule imageRule;
-    public List<HrefRule> hrefRules = new ArrayList<>();// 有些页面会有多种样式
+    public List<HrefRule> hrefRules = new ArrayList<>();// 鏈変簺椤甸潰浼氭湁澶氱鏍峰紡
 
 }

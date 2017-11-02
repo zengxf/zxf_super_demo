@@ -23,7 +23,7 @@ public class TestDateTime {
         Date legacyDate = Date.from( instant );
         System.out.println( legacyDate );
 
-        // 不同于java.text.SimpleDateFormat，新的DateTimeFormatter类是不可变的，也是线程安全的
+        // 涓嶅悓浜巎ava.text.SimpleDateFormat锛屾柊鐨凞ateTimeFormatter绫绘槸涓嶅彲鍙樼殑锛屼篃鏄嚎绋嬪畨鍏ㄧ殑
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "MM dd, yyyy - HH:mm" );
         LocalDateTime parsed = LocalDateTime.parse( "09 03, 2014 - 07:13", formatter );
         String string = formatter.format( parsed );

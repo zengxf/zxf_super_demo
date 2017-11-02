@@ -91,7 +91,7 @@ function testJavaMap() {
 	// for each (var e in map.values()) print(e); // val1, val2
 }
 
-// 可以在任何接受lambda表达式的地方使用函数字面值。
+// 鍙互鍦ㄤ换浣曟帴鍙條ambda琛ㄨ揪寮忕殑鍦版柟浣跨敤鍑芥暟瀛楅潰鍊笺��
 function testLambda() {
 	var list2 = new java.util.ArrayList();
 	list2.add("ddd2");
@@ -138,9 +138,9 @@ function testMethod() {
 }
 
 function testImport() {
-	// 导入多个Java包
+	// 瀵煎叆澶氫釜Java鍖�
 	var imports = new JavaImporter(java.io, java.lang);
-	// 所有被导入包的类文件都可以在 with 语句的局部域中访问到
+	// 鎵�鏈夎瀵煎叆鍖呯殑绫绘枃浠堕兘鍙互鍦� with 璇彞鐨勫眬閮ㄥ煙涓闂埌
 	with (imports) {
 		var file = new File(__FILE__);
 		System.out.println(file.getAbsolutePath());
@@ -148,7 +148,7 @@ function testImport() {
 }
 
 function testTransform() {
-	// 一些类似 java.util 的包可以不使用 java.type 或 JavaImporter 直接访问
+	// 涓�浜涚被浼� java.util 鐨勫寘鍙互涓嶄娇鐢� java.type 鎴� JavaImporter 鐩存帴璁块棶
 	var list = new java.util.ArrayList();
 	list.add("s1");
 	list.add("s2");
@@ -164,7 +164,7 @@ function testTransform() {
 	try {
 		print(new cn.simple.test.script.js.JsFunTest());
 	} catch (e) {
-		print("自定义的类不能直接访问!", e);
+		print("鑷畾涔夌殑绫讳笉鑳界洿鎺ヨ闂�!", e);
 	}
 }
 
@@ -173,7 +173,7 @@ function testSuper() {
 	var Runner = Java.extend(SuperRunner);
 	// var runner = new Runner() {
 	// run: function() {
-	// // 访问超类
+	// // 璁块棶瓒呯被
 	// Java.super(runner).run();
 	// print('on my run');
 	// }
@@ -185,7 +185,7 @@ function testLoad() {
 	var file = new java.io.File(
 			'src/cn/simple/test/script/js/js-folder/script2.js');
 
-	// 变量名称互相冲突时，脚本的加载可能会使你的代码崩溃。 这一问题可以通过把脚本文件加载到新的全局上下文来绕过
+	// 鍙橀噺鍚嶇О浜掔浉鍐茬獊鏃讹紝鑴氭湰鐨勫姞杞藉彲鑳戒細浣夸綘鐨勪唬鐮佸穿婧冦�� 杩欎竴闂鍙互閫氳繃鎶婅剼鏈枃浠跺姞杞藉埌鏂扮殑鍏ㄥ眬涓婁笅鏂囨潵缁曡繃
 	loadWithNewGlobal(file.getAbsolutePath());
 
 	load(file.getAbsolutePath());

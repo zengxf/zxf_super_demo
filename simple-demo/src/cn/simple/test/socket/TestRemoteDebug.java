@@ -1,7 +1,7 @@
 package cn.simple.test.socket;
 
 /**
- * ²¢·ÇÌá¹©¶Ë¿Ú£¬¶øÊÇÔ¶³ÌJVMÉèÖÃ
+ * å¹¶éæä¾›ç«¯å£ï¼Œè€Œæ˜¯è¿œç¨‹JVMè®¾ç½®
  * 
  * <p>
  * Created by zxf on 2017-05-17
@@ -17,17 +17,17 @@ public class TestRemoteDebug {
 	}
     }
 }
-// Ô¶³Ìµ÷ÊÔ
-// JVM ²ÎÊı£º
+// è¿œç¨‹è°ƒè¯•
+// JVM å‚æ•°ï¼š
 // -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
 
-// jconsole Ô¶³ÌÁ¬½Ó
+// jconsole è¿œç¨‹è¿æ¥
 // Linux:
-// ÉèÖÃÃÜÂë
+// è®¾ç½®å¯†ç 
 // echo "admin 123" > /base-data/jdk1.8.0_91/jre/lib/management/jmxremote.password
-// ĞŞ¸ÄÎÄ¼şÈ¨ÏŞ
+// ä¿®æ”¹æ–‡ä»¶æƒé™
 // chmod 0400 /base-data/jdk1.8.0_91/jre/lib/management/jmxremote.password
-// JVM ²ÎÊı£º
+// JVM å‚æ•°ï¼š
 // -Dcom.sun.management.jmxremote=true
 // -Djava.rmi.server.hostname=10.10.10.2
 // -Djava.rmi.server.hostname=120.25.93.177
@@ -36,14 +36,14 @@ public class TestRemoteDebug {
 // -Dcom.sun.management.jmxremote.authenticate=true
 // -Dcom.sun.management.jmxremote.ssl=true
 
-// »ù±¾¹¤×÷
+// åŸºæœ¬å·¥ä½œ
 // mkdir -p cn/simple/test/socket
-// ÔËĞĞ Java
+// è¿è¡Œ Java
 // java JVM_PARAM cn.simple.test.socket.TestRemoteDebug
 // java -Djava.rmi.server.hostname=120.25.93.177 -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.port=9000 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 // cn.simple.test.socket.TestRemoteDebug
 
-// JConsole Á¬½Ó URL
+// JConsole è¿æ¥ URL
 // service:jmx:rmi:///jndi/rmi://120.25.93.177:9000/jmxrmi
 // service:jmx:rmi://120.25.93.177:9000/jndi/rmi://120.25.93.177:9000/jmxrmi
 //

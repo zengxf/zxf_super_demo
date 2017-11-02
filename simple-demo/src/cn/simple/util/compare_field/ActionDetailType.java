@@ -1,7 +1,7 @@
 package cn.simple.util.compare_field;
 
 /**
- * 运作详情类型
+ * 杩愪綔璇︽儏绫诲瀷
  * 
  * @author zengxf
  */

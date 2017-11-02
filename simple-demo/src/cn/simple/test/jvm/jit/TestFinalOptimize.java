@@ -1,9 +1,9 @@
 package cn.simple.test.jvm.jit;
 
 /**
- * ·´±àÒë¿´±äÁ¿µÄ final ±êÊ¶ÊÇ·ñ»¹ÔÚ
+ * åç¼–è¯‘çœ‹å˜é‡çš„ final æ ‡è¯†æ˜¯å¦è¿˜åœ¨
  * <p>
- * ¾Ö²¿±äÁ¿ÊÇ²»±£´æ final ±êÊ¶£¬Òò´Ë²¢²»»áÌá¸ßÓÅ»¯ÐÔÄÜ
+ * å±€éƒ¨å˜é‡æ˜¯ä¸ä¿å­˜ final æ ‡è¯†ï¼Œå› æ­¤å¹¶ä¸ä¼šæé«˜ä¼˜åŒ–æ€§èƒ½
  * 
  * <p>
  * Created by zengxf on 2017-10-16

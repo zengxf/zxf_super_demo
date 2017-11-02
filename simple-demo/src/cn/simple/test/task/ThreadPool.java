@@ -6,26 +6,26 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Ïß³Ì³Ø
+ * çº¿ç¨‹æ± 
  * 
  * @author zengxf
  */
 public class ThreadPool {
 
-    // ÓÃÓÚ¶¨Ê±ÓÃµÄ
+    // ç”¨äºå®šæ—¶ç”¨çš„
     private static ScheduledExecutorService taskPool	= Executors.newScheduledThreadPool( 1 );
-    // ÓÃÓÚÅúÁ¿ÓÃµÄ£¬´øÓĞÍøÂçÑÓ³ÙµÄ²Ù×÷
+    // ç”¨äºæ‰¹é‡ç”¨çš„ï¼Œå¸¦æœ‰ç½‘ç»œå»¶è¿Ÿçš„æ“ä½œ
     private static ExecutorService	    commandPool	= Executors.newFixedThreadPool( 20 );
 
     /**
-     * ÁãÑÓ³ÙÇÒÒÔ·ÖÖÓÎªµ¥Î»
+     * é›¶å»¶è¿Ÿä¸”ä»¥åˆ†é’Ÿä¸ºå•ä½
      */
     public static void scheduledMinute( Runnable task, long minutes ) {
 	scheduled0Delay( task, minutes, TimeUnit.MINUTES );
     }
 
     /**
-     * ÁãÑÓ³Ù
+     * é›¶å»¶è¿Ÿ
      */
     public static void scheduled0Delay( Runnable task, long period, TimeUnit unit ) {
 	scheduled( task, 0L, period, unit );
@@ -36,7 +36,7 @@ public class ThreadPool {
 	    try {
 		task.run();
 	    } catch ( Exception e ) {
-		System.out.println( "ÈÎÎñÓĞÎ´²¶»ñµÄÒì³££º" + e );
+		System.out.println( "ä»»åŠ¡æœ‰æœªæ•è·çš„å¼‚å¸¸ï¼š" + e );
 	    }
 	};
 	taskPool.scheduleAtFixedRate( tryTask, initialDelay, period, unit );
@@ -47,7 +47,7 @@ public class ThreadPool {
 	    try {
 		command.run();
 	    } catch ( Exception e ) {
-		System.out.println( "ÃüÁîÓĞÎ´²¶»ñµÄÒì³££º" + e );
+		System.out.println( "å‘½ä»¤æœ‰æœªæ•è·çš„å¼‚å¸¸ï¼š" + e );
 	    }
 	};
 	commandPool.execute( tryCommand );

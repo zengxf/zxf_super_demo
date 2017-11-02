@@ -24,7 +24,7 @@ public class TestJdb {
         for ( i = 0; i < 100; i++ )
             sum += i;
 
-        System.out.println( "×ÜºÍ: " + sum );
+        System.out.println( "æ€»å’Œ: " + sum );
     }
 
     public static int add( int augend, int addend ) {
@@ -37,35 +37,35 @@ public class TestJdb {
     }
 
     static class B {
-        String a = "test ·å";
+        String a = "test å³°";
     }
 
     /**
-     * ÓÃ jdb µ÷ÊÔ
+     * ç”¨ jdb è°ƒè¯•
      * <p>
      * 
-     * ÃüÁî
+     * å‘½ä»¤
      * 
      * <pre>
      * simple-demo> javac -g -d bin src\cn\simple\test\jvm\jdb\TestJdb.java
      * > cd bin
      * > jdb cn.simple.test.jvm.jdb.TestJdb
-     * > jdb -sourcepath ../src cn.simple.test.jvm.jdb.TestJdb      # ¿ÉÓÃÓÚ²é¿´Ô´Âë
-     * help         # ²é¿´°ïÖúĞÅÏ¢
-     * stop at cn.simple.test.jvm.jdb.TestJdb:15        # ĞĞ£¬ÀàÒªÈ«Ãû
-     * stop in cn.simple.test.jvm.jdb.TestJdb.main      # ·½·¨
-     * run          # ¿ªÊ¼ÔËĞĞ
-     * next         # ÏÂÒ»ĞĞ(F6)
-     * step         # ½øÈë·½·¨Ìå(F5)
-     * step up      # Ìø³ö·½·¨Ìå(F7)
-     * cont         # ÔËĞĞµ½ÏÂÒ»¸ö¶Ïµã(F8)
-     * stepi        # ÏÂÒ»ÌõÖ¸Áî
-     * print i      # ´òÓ¡±äÁ¿µÄÖµ
-     * locals       # ²é¿´ËùÓĞ¾Ö²¿±äÁ¿
-     * dump i       # Êä³ö¶ÔÏóĞÅÏ¢£¬¿ÉÕ¹¿ª¶ÔÏóÀïÃæ×Ö¶ÎµÄÖµ£¬Ö»ÏÔÊ¾µ±Ç°µÄ
-     * list         # ²é¿´Ô´Âë
-     * clear class:line   # Çå³ıĞĞÖĞµÄ¶Ïµã
-     * clear        # ÁĞ³ö¶Ïµã£¬stop Ò²ÊÇ
+     * > jdb -sourcepath ../src cn.simple.test.jvm.jdb.TestJdb      # å¯ç”¨äºæŸ¥çœ‹æºç 
+     * help         # æŸ¥çœ‹å¸®åŠ©ä¿¡æ¯
+     * stop at cn.simple.test.jvm.jdb.TestJdb:15        # è¡Œï¼Œç±»è¦å…¨å
+     * stop in cn.simple.test.jvm.jdb.TestJdb.main      # æ–¹æ³•
+     * run          # å¼€å§‹è¿è¡Œ
+     * next         # ä¸‹ä¸€è¡Œ(F6)
+     * step         # è¿›å…¥æ–¹æ³•ä½“(F5)
+     * step up      # è·³å‡ºæ–¹æ³•ä½“(F7)
+     * cont         # è¿è¡Œåˆ°ä¸‹ä¸€ä¸ªæ–­ç‚¹(F8)
+     * stepi        # ä¸‹ä¸€æ¡æŒ‡ä»¤
+     * print i      # æ‰“å°å˜é‡çš„å€¼
+     * locals       # æŸ¥çœ‹æ‰€æœ‰å±€éƒ¨å˜é‡
+     * dump i       # è¾“å‡ºå¯¹è±¡ä¿¡æ¯ï¼Œå¯å±•å¼€å¯¹è±¡é‡Œé¢å­—æ®µçš„å€¼ï¼Œåªæ˜¾ç¤ºå½“å‰çš„
+     * list         # æŸ¥çœ‹æºç 
+     * clear class:line   # æ¸…é™¤è¡Œä¸­çš„æ–­ç‚¹
+     * clear        # åˆ—å‡ºæ–­ç‚¹ï¼Œstop ä¹Ÿæ˜¯
      * </pre>
      * 
      * <p>

@@ -4,7 +4,7 @@ import sun.jvm.hotspot.oops.InstanceKlass;
 import sun.jvm.hotspot.tools.jcore.ClassFilter;
 
 /**
- * dump class¡£ĞèÒª sa-jdi.jar
+ * dump classã€‚éœ€è¦ sa-jdi.jar
  * 
  * <pre>
  * java -cp "%JAVA_HOME%/lib/sa-jdi.jar" 

@@ -1,6 +1,2 @@
 eclipse.preferences.version=1
-encoding//src/cn/simple/test/jdkapi/awt/HtmlToImage.java=UTF-8
-encoding//src/cn/simple/test/new_features/jdk1_4/nio/TestBuffer.java=UTF-8
-encoding//src/cn/simple/test/new_features/jdk1_8/date/LocalDatePage.java=UTF-8
-encoding//src/cn/simple/test/temp/TempTest.java=UTF-8
-encoding/<project>=GBK
+encoding/<project>=UTF-8

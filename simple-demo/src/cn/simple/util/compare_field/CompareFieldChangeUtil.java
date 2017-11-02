@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * ±È½Ï¶ÔÏó¸÷×Ö¶Î¸ü¸ÄÇé¿ö
+ * æ¯”è¾ƒå¯¹è±¡å„å­—æ®µæ›´æ”¹æƒ…å†µ
  * 
  * @author zengxf
  */
@@ -19,8 +19,8 @@ public class CompareFieldChangeUtil {
     private static final String ORIGIN_TYPES = ",byte,short,int,long,float,double,boolean,char,";
 
     /**
-     * ±È½ÏÁ½¶ÔÏóµÄ×Ö¶Î¸ü¸ÄÇé¿ö <br>
-     * ×¢£ºÔİÃ»ÊµÏÖÌİ¹é¸¸Àà×Ö¶ÎµÄ±È½Ï
+     * æ¯”è¾ƒä¸¤å¯¹è±¡çš„å­—æ®µæ›´æ”¹æƒ…å†µ <br>
+     * æ³¨ï¼šæš‚æ²¡å®ç°æ¢¯å½’çˆ¶ç±»å­—æ®µçš„æ¯”è¾ƒ
      * 
      * @param oldObj
      * @param newObj
@@ -31,7 +31,7 @@ public class CompareFieldChangeUtil {
 	    return Collections.emptyList();
 
 	if ( oldObj.getClass() != newObj.getClass() )
-	    throw new RuntimeException( "Á½¶ÔÏóµÄÀàĞÍ±ØĞëÒ»ÖÂ" );
+	    throw new RuntimeException( "ä¸¤å¯¹è±¡çš„ç±»å‹å¿…é¡»ä¸€è‡´" );
 
 	return new Compare( oldObj, newObj ).compare();
     }
@@ -96,8 +96,8 @@ public class CompareFieldChangeUtil {
 
 	private static boolean isSimpleType( Class<?> fieldType ) {
 	    String typeName = fieldType.getName();
-	    if ( typeName.startsWith( "java." ) // JDK ÀïÃæµÄ java °ü
-	            || typeName.startsWith( "[" ) // »òÕßÊÇÊı×é
+	    if ( typeName.startsWith( "java." ) // JDK é‡Œé¢çš„ java åŒ…
+	            || typeName.startsWith( "[" ) // æˆ–è€…æ˜¯æ•°ç»„
 	    ) {
 		return true;
 	    }

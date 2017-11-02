@@ -83,7 +83,7 @@ public class TestReadMain {
 		    text = element.text();
 	    } catch (IndexOutOfBoundsException e) {
 		// e.printStackTrace();
-		System.err.println("Ã»ÓĞÕÒµ½Text£¬Err: " + e.getMessage());
+		System.err.println("æ²¡æœ‰æ‰¾åˆ°Textï¼ŒErr: " + e.getMessage());
 	    }
 	}
 
@@ -92,11 +92,11 @@ public class TestReadMain {
 
     public static List<String> getHrefUrlList(HrefRule rule, Document doc) {
 	List<String> list = new ArrayList<>();
-	Elements tags = doc.select(rule.listCssQuery); // Ñ¡³ö<li>±êÇ©
+	Elements tags = doc.select(rule.listCssQuery); // é€‰å‡º<li>æ ‡ç­¾
 	for (Element tag : tags) {
-	    Elements e = tag.select(rule.itemCssQuery); // Ñ¡³ö<a>±êÇ©
+	    Elements e = tag.select(rule.itemCssQuery); // é€‰å‡º<a>æ ‡ç­¾
 	    if (e == null) {
-		System.err.println("¸ù¾İ¹æÔòÃ»ÓĞÕÒµ½ÔªËØ£¡");
+		System.err.println("æ ¹æ®è§„åˆ™æ²¡æœ‰æ‰¾åˆ°å…ƒç´ ï¼");
 	    } else {
 		String href = e.get(0).attr(rule.attrKey);
 		list.add(href);
@@ -108,7 +108,7 @@ public class TestReadMain {
     public static List<String> getImageUrlList(ImageRule rule, Document doc) {
 	List<String> list = new ArrayList<>();
 	String imageUrl = null;
-	Elements tags = doc.select(rule.cssQuery); // Ñ¡³ö<img>±êÇ©
+	Elements tags = doc.select(rule.cssQuery); // é€‰å‡º<img>æ ‡ç­¾
 	if (tags.isEmpty()) {
 	    System.err.println();
 	} else {

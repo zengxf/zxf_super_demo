@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * 在进行GC的前后打印出堆的信息 <br>
+ * 鍦ㄨ繘琛孏C鐨勫墠鍚庢墦鍗板嚭鍫嗙殑淇℃伅 <br>
  * <br>
  * 
- * 参数
+ * 鍙傛暟
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -XX:+PrintGC -XX:+PrintHeapAtGC
  * </pre>
  * 
- * 输出示例
+ * 杈撳嚭绀轰緥
  * 
  * <pre>
  * {Heap before GC invocations=59 (full 3):

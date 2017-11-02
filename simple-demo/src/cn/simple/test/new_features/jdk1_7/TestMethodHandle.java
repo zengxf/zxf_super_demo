@@ -5,7 +5,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
 /**
- * ²âÊÔ·½·¨¾ä±ú
+ * æµ‹è¯•æ–¹æ³•å¥æŸ„
  * 
  * @author zengxf
  */
@@ -35,7 +35,7 @@ public class TestMethodHandle {
     }
 
     /**
-     * ²âÊÔË½ÓĞ·½·¨
+     * æµ‹è¯•ç§æœ‰æ–¹æ³•
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -49,19 +49,19 @@ public class TestMethodHandle {
 
 	try {
 	    MethodType mt = MethodType.methodType( void.class, String.class );
-	    // Ò²Ö»ÄÜµ÷ÓÃ¹«¹²µÄ·½·¨
+	    // ä¹Ÿåªèƒ½è°ƒç”¨å…¬å…±çš„æ–¹æ³•
 	    MethodHandle mh = MethodHandles.lookup().findSpecial( Object.class, "testMemberPrivate", mt, MyClass.class );
 	    // MethodHandle mh = MethodHandles.lookup().findVirtual( MyClass.class, "testMemberPrivate", mt );
 
 	    mh.bindTo( obj ).invokeExact( "ok 1" );
 	    mh.invoke( obj, "ok 2" );
 	} catch ( Throwable t ) {
-	    System.out.println( "Ë½ÓĞ·½·¨²»ÄÜµ÷ÓÃ£¡" );
+	    System.out.println( "ç§æœ‰æ–¹æ³•ä¸èƒ½è°ƒç”¨ï¼" );
 	}
     }
 
     /**
-     * ²âÊÔ¾²Ì¬·½·¨
+     * æµ‹è¯•é™æ€æ–¹æ³•
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException
@@ -76,7 +76,7 @@ public class TestMethodHandle {
     }
 
     /**
-     * ²âÊÔ³ÉÔ±·½·¨
+     * æµ‹è¯•æˆå‘˜æ–¹æ³•
      * 
      * @throws NoSuchMethodException
      * @throws IllegalAccessException

@@ -40,7 +40,7 @@ public class HtmlToImageUtil2 {
 
 	SwingUtilities.paintComponent( g2d, ed, new JPanel(), 0, 0, image.getWidth(), image.getHeight() );
 
-	{ // ÉèÖÃË®Ó¡
+	{ // è®¾ç½®æ°´å°
 
 	    g2d.setColor( Color.decode( CSSCOLOR ) );
 	    g2d.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_ATOP, ALPHA ) );
@@ -48,11 +48,11 @@ public class HtmlToImageUtil2 {
 	    int angle = 12;
 	    double radian = Math.toRadians( angle );
 	    double tan = Math.tan( radian );
-	    g2d.rotate( radian, 0, 0 ); // ÉèÖÃË®Ó¡Ğı×ª
+	    g2d.rotate( radian, 0, 0 ); // è®¾ç½®æ°´å°æ—‹è½¬
 
-	    AttributedCharacterIterator iter = buildFont( "ÁÔÃÈ HUNTERPLUS", "Î¢ÈíÑÅºÚ", 30 );
+	    AttributedCharacterIterator iter = buildFont( "çŒèŒ HUNTERPLUS", "å¾®è½¯é›…é»‘", 30 );
 
-	    { // ¼ÆËãË®Ó¡×ÖÌå¿í£¬¸ß
+	    { // è®¡ç®—æ°´å°å­—ä½“å®½ï¼Œé«˜
 		FontRenderContext fontRenderContext = g2d.getFontRenderContext();
 		LineBreakMeasurer lbm = new LineBreakMeasurer( iter, fontRenderContext );
 		TextLayout textLayout = lbm.nextLayout( Integer.MAX_VALUE );
@@ -77,7 +77,7 @@ public class HtmlToImageUtil2 {
 	return image;
     }
 
-    // ĞÎ³É×ÖÌåÊôĞÔ
+    // å½¢æˆå­—ä½“å±æ€§
     static AttributedCharacterIterator buildFont( String markContent, String fontType, int fontSize ) {
 	AttributedString ats = new AttributedString( markContent );
 	Font f = new Font( fontType, Font.PLAIN, fontSize );

@@ -13,28 +13,28 @@ public class TestAtomicInteger extends Util {
 	// test_getAndAccumulate();
     }
 
-    // ·µ»Ø¼ÆËãÇ°µÄÖµ
+    // è¿”å›žè®¡ç®—å‰çš„å€¼
     static void test_getAndAccumulate() {
 	AtomicInteger atomic = new AtomicInteger( 0 );
-	int get = atomic.getAndAccumulate( 2, ( prev, base ) -> ( prev + 3 ) * base ); // 2 ÊÇ base
+	int get = atomic.getAndAccumulate( 2, ( prev, base ) -> ( prev + 3 ) * base ); // 2 æ˜¯ base
 	log.info( "prev: {}, current: {}", get, atomic.get() );
     }
 
-    // ·µ»Ø¸üÐÂÇ°µÄÖµ
+    // è¿”å›žæ›´æ–°å‰çš„å€¼
     static void test_getAndUpdate() {
 	AtomicInteger atomic = new AtomicInteger( 0 );
 	int get = atomic.getAndUpdate( i -> i + 2 );
 	log.info( "prev: {}, current: {}", get, atomic.get() );
     }
 
-    // ·µ»Ø¼ÆËãºóµÄÖµ
+    // è¿”å›žè®¡ç®—åŽçš„å€¼
     static void test_accumulateAndGet() {
 	AtomicInteger atomic = new AtomicInteger( 0 );
 	int get = atomic.accumulateAndGet( 2, ( i, base ) -> ( i + 2 ) * base );
 	log.info( "current: {}, current: {}", get, atomic.get() );
     }
 
-    // ·µ»Ø¸üÐÂºóµÄÖµ
+    // è¿”å›žæ›´æ–°åŽçš„å€¼
     static void test_updateAndGet() {
 	AtomicInteger atomic = new AtomicInteger( 0 );
 	int get = atomic.updateAndGet( i -> i + 2 );

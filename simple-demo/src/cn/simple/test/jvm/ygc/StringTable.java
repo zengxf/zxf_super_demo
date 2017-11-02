@@ -3,18 +3,18 @@ package cn.simple.test.jvm.ygc;
 import java.util.UUID;
 
 /**
- * ²âÊÔ String.intern() ÒıÆğµÄ YGC Ô½À´Ô½Âı <br>
- * JVM ²ÎÊı
+ * æµ‹è¯• String.intern() å¼•èµ·çš„ YGC è¶Šæ¥è¶Šæ…¢ <br>
+ * JVM å‚æ•°
  * 
  * <pre>
  * -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -Xmx2G -Xms2G -Xmn100M
  * </pre>
  * 
- * ·ÖÎö
+ * åˆ†æ
  * 
  * <pre>
- * YGC¹ı³Ì»áÉ¨ÃèStringTable£¬ÆäÔ½´óÊ±¼äÔ½³¤¡£ÔÚFull GC»òÕßCMS GC¹ı³Ì»á¶ÔStringTable×öÇåÀí¡£
- * ÑéÖ¤£ºjmap -histo:live pid
+ * YGCè¿‡ç¨‹ä¼šæ‰«æStringTableï¼Œå…¶è¶Šå¤§æ—¶é—´è¶Šé•¿ã€‚åœ¨Full GCæˆ–è€…CMS GCè¿‡ç¨‹ä¼šå¯¹StringTableåšæ¸…ç†ã€‚
+ * éªŒè¯ï¼šjmap -histo:live pid
  * </pre>
  * 
  * <p>

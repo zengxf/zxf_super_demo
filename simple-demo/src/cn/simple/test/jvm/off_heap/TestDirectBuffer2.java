@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 import sun.nio.ch.DirectBuffer;
 
 /**
- * System.gcÎÒÃÇ¿ÉÒÔ½ûµô£¬Ê¹ÓÃ -XX:+DisableExplicitGC £¬<br>
- * ÆäÊµÒ»°ãÔÚcms gcÏÂÎÒÃÇÍ¨¹ı -XX:+ExplicitGCInvokesConcurrent Ò²¿ÉÒÔ×öÉÔÎ¢¸ßĞ§Ò»µãµÄgc£¬Ò²¾ÍÊÇ²¢ĞĞgc¡£
+ * System.gcæˆ‘ä»¬å¯ä»¥ç¦æ‰ï¼Œä½¿ç”¨ -XX:+DisableExplicitGC ï¼Œ<br>
+ * å…¶å®ä¸€èˆ¬åœ¨cms gcä¸‹æˆ‘ä»¬é€šè¿‡ -XX:+ExplicitGCInvokesConcurrent ä¹Ÿå¯ä»¥åšç¨å¾®é«˜æ•ˆä¸€ç‚¹çš„gcï¼Œä¹Ÿå°±æ˜¯å¹¶è¡Œgcã€‚
  * 
  * <p>
  * Created by zengxf on 2017-09-08
@@ -19,7 +19,7 @@ public class TestDirectBuffer2 {
     }
 
     static void test() {
-        // ·ÖÅä128MBÖ±½ÓÄÚ´æ
+        // åˆ†é…128MBç›´æ¥å†…å­˜
         ByteBuffer.allocateDirect( 1024 * 1024 * 128 );
         try {
             TimeUnit.SECONDS.sleep( 10 );
@@ -30,45 +30,45 @@ public class TestDirectBuffer2 {
     }
 
     /**
-     * ²âÊÔÓÃÀı1£ºÉèÖÃJVM²ÎÊı -Xmx100m £¬ÔËĞĞÒì³££¬ÒòÎªÈç¹ûÃ»ÉèÖÃ-XX:MaxDirectMemorySize£¬<br>
-     * ÔòÄ¬ÈÏÓë-Xmx²ÎÊıÖµÏàÍ¬£¬·ÖÅä128MÖ±½ÓÄÚ´æ³¬³öÏŞÖÆ·¶Î§¡£
+     * æµ‹è¯•ç”¨ä¾‹1ï¼šè®¾ç½®JVMå‚æ•° -Xmx100m ï¼Œè¿è¡Œå¼‚å¸¸ï¼Œå› ä¸ºå¦‚æœæ²¡è®¾ç½®-XX:MaxDirectMemorySizeï¼Œ<br>
+     * åˆ™é»˜è®¤ä¸-Xmxå‚æ•°å€¼ç›¸åŒï¼Œåˆ†é…128Mç›´æ¥å†…å­˜è¶…å‡ºé™åˆ¶èŒƒå›´ã€‚
      */
     static void test1() {
         test();
     }
 
     /**
-     * ²âÊÔÓÃÀı2£ºÉèÖÃJVM²ÎÊı -Xmx256m £¬ÔËĞĞÕı³££¬ÒòÎª128MĞ¡ÓÚ256M£¬ÊôÓÚ·¶Î§ÄÚ·ÖÅä¡£
+     * æµ‹è¯•ç”¨ä¾‹2ï¼šè®¾ç½®JVMå‚æ•° -Xmx256m ï¼Œè¿è¡Œæ­£å¸¸ï¼Œå› ä¸º128Må°äº256Mï¼Œå±äºèŒƒå›´å†…åˆ†é…ã€‚
      */
     static void test2() {
         test();
     }
 
     /**
-     * ²âÊÔÓÃÀı3£ºÉèÖÃJVM²ÎÊı -Xmx256m -XX:MaxDirectMemorySize=100M £¬ÔËĞĞÒì³££¬·ÖÅäµÄÖ±½ÓÄÚ´æ128M³¬¹ıÏŞ¶¨µÄ100M¡£
+     * æµ‹è¯•ç”¨ä¾‹3ï¼šè®¾ç½®JVMå‚æ•° -Xmx256m -XX:MaxDirectMemorySize=100M ï¼Œè¿è¡Œå¼‚å¸¸ï¼Œåˆ†é…çš„ç›´æ¥å†…å­˜128Mè¶…è¿‡é™å®šçš„100Mã€‚
      */
     static void test3() {
         test();
     }
 
     /**
-     * ²âÊÔÓÃÀı4£ºÉèÖÃJVM²ÎÊı -Xmx768m £¬ÔËĞĞ³ÌĞò¹Û²ìÄÚ´æÊ¹ÓÃ±ä»¯£¬<br>
-     * »á·¢ÏÖclean()ºóÄÚ´æÂíÉÏÏÂ½µ£¬ËµÃ÷Ê¹ÓÃclean()·½·¨ÄÜÓĞĞ§¼°Ê±»ØÊÕÖ±½Ó»º´æ¡£
+     * æµ‹è¯•ç”¨ä¾‹4ï¼šè®¾ç½®JVMå‚æ•° -Xmx768m ï¼Œè¿è¡Œç¨‹åºè§‚å¯Ÿå†…å­˜ä½¿ç”¨å˜åŒ–ï¼Œ<br>
+     * ä¼šå‘ç°clean()åå†…å­˜é©¬ä¸Šä¸‹é™ï¼Œè¯´æ˜ä½¿ç”¨clean()æ–¹æ³•èƒ½æœ‰æ•ˆåŠæ—¶å›æ”¶ç›´æ¥ç¼“å­˜ã€‚
      * 
      * @throws InterruptedException
      */
     static void test4() throws InterruptedException {
         TimeUnit.SECONDS.sleep( 10 );
         System.out.println( "alloc start ..." );
-        // ·ÖÅä512MBÖ±½Ó»º´æ
+        // åˆ†é…512MBç›´æ¥ç¼“å­˜
         ByteBuffer bb = ByteBuffer.allocateDirect( 1024 * 1024 * 512 );
         System.out.println( "alloc end" );
 
         TimeUnit.SECONDS.sleep( 10 );
         System.out.println( "clear start ..." );
-        // Çå³ıÖ±½Ó»º´æ
+        // æ¸…é™¤ç›´æ¥ç¼“å­˜
         ( (DirectBuffer) bb ).cleaner().clean();
-        // bb.clear(); // ×îÖÕµ÷ÓÃ Buffer Àà£¬Òò´ËÎŞÓÃ
+        // bb.clear(); // æœ€ç»ˆè°ƒç”¨ Buffer ç±»ï¼Œå› æ­¤æ— ç”¨
         System.out.println( "clear end" );
 
         TimeUnit.SECONDS.sleep( 10 );

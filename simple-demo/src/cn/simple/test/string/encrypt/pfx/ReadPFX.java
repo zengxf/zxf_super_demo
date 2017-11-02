@@ -13,7 +13,7 @@ public class ReadPFX {
     public ReadPFX() {
     }
 
-    // ×ª»»³ÉÊ®Áù½øÖÆ×Ö·û´®
+    // è½¬æ¢æˆåå…­è¿›åˆ¶å­—ç¬¦ä¸²
     public String Byte2String( byte[] b ) {
 	String hs = "";
 	String stmp = "";
@@ -33,8 +33,8 @@ public class ReadPFX {
 	int temp = number;
 	byte[] b = new byte[4];
 	for ( int i = b.length - 1; i > -1; i-- ) {
-	    b[i] = new Integer( temp & 0xff ).byteValue();// ½«×î¸ßÎ»±£´æÔÚ×îµÍÎ»
-	    temp = temp >> 8; // ÏòÓÒÒÆ8Î»
+	    b[i] = new Integer( temp & 0xff ).byteValue();// å°†æœ€é«˜ä½ä¿å­˜åœ¨æœ€ä½ä½
+	    temp = temp >> 8; // å‘å³ç§»8ä½
 	}
 	return b;
     }

@@ -1,7 +1,7 @@
 package cn.simple.test.algorithm.bloom;
 
 /** 
- * Î»¼¯ÀïÃæµÄÃ¿Ò»¸öÔªËØ 
+ * ä½é›†é‡Œé¢çš„æ¯ä¸€ä¸ªå…ƒç´  
  * @author chouyou 
  * 
  */  

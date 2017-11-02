@@ -13,32 +13,32 @@ public class ScriptEngineTest {
 	ScriptEngineManager sem = new ScriptEngineManager();
 	ScriptEngine engine = sem.getEngineByName( "javascript" ); // python or jython,
 
-	// ÏòÉÏÏÂÎÄÖĞ´æÈë±äÁ¿
+	// å‘ä¸Šä¸‹æ–‡ä¸­å­˜å…¥å˜é‡
 	engine.put( "msg", "just a test" );
-	// ¶¨ÒåÀàuser
+	// å®šä¹‰ç±»user
 	String str = "msg += '!!!';var user = {name:'tom',age:23,hobbies:['football','basketball']}; ";
 	engine.eval( str );
 
-	// ´ÓÉÏÏÂÎÄÒıÇæÖĞÈ¡Öµ
+	// ä»ä¸Šä¸‹æ–‡å¼•æ“ä¸­å–å€¼
 	String msg = (String) engine.get( "msg" );
 	String name = (String) engine.get( "name" );
 	String[] hb = (String[]) engine.get( "hobbies" );
 	System.out.println( msg );
 	System.out.println( name + ":" + hb[0] );
 
-	// ¶¨ÒåÊıÑ§º¯Êı
+	// å®šä¹‰æ•°å­¦å‡½æ•°
 	engine.eval( "function add (a, b) {c = a + b; return c; }" );
 
-	// È¡µÃµ÷ÓÃ½Ó¿Ú
+	// å–å¾—è°ƒç”¨æ¥å£
 	Invocable jsInvoke = (Invocable) engine;
 
-	// ¶¨Òå¼Ó·¨º¯Êı
+	// å®šä¹‰åŠ æ³•å‡½æ•°
 
 	Object result1 = jsInvoke.invokeFunction( "add", new Object[] { 10, 5 } );
 
 	System.out.println( result1 );
 
-	// µ÷ÓÃ¼Ó·¨º¯Êı,×¢Òâ²ÎÊı´«µİµÄ·½·¨
+	// è°ƒç”¨åŠ æ³•å‡½æ•°,æ³¨æ„å‚æ•°ä¼ é€’çš„æ–¹æ³•
 
 //	Adder adder = jsInvoke.getInterface( Adder.class );
 //
@@ -46,14 +46,14 @@ public class ScriptEngineTest {
 
 //	System.out.println( result2 );
 
-	// ¶¨Òårun()º¯Êı
+	// å®šä¹‰run()å‡½æ•°
 
 	engine.eval( "function run() {print('www.java2s.com');}" );
 
 	Invocable invokeEngine = (Invocable) engine;
 
 	Runnable runner = invokeEngine.getInterface( Runnable.class );
-	// ¶¨ÒåÏß³ÌÔËĞĞÖ®
+	// å®šä¹‰çº¿ç¨‹è¿è¡Œä¹‹
 
 	Thread t = new Thread( runner );
 
@@ -61,7 +61,7 @@ public class ScriptEngineTest {
 
 	t.join();
 
-	// µ¼ÈëÆäËûjava°ü
+	// å¯¼å…¥å…¶ä»–javaåŒ…
 
 	String jsCode = "importPackage(java.util);  var list2 = Arrays.asList(['A', 'B', 'C']); ";
 

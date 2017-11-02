@@ -3,10 +3,10 @@ package cn.simple.test.jvm.jstat;
 import cn.simple.test.jvm.gc.cms.TestCmsSequent;
 
 /**
- * 命令
+ * 鍛戒护
  * 
  * <pre>
- * 查看 gc 原因
+ * 鏌ョ湅 gc 鍘熷洜
  * jstat -gccause pid 1s
  * </pre>
  * 

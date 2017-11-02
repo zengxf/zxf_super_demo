@@ -26,7 +26,7 @@ public class TestMap {
 	test_replaceAll();
     }
 
-    // Ìæ»»ËùÓĞ£º¸ù¾İ key ºÍ¾ÉÖµÌæ»»ĞÂÖµ
+    // æ›¿æ¢æ‰€æœ‰ï¼šæ ¹æ® key å’Œæ—§å€¼æ›¿æ¢æ–°å€¼
     static void test_replaceAll() {
 	map.replaceAll( ( k, v ) -> {
 	    log.info( "k: {}, v: {}", k, v );
@@ -35,7 +35,7 @@ public class TestMap {
 	log.info( "map: {}", map );
     }
 
-    // ´æÔÚ key£¬ÇÒ´«ÈëµÄÖµÓë¾ÉÖµÏàµÈÊ±²ÅÌæ»»
+    // å­˜åœ¨ keyï¼Œä¸”ä¼ å…¥çš„å€¼ä¸æ—§å€¼ç›¸ç­‰æ—¶æ‰æ›¿æ¢
     static void test_replace_old() {
 	String key = "test_non";
 	Integer value = 2222, check = 0;
@@ -70,7 +70,7 @@ public class TestMap {
 	log.info( "k: {}, check: {}, v: {}, exists: {}", key, check, map.get( key ), map.containsKey( key ) );
     }
 
-    // Ö»Òª´æÔÚ key ¾ÍÌæ»»£¬²»¹ÜÖµÊÇ·ñÎª null
+    // åªè¦å­˜åœ¨ key å°±æ›¿æ¢ï¼Œä¸ç®¡å€¼æ˜¯å¦ä¸º null
     static void test_replace() {
 	String key = "test_non";
 	Integer value = 2222;
@@ -89,7 +89,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}, exists: {}", key, map.get( key ), map.containsKey( key ) );
     }
 
-    // key ºÍ value ¶¼¶ÔÓ¦ÉÏ²ÅÉ¾³ı
+    // key å’Œ value éƒ½å¯¹åº”ä¸Šæ‰åˆ é™¤
     static void test_remove_key_value() {
 	String key = "a";
 	Integer value = 2222;
@@ -103,7 +103,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}, exists: {}", key, map.get( key ), map.containsKey( key ) );
     }
 
-    // ²»´æÔÚ»òÖµÎª null ÔòÌí¼Ó
+    // ä¸å­˜åœ¨æˆ–å€¼ä¸º null åˆ™æ·»åŠ 
     static void test_putIfAbsent() {
 	String key = "test_non";
 	Integer value = 2222;
@@ -117,7 +117,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}", key, map.get( key ) );
     }
 
-    // Ã»ÓĞÔòÖ±½Ó¸³Öµ£»ÓĞÔò¼ÆËãĞÂÖµ£¬ĞÂÖµ²»Îª null Ôò¸³Öµ£¬Îª null ÔòÉ¾³ı
+    // æ²¡æœ‰åˆ™ç›´æ¥èµ‹å€¼ï¼›æœ‰åˆ™è®¡ç®—æ–°å€¼ï¼Œæ–°å€¼ä¸ä¸º null åˆ™èµ‹å€¼ï¼Œä¸º null åˆ™åˆ é™¤
     static void test_merge() {
 	String key = "test_non";
 	Integer value = 2222;
@@ -146,7 +146,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}, exists: {}", key, map.get( key ), map.containsKey( key ) );
     }
 
-    // Èç¹û´æÔÚÇÒÖµ²»Îª null ÔòÉèÖÃĞÂÖµ
+    // å¦‚æœå­˜åœ¨ä¸”å€¼ä¸ä¸º null åˆ™è®¾ç½®æ–°å€¼
     static void test_computeIfPresent() {
 	String key = "test_non";
 	map.computeIfPresent( key, ( k, v ) -> {
@@ -172,7 +172,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}", key, map.get( key ) );
     }
 
-    // Èç¹û²»´æÔÚ»òÖµÎª null ÔòÉèÖÃĞÂÖµ
+    // å¦‚æœä¸å­˜åœ¨æˆ–å€¼ä¸º null åˆ™è®¾ç½®æ–°å€¼
     static void test_computeIfAbsent() {
 	String key = "test_non";
 	map.computeIfAbsent( key, ( k ) -> {
@@ -190,7 +190,7 @@ public class TestMap {
 	log.info( "k: {}, v: {}", key, map.get( key ) );
     }
 
-    // ÓĞÔò¸üĞÂÖµ£¬Ã»ÓĞÔòÌí¼ÓÖµ
+    // æœ‰åˆ™æ›´æ–°å€¼ï¼Œæ²¡æœ‰åˆ™æ·»åŠ å€¼
     static void test_compute() {
 	String key = "a";
 	map.compute( key, ( k, v ) -> {
@@ -207,7 +207,7 @@ public class TestMap {
 	log.info( "{}: {}", key, map.get( key ) );
     }
 
-    // Ö»ÅĞ¶Ï´æ²»´æÔÚ key£¬²»ÅĞ¶ÏÖµÊÇ·ñÎª null
+    // åªåˆ¤æ–­å­˜ä¸å­˜åœ¨ keyï¼Œä¸åˆ¤æ–­å€¼æ˜¯å¦ä¸º null
     static void test_getOrDefault() {
 	Integer v = map.getOrDefault( "test_non", 2 );
 	log.info( "v: {}", v );

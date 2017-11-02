@@ -6,18 +6,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ÓÃÓÚ×Ô¶¯Éú³Élog³ÉÔ±±äÁ¿.½öÊÊÓÃÓÚclass»òenum,²»ÊÊÓÃÓÚ½Ó¿Ú.
+ * ç”¨äºè‡ªåŠ¨ç”Ÿæˆlogæˆå‘˜å˜é‡.ä»…é€‚ç”¨äºclassæˆ–enum,ä¸é€‚ç”¨äºæ¥å£.
  */
 @Retention( RetentionPolicy.SOURCE )
 @Target( ElementType.TYPE )
 public @interface MySlf4j {
     /**
-     * ÏµÍ³Ãû³Æ.Èç¹ûÎª¿ÕÔòÈ¡"-Dvlogging.system"ÏµÍ³ÊôĞÔ,Èç¹ûÏµÍ³ÊôĞÔÒ²Îª¿Õ,ÔòÈ¡"Unknown".
+     * ç³»ç»Ÿåç§°.å¦‚æœä¸ºç©ºåˆ™å–"-Dvlogging.system"ç³»ç»Ÿå±æ€§,å¦‚æœç³»ç»Ÿå±æ€§ä¹Ÿä¸ºç©º,åˆ™å–"Unknown".
      */
     String system() default "";
 
     /**
-     * Ä£¿éÃû³Æ.Èç¹ûÎª¿ÕÔòÈ¡"-Dvlogging.module"ÏµÍ³ÊôĞÔ,Èç¹ûÏµÍ³ÊôĞÔÒ²Îª¿Õ,ÔòÈ¡"Unknown".
+     * æ¨¡å—åç§°.å¦‚æœä¸ºç©ºåˆ™å–"-Dvlogging.module"ç³»ç»Ÿå±æ€§,å¦‚æœç³»ç»Ÿå±æ€§ä¹Ÿä¸ºç©º,åˆ™å–"Unknown".
      */
     String module() default "";
 }

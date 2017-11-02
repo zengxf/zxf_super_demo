@@ -22,9 +22,9 @@ public class ParseUserTest extends ReadXmlUtil {
         try {
             String xmlContent = readXml( "user.xml" );
 
-            // ¼ÓÔØÓ³ÉäbeanÀà
+            // åŠ è½½æ˜ å°„beanç±»
             jaxbContext = JAXBContext.newInstance( User.class );
-            // ´´½¨½âÎö
+            // åˆ›å»ºè§£æ
             Unmarshaller um = jaxbContext.createUnmarshaller();
             StreamSource streamSource = new StreamSource( new StringReader( xmlContent ) );
             User root = (User) um.unmarshal( streamSource );

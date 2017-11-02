@@ -10,7 +10,7 @@ public class MySlf4jProcessor extends AbstractProcessor {
 
     @Override
     public boolean process( Set<? extends TypeElement> annotations, RoundEnvironment roundEnv ) {
-	System.out.println( "½øÈë ..." );
+	System.out.println( "è¿›å…¥ ..." );
 	return true;
     }
 

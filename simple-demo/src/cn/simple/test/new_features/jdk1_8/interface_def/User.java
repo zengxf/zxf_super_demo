@@ -6,7 +6,7 @@ public class User extends AbstractUser implements IUser, IPrint {
     public void setName( String name ) {
     }
 
-    // ¸²¸ÇÏàÍ¬µÄ½Ó¿ÚÄ¬ÈÏ·½·¨
+    // è¦†ç›–ç›¸åŒçš„æ¥å£é»˜è®¤æ–¹æ³•
     @Override
     public void print() {
 	IPrint.super.print();

@@ -12,7 +12,7 @@ public class TestFunction {
 	    return str.length();
 	};
 
-	// Ë³Ğòµ÷ÓÃ£ºµ÷ÓÃ×Ô¼ºÍêÔÙµ÷ÓÃºóÃæµÄ
+	// é¡ºåºè°ƒç”¨ï¼šè°ƒç”¨è‡ªå·±å®Œå†è°ƒç”¨åé¢çš„
 	Function<String, Integer> fun2 = fun //
 	        .andThen( ( i ) -> {
 	            log.info( "fun2.andThen => i: {}", i );
@@ -27,7 +27,7 @@ public class TestFunction {
 	System.out.println();
 	System.out.println();
 
-	// ·´Ğòµ÷ÓÃ£ºµ÷ÓÃÍêºóÃæµÄÔÙµ÷ÓÃ×Ô¼ºµÄ
+	// ååºè°ƒç”¨ï¼šè°ƒç”¨å®Œåé¢çš„å†è°ƒç”¨è‡ªå·±çš„
 	Function<String, Integer> fun3 = fun.compose( i -> {
 	    log.info( "fun3 => i: {}", i );
 	    return i + 3;

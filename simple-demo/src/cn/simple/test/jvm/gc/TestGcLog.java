@@ -12,8 +12,8 @@ import java.util.List;
  * </pre>
  * 
  * <pre>
- * 在线GC分析工具：http://gceasy.io
- * 桌面工具（下载后构建）：https://github.com/jewes/gchisto
+ * 鍦ㄧ嚎GC鍒嗘瀽宸ュ叿锛歨ttp://gceasy.io
+ * 妗岄潰宸ュ叿锛堜笅杞藉悗鏋勫缓锛夛細https://github.com/jewes/gchisto
  * </pre>
  * 
  * <p>

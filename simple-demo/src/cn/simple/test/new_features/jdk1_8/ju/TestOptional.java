@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * ÔÚJava 8ÖĞ£¬²»ÍÆ¼öÄã·µ»Ønull¶øÊÇ·µ»ØOptional
+ * åœ¨Java 8ä¸­ï¼Œä¸æ¨èä½ è¿”å›nullè€Œæ˜¯è¿”å›Optional
  * 
  * <p>
  * Created by zxf on 2017-07-06
@@ -19,7 +19,7 @@ public class TestOptional {
 	n.inner = i;
 	i.foo = "test";
 
-	// ÕâÁ½¸ö½â¾ö·½°¸¿ÉÄÜÃ»ÓĞ´«Í³ null ¼ì²éÄÇÃ´¸ßµÄĞÔÄÜ¡£²»¹ıÔÚ´ó¶àÊıÇé¿öÏÂ²»»áÓĞÌ«´óÎÊÌâ¡£
+	// è¿™ä¸¤ä¸ªè§£å†³æ–¹æ¡ˆå¯èƒ½æ²¡æœ‰ä¼ ç»Ÿ null æ£€æŸ¥é‚£ä¹ˆé«˜çš„æ€§èƒ½ã€‚ä¸è¿‡åœ¨å¤§å¤šæ•°æƒ…å†µä¸‹ä¸ä¼šæœ‰å¤ªå¤§é—®é¢˜ã€‚
 	Optional.of( o )//
 	        .map( Outer::getNested )//
 	        .map( Nested::getInner )//

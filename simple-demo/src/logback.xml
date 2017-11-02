@@ -7,8 +7,8 @@
 		</layout>
 	</appender>
 
-	<logger name="ch.qos.logback" level="ERROR" /><!-- 此设置无效 -->
-	<!-- <logger name="cn.simple.test" level="WARN" /> --><!-- 这个设置是有效的 -->
+	<logger name="ch.qos.logback" level="ERROR" />
+	<!-- <logger name="cn.simple.test" level="WARN" /> -->
 
 	<root level="info">
 		<appender-ref ref="STDOUT" />

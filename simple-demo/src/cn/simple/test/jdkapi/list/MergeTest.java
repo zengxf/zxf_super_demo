@@ -6,9 +6,9 @@ import java.util.List;
 public class MergeTest {
 
     public static void main( String[] args ) {
-        List<String> cityNamesList = new ArrayList<>(); // 城市
-        List<String> functionNamesList = new ArrayList<>(); // 职能类别
-        List<String> industryNamesList = new ArrayList<>(); // 行业类别
+        List<String> cityNamesList = new ArrayList<>(); // 鍩庡競
+        List<String> functionNamesList = new ArrayList<>(); // 鑱岃兘绫诲埆
+        List<String> industryNamesList = new ArrayList<>(); // 琛屼笟绫诲埆
         cityNamesList.add( "c1" );
         cityNamesList.add( "c2" );
         functionNamesList.add( "dd" );

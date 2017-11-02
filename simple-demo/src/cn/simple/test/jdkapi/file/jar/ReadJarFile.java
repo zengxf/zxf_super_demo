@@ -35,7 +35,7 @@ public class ReadJarFile {
 	}
     }
 
-    @Deprecated // jar °üÄÚ¶ÁÈ¡ÓĞÎÊÌâ
+    @Deprecated // jar åŒ…å†…è¯»å–æœ‰é—®é¢˜
     static void readByUri() {
 	try {
 	    URI uri = ReadJarFile.class.getResource( "jar-content.txt" ).toURI();

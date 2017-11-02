@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * ²ÎÊıÉèÖÃ²âÊÔ£ºÄêÇá´úºÍÀÏÄê´úµÄ±ÈÀı
+ * å‚æ•°è®¾ç½®æµ‹è¯•ï¼šå¹´è½»ä»£å’Œè€å¹´ä»£çš„æ¯”ä¾‹
  * 
  * <pre>
  * -Xmx200m -Xms200m -XX:NewRatio=2
  * 
- * NewRatio=2 ±íÊ¾£ºÄêÇá´úºÍÀÏÄê´úµÄ±ÈÀıÎª 1:2
+ * NewRatio=2 è¡¨ç¤ºï¼šå¹´è½»ä»£å’Œè€å¹´ä»£çš„æ¯”ä¾‹ä¸º 1:2
  * </pre>
  * 
  * <p>

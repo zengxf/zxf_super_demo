@@ -29,7 +29,7 @@ public class LocalDatePage {
         List<String> list = new ArrayList<>();
 
         LocalDate minOld = old;
-        LocalDate tomorrow = LocalDate.now().plusDays( 1 ); // 明天
+        LocalDate tomorrow = LocalDate.now().plusDays( 1 ); // 鏄庡ぉ
         LocalDate start = tomorrow.minusDays( ( pageIndex + 1 ) * pageSize - 1 );
         LocalDate end = tomorrow.minusDays( pageIndex * pageSize );
 

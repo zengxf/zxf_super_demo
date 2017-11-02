@@ -1,20 +1,20 @@
 function numberToChinese(input) {
-    var fraction = ['角', '分'];
+    var fraction = ['瑙�', '鍒�'];
     var digit = [
-        '零', '壹', '贰', '叁', '肆',
-        '伍', '陆', '柒', '捌', '玖'
+        '闆�', '澹�', '璐�', '鍙�', '鑲�',
+        '浼�', '闄�', '鏌�', '鎹�', '鐜�'
     ];
     var unit = [
-        ['元', '万', '亿'],
-        ['', '拾', '佰', '仟']
+        ['鍏�', '涓�', '浜�'],
+        ['', '鎷�', '浣�', '浠�']
     ];
-    var head = input < 0 ? '欠' : '';
+    var head = input < 0 ? '娆�' : '';
     input = Math.abs(input);
     var s = '';
     for (var i = 0; i < fraction.length; i++) {
-        s += (digit[Math.floor(input * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
+        s += (digit[Math.floor(input * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/闆�./, '');
     }
-    s = s || '整';
+    s = s || '鏁�';
     input = Math.floor(input);
     for (var i = 0; i < unit[0].length && input > 0; i++) {
         var p = '';
@@ -22,9 +22,9 @@ function numberToChinese(input) {
             p = digit[input % 10] + unit[1][j] + p;
             input = Math.floor(input / 10);
         }
-        s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+        s = p.replace(/(闆�.)*闆�$/, '').replace(/^$/, '闆�') + unit[0][i] + s;
     }
-    return head + s.replace(/(零.)*零元/, '元')
-        .replace(/(零.)+/g, '零')
-        .replace(/^整$/, '零元整');
+    return head + s.replace(/(闆�.)*闆跺厓/, '鍏�')
+        .replace(/(闆�.)+/g, '闆�')
+        .replace(/^鏁�$/, '闆跺厓鏁�');
 }

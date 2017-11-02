@@ -17,9 +17,9 @@ public class ParseSscTest extends ReadXmlUtil {
         try {
             String xmlContent = readXml( "ssc.xml" );
 
-            // ¼ÓÔØÓ³ÉäbeanÀà
+            // åŠ è½½æ˜ å°„beanç±»
             jaxbContext = JAXBContext.newInstance( ParseResult.class );
-            // ´´½¨½âÎö
+            // åˆ›å»ºè§£æ
             Unmarshaller um = jaxbContext.createUnmarshaller();
             StreamSource streamSource = new StreamSource( new StringReader( xmlContent ) );
             ParseResult root = (ParseResult) um.unmarshal( streamSource );
@@ -38,7 +38,7 @@ public class ParseSscTest extends ReadXmlUtil {
     }
 
     /**
-     * ĞĞ¼ÇÂ¼
+     * è¡Œè®°å½•
      */
     @XmlRootElement( name = "row" )
     static class Row {

@@ -19,7 +19,7 @@ public class Api {
         if ( Call1.class.getName().equals( target ) ) {
             return;
         }
-        throw new RuntimeException( "此Set方法不提供给其他类调用！" );
+        throw new RuntimeException( "姝et鏂规硶涓嶆彁渚涚粰鍏朵粬绫昏皟鐢紒" );
     }
 
 }

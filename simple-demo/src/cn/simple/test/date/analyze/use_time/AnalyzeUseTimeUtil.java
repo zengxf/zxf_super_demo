@@ -1,7 +1,7 @@
 package cn.simple.test.date.analyze.use_time;
 
 /**
- * ·ÖÎöÓÃÊ±°ïÖúÀà£¬¾«È·¶È--ºÁÃë
+ * åˆ†æç”¨æ—¶å¸®åŠ©ç±»ï¼Œç²¾ç¡®åº¦--æ¯«ç§’
  * 
  * @author zengxf
  */
@@ -14,7 +14,7 @@ public class AnalyzeUseTimeUtil {
     };
 
     /**
-     * ÖØÖÃ
+     * é‡ç½®
      */
     public static void reset( String newOp ) {
 	local.get().op = newOp;
@@ -23,29 +23,29 @@ public class AnalyzeUseTimeUtil {
     }
 
     /**
-     * ¼ÆÊ±
+     * è®¡æ—¶
      */
     public static void timing( String childOp ) {
 	long cur = System.currentTimeMillis();
 	long useTime = cur - local.get().millis;
 
-	System.out.println( String.format( "[%s]-[%s]ÓÃÊ±£º[%d]ms", local.get().op, childOp, useTime ) );
+	System.out.println( String.format( "[%s]-[%s]ç”¨æ—¶ï¼š[%d]ms", local.get().op, childOp, useTime ) );
 
 	local.get().millis = System.currentTimeMillis();
 	local.get().sum += useTime;
     }
 
     /**
-     * ×Ü¼ÆÊ±
+     * æ€»è®¡æ—¶
      */
     public static void summary() {
-	System.out.println( String.format( "[%s]×ÜÓÃÊ±£º[%d]ms", local.get().op, local.get().sum ) );
+	System.out.println( String.format( "[%s]æ€»ç”¨æ—¶ï¼š[%d]ms", local.get().op, local.get().sum ) );
     }
 
     private static class UseTimeBO {
-	private String op;     // µ±Ç°²Ù×÷
-	private long   millis; // µ±Ç°Ê±¼ä´Á
-	private long   sum;    // ×ÜÓÃÊ±
+	private String op;     // å½“å‰æ“ä½œ
+	private long   millis; // å½“å‰æ—¶é—´æˆ³
+	private long   sum;    // æ€»ç”¨æ—¶
     }
 
 }

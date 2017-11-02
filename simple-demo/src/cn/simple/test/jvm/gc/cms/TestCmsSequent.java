@@ -3,7 +3,7 @@ package cn.simple.test.jvm.gc.cms;
 import java.lang.management.ManagementFactory;
 
 /**
- * ²ÎÊı
+ * å‚æ•°
  * 
  * <pre>
  * -Xmx20m -Xms20m -Xmn10m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC

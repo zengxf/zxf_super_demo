@@ -24,7 +24,7 @@ public class ClassUtil {
 		    }
 		}
 	    }
-	    clazz = clazz.getSuperclass(); // »ñÈ¡¸¸ÀàµÄ×Ö¶Î
+	    clazz = clazz.getSuperclass(); // è·å–çˆ¶ç±»çš„å­—æ®µ
 	}
 
 	return temp;

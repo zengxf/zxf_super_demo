@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * 打印 GC 暂停时间 <br>
+ * 鎵撳嵃 GC 鏆傚仠鏃堕棿 <br>
  * <br>
  * 
- * 参数
+ * 鍙傛暟
  * 
  * <pre>
  * -Xms200m -Xmx200m -Xmn8m
  * -XX:+PrintGCApplicationStoppedTime
  * </pre>
  * 
- * 输出示例
+ * 杈撳嚭绀轰緥
  * 
  * <pre>
  * Total time for which application threads were stopped: 0.0318549 seconds, Stopping threads took: 0.0000291 seconds

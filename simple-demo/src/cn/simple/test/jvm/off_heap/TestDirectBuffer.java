@@ -7,7 +7,7 @@ import java.util.List;
 import sun.nio.ch.DirectBuffer;
 
 /**
- * ²âÊÔ JVM ²ÎÊı
+ * æµ‹è¯• JVM å‚æ•°
  * 
  * <pre>
  * 1) -verbose:gc -XX:+PrintGCDetails -XX:MaxDirectMemorySize=40M
@@ -26,7 +26,7 @@ public class TestDirectBuffer {
     }
 
     /**
-     * JVM ²ÎÊı£º<br>
+     * JVM å‚æ•°ï¼š<br>
      * -verbose:gc -XX:+PrintGCDetails -XX:MaxDirectMemorySize=40M <br>
      * -verbose:gc -XX:+PrintGCDetails -XX:MaxDirectMemorySize=40M -XX:+DisableExplicitGC <br>
      */
@@ -34,23 +34,23 @@ public class TestDirectBuffer {
         int i = 0;
         while ( true ) {
             DirectBuffer bf = (DirectBuffer) ByteBuffer.allocateDirect( 10 * k * k );
-            bf.cleaner().clean(); // »áÇåÀí
+            bf.cleaner().clean(); // ä¼šæ¸…ç†
             // System.gc();
             System.out.println( "loop " + ++i );
         }
     }
 
     /**
-     * ²âÊÔÒıÓÃµÄÓ°Ïì <br>
-     * JVM ²ÎÊı£º<br>
+     * æµ‹è¯•å¼•ç”¨çš„å½±å“ <br>
+     * JVM å‚æ•°ï¼š<br>
      * -verbose:gc -XX:+PrintGCDetails -XX:MaxDirectMemorySize=40M <br>
-     * System.gc() ÔÚ Bits.reserveMemory() ´¥·¢ <br>
+     * System.gc() åœ¨ Bits.reserveMemory() è§¦å‘ <br>
      */
     static void test_ref() {
         int i = 0;
         List<ByteBuffer> list = new ArrayList<>();
         while ( true ) {
-            ByteBuffer bf = ByteBuffer.allocateDirect( 10 * k * k ); // ÓĞÒıÓÃµÄ»°£¬Ôò²»»ØÊÕ
+            ByteBuffer bf = ByteBuffer.allocateDirect( 10 * k * k ); // æœ‰å¼•ç”¨çš„è¯ï¼Œåˆ™ä¸å›æ”¶
             list.add( bf );
             System.out.println( "loop " + ++i );
         }

@@ -1,7 +1,7 @@
 package cn.simple.test.thread.test_join;
 
 /**
- * 线程执行完会调用：notifyAll()
+ * 绾跨▼鎵ц瀹屼細璋冪敤锛歯otifyAll()
  * 
  * @author zengxf
  */

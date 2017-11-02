@@ -16,7 +16,7 @@ public class FindIndex {
     }
 
     /**
-     * Sunday 算法
+     * Sunday 绠楁硶
      * 
      * @param sa
      * @param pa
@@ -63,7 +63,7 @@ public class FindIndex {
     }
 
     /**
-     * 暴力查找
+     * 鏆村姏鏌ユ壘
      * 
      * @param sa
      * @param pa

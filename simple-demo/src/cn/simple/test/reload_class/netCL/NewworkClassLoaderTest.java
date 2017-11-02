@@ -3,7 +3,7 @@ package cn.simple.test.reload_class.netCL;
 public class NewworkClassLoaderTest {
     public static void main( String[] args ) {
 	try {
-	    // 测试加载网络中的class文件
+	    // 娴嬭瘯鍔犺浇缃戠粶涓殑class鏂囦欢
 	    String rootUrl = "https://raw.githubusercontent.com/zengxf/GitTest/master/classes";
 	    String className = "cn.simple.test.reload_class.netCL.NetClassLoaderSimple";
 	    NetworkClassLoader ncl1 = new NetworkClassLoader( rootUrl );

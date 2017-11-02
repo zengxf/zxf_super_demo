@@ -9,10 +9,10 @@ import java.util.List;
  * -Xms500m -Xmx500m -Xmn200m
  * -XX:+UseConcMarkSweepGC 
  * -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=90
- * ½â¾ö£º¼ÓÉÏ => 
+ * è§£å†³ï¼šåŠ ä¸Š => 
  * -XX:+ScavengeBeforeFullGC
  * -XX:+CMSScavengeBeforeRemark
- * ÈÕÖ¾£º
+ * æ—¥å¿—ï¼š
  * -Xloggc:C:\Users\Administrator\Desktop/gc.log
  * -XX:+PrintGCDetails
  * </pre>

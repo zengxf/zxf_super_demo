@@ -20,12 +20,12 @@ public class TestArrays {
 	Arrays.setAll( arr, i -> 2 * i );
     }
 
-    // Ìî³äÏàÍ¬µÄÖµ
+    // å¡«å……ç›¸åŒçš„å€¼
     static void test_parallelPrefix() {
 	Arrays.parallelPrefix( arr, ( i1, i2 ) -> i1 + i2 );
     }
 
-    // Ìî³äÏàÍ¬µÄÖµ
+    // å¡«å……ç›¸åŒçš„å€¼
     static void test_fill() {
 	Arrays.fill( arr, 1 );
     }
