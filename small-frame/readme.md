@@ -32,3 +32,5 @@ Java 协程
 嵌入式 tomcat 测试
 ## rxjava-demo
 RxJava 异步编程。但 java8 基本够用了
+## guess-encoding
+用来确定文件编码。但并不成功
