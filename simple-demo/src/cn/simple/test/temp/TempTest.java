@@ -3,19 +3,20 @@ package cn.simple.test.temp;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Scanner;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class TempTest {
 
     public static void main( String[] args ) throws IOException, InterruptedException, ParseException {
-        System.out.println( 1509033600000L );
-        System.out.println( System.currentTimeMillis() );
-        System.out.println( System.currentTimeMillis() + 24 * 10L * 3600 * 1000L );
-        System.out.println( 1509983999999L );
-        System.out.println( String.format( "%tF %<tT", 1509033600000L ) );
-        System.out.println( String.format( "%tF %<tT", 1509983999999L ) );
+        String input = "{%var1%, %var2%, %var3%} {%var4%, %var5%, %var6%}";
+        final String re = "(^[^{]*\\{|\\G(?!^),\\h*)%([^%]+)%";
+        // now use above regex in replaceAll method
+        System.out.println( input );
+        String repl = input.replaceAll( re, "$1#$2#" );
+        System.out.println( repl );
+
+        System.out.println( "abcabc".replaceAll( "(a)b(c)", "$1#$2" ) );
+        System.out.println( "a\u3000b" );
     }
 
 }
