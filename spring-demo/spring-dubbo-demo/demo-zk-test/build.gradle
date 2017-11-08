@@ -1,0 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+	
+dependencies {
+	compile ( 'org.apache.zookeeper:zookeeper:3.4.8' )
+}
