@@ -12,6 +12,7 @@ public class TestMath {
         decrementExact();
         negateExact();
         toIntExact();
+        System.out.println( Math.log( 0.0001 ) );
     }
 
     // to int

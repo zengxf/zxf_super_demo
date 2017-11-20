@@ -16,109 +16,109 @@ public class TestFiles {
 
     public static void main( String[] args ) throws Throwable {
 
-	// filesList();
+        // filesList();
 
-	// filesFind();
+        // filesFind();
 
-	// filesWalk();
+        // filesWalk();
 
-	// readAllAndWrite();
+        // readAllAndWrite();
 
-	// filesLines();
+        // filesLines();
 
-	// filesNewBufferedReader();
+        // filesNewBufferedReader();
 
-	// filesNewBufferedWriter();
+        // filesNewBufferedWriter();
 
-	// probeContentType();
+        // probeContentType();
 
-	getOwner();
+        getOwner();
     }
 
     static void getOwner() throws IOException {
-	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
-	UserPrincipal principal = Files.getOwner( path );
-	System.out.println( principal );
-	System.out.println( principal.getName() );
+        Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
+        UserPrincipal principal = Files.getOwner( path );
+        System.out.println( principal );
+        System.out.println( principal.getName() );
     }
 
     static void probeContentType() throws IOException {
-	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
-	String type = Files.probeContentType( path );
-	System.out.println( type );
+        Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
+        String type = Files.probeContentType( path );
+        System.out.println( type );
     }
 
     static void filesNewBufferedWriter() throws IOException {
-	Path path = Paths.get( TestFiles.class.getResource( "txts/b.txt" ).getPath().replaceFirst( "/", "" ) );
-	try ( BufferedWriter writer = Files.newBufferedWriter( path, StandardOpenOption.APPEND ) ) {
-	    writer.write( "print('Hello World');" );
-	}
+        Path path = Paths.get( TestFiles.class.getResource( "txts/b.txt" ).getPath().replaceFirst( "/", "" ) );
+        try ( BufferedWriter writer = Files.newBufferedWriter( path, StandardOpenOption.APPEND ) ) {
+            writer.write( "print('Hello World');" );
+        }
     }
 
     // 精细控制
     static void filesNewBufferedReader() throws IOException {
-	Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
-	try ( BufferedReader reader = Files.newBufferedReader( path ) ) {
-	    System.out.println( reader.readLine() );
-	}
+        Path path = Paths.get( TestFiles.class.getResource( "txts/a.txt" ).getPath().replaceFirst( "/", "" ) );
+        try ( BufferedReader reader = Files.newBufferedReader( path ) ) {
+            System.out.println( reader.readLine() );
+        }
     }
 
     // 内存高效。不是一次性把所有行都读进内存。
     static void filesLines() throws IOException {
-	Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
-	try ( Stream<String> stream = Files.lines( curPath.resolve( "a.txt" ) ) ) {
-	    stream//
-	            .filter( line -> line.contains( "fuck" ) )//
-	            .map( String::trim )//
-	            .forEach( System.out::println );
-	}
+        Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
+        try ( Stream<String> stream = Files.lines( curPath.resolve( "a.txt" ) ) ) {
+            stream//
+                    .filter( line -> line.contains( "fuck" ) )//
+                    .map( String::trim )//
+                    .forEach( System.out::println );
+        }
     }
 
     // 对内存并不十分高效，因为整个文件都会读进内存
     static void readAllAndWrite() throws IOException {
-	Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
-	System.out.println( curPath );
-	System.out.println( curPath.resolve( "a.txt" ) );
-	List<String> lines = Files.readAllLines( curPath.resolve( "a.txt" ) );
-	lines.add( "print('foobar');" );
-	Files.write( curPath.resolve( "b.txt" ), lines );
+        Path curPath = Paths.get( TestFiles.class.getResource( "txts" ).getPath().replaceFirst( "/", "" ) );
+        System.out.println( curPath );
+        System.out.println( curPath.resolve( "a.txt" ) );
+        List<String> lines = Files.readAllLines( curPath.resolve( "a.txt" ) );
+        lines.add( "print('foobar');" );
+        Files.write( curPath.resolve( "b.txt" ), lines );
     }
 
     static void filesWalk() throws IOException {
-	Path start = Paths.get( "" );
-	int maxDepth = 7;
-	try ( Stream<Path> stream = Files.walk( start, maxDepth ) ) {
-	    String joined = stream//
-	            .map( String::valueOf )//
-	            .filter( path -> path.endsWith( ".txt" ) )//
-	            .sorted()//
-	            .collect( Collectors.joining( "; " ) );
-	    System.out.println( "walk(): " + joined );
-	}
+        Path start = Paths.get( "" );
+        int maxDepth = 7;
+        try ( Stream<Path> stream = Files.walk( start, maxDepth ) ) {
+            String joined = stream//
+                    .map( String::valueOf )//
+                    .filter( path -> path.endsWith( ".txt" ) )//
+                    .sorted()//
+                    .collect( Collectors.joining( "; " ) );
+            System.out.println( "walk(): " + joined );
+        }
     }
 
     static void filesFind() throws IOException {
-	Path start = Paths.get( "" );
-	System.out.println( start.toFile().getAbsolutePath() );
-	int maxDepth = 7;
-	try ( Stream<Path> stream = Files.find( start, maxDepth, ( path, attr ) -> //
-	String.valueOf( path ).endsWith( ".txt" ) ) ) {
-	    String joined = stream.sorted()//
-	            .map( String::valueOf )//
-	            .collect( Collectors.joining( "; " ) );
-	    System.out.println( "Found: " + joined );
-	}
+        Path start = Paths.get( "" );
+        System.out.println( start.toFile().getAbsolutePath() );
+        int maxDepth = 7;
+        try ( Stream<Path> stream = Files.find( start, maxDepth, ( path, attr ) -> //
+        String.valueOf( path ).endsWith( ".txt" ) ) ) {
+            String joined = stream.sorted()//
+                    .map( String::valueOf )//
+                    .collect( Collectors.joining( "; " ) );
+            System.out.println( "Found: " + joined );
+        }
     }
 
     static void filesList() throws IOException {
-	try ( Stream<Path> stream = Files.list( Paths.get( "" ) ) ) {
-	    String joined = stream//
-	            .map( String::valueOf )//
-	            .filter( path -> !path.startsWith( "." ) )//
-	            .sorted()//
-	            .collect( Collectors.joining( "; " ) );
-	    System.out.println( "List: " + joined );
-	}
+        try ( Stream<Path> stream = Files.list( Paths.get( "" ) ) ) {
+            String joined = stream//
+                    .map( String::valueOf )//
+                    .filter( path -> !path.startsWith( "." ) )//
+                    .sorted()//
+                    .collect( Collectors.joining( "; " ) );
+            System.out.println( "List: " + joined );
+        }
     }
 
 }

@@ -23,5 +23,8 @@ dependencies {
 	
 	// neuroph
 	compile group: 'org.beykery', name: 'neuroph', version: '2.92'
+	
+	// mysql
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 
 }

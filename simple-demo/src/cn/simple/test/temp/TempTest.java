@@ -3,13 +3,25 @@ package cn.simple.test.temp;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.stream.DoubleStream;
+import java.util.stream.Stream;
 
 public class TempTest {
 
     public static void main( String[] args ) throws IOException, InterruptedException, ParseException {
-        System.out.println( Math.pow( 81, 1D / 2 ) );
-        System.out.println( Math.sqrt( 9 ) );
+        int i = 99999;
+        double[] inarr = DoubleStream.concat( DoubleStream.of( 12, 23, 43 ), //
+                DoubleStream.of( 13, 23, 35 ) ).toArray();
+        System.out.println( Arrays.toString( inarr ) );
+        System.out.println( Integer.toBinaryString( i ) );
+    }
+
+    public static double[] toDoubleArr( int v, int len ) {
+        int fv = 1 << len | v; // 填充
+        String str = Integer.toBinaryString( fv );
+        String[] arr = str.split( "" );
+        return Stream.of( arr ).skip( 1 ).mapToDouble( Double::parseDouble ).toArray();
     }
 
 }
