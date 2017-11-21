@@ -1,10 +1,10 @@
-package cn.zxf.neuroph.ssc.common;
+package cn.zxf.neuroph.ssc.common.array;
 
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
-public class ToDoubleArr {
+public class DoubleBinaryUtils {
 
     public static double[] toDoubleArr( int v, int len ) {
         int fv = 1 << len | v; // 填充

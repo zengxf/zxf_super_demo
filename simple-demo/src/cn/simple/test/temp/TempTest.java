@@ -3,18 +3,14 @@ package cn.simple.test.temp;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 public class TempTest {
 
     public static void main( String[] args ) throws IOException, InterruptedException, ParseException {
-        int i = 99999;
-        double[] inarr = DoubleStream.concat( DoubleStream.of( 12, 23, 43 ), //
-                DoubleStream.of( 13, 23, 35 ) ).toArray();
-        System.out.println( Arrays.toString( inarr ) );
-        System.out.println( Integer.toBinaryString( i ) );
+       System.out.println( Math.round( 3.4 ) );
+       System.out.println( Math.round( 3.5 ) );
+       System.out.println( Double.MAX_VALUE + 2 );
     }
 
     public static double[] toDoubleArr( int v, int len ) {

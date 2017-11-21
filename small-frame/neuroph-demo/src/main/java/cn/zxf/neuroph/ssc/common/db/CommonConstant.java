@@ -1,4 +1,4 @@
-package cn.zxf.neuroph.ssc.common;
+package cn.zxf.neuroph.ssc.common.db;
 
 public interface CommonConstant {
 
