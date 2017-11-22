@@ -92,8 +92,16 @@ public class SscNNet {
                 correctNumber++;
             }
         }
-        System.out.println( "判断正确率:" + ( ( correctNumber * 1.0 / count ) * 100 ) + "%" );
+        double rate = correctNumber * 100.0 / count;
+        System.out.println( rateDescribe( rate ) + "，判断正确率(%)：" + rate );
         return this;
+    }
+
+    static String rateDescribe( double rate ) {
+        int v = (int) rate;
+        if ( v == 0 )
+            return "百无一是";
+        return "百里中(" + v + ")";
     }
 
     BackPropagation rule() {

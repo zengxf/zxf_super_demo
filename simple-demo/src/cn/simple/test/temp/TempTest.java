@@ -1,23 +1,33 @@
 
 package cn.simple.test.temp;
 
-import java.io.IOException;
-import java.text.ParseException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TempTest {
 
-    public static void main( String[] args ) throws IOException, InterruptedException, ParseException {
-       System.out.println( Math.round( 3.4 ) );
-       System.out.println( Math.round( 3.5 ) );
-       System.out.println( Double.MAX_VALUE + 2 );
+    public static void main( String[] args ) throws Exception {
+        log.info( "{}", Arrays.toString( "ab Ab SS".split( "\\PL" ) ) );
+        List<String> list = Stream.of( "1", "2", "3", "4" ).collect( Collectors.toList() );
+        System.out.println( list.subList( 0, 2 ) );
+        System.out.println( list.subList( 2, list.size() ) );
     }
 
-    public static double[] toDoubleArr( int v, int len ) {
-        int fv = 1 << len | v; // 填充
-        String str = Integer.toBinaryString( fv );
-        String[] arr = str.split( "" );
-        return Stream.of( arr ).skip( 1 ).mapToDouble( Double::parseDouble ).toArray();
+    @Data
+    public static class Test {
+        final Integer a;
+        final String  b;
+
+        public Test( Integer a, String b ) {
+            this.a = a;
+            this.b = b;
+        }
     }
 
 }

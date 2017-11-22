@@ -165,11 +165,11 @@ public class Nn1717_17_7 implements LearningEventListener {
         int input;
 
         double[] output() {
-            return DoubleBinaryUtils.toDoubleArr( input % 100, 7 );
+            return DoubleBinaryUtils.toBinaryArr( input % 100, 7 );
         }
 
         double[] input() {
-            return DoubleBinaryUtils.toDoubleArr( input, 17 );
+            return DoubleBinaryUtils.toBinaryArr( input, 17 );
         }
     }
 

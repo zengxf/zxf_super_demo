@@ -9,6 +9,7 @@ import org.neuroph.core.data.DataSetRow;
 
 import cn.zxf.neuroph.ssc.common.data.CodeSplitVo;
 
+@Deprecated
 public class DataSetUtils {
 
     public static DataSetVo split( List<CodeSplitVo> data, int period, int scale ) {
