@@ -1,4 +1,4 @@
-# jdk:131
+# jdk:8-131
 
 FROM centos:7.2-tools
 

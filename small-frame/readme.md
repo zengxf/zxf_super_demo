@@ -17,6 +17,7 @@ java 9 demo
 ## json-path-demo
 ## jsqlparser-demo
 ## junit-demo
+其中包含微基准测试
 ## jxls-demo
 根据 excel 模板，生成 excel
 ## librec-demo
@@ -36,3 +37,5 @@ RxJava 异步编程。但 java8 基本够用了
 用来确定文件编码。但并不成功
 ## test-greys
 阿里性能诊断工具 greys 测试
+## vertx-demo
+vertx 微服务-响应式

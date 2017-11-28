@@ -6,6 +6,12 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 
+/**
+ * -javaagent:L:/IDE/Java/Plugin/xrebel/xrebel-3.4.1.jar
+ * 
+ * <p>
+ * Created by zengxf on 2017-11-24
+ */
 public class JavaeeStartMain {
 
     static final int PORT = 9090;

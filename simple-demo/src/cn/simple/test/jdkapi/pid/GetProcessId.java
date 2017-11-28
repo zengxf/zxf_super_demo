@@ -1,4 +1,4 @@
-package cn.simple.test.jdkapi.jlm;
+package cn.simple.test.jdkapi.pid;
 
 import java.lang.management.ManagementFactory;
 
@@ -12,6 +12,7 @@ public class GetProcessId {
 
     public static void main( String[] args ) {
         System.out.println( ManagementFactory.getRuntimeMXBean().getName() );
+        System.out.println( ManagementFactory.getRuntimeMXBean().getName().split( "@" )[0] );
     }
 
 }

@@ -16,3 +16,14 @@
 - [hello.html](http://localhost:9090/hello.html)
 - [test.html](http://localhost:9090/test.html)
 - [upload-file.html](http://localhost:9090/upload-file.html)
+
+## web-socket
+- JavaScript test:
+
+```
+var ws = new WebSocket('ws://localhost:9090/servertime');
+ws.onmessage = function(e) {
+  console.log(e.data);
+};
+ws.send("test-123");
+```
