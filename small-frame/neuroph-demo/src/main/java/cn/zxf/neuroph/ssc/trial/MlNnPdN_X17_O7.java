@@ -16,18 +16,19 @@ import cn.zxf.neuroph.ssc.listener.CommonListener;
 
 public class MlNnPdN_X17_O7 {
 
-    static final int PD = 4;
+    static final int PD = 15 //
+            , SCALE = 4;
 
     public static void main( String[] args ) {
-        ParamVo param = ParamVo.builder().yyyy( 2017 ).mmMin( 7 ).mmMax( 7 ).build();
+        ParamVo param = ParamVo.builder().yyyy( 2017 ).mmMin( 7 ).mmMax( 8 ).build();
         List<CodeSplitVo> data = CodeSplitUtils.find( param );
-        DataSetVo dataSet = BinaryDataSetUtils.split( data, PD, 4 );
+        DataSetVo dataSet = BinaryDataSetUtils.split( data, PD, SCALE );
 
         SscMlNNet.builder() //
                 .maxIterations( 20 ) //
-                .levelNeurons( IntUtils.of( PD * 17, 3 * PD * 17, 7 ) ) //
+                .levelNeurons( IntUtils.of( PD * 17, PD * 17, 7 ) ) //
                 // .inputTransferFunction( TransferFunctionType.LINEAR ) //
-                .hideTransferFunction( TransferFunctionType.TANH ) //
+                .hideTransferFunction( TransferFunctionType.SIGMOID ) //
                 .outputTransferFunction( TransferFunctionType.SIGMOID ) //
                 // .randomizer( new RangeRandomizer( 0, 1 ) ) //
                 // -------

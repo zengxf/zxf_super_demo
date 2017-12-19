@@ -1,6 +1,7 @@
 package cn.zxf.spring.small.function.task_executor.demo;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,12 @@ public class AsyncTaskService {
         UserVo u = new UserVo( "test u - " + i );
         sleep( 2000 );
         return CompletableFuture.completedFuture( u );
+    }
+
+    @Async
+    public Future<UserVo> getUserNull( int i ) {
+        sleep( 2000 );
+        return CompletableFuture.completedFuture( null );
     }
 
     static void sleep( long millis ) {

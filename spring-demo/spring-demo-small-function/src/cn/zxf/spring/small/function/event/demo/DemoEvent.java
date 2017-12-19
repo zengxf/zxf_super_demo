@@ -4,19 +4,19 @@ import org.springframework.context.ApplicationEvent;
 
 public class DemoEvent extends ApplicationEvent {
     private static final long serialVersionUID = 1L;
-    private String	      msg;
+    private String            msg;
 
     public DemoEvent( Object source, String msg ) {
-	super( source );
-	this.msg = msg;
+        super( source );
+        this.msg = msg;
     }
 
     public String getMsg() {
-	return msg;
+        return msg;
     }
 
     public void setMsg( String msg ) {
-	this.msg = msg;
+        this.msg = msg;
     }
 
 }

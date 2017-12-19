@@ -8,14 +8,14 @@ import lombok.extern.slf4j.Slf4j;
 public class Main {
 
     public static void main( String[] args ) {
-	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext( EventConfig.class );
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext( EventConfig.class );
 
-	log.info( "main context: [{}]", context );
+        log.info( "main context: [{}]", context );
 
-	DemoPublisher demoPublisher = context.getBean( DemoPublisher.class );
+        DemoPublisher demoPublisher = context.getBean( DemoPublisher.class );
 
-	demoPublisher.publish( "hello application event" );
+        demoPublisher.publish( "hello application event" );
 
-	context.close();
+        context.close();
     }
 }

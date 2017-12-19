@@ -13,8 +13,8 @@ public class DemoPublisher {
     ApplicationContext applicationContext;
 
     public void publish( String msg ) {
-	log.info( "DemoPublisher context: [{}]", applicationContext );
-	applicationContext.publishEvent( new DemoEvent( this, msg ) );
+        log.info( "DemoPublisher context: [{}]", applicationContext );
+        applicationContext.publishEvent( new DemoEvent( this, msg ) );
     }
 
 }

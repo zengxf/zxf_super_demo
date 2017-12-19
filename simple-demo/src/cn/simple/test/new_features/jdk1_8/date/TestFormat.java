@@ -13,17 +13,32 @@ import java.util.Locale;
 
 public class TestFormat {
     public static void main( String[] args ) {
+        // fmtYyyyWeek();
+        // fmtYyyyMMdd();
+
+        // test1();
+        // testLocal();
+        // testLocal1();
+        // testZone();
+
+        System.out.println( LocalDate.of( 2017, 12, 11 ).get( ChronoField.ALIGNED_WEEK_OF_YEAR ) );
+        System.out.println( LocalDate.of( 2017, 1, 1 ).with( ChronoField.ALIGNED_WEEK_OF_YEAR, 51 ).with( ChronoField.DAY_OF_WEEK, 1 ) );
+    }
+
+    static void fmtYyyyWeek() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-w" );
+        LocalDate date1 = LocalDate.of( 2017, 12, 7 );
+        String formattedDate = date1.format( formatter );
+        System.out.println( formattedDate );
+    }
+
+    static void fmtYyyyMMdd() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "dd/MM/yyyy" );
         LocalDate date1 = LocalDate.of( 2014, 3, 18 );
         String formattedDate = date1.format( formatter );
         System.out.println( formattedDate );
         LocalDate date2 = LocalDate.parse( formattedDate, formatter );
         System.out.println( date2 );
-
-        test1();
-        testLocal();
-        testLocal1();
-        testZone();
     }
 
     static void testZone() {

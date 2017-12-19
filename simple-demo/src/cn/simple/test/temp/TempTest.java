@@ -1,22 +1,13 @@
 
 package cn.simple.test.temp;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
+import java.util.Arrays;
 
 public class TempTest {
 
     public static void main( String[] args ) throws Exception {
-        test( null );
-        test1( null );
-    }
-
-    static void test( @Nullable String msg ) {
-        System.out.println( msg );
-    }
-
-    static void test1( @NotNull String msg ) {
-        System.out.println( msg );
+        String[] arr = Arrays.asList( "a", "b" ).stream().map( s -> s ).toArray( i -> new String[1] );
+        System.out.println( Arrays.toString( arr ) );
     }
 
 }

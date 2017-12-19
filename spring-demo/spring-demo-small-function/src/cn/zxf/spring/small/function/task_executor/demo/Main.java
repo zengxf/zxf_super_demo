@@ -3,6 +3,7 @@ package cn.zxf.spring.small.function.task_executor.demo;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -18,7 +19,8 @@ public class Main {
         asyncTaskService = context.getBean( AsyncTaskService.class );
 
         // testTask();
-        testFuture();
+        // testFuture();
+        testFutureNull();
 
         context.close();
     }
@@ -29,6 +31,16 @@ public class Main {
             asyncTaskService.executeAsyncTaskPlus( i );
         }
         System.out.println( "------- async task return -------" );
+    }
+
+    static void testFutureNull() {
+        Future<UserVo> fut = asyncTaskService.getUserNull( 1 );
+        try {
+            UserVo vo = fut.get();
+            System.out.println( "vo: " + vo );
+        } catch ( InterruptedException | ExecutionException e ) {
+            e.printStackTrace();
+        }
     }
 
     static void testFuture() {
