@@ -11,27 +11,27 @@ import java.lang.invoke.MethodType;
  */
 public class TestMethodHandle {
     static class MyClass {
-	public void test( String msg ) {
-	    System.out.println( "test msg => " + msg );
-	}
+        public void test( String msg ) {
+            System.out.println( "test msg => " + msg );
+        }
 
-	public static void testStatic( String msg ) {
-	    System.out.println( "test static msg => " + msg );
-	}
+        public static void testStatic( String msg ) {
+            System.out.println( "test static msg => " + msg );
+        }
 
-	private static void testStaticPrivate( String msg ) {
-	    System.out.println( "test static private msg => " + msg );
-	}
+        private static void testStaticPrivate( String msg ) {
+            System.out.println( "test static private msg => " + msg );
+        }
 
-	private void testMemberPrivate( String msg ) {
-	    System.out.println( "test private msg => " + msg );
-	}
+        private void testMemberPrivate( String msg ) {
+            System.out.println( "test private msg => " + msg );
+        }
     }
 
     public static void main( String[] args ) throws Throwable {
-	testPrivate();
-	testStatic();
-	testMember();
+        testPrivate();
+        testStatic();
+        testMember();
     }
 
     /**
@@ -42,22 +42,22 @@ public class TestMethodHandle {
      * @throws Throwable
      */
     static void testPrivate() {
-	MyClass obj = new MyClass();
+        MyClass obj = new MyClass();
 
-	MyClass.testStaticPrivate( "test 01" );
-	obj.testMemberPrivate( "test 02" );
+        MyClass.testStaticPrivate( "direct - test 01" );
+        obj.testMemberPrivate( "direct - test 02" );
 
-	try {
-	    MethodType mt = MethodType.methodType( void.class, String.class );
-	    // 也只能调用公共的方法
-	    MethodHandle mh = MethodHandles.lookup().findSpecial( Object.class, "testMemberPrivate", mt, MyClass.class );
-	    // MethodHandle mh = MethodHandles.lookup().findVirtual( MyClass.class, "testMemberPrivate", mt );
+        try {
+            MethodType mt = MethodType.methodType( void.class, String.class );
+            // 也只能调用公共的方法
+            MethodHandle mh = MethodHandles.lookup().findSpecial( Object.class, "testMemberPrivate", mt, MyClass.class );
+            // MethodHandle mh = MethodHandles.lookup().findVirtual( MyClass.class, "testMemberPrivate", mt );
 
-	    mh.bindTo( obj ).invokeExact( "ok 1" );
-	    mh.invoke( obj, "ok 2" );
-	} catch ( Throwable t ) {
-	    System.out.println( "私有方法不能调用！" );
-	}
+            mh.bindTo( obj ).invokeExact( "ok 1" );
+            mh.invoke( obj, "ok 2" );
+        } catch ( Throwable t ) {
+            System.out.println( "私有方法不能调用！" );
+        }
     }
 
     /**
@@ -68,11 +68,11 @@ public class TestMethodHandle {
      * @throws Throwable
      */
     static void testStatic() throws NoSuchMethodException, IllegalAccessException, Throwable {
-	MethodType mt = MethodType.methodType( void.class, String.class );
-	MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "testStatic", mt );
+        MethodType mt = MethodType.methodType( void.class, String.class );
+        MethodHandle mh = MethodHandles.lookup().findStatic( MyClass.class, "testStatic", mt );
 
-	mh.invokeExact( "ok 1" );
-	mh.invoke( "ok 2" );
+        mh.invokeExact( "ok 1" );
+        mh.invoke( "ok 2" );
     }
 
     /**
@@ -83,11 +83,11 @@ public class TestMethodHandle {
      * @throws Throwable
      */
     static void testMember() throws NoSuchMethodException, IllegalAccessException, Throwable {
-	MethodType mt = MethodType.methodType( void.class, String.class );
-	MethodHandle mh = MethodHandles.lookup().findVirtual( MyClass.class, "test", mt );
+        MethodType mt = MethodType.methodType( void.class, String.class );
+        MethodHandle mh = MethodHandles.lookup().findVirtual( MyClass.class, "test", mt );
 
-	MyClass obj = new MyClass();
-	mh.bindTo( obj ).invokeExact( "ok 1" );
-	mh.invoke( obj, "ok 2" );
+        MyClass obj = new MyClass();
+        mh.bindTo( obj ).invokeExact( "ok 1" );
+        mh.invoke( obj, "ok 2" );
     }
 }
