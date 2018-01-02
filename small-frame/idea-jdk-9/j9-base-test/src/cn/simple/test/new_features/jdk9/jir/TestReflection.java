@@ -1,7 +1,12 @@
 package cn.simple.test.new_features.jdk9.jir;
 
 /**
+ * JDK 内部使用的，不能调用
+ * <p>
+ * module-info.java 声明如下所示：
+ * <pre>
  * exports jdk.internal.reflect to java.sql, jdk.dynalink, java.logging, java.sql.rowset, jdk.unsupported, jdk.scripting.nashorn;
+ * </pre>
  * <p>
  * Created by zengxf on 2017/10/10.
  */
@@ -13,24 +18,8 @@ public class TestReflection {
     }
 
     static void test1() {
-        test2();
-    }
-
-    static void test2() {
-        Test.test();
-    }
-
-    static class Test {
-        static void test() {
-            TestB.test();
-        }
-    }
-
-    static class TestB {
-        static void test() {
-            System.out.println("==================");
+        System.out.println("==================");
 //            System.out.println(Reflection.getCallerClass());
-        }
     }
 
 }
