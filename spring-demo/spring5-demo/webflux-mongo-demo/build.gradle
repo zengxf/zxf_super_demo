@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+   		mavenCentral()
+  		maven { url 'https://repo.spring.io/libs-snapshot' }
+    }
+    dependencies {
+   		classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M6'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/libs-snapshot' }
+}
+
+dependencies { 
+
+// spring 
+	// boot
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+	// reactive
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive'
+
+// guava	
+	compile group: 'com.google.guava', name: 'guava', version: '23.0'
+
+// lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+
+// test
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
+}
