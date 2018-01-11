@@ -135,13 +135,11 @@ public class OAuth2ServerConfig {
         /** 配置AuthorizationServer安全认证的相关信息 */
         @Override
         public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-            // 允许表单认证
-//            oauthServer.allowFormAuthenticationForClients();
             oauthServer
                 .realm("oauth2-resources")
                 .tokenKeyAccess("permitAll()") //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
                 .checkTokenAccess("isAuthenticated()") //url:/oauth/check_token allow check token
-                .allowFormAuthenticationForClients();
+                .allowFormAuthenticationForClients();  // 允许表单认证
         }
 
     }

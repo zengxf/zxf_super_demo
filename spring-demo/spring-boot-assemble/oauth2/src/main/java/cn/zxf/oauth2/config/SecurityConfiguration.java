@@ -20,25 +20,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user_1").password("123456").authorities("USER")
-//                .and()
-//                .withUser("user_2").password("123456").authorities("USER");
-//    }
-
-    /**
-     * 这一步的配置是必不可少的，否则SpringBoot会自动配置一个AuthenticationManager,覆盖掉内存中的用户
-     */
-//    @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        AuthenticationManager manager = super.authenticationManagerBean();
-//        return manager;
-//    }
-
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {
@@ -62,7 +43,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
         http
             .requestMatchers().anyRequest()
             .and()
@@ -72,16 +52,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
             .formLogin()
             .permitAll();
-        // @formatter:on
-        
-//        http.requestMatchers().antMatchers( "/oauth/**", "/login/**", "/logout/**" )
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/oauth/**")
-//                .authenticated()
-//                .and()
-//                .formLogin()
-//                .permitAll();
     }
     
 }
