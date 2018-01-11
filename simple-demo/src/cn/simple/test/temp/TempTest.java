@@ -4,7 +4,18 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws Exception {
-        System.out.println( ( ( 1L << 45 ) - System.currentTimeMillis() ) / 1000 / 3600 / 24 / 30 / 12 );
+        Thread thread = new MyThread();
+        thread.start();
+        System.out.println("end");
     }
-
+}
+class MyThread extends Thread {
+    private int i = 0;
+    @Override
+    public void run() {
+        while (true) {
+            i++;
+            System.out.println(i);
+        }
+    }
 }
