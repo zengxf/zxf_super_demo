@@ -23,6 +23,11 @@ http://localhost:8080/oauth/authorize?response_type=code&client_id=client_3&redi
 // POST
 http://localhost:8080/oauth/token?grant_type=authorization_code&code=D1VpWo&client_id=client_3&client_secret=123456&redirect_uri=http://baidu.com
 ```
+- 简单模式：
+```
+// 直接浏览器就行了
+http://localhost:8080/oauth/authorize?response_type=token&client_id=client_4&redirect_uri=http://baidu.com
+```
 - 检验 token
 ```
 // 需要 client_id 和 client_secret
