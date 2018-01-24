@@ -27,6 +27,11 @@ dependencies {
 // spring 
 	// web
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	// aop
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+
+// commons-lang3	
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 	
 // lombok
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
