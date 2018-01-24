@@ -8,13 +8,13 @@ package cn.simple.test.socket;
  */
 public class TestRemoteDebug {
     public static void main( String[] args ) throws InterruptedException {
-	System.out.println( System.getProperty( "java.version" ) );
-	int i = 0;
-	while ( true ) {
-	    System.out.printf( "i: %s %n", i++ );
-	    System.out.printf( "date: %tT %n", System.currentTimeMillis() );
-	    Thread.sleep( 1000L );
-	}
+        System.out.println( System.getProperty( "java.version" ) );
+        int i = 0;
+        while ( true ) {
+            System.out.printf( "i: %s %n", i++ );
+            System.out.printf( "date: %tT %n", System.currentTimeMillis() );
+            Thread.sleep( 1000L );
+        }
     }
 }
 // 远程调试

@@ -10,12 +10,15 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 都有对应的异步方法 xxAsync()
  * 
  * <p>
  * Created by zengxf on 2017-11-28
  */
+@Slf4j
 public class TestCompletableFuture {
 
     static ExecutorService executor = Executors.newCachedThreadPool();
@@ -34,9 +37,28 @@ public class TestCompletableFuture {
         // testHandle();
         // testExceptionally();
         // howStart();
-        testWhenComplete();
+        // testWhenComplete();
+        test_runAsync();
 
         executor.shutdown();
+    }
+
+    static void test_runAsync() {
+        Runnable runnable = () -> {
+            log.info( "async --> start ..." );
+            sleep( 2000 );
+            log.info( "async --> end ..." );
+        };
+        CompletableFuture.runAsync( runnable, executor );
+        log.info( "async --> return !!!" );
+    }
+
+    static void sleep( int millis ) {
+        try {
+            Thread.sleep( millis );
+        } catch ( InterruptedException e ) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -1,21 +1,27 @@
 
 package cn.simple.test.temp;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+// M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
 public class TempTest {
 
     public static void main( String[] args ) throws Exception {
-        Thread thread = new MyThread();
-        thread.start();
-        System.out.println("end");
+
     }
-}
-class MyThread extends Thread {
-    private int i = 0;
-    @Override
-    public void run() {
-        while (true) {
-            i++;
-            System.out.println(i);
-        }
+
+    @Data
+    public static class A {
+        String  name;
+        Integer age;
     }
+
+    @Data
+    @EqualsAndHashCode( callSuper = true )
+    public static class B extends A {
+        String  namea;
+        Integer agea;
+    }
+
 }
