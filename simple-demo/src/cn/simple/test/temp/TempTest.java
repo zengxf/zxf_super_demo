@@ -8,17 +8,21 @@ import lombok.EqualsAndHashCode;
 public class TempTest {
 
     public static void main( String[] args ) throws Exception {
-
+        B a = new B();
+        B b = new B();
+        System.out.println( a.hashCode() );
+        System.out.println( b.hashCode() );
+        System.out.println( a.equals( b ) );
     }
 
-    @Data
+    // @Data
     public static class A {
         String  name;
         Integer age;
     }
 
     @Data
-    @EqualsAndHashCode( callSuper = true )
+    @EqualsAndHashCode( callSuper = false )
     public static class B extends A {
         String  namea;
         Integer agea;
