@@ -31,6 +31,10 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
                 .and() //
             .withExternal() //
                 .source(States.WAITING_FOR_RECEIVE).target(States.DONE) //
+                .event(Events.RECEIVE)
+                .and()
+            .withExternal() //
+                .source(States.UNPAID).target(States.DONE) //
                 .event(Events.RECEIVE);
     }
     
