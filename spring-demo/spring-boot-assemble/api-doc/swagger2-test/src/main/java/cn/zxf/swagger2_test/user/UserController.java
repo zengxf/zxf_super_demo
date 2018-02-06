@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +23,7 @@ public class UserController {
 
     static Map<Long, User> users = Collections.synchronizedMap( new HashMap<Long, User>() );
 
-    @ApiOperation( value = "获取用户列表", notes = "" )
+    @ApiOperation( value = "获取用户列表" )
     @RequestMapping( value = { "" }, method = RequestMethod.GET )
     public List<User> getUserList() {
         List<User> r = new ArrayList<User>( users.values() );
@@ -63,6 +64,16 @@ public class UserController {
     @RequestMapping( value = "/{id}", method = RequestMethod.DELETE )
     public String deleteUser( @PathVariable Long id ) {
         users.remove( id );
+        return "success";
+    }
+
+    // ------------------ 简化 ------------------
+
+    @ApiOperation( value = "更新用户详细信息-by my" )
+    @PutMapping( value = "/my-put/{id}" )
+    public String myPutUser( @PathVariable Long id, @RequestBody User user ) {
+        System.out.println( "user => " + user );
+        users.put( id, user );
         return "success";
     }
 

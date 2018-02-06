@@ -30,9 +30,9 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder() //
                 .title( "Swagger2 测试" ) //
-                .description( "测试 http://www.zxf-ai.com/" ) //
-                .termsOfServiceUrl( "http://www.zxf-ai.com/" ) //
-                .contact( new Contact( "zxf", "http://www.zxf-ai.com", "fl_zxf@sina.cn" ) ) //
+                .description( "测试 https://zengxf.github.io/zxf-blog" ) //
+                .termsOfServiceUrl( "https://zengxf.github.io/zxf-blog" ) //
+                .contact( new Contact( "zxf", "https://zengxf.github.io/zxf-blog", "fl_zxf@sina.cn" ) ) //
                 .version( "1.0" ) //
                 .build();
 
