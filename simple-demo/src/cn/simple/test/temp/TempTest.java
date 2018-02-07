@@ -1,31 +1,30 @@
 
 package cn.simple.test.temp;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 // M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
 public class TempTest {
-
+    /**
+     * > 1111
+     * - 1110 +
+     * = 1110
+     * - 1101 +
+     * = 1100
+     * - 1010 +
+     * = 1000
+     * - 0100 +
+     * = 0000
+     * 
+     * @param args
+     * @throws Exception
+     */
     public static void main( String[] args ) throws Exception {
-        B a = new B();
-        B b = new B();
-        System.out.println( a.hashCode() );
-        System.out.println( b.hashCode() );
-        System.out.println( a.equals( b ) );
-    }
+        System.out.println( 11 & 10 );
+        System.out.println( 5 & 4 );
+        System.out.println( 4 & 3 );
+        System.out.println( 3 & 2 );
 
-    // @Data
-    public static class A {
-        String  name;
-        Integer age;
-    }
-
-    @Data
-    @EqualsAndHashCode( callSuper = false )
-    public static class B extends A {
-        String  namea;
-        Integer agea;
+        // System.out.println( Integer.toBinaryString( -1 ) );
+        // System.out.println( Integer.toBinaryString( -2 ) );
     }
 
 }

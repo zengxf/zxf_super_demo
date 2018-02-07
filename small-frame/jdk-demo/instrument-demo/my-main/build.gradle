@@ -10,4 +10,5 @@ repositories {
 }
 
 dependencies {
+	compile files('K:/install/jdk/jdk-8u131-x64/lib/tools.jar')
 }
