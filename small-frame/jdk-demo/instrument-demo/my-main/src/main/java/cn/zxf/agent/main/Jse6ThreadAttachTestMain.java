@@ -39,6 +39,7 @@ public class Jse6ThreadAttachTestMain {
                     }
                 }
                 vm.loadAgent( jar );
+                System.out.println( "loadAgent done ..." );
                 vm.detach();
             } catch ( Exception e ) {
                 e.printStackTrace();

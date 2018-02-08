@@ -39,3 +39,5 @@ RxJava 异步编程。但 java8 基本够用了
 阿里性能诊断工具 greys 测试
 ## vertx-demo
 vertx 微服务-响应式
+## speedment-demo
+流式操作数据库
