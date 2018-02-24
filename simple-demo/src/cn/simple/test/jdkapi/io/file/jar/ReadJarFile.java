@@ -1,4 +1,4 @@
-package cn.simple.test.jdkapi.file.jar;
+package cn.simple.test.jdkapi.io.file.jar;
 
 import java.io.InputStream;
 import java.net.MalformedURLException;

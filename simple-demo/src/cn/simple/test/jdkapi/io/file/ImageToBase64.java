@@ -1,4 +1,4 @@
-package cn.simple.test.jdkapi.file;
+package cn.simple.test.jdkapi.io.file;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

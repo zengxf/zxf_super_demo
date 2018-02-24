@@ -1,4 +1,4 @@
-package cn.simple.test.jdkapi.file;
+package cn.simple.test.jdkapi.io.file;
 
 import java.io.IOException;
 import java.net.URI;
