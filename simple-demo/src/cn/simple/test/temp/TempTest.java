@@ -1,14 +1,31 @@
 
 package cn.simple.test.temp;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 // M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
 public class TempTest {
 
     public static void main( String[] args ) throws InterruptedException {
-        int b = ( 1 << 16 );
-        int d = b + b;
-        System.out.println( Integer.toBinaryString( b ) );
-        System.out.println( d >>> 16 );
+        final HashMap<String, String> map = new HashMap<String, String>( 2 );
+        Thread t = new Thread( new Runnable() {
+            @Override
+            public void run() {
+                for ( int i = 0; i < 100; i++ ) {
+                    new Thread( new Runnable() {
+                        @Override
+                        public void run() {
+                            for ( int i = 0; i < 100; i++ ) {
+                                map.put( UUID.randomUUID().toString(), "" );
+                            }
+                        }
+                    }, "ftf" + i ).start();
+                }
+            }
+        }, "ftf" );
+        t.start();
+        t.join();
     }
 
 }
