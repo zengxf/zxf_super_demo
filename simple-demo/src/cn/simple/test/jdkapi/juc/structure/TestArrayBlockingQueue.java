@@ -1,15 +1,30 @@
 package cn.simple.test.jdkapi.juc.structure;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class TestArrayBlockingQueue {
 
-    public static void main( String[] args ) {
-        ArrayBlockingQueue<Integer> bqueue = new ArrayBlockingQueue<>( 20 );
+    public static void main( String[] args ) throws InterruptedException {
+        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>( 20 );
 
-        bqueue.offer( 1 );
+        // 特殊值
+        queue.offer( 1 );
+        queue.poll();
+        queue.peek();
 
-        bqueue.poll();
+        // 异常
+        queue.add( 2 );
+        queue.remove();
+        queue.element();
+
+        // 阻塞
+        queue.put( 10 );
+        queue.take();
+
+        // 超时
+        queue.offer( 3, 1, TimeUnit.SECONDS );
+        queue.poll( 1, TimeUnit.SECONDS );
     }
 
 }

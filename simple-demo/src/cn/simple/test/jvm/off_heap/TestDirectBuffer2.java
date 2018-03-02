@@ -12,7 +12,7 @@ import sun.nio.ch.DirectBuffer;
  * <p>
  * Created by zengxf on 2017-09-08
  */
-@SuppressWarnings( "restriction" )
+// @SuppressWarnings( "restriction" )
 public class TestDirectBuffer2 {
 
     public static void main( String[] args ) throws InterruptedException {

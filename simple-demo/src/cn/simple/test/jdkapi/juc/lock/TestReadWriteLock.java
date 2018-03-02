@@ -7,7 +7,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * <pre>
  * ThreadLocal.get() 相对而已比较耗时。
- * 共享锁获取时，设置状态是：c + SHARED_UNIT，这样 c >>> SHARED_SHIFT 就准了；c + SHARED_UNIT 相当于共享标识位的 c++
+ * 共享锁获取时，设置状态是：c + SHARED_UNIT，这样 c >>> SHARED_SHIFT 就准了；c + SHARED_UNIT 相当于共享标识位的 c++；
+ *   头节点不是共享，则等待
  * </pre>
  * 
  * <p>
@@ -26,7 +27,7 @@ public class TestReadWriteLock {
         Runnable read = () -> {
             System.out.println( Thread.currentThread().getName() + " readLock init ...." );
             sleep( 1000L );
-            readLock.lock();
+            readLock.lock(); // Thread.currentThread().getName().equals( "test-read-2" )
             try {
                 System.out.println( Thread.currentThread().getName() + " read ...." );
                 sleep( 2000L );

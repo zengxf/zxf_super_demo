@@ -3,7 +3,6 @@ package cn.simple.test.jdkapi.juc.lock;
 import java.util.concurrent.CyclicBarrier;
 import java.util.stream.IntStream;
 
-
 /**
  * 都是 await() 方法里处理暂停和唤醒
  * 
@@ -33,7 +32,7 @@ public class TestCyclicBarrier {
             }
         };
 
-        IntStream.rangeClosed( 1, count ).forEach( i -> {
+        IntStream.rangeClosed( 1, count * 2 ).forEach( i -> {
             new Thread( r, "test-" + i ).start();
         } );
     }

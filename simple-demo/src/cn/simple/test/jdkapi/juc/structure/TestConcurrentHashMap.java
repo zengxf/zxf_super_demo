@@ -8,6 +8,7 @@ public class TestConcurrentHashMap {
         ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
         map.put( "a", "" );
         map.get( "a" );
+        map.size();
     }
 
 }

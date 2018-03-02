@@ -4,6 +4,7 @@ import java.util.concurrent.Semaphore;
 import java.util.stream.IntStream;
 
 /**
+ * 限制访问资源的线程数目 <br>
  * acquire() 与 release() 配对
  * 
  * <p>
@@ -12,7 +13,7 @@ import java.util.stream.IntStream;
 public class TestSemaphore {
 
     public static void main( String[] args ) {
-        int count = 2;
+        int count = 3;
 
         Semaphore sp = new Semaphore( count );
 
@@ -33,7 +34,7 @@ public class TestSemaphore {
             }
         };
 
-        IntStream.rangeClosed( 1, count ).forEach( i -> {
+        IntStream.rangeClosed( 1, count + 2 ).forEach( i -> {
             new Thread( r, "test-" + i ).start();
         } );
     }
