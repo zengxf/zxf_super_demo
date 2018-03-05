@@ -1,0 +1,23 @@
+server:
+  port: 8060
+spring:
+  profiles: default
+  dubbo:
+    application:
+      name: demo-client
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: cn.test.api.test
+
+---
+
+server:
+  port: 8061
+spring:
+  profiles: test
+  dubbo:
+    application:
+      name: demo-client-test
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: cn.test.api.test

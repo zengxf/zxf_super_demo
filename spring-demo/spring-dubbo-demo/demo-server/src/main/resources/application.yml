@@ -1,0 +1,31 @@
+spring:
+  profiles: default
+  dubbo:
+    application:
+      name: demo-server
+    protocol:
+      name: dubbo
+      serialization: fastjson
+      host: 127.0.0.1
+      port: 20886
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: cn.test.api
+server:
+  port: 8890
+---
+spring:
+  profiles: test
+  dubbo:
+    application:
+      name: demo-server-test
+    protocol:
+      name: dubbo
+      serialization: fastjson
+      host: 127.0.0.1
+      port: 20887
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: cn.test.api
+server:
+  port: 8891

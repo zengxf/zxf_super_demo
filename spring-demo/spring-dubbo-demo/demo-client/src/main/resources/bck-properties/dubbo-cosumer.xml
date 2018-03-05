@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- dubbo demo接口，这个命名可以不一致 -->
+	<dubbo:reference id="dubboDemoRpc" interface="cn.test.api.ISay"
+		check="false" retries="0" timeout="3000" version="1.0" />
+	<dubbo:reference id="userRpc" interface="cn.test.api.IUserRpc"
+		check="false" retries="0" timeout="3000" version="1.0" />
+
+</beans>

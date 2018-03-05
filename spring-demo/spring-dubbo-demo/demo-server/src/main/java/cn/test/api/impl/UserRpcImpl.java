@@ -1,11 +1,12 @@
 package cn.test.api.impl;
 
-import org.springframework.stereotype.Service;
+import com.alibaba.dubbo.config.annotation.Service;
 
 import cn.test.api.IUserRpc;
 import cn.test.api.UserDto;
 
-@Service
+// @Service
+@Service( version = "1.0.0" )
 public class UserRpcImpl implements IUserRpc {
 
     @Override

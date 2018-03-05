@@ -16,5 +16,7 @@ dependencies {
 	
     compile project( ':demo-api' )
     
+    compile group: 'io.dubbo.springboot', name: 'spring-boot-starter-dubbo', version: '1.0.0'
+    
     testCompile( "junit:junit" )
 }

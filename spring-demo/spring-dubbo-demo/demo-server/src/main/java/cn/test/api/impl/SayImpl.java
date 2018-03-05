@@ -1,11 +1,13 @@
 package cn.test.api.impl;
 
 
-import org.springframework.stereotype.Service;
+
+import com.alibaba.dubbo.config.annotation.Service;
 
 import cn.test.api.ISay;
 
-@Service("sayService")
+// @Service("sayService")
+@Service( version = "1.0.0" )
 public class SayImpl implements ISay {
 
 	@Override
