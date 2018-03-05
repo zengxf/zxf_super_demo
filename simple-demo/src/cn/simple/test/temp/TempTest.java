@@ -5,7 +5,7 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws InterruptedException {
-        System.out.println( Integer.toBinaryString( 0x7fffffff ) );
+        System.out.println( Integer.toBinaryString( 0xFF ) );
     }
 
 }

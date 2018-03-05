@@ -5,17 +5,19 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * fork() 提交子任务，join() 合并子任务结果
+ * 
+ * <p>
+ * Created by zengxf on 2018-03-02
+ */
 public class TestForkJoin {
 
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws InterruptedException, ExecutionException {
         ForkJoinPool forkJoinPool = new ForkJoinPool();
         CountTask task = new CountTask( 1, 4 );
         Future<Integer> result = forkJoinPool.submit( task );
-        try {
-            System.out.println( result.get() );
-        } catch ( InterruptedException e ) {
-        } catch ( ExecutionException e ) {
-        }
+        System.out.println( result.get() );
     }
 
     public static class CountTask extends RecursiveTask<Integer> {
