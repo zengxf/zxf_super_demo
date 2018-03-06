@@ -1,3 +1,7 @@
+# 这个才是默认的
+server:
+  desc: test-aa
+---
 spring:
   profiles: default
   dubbo:
@@ -13,10 +17,11 @@ spring:
     scan: cn.test.api
 server:
   port: 8890
+  desc: test-def
 ---
 spring:
   profiles: test
-  dubbo:
+  dubbo: # Dubbo
     application:
       name: demo-server-test
     protocol:
@@ -29,3 +34,4 @@ spring:
     scan: cn.test.api
 server:
   port: 8891
+  desc: test-test

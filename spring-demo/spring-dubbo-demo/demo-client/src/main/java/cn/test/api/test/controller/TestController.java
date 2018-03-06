@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping( "/test/say" )
 public class TestController {
 
-    @Reference( version = "1.0.0", check = true, retries = 0, timeout = 3000 )
+    @Reference( version = "1.0.0", check = false, retries = 0, timeout = 3000 )
     private ISay     say;
     @Reference( version = "1.0.0", check = false, retries = 0, timeout = 3000 )
     private IUserRpc userRpc;

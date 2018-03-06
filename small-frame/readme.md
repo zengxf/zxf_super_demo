@@ -41,3 +41,5 @@ RxJava 异步编程。但 java8 基本够用了
 vertx 微服务-响应式
 ## speedment-demo
 流式操作数据库
+## serialize-test
+Java 序列化测试，包括：kryo

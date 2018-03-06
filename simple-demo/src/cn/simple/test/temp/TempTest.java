@@ -5,7 +5,8 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws InterruptedException {
-        System.out.println( Integer.toBinaryString( 0xFF ) );
+        System.out.println( System.currentTimeMillis() );
+        System.out.printf( "%tT", 1520331643763L );
     }
 
 }
