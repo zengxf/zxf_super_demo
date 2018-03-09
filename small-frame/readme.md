@@ -5,7 +5,7 @@
 ## cobertura-demo
 测试覆盖率
 ## disruptor-demo
-生产者-消费者 模式
+高性能队列，实现 生产者-消费者 模式
 ## docx-stamper-demo
 ## drools-demo
 规则引擎 demo

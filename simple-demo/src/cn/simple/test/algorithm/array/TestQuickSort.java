@@ -3,7 +3,7 @@ package cn.simple.test.algorithm.array;
 import java.util.Arrays;
 
 /**
- * 快速排序
+ * 快速排序：找一个中心点，小的放左边，大的放右边
  * 
  * <p>
  * Created by zengxf on 2018-02-23

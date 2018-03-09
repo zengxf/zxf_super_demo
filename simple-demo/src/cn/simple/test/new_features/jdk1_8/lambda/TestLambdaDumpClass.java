@@ -13,23 +13,23 @@ import java.util.function.Function;
 // java -Djdk.internal.lambda.dumpProxyClasses cn.simple.test.new_features.jdk18.lambda.TestDumpClass
 // System.setProperty( "jdk.internal.lambda.dumpProxyClasses", "D:/test/dump/java8" );
 // -Djdk.internal.lambda.dumpProxyClasses=D:/test/dump/java8
-public class TestDumpClass {
+public class TestLambdaDumpClass {
     public static void main( String[] args ) {
-	System.setProperty( "jdk.internal.lambda.dumpProxyClasses", "D:/test/dump/java8" );
-	a();
-	b();
+        System.setProperty( "jdk.internal.lambda.dumpProxyClasses", "D:/test/dump/java8" );
+        a();
+        b();
     }
 
     static void b() {
-	String header = "This is a ";
-	Function<Object, String> f = obj -> header + obj.toString();
-	String v = f.apply( 23 );
-	System.out.println( v );
+        String header = "This is a ";
+        Function<Object, String> f = obj -> header + obj.toString();
+        String v = f.apply( 23 );
+        System.out.println( v );
     }
 
     static void a() {
-	Runnable run = () -> {
-	};
-	System.out.println( run );
+        Runnable run = () -> {
+        };
+        System.out.println( run );
     }
 }

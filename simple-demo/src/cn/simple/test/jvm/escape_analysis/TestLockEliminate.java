@@ -1,6 +1,8 @@
 package cn.simple.test.jvm.escape_analysis;
 
 /**
+ * 测试锁消除
+ * 
  * <pre>
  * 测试1 锁不消除：-server -XX:+DoEscapeAnalysis -XX:-EliminateLocks (用时：130~140ms)
  * 测试2 锁消除　：-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks (用时：110~120ms)

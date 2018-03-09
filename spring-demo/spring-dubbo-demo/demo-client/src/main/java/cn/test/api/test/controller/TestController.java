@@ -1,5 +1,6 @@
 package cn.test.api.test.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping( "/test/say" )
 public class TestController {
 
-    @Reference( version = "1.0.0", check = false, retries = 0, timeout = 3000 )
+    @Autowired
     private ISay     say;
     @Reference( version = "1.0.0", check = false, retries = 0, timeout = 3000 )
     private IUserRpc userRpc;

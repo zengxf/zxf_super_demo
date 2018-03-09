@@ -3,7 +3,7 @@ package cn.simple.test.algorithm.array;
 import java.util.Arrays;
 
 /**
- * 归并排序
+ * 归并排序：谁小先合并谁，然后合并剩余的
  * 
  * <p>
  * Created by zengxf on 2018-02-23

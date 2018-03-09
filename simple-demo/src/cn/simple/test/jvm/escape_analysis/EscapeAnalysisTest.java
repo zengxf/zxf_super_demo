@@ -8,14 +8,15 @@ import java.lang.management.ManagementFactory;
  * <pre>
  * 1) -Xmx3G -Xmn2G -server -verbose:gc -XX:-DoEscapeAnalysis // java 8 默认是开启的，所以要先禁用再测试
  * 2) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis
- * 3) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis -XX:-TieredCompilation // 关闭分层编译；分层编译对逃逸分析还是有影响的。users > 10000
+ * 3) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis -XX:-TieredCompilation 
+ *    // 关闭分层编译；分层编译对逃逸分析还是有影响的。users > 10000
  * 4) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis -XX:-TieredCompilation -XX:CompileThreshold=5000 
- * // 提早触发编译行为，减少在堆上生成User对象。users > 5000
+ *    // 提早触发编译行为，减少在堆上生成User对象。users > 5000
  * 5) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis -XX:-TieredCompilation -XX:CompileThreshold=5000 -XX:-BackgroundCompilation 
  * // 取消后台编译，改成立即编译。users = 5000
  * 6) -Xmx3G -Xmn2G -server -verbose:gc -XX:+DoEscapeAnalysis -XX:-TieredCompilation -XX:CompileThreshold=5000 -XX:-BackgroundCompilation 
  *      -XX:-EliminateAllocations
- * // 禁用标量替换，则不会进行优化。users = 200_0000
+ *    // 禁用标量替换，则不会进行优化。users = 200_0000
  * 
  * A) jmap -histo PID | findStr User    // 查看 User 实例数
  * </pre>
