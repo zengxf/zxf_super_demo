@@ -16,49 +16,47 @@ import lombok.extern.slf4j.Slf4j;
 public class LongEventMain {
 
     public static void main( String[] args ) {
-	WorkHandler<LongEvent> handler = ( event ) -> {
-	    log.info( "Event: {}", event );
+        WorkHandler<LongEvent> handler = ( event ) -> {
+            log.info( "Event: {}", event );
+            sleep( 100 );
+        };
 
-	    sleep( 100 );
-	};
+        RingBuffer<LongEvent> ringBuffer = RingBuffer.createMultiProducer( LongEvent::new, 8, new BlockingWaitStrategy() );
+        @SuppressWarnings( "unchecked" )
+        WorkerPool<LongEvent> wp = new WorkerPool<>( ringBuffer, ringBuffer.newBarrier(), new EventExceptionHandler() //
+                , handler, handler, handler, handler, handler );
+        ExecutorService executor = Executors.newCachedThreadPool();
+        wp.start( executor );
 
-	RingBuffer<LongEvent> ringBuffer = RingBuffer.createMultiProducer( LongEvent::new, 8, new BlockingWaitStrategy() );
-	@SuppressWarnings( "unchecked" )
-	WorkerPool<LongEvent> wp = new WorkerPool<>( ringBuffer, ringBuffer.newBarrier(), new EventExceptionHandler(), handler, handler, handler, handler, handler );
-	// WorkerPool<LongEvent> wp = new WorkerPool<>( LongEvent::new, new EventExceptionHandler(), handler, handler, handler, handler, handler );
-	ExecutorService executor = Executors.newCachedThreadPool();
-	// RingBuffer<LongEvent> ringBuffer =
-	wp.start( executor );
+        for ( int i = 0; i < 10; i++ ) {
+            int k = i;
+            Thread t = new Thread( () -> {
+                for ( long j = 0; j < 10; j++ ) {
+                    long sequence = ringBuffer.next(); // 会阻塞!!!
+                    log.info( "pro seq: {}", sequence );
 
-	for ( int i = 0; i < 10; i++ ) {
-	    int k = i;
-	    Thread t = new Thread( () -> {
-		for ( long j = 0; j < 10; j++ ) {
-		    long sequence = ringBuffer.next(); // 会阻塞!!!
-		    log.info( "pro seq: {}", sequence );
+                    LongEvent e = ringBuffer.get( sequence );
+                    e.set( k * 100_0000 + j * 10 );
+                    ringBuffer.publish( sequence );
 
-		    LongEvent e = ringBuffer.get( sequence );
-		    e.set( k * 100_0000 + j * 10 );
-		    ringBuffer.publish( sequence );
+                    sleep( 1000 );
+                }
+            } );
+            t.setName( "pro-" + i );
+            t.start();
+        }
 
-		    sleep( 1000 );
-		}
-	    } );
-	    t.setName( "pro-" + i );
-	    t.start();
-	}
-
-	executor.shutdown();
-	// wp.halt();
-	wp.drainAndHalt();
+        executor.shutdown();
+        // wp.halt();
+        wp.drainAndHalt();
     }
 
     static void sleep( long m ) {
-	try {
-	    Thread.sleep( m );
-	} catch ( InterruptedException e1 ) {
-	    e1.printStackTrace();
-	}
+        try {
+            Thread.sleep( m );
+        } catch ( InterruptedException e1 ) {
+            e1.printStackTrace();
+        }
     }
 
 }
