@@ -83,7 +83,9 @@ public class ExportTest {
     int fillInvoices( List<InvoiceDto> invoices, Sheet sheet, int rowI ) {
         CellStyle bold = this.bold();
         {
+            rowI++;
             Row row = sheet.createRow( rowI++ );
+//            row = sheet.createRow( rowI++ );
             Cell headCell = row.createCell( 0 );
             headCell.setCellStyle( bold );
             headCell.setCellValue( "开票 " + invoices.size() + " 个" );

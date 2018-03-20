@@ -44,4 +44,6 @@ vertx 微服务-响应式
 ## serialize-test
 Java 序列化测试，包括：kryo
 ## jexl3-demo
-表达式解析和执行
+字符串表达式解析和执行
+## connection-pool-test
+连接池测试，包含高性能`HikariCP`
