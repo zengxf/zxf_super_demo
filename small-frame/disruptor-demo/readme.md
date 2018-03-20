@@ -28,4 +28,5 @@ ringBuffer.get(nextSequence); // 获取
 	}
 	cachedAvailableSequence = sequenceBarrier.waitFor(nextSequence); // 通过屏障来处理
 	waitStrategy.waitFor(sequence, cursorSequence, dependentSequence, this); // 最终调用策略的等待获取
+	# 最终还是通过序号判断
 ```
