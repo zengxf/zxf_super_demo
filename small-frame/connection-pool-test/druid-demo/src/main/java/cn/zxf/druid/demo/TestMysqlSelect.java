@@ -1,21 +1,19 @@
-package cn.zxf.hikaricp.demo;
+package cn.zxf.druid.demo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import com.alibaba.druid.pool.DruidDataSource;
 
 public class TestMysqlSelect {
 
     public static void main( String[] args ) throws SQLException {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl( "jdbc:mysql://localhost:3306/test" );
-        config.setUsername( "root" );
-        config.setPassword( "admin" );
-        HikariDataSource ds = new HikariDataSource( config );
+        DruidDataSource ds = new DruidDataSource();
+        ds.setUrl( "jdbc:mysql://localhost:3306/test" );
+        ds.setUsername( "root" );
+        ds.setPassword( "admin" );
 
         Connection conn = ds.getConnection();
         Statement stat = conn.createStatement();
