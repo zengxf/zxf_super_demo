@@ -6,6 +6,9 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.function.Function;
+
+import org.springframework.beans.Mergeable;
 
 /**
  * 导出字节码
@@ -25,6 +28,8 @@ public class Main {
 
         export( savePath, ByteCode.class );
         export( savePath, ClassLoader.class );
+        export( savePath, Function.class );
+        export( savePath, Mergeable.class );
     }
 
     static void export( Path savePath, Class<?> clazz ) throws IOException {

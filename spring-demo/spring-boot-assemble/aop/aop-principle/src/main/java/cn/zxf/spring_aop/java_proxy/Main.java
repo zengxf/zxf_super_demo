@@ -10,10 +10,14 @@ public class Main {
 
     public static void main( String[] args ) throws URISyntaxException {
         // 生成在项目根目录下的 "com\sun\proxy" 文件下
-        System.setProperty( "sun.misc.ProxyGenerator.saveGeneratedFiles", "true" );
-        Path path = Paths.get( Main.class.getResource( "/" ).toURI() );
+        // System.setProperty( "sun.misc.ProxyGenerator.saveGeneratedFiles", "true" );
+        System.setProperty( "jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true" );
+        Path path = Paths.get( Main.class.getResource( "/" )
+                .toURI() );
         System.out.println( "proxy class 存放路径：" );
-        System.out.println( path.resolve( "../com/sun/proxy" ).normalize().toAbsolutePath() );
+        System.out.println( path.resolve( "../com/sun/proxy" )
+                .normalize()
+                .toAbsolutePath() );
         System.out.println( "----------------------" );
 
         test1();
