@@ -67,6 +67,7 @@ public class TestFloatNumber {
     static float v
     // = 9.125F;
             = 209.125F;
+    // = 209.125F;
     // = 2.125F;
 
     public static void main( String[] args ) {
@@ -105,25 +106,28 @@ public class TestFloatNumber {
 
     static String fill( int totalLen, String binary ) {
         int len = binary.length();
-        String fill = IntStream.range( 0, totalLen - len ).mapToObj( i -> "0" ).collect( Collectors.joining( "" ) );
+        String fill = IntStream.range( 0, totalLen - len )
+                .mapToObj( i -> "0" )
+                .collect( Collectors.joining( "" ) );
         binary = fill + binary;
         return binary;
     }
 
     // 验证只有 0.5/n 的才为有限位
     static void validate() {
-        IntStream.range( 0, 10 ).forEach( i -> {
-            System.out.print( "\n" + i + ": " );
-            int temp = 0;
-            for ( int k = 1; k < 11; k++ ) {
-                if ( k == 1 )
-                    temp = i * 2;
-                else
-                    temp = temp * 2;
-                temp %= 10;
-                System.out.print( " " + temp );
-            }
-        } );
+        IntStream.range( 0, 10 )
+                .forEach( i -> {
+                    System.out.print( "\n" + i + ": " );
+                    int temp = 0;
+                    for ( int k = 1; k < 11; k++ ) {
+                        if ( k == 1 )
+                            temp = i * 2;
+                        else
+                            temp = temp * 2;
+                        temp %= 10;
+                        System.out.print( " " + temp );
+                    }
+                } );
     }
 
     /** 示例：9.125F 的转换 */

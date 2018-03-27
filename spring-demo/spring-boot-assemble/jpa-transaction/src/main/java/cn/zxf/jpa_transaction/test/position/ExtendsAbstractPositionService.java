@@ -1,4 +1,4 @@
-package cn.zxf.web.test.position;
+package cn.zxf.jpa_transaction.test.position;
 
 import org.springframework.stereotype.Component;
 

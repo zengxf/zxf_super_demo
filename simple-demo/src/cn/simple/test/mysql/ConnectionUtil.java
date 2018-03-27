@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.Driver;
-
 public class ConnectionUtil {
 
     /**
@@ -15,18 +13,14 @@ public class ConnectionUtil {
      */
     public static Connection getLocalConnection() {
         try {
-            String url = "jdbc:mysql://localhost:3306/zxf_dev";
+            String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
             String user = "root";
             String password = "admin";
-
-            Driver.class.getName();
             Connection conn = DriverManager.getConnection( url, user, password );
-
             return conn;
         } catch ( SQLException e ) {
-            e.printStackTrace();
+            throw new RuntimeException( "获取连接出错", e );
         }
-        return null;
     }
 
 }

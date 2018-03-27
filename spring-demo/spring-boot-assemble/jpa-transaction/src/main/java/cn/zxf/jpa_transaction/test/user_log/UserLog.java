@@ -1,4 +1,4 @@
-package cn.zxf.web.test.user_log;
+package cn.zxf.jpa_transaction.test.user_log;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

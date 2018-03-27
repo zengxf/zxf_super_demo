@@ -1,4 +1,4 @@
-package cn.zxf.web.test.user;
+package cn.zxf.jpa_transaction.test.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;

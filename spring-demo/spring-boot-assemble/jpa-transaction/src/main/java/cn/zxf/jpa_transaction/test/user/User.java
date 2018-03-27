@@ -1,4 +1,4 @@
-package cn.zxf.web.test.position;
+package cn.zxf.jpa_transaction.test.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Builder
 @Entity
-public class Position {
+public class User {
 
     @Id
     @GeneratedValue

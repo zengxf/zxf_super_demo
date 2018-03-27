@@ -1,4 +1,4 @@
-package cn.zxf.web.test;
+package cn.zxf.jpa_transaction.test;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

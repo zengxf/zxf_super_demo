@@ -1,11 +1,11 @@
-package cn.zxf.web.test.user;
+package cn.zxf.jpa_transaction.test.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.zxf.web.test.user_log.UserLogService;
+import cn.zxf.jpa_transaction.test.user_log.UserLogService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

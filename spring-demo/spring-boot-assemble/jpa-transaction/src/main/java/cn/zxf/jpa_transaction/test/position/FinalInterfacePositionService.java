@@ -1,4 +1,4 @@
-package cn.zxf.web.test.position;
+package cn.zxf.jpa_transaction.test.position;
 
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 // @Component
 @Deprecated
-public final class FinalPositionService {
+public final class FinalInterfacePositionService implements IPositionService {
 
     @Transactional( propagation = Propagation.REQUIRED )
     public Position createTransactionalRequired( String name, String sign ) {
