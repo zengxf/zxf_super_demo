@@ -1,4 +1,4 @@
-package cn.simple.test.md5.des;
+package cn.simple.test.string.encrypt.md5.des;
 
 public class DESEncryptTest {
 

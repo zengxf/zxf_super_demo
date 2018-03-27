@@ -1,4 +1,4 @@
-package cn.simple.test.md5;
+package cn.simple.test.string.encrypt.md5;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -4,12 +4,22 @@ package cn.simple.test.temp;
 // M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
 public class TempTest {
 
-    public static final int AA = 33;
+    interface Function {
+        Integer apply( String v );
+    }
 
-    public static void main( String[] args ) {
-        Integer v = 1021;
-        String s = String.format( "%.2f%%", v.doubleValue() / 100 );
-        System.out.println( s );
+    static class A implements Function {
+
+        @Override
+        public Integer apply( String t ) {
+            return null;
+        }
+
+    }
+
+    public static void main( String[] args ) throws CloneNotSupportedException {
+        A a = new A();
+        a.apply( "2" );
     }
 
 }

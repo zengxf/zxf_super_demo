@@ -11,14 +11,14 @@ import cn.zxf.spring.boot.data.jpa.demo.support.CustomRepositoryFactoryBean;
 
 @SpringBootApplication
 @EnableJpaRepositories( repositoryFactoryBeanClass = CustomRepositoryFactoryBean.class )
-@PropertySource("classpath:/cn/zxf/spring/boot/data/jpa/demo/resources/application.properties")
+@PropertySource( "classpath:/cn/zxf/spring/boot/data/jpa/demo/resources/application.properties" )
 public class Ch82Application {
-    
+
     @Autowired
     PersonRepository personRepository;
 
     public static void main( String[] args ) {
-	SpringApplication.run( Ch82Application.class, args );
+        SpringApplication.run( Ch82Application.class, args );
 
     }
 

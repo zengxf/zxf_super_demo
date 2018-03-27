@@ -28,6 +28,8 @@ public class TestLambdaDumpClass {
         // System.setProperty( "jdk.internal.lambda.dumpProxyClasses", "" );
         a();
         b();
+        System.gc();
+        a();
     }
 
     static void b() {
@@ -41,5 +43,6 @@ public class TestLambdaDumpClass {
         Runnable run = () -> {
         };
         System.out.println( run );
+        run.run();
     }
 }
