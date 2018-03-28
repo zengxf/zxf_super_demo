@@ -1,4 +1,4 @@
-package cn.zxf.spring_aop.spring_test;
+package cn.zxf.spring_aop.spring_dump_test;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component // 2
 public class LogAspect {
 
-    @Pointcut( "@annotation(cn.zxf.spring_aop.spring_test.Action)" ) // 3
+    @Pointcut( "@annotation(cn.zxf.spring_aop.spring_dump_test.Action)" ) // 3
     public void annotationPointCut() {
     }
 
@@ -31,7 +31,7 @@ public class LogAspect {
         System.out.println( "注解式拦截 " + action.name() ); // 5
     }
 
-    @Before( "execution(* cn.zxf.spring_aop.spring_test.DemoMethodService.*(..))" ) // 6
+    @Before( "execution(* cn.zxf.spring_aop.spring_dump_test.DemoMethodService.*(..))" ) // 6
     public void before( JoinPoint joinPoint ) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();

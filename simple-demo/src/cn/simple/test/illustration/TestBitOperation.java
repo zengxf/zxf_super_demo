@@ -11,7 +11,14 @@ public class TestBitOperation {
         // testLogic();
         // testShift();
         // testReverseCode();
-        testTotalSort();
+        // testTotalSort();
+    }
+
+    /** 先 "!" 再 "&&" 然后 "||" */
+    static void testBoolean() {
+        boolean a = false;
+        boolean b = true;
+        System.out.println( !a && b || false );
     }
 
     /** 先位移(左、右、无符号右位移)再逻辑操作(或|、与&、异或^) */
@@ -26,9 +33,11 @@ public class TestBitOperation {
     static void testRightShift() {
         int a = -1;
         System.out.println( Integer.toBinaryString( a >> 31 ) );
-        System.out.println( Integer.toBinaryString( a >> 31 ).length() );
+        System.out.println( Integer.toBinaryString( a >> 31 )
+                .length() );
         System.out.println( Integer.toBinaryString( a >>> 31 ) );
-        System.out.println( Integer.toBinaryString( a >>> 31 ).length() );
+        System.out.println( Integer.toBinaryString( a >>> 31 )
+                .length() );
     }
 
     /** 逻辑顺序：先 & 再 ^ 后 | */
@@ -51,9 +60,11 @@ public class TestBitOperation {
     /** 反码：符号位也会反过来 */
     static void testReverseCode() {
         System.out.println( Integer.toBinaryString( ~0B111 ) );
-        System.out.println( Integer.toBinaryString( ~0B111 ).length() );
+        System.out.println( Integer.toBinaryString( ~0B111 )
+                .length() );
         System.out.println( Integer.toBinaryString( ~-0B111 ) );
-        System.out.println( Integer.toBinaryString( ~-0B111 ).length() );
+        System.out.println( Integer.toBinaryString( ~-0B111 )
+                .length() );
     }
 
     /** 总顺序：先正负，再反码，然后位移，最后逻辑 */

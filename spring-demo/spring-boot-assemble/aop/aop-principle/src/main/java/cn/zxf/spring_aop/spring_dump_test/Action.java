@@ -1,4 +1,4 @@
-package cn.zxf.spring_aop.spring_test;
+package cn.zxf.spring_aop.spring_dump_test;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

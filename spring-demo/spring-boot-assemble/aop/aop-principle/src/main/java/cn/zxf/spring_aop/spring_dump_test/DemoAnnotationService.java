@@ -1,4 +1,4 @@
-package cn.zxf.spring_aop.spring_test;
+package cn.zxf.spring_aop.spring_dump_test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
