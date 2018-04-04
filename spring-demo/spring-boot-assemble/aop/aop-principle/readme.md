@@ -23,8 +23,11 @@
 - - `@Around` `@Before` `@After` `@AfterReturning` `@AfterThrowing`
 - - 正常-顺序：`@Around-1` >> `@Before` >> `user-code` >> `@Around-2` >> `@After` >> `@AfterReturning` 
 - - 异常-顺序：`@Around-1` >> `@Before` >> `user-code` >> `@After` >> `@AfterThrowing`
+- **连接点（JoinPoint）**
+- - 使用通知的地方
+- - **通知**与**目标方法**之间的连接
 - **切入点（Pointcut）**
-- - 切入方法的标识，标记哪些方法要增强
+- - 定出规则，查找连接点
 - - `@Pointcut`
 - **切面（Aspect）**
 - - **通知**和**切入点**的组合
@@ -35,12 +38,10 @@
 - **代理(Proxy)**
 - - 生成的代理类，对目标类进行封装
 - **织入（Weaving）**
-- - 把切面加入程序代码的过程
+- - 把切面加入到程序代码的过程
 - - 生成代理类
 - ~~**引入（Introduction）**~~
 - - 在不改变一个现有类代码的情况下，为该类添加属性和方法
-- ~~**连接点（JoinPoint）**~~
-- - **通知**与**目标方法**之间的连接
 
 ## Spring AOP
 - [参考](https://www.ibm.com/developerworks/cn/java/j-lo-springaopcglib)

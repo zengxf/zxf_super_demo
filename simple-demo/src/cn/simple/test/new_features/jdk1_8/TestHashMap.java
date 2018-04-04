@@ -19,7 +19,8 @@ import java.util.HashMap;
  * 
  * 链表长度太长（默认超过8）时，链表就转换为红黑树 <br>
  * 利用红黑树快速增删改查的特点提高HashMap的性能 <br>
- * [参考原文](http://www.importnew.com/20386.html)
+ * [参考原文](http://www.importnew.com/20386.html) <br>
+ * [Java6 死循环测试](https://blog.csdn.net/xuefeng0707/article/details/40797085)
  * 
  * <p>
  * Created by zengxf on 2018-03-14
