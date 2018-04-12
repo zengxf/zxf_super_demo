@@ -14,7 +14,7 @@
 - 默认都是单例
 
 ## Servlet
-- @WebServlet 注解无效
+- @WebServlet 注解无效，要配合 @ServletComponentScan
 - 要使用 ServletRegistrationBean 设置
 - 一般继承 HttpServlet
 - super.doGet( req, res ); // 直接调用父类，会返回 405 错误
@@ -36,7 +36,7 @@ Servlet.init(ServletConfig config)
 ```
 
 ## Filter
-- 使用 @WebFilter 注解无效
+- 使用 @WebFilter 注解无效，要配合 @ServletComponentScan
 - 要使用 FilterRegistrationBean 设置
 - 没设置 order 的情况，谁在上面谁先调用
 - 设置 order 时，谁小谁先调用
