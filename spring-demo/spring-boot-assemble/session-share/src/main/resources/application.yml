@@ -1,0 +1,17 @@
+server:
+  port: 9080
+
+spring:
+  session:
+    store-type: redis
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    
+---
+spring:
+  profiles: port-9081
+  
+server:
+  port: 9081

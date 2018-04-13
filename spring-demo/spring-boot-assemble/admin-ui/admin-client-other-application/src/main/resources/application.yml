@@ -1,0 +1,19 @@
+server:
+  port: 9081
+spring:
+  boot:
+    admin:
+      url: http://localhost:9080
+  application:
+    name: zxf-test-application
+management:
+  security:
+    enabled: false
+    
+---
+server:
+  port: 9082
+spring:
+  profiles: port-9082
+  application:
+    name: zxf-test-app-9082
