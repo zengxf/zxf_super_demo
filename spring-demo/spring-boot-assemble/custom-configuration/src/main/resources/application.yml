@@ -1,0 +1,5 @@
+server:
+  port: 9080
+spring:
+  messages:
+    encoding: UTF-8

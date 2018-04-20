@@ -1,0 +1,18 @@
+dn: dc=zxf,dc=com
+objectClass: top
+objectClass: domain
+
+dn: ou=people,dc=zxf,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=ben,ou=people,dc=zxf,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: test-cn
+sn: test-sn
+uid: test-uid
+userPassword: 123456

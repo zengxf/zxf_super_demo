@@ -1,0 +1,44 @@
+${AnsiColor.BRIGHT_GREEN}
+                                                                                                              
+         ,----,                                                                                               
+       .'   .`|  ,--,     ,--,      ,---,.                ,----..        ,----..        ,----..         ,---, 
+    .'   .'   ;  |'. \   / .`|    ,'  .' |               /   /   \      /   /   \      /   /   \     ,`--.' | 
+  ,---, '    .'  ; \ `\ /' / ;  ,---.'   |     ,---,.   /   .     :    /   .     :    /   .     :   /    /  : 
+  |   :     ./   `. \  /  / .'  |   |   .'   ,'  .' |  .   /   ;.  \  .   /   ;.  \  .   /   ;.  \ :    |.' ' 
+  ;   | .'  /     \  \/  / ./   :   :  :   ,---.'   , .   ;   /  ` ; .   ;   /  ` ; .   ;   /  ` ; `----':  | 
+  `---' /  ;       \  \.'  /    :   |  |-, |   |    | ;   |  ; \ ; | ;   |  ; \ ; | ;   |  ; \ ; |    '   ' ; 
+    /  ;  /         \  ;  ;     |   :  ;/| :   :  .'  |   :  | ; | ' |   :  | ; | ' |   :  | ; | '    |   | | 
+   ;  /  /--,      / \  \  \    |   |   .' :   |.'    .   |  ' ' ' : .   |  ' ' ' : .   |  ' ' ' :    '   : ; 
+  /  /  / .`|     ;  /\  \  \   '   :  '   `---'      '   ;  \; /  | '   ;  \; /  | '   ;  \; /  |    |   | ' 
+./__;       :   ./__;  \  ;  \  |   |  |               \   \  ',  /   \   \  ',  /   \   \  ',  /     '   : | 
+|   :     .'    |   : / \  \  ; |   :  \                ;   :    /     ;   :    /     ;   :    /      ;   |.' 
+;   |  .'       ;   |/   \  ' | |   | ,'                 \   \ .'       \   \ .'       \   \ .'       '---'   
+`---'           `---'     `--`  `----'                    `---`          `---`          `---`                 
+                                                                                                              
+${AnsiColor.BRIGHT_RED}：设置控制台中输出内容的颜色
+------
+${application.version}：用来获取 MANIFEST.MF 文件中的版本号
+------
+${application.formatted-version}：格式化后的 ${application.version} 版本信息
+------
+${spring-boot.version}：Spring Boot的版本号
+------
+${spring-boot.formatted-version}：格式化后的 ${spring-boot.version} 版本信息
+
+${AnsiColor.BRIGHT_RED}ZZZZZZZZZZZZZZZZZZZ  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z:::::::::::::::::Z  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z:::::::::::::::::Z  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z:::ZZZZZZZZ:::::Z   ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}ZZZZZ     Z:::::Z    ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}        Z:::::Z      ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}       Z:::::Z       ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}      Z:::::Z        ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}     Z:::::Z         ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}    Z:::::Z          ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}   Z:::::Z           ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}ZZZ:::::Z     ZZZZZ  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z::::::ZZZZZZZZ:::Z  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z:::::::::::::::::Z  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}Z:::::::::::::::::Z  ${AnsiColor.GREEN}XXX
+${AnsiColor.BRIGHT_RED}ZZZZZZZZZZZZZZZZZZZ  ${AnsiColor.GREEN}XXX
+
