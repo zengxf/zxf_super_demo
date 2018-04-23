@@ -8,7 +8,7 @@ import lombok.Data;
 
 @SuppressWarnings( "deprecation" )
 @Configuration
-@PropertySource( value = "classpath:position.yml", factory = YamlPropertySourceFactory.class )
+@PropertySource( value = "classpath:my/position.yml", factory = YamlPropertySourceFactory.class )
 @ConfigurationProperties( prefix = "position" )
 @Data
 @Deprecated // 并没有什么卵用

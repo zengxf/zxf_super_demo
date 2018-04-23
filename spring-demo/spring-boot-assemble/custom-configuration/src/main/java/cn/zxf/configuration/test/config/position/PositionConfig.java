@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import lombok.Data;
 
 @Configuration
-@PropertySource( value = "classpath:position.yml", encoding = "UTF-8" )
+@PropertySource( value = "classpath:my/position.yml", encoding = "UTF-8" )
 @ConfigurationProperties( prefix = "position" )
 @Data
 public class PositionConfig {

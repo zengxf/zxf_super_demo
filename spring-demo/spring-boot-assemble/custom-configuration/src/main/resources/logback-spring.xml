@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<root level="INFO" />
+	<springProfile name="dev">
+		<logger name="cn.zxf.configuration" level="TRACE" />
+	</springProfile>
+	<springProfile name="prod">
+		<logger name="cn.zxf.configuration" level="INFO" />
+	</springProfile>
+</configuration>

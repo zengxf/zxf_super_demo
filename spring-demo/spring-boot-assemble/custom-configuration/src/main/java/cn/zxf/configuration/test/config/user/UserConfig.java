@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import lombok.Data;
 
 @Configuration
-@PropertySource( value = "classpath:user.properties", encoding = "UTF-8" )
+@PropertySource( value = "classpath:my/user.properties", encoding = "UTF-8" )
 @ConfigurationProperties( prefix = "user" )
 @Data
 public class UserConfig {

@@ -47,3 +47,5 @@ Java 序列化测试，包括：kryo
 字符串表达式解析和执行
 ## connection-pool-test
 连接池测试，包含高性能`HikariCP`，提供强大的监控和扩展功能`druid`
+## test-log-frame
+测试日志框架

@@ -3,3 +3,13 @@ server:
 spring:
   messages:
     encoding: UTF-8
+zxf:
+  def: def-test
+  custom: custom-def
+  
+---
+# dev
+spring:
+  profiles: dev
+zxf:
+  custom: custom-dev
