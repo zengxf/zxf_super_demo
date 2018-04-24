@@ -5,9 +5,7 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws CloneNotSupportedException {
-        String info = "中文abcd12345";
-        System.out.println( info.substring( 0, 8 ) );
-        System.out.println( String.format( "%tF %<tT", System.currentTimeMillis() ) );
+        System.out.println( "192.168.1.161".matches( "(127.0.0.1)|(192.168.1.161)" ) );
     }
 
 }
