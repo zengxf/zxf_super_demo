@@ -27,6 +27,7 @@ dependencies {
 // spring 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
 
 // swagger2
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.8.0'

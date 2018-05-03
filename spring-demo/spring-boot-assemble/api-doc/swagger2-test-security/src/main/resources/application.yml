@@ -1,0 +1,6 @@
+server:
+  port: 9080
+security:
+  user:
+    name: zxf
+    password: admin

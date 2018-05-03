@@ -1,4 +1,4 @@
-package cn.zxf.swagger2_test.user;
+package cn.zxf.swagger2_test_security.module.user;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping( value = "/users" )
+@RequestMapping( value = "/api/user" )
 public class UserController {
 
     static Map<Long, User> users = Collections.synchronizedMap( new HashMap<Long, User>() );

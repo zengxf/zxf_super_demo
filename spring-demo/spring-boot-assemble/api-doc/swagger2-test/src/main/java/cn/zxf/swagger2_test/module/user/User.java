@@ -1,4 +1,4 @@
-package cn.zxf.swagger2_test.user;
+package cn.zxf.swagger2_test.module.user;
 
 import lombok.Data;
 

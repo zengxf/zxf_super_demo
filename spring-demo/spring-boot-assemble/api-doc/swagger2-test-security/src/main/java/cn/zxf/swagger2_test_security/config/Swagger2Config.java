@@ -1,4 +1,4 @@
-package cn.zxf.swagger2_test.config;
+package cn.zxf.swagger2_test_security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,10 +19,22 @@ public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         return new Docket( DocumentationType.SWAGGER_2 ) //
-                .groupName( "position" )
+                .groupName( "position-职位" )
                 .apiInfo( apiInfo() )
                 .select()
-                .apis( RequestHandlerSelectors.basePackage( "cn.zxf.swagger2_test.module.position" ) ) //
+                .apis( RequestHandlerSelectors.basePackage( "cn.zxf.swagger2_test_security.module.position" ) ) //
+                .paths( PathSelectors.any() ) //
+                .build();
+    }
+
+    @Bean
+    public Docket createOtherApi() {
+        return new Docket( DocumentationType.SWAGGER_2 ) //
+                .host( "core.api.hunterplus.net" )
+                .groupName( "other-未分类" )
+                .apiInfo( apiInfo() )
+                .select()
+                .apis( RequestHandlerSelectors.basePackage( "cn.zxf.swagger2_test_security" ) ) //
                 .paths( PathSelectors.any() ) //
                 .build();
     }
@@ -30,7 +42,7 @@ public class Swagger2Config {
     @Bean
     public Docket customDocket2() {
         return new Docket( DocumentationType.SWAGGER_2 ) //
-                .groupName( "user" )
+                .groupName( "user-用户" )
                 .apiInfo( apiInfo() )
                 .select()
                 .paths( PathSelectors.ant( "/api/user/**" ) )
@@ -44,16 +56,6 @@ public class Swagger2Config {
                 .termsOfServiceUrl( "http://gitlab.hunterplus.net/liemeng/core" )
                 .contact( new Contact( "zxf", "http://gitlab.hunterplus.net/liemeng/core", "2720xxx@qq.com" ) )
                 .version( "2.0" )
-                .build();
-    }
-
-    ApiInfo apiInfo1() {
-        return new ApiInfoBuilder() //
-                .title( "Swagger2 测试" ) //
-                .description( "测试 https://zengxf.github.io/zxf-blog" ) //
-                .termsOfServiceUrl( "https://zengxf.github.io/zxf-blog" ) //
-                .contact( new Contact( "zxf", "https://zengxf.github.io/zxf-blog", "fl_zxf@sina.cn" ) ) //
-                .version( "1.0" ) //
                 .build();
     }
 
