@@ -24,11 +24,7 @@ java 9 demo
 推荐系统框架
 ## neuroph-demo
 神经网络框架
-## quasar-demo 
-Java 协程
 ## tensorflow-demo
-## thread-affinity-demo
-线程绑定 cpu
 ## tomcat-embed-demo
 嵌入式 tomcat 测试
 ## rxjava-demo
@@ -49,3 +45,8 @@ Java 序列化测试，包括：kryo
 连接池测试，包含高性能`HikariCP`，提供强大的监控和扩展功能`druid`
 ## test-log-frame
 测试日志框架
+## multi-thread
+- 多线程相关
+- `thread-affinity-demo` 线程绑定 cpu
+- `quasar-demo` Java 协程
+- `transmittable-thread-local-demo` 解决线程池中 ThreadLocal 数据的传递问题

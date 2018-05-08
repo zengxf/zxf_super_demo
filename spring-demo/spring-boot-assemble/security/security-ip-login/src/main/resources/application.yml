@@ -1,0 +1,21 @@
+server:
+  port: 9080
+security:
+  user:
+    name: zxf
+    password: admin
+spring:
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+logging:
+  level:
+    org:
+      springframework:
+        security: trace

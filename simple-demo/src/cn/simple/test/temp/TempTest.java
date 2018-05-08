@@ -5,7 +5,7 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws CloneNotSupportedException {
-       System.out.println( 1L<<48 );
+        System.out.println( 1L << 48 );
     }
 
 }
