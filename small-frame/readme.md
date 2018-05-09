@@ -6,7 +6,6 @@
 测试覆盖率
 ## disruptor-demo
 高性能队列，实现 生产者-消费者 模式
-## docx-stamper-demo
 ## drools-demo
 规则引擎 demo
 ## idea-jdk-9
@@ -18,8 +17,6 @@ java 9 demo
 ## jsqlparser-demo
 ## junit-demo
 其中包含微基准测试
-## jxls-demo
-根据 excel 模板，生成 excel
 ## librec-demo
 推荐系统框架
 ## neuroph-demo
@@ -50,3 +47,9 @@ Java 序列化测试，包括：kryo
 - `thread-affinity-demo` 线程绑定 cpu
 - `quasar-demo` Java 协程
 - `transmittable-thread-local-demo` 解决线程池中 ThreadLocal 数据的传递问题
+
+## template-engine
+- 模板引擎
+- `docx-stamper-demo` **Word 文档**引擎
+- `jxls-demo` **Excel** 引擎
+- `thymeleaf-demo` **HTML** 引擎
