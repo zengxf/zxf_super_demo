@@ -1,0 +1,16 @@
+
+---
+spring:
+  profiles: qing_long
+app:
+  id: 青龙
+server:
+  port: 9081
+  
+---
+spring:
+  profiles: bai_hu
+app:
+  id: 白虎
+server:
+  port: 9082

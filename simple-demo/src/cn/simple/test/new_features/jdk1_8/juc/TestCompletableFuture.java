@@ -10,6 +10,7 @@ import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import cn.simple.util.SleepUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -38,9 +39,45 @@ public class TestCompletableFuture {
         // testExceptionally();
         // howStart();
         // testWhenComplete();
-        test_runAsync();
+        // test_runAsync();
+
+        solveCallbackHell();
 
         executor.shutdown();
+    }
+
+    // 解决**回调地狱**问题
+    static void solveCallbackHell() {
+        long l = System.currentTimeMillis();
+
+        CompletableFuture<Integer> completableFuture = CompletableFuture.supplyAsync( () -> {
+            System.out.println( "在回调中执行耗时操作..." );
+            timeConsumingOperation();
+            return 100;
+        } );
+        completableFuture = completableFuture.thenCompose( i -> {
+            return CompletableFuture.supplyAsync( () -> {
+                System.out.println( "在回调的回调中执行耗时操作..." );
+                timeConsumingOperation();
+                return i + 100;
+            } );
+        } );// <1>
+        completableFuture.whenComplete( ( result, e ) -> {
+            System.out.println( "计算结果:" + result );
+        } );
+
+        System.out.println( "主线程运算耗时:" + ( System.currentTimeMillis() - l ) + " ms" );
+
+        SleepUtils.second( 3 );
+    }
+
+    static void timeConsumingOperation() {
+        try {
+            Thread.sleep( 1000 );
+            System.out.println( "执行耗时操作...1000ms" );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     static void test_runAsync() {
@@ -146,13 +183,14 @@ public class TestCompletableFuture {
                 .collect( Collectors.toList() );
         CompletableFuture<Void> allCompleted = CompletableFuture.allOf( futures.toArray( new CompletableFuture[] {} ) );
         allCompleted.thenRun( () -> {
-            futures.stream().forEach( future -> {
-                try {
-                    System.out.println( "get future at:" + System.currentTimeMillis() + ", result:" + future.get() );
-                } catch ( InterruptedException | ExecutionException e ) {
-                    e.printStackTrace();
-                }
-            } );
+            futures.stream()
+                    .forEach( future -> {
+                        try {
+                            System.out.println( "get future at:" + System.currentTimeMillis() + ", result:" + future.get() );
+                        } catch ( InterruptedException | ExecutionException e ) {
+                            e.printStackTrace();
+                        }
+                    } );
         } );
     }
 
@@ -312,7 +350,8 @@ public class TestCompletableFuture {
         }, executor );
         CompletableFuture<CompletableFuture<String>> f4 = f1.thenApply( TestCompletableFuture::calculate );
         System.out.println( "f4.get: " + f4.get() );
-        System.out.println( "f4.get.get: " + f4.get().get() );
+        System.out.println( "f4.get.get: " + f4.get()
+                .get() );
 
         CompletableFuture<String> f5 = f1.thenCompose( TestCompletableFuture::calculate );
         System.out.println( "f5.get: " + f5.get() );
