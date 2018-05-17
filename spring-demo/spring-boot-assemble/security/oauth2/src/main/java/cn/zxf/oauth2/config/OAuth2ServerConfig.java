@@ -45,7 +45,6 @@ public class OAuth2ServerConfig {
 
         @Override
         public void configure(HttpSecurity http) throws Exception {
-            // @formatter:off
             http.requestMatchers()
                 .antMatchers("/api/**")
                 .antMatchers("/order/**")
@@ -133,8 +132,8 @@ public class OAuth2ServerConfig {
         public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
             oauthServer
                 .realm("oauth2-resources")
-                .tokenKeyAccess("permitAll()") //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
-                .checkTokenAccess("isAuthenticated()") //url:/oauth/check_token allow check token
+                .tokenKeyAccess("permitAll()") // url:/oauth/token_key,exposes 
+                .checkTokenAccess("isAuthenticated()") // url:/oauth/check_token allow check token
                 .allowFormAuthenticationForClients();  // 允许表单认证
         }
 

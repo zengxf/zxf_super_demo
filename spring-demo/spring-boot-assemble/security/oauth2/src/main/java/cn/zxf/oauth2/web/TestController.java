@@ -14,14 +14,16 @@ public class TestController {
 
     @GetMapping( "/product/{id}" )
     public String getProduct( @PathVariable String id ) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext()
+                .getAuthentication();
         log.info( "authentication: {}", authentication );
         return "product id : " + id;
     }
 
     @GetMapping( "/order/{id}" )
     public String getOrder( @PathVariable String id ) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext()
+                .getAuthentication();
         log.info( "authentication: {}", authentication );
         return "order id : " + id;
     }
