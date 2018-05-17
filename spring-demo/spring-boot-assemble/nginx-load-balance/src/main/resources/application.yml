@@ -6,6 +6,8 @@ app:
   id: 青龙
 server:
   port: 9081
+banner:
+  location: classpath:banner-qing-long.txt
   
 ---
 spring:
@@ -14,3 +16,5 @@ app:
   id: 白虎
 server:
   port: 9082
+banner:
+  location: classpath:banner-bai-hu.txt
