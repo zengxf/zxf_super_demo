@@ -7,11 +7,9 @@ import java.math.BigDecimal;
 public class TempTest {
 
     public static void main( String[] args ) throws CloneNotSupportedException {
-        Double c = Double.POSITIVE_INFINITY;
-//        System.out.println( c );
-//        System.out.println( c .equals(  Double.NaN ));
-//        System.out.println( c.isNaN() );
-         System.out.println( String.format( "%s", BigDecimal.valueOf(c ) ) );
+        System.out.println( BigDecimal.valueOf( 12.32 )
+                .setScale( 4 )
+                .doubleValue() );
     }
 
 }
