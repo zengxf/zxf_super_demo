@@ -1,7 +1,7 @@
 ## akka-demo
 ## apache-poi-demo
 ## asm-demo
-## btrace-demo
+## BTrace-demo
 ## cobertura-demo
 测试覆盖率
 ## disruptor-demo
