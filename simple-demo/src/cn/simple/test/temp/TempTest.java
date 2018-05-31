@@ -8,7 +8,7 @@ public class TempTest {
 
     public static void main( String[] args ) throws CloneNotSupportedException {
        String str = Base64.getEncoder().encodeToString( "ab------".getBytes() );
-       System.out.println( str );
+       System.out.println( str ); 
     }
 
 }
