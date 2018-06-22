@@ -48,3 +48,7 @@ Servlet.init(ServletConfig config)
 ## Filter 与 Interceptor 的比较
 - (1) 是由容器提供，(2) 是 Spring MVC 的 DispatcherServlet 内部处理
 - (1) 先于 Servlet 执行，所以也先于 (2)
+
+## favicon.ico
+- 禁用：`spring.mvc.favicon.enabled=false`
+- 自定义：将 `favicon.ico` 放在 `src/main/resources/static` 下。会覆盖禁用
