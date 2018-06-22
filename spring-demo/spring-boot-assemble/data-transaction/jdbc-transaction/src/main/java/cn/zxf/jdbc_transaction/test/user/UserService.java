@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
 
     @Autowired
-    private UserDao dao;
+    private UserDao        dao;
 
     @Autowired
     private UserLogService logService;
@@ -27,6 +27,20 @@ public class UserService {
 
         log.info( "user: {}", user );
         logService.createNonTransaction( user.getId() );
+        return user;
+    }
+
+    @Transactional( propagation = Propagation.REQUIRED, timeout = 1 )
+    public User createTransactionalRequiredTimeout( String name, String sign ) throws InterruptedException {
+        User user = User.builder()
+                .name( name )
+                .age( 24 )
+                .build();
+
+        Thread.sleep( 1100L ); // 创建 Statement 后验证
+        dao.save( user );
+        // Thread.sleep( 1100L ); // 事务提交时，并不验证
+
         return user;
     }
 

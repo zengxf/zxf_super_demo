@@ -104,7 +104,15 @@ conn.rollback( spUserLog ); // 回滚到指定的保存点。回滚之后所有�
 ## 事务挂起
 - 只是资源解绑，当前事务提交或回滚后，再恢复之前挂起的事务
 
+## 事务超时测试
+- [jdbc-transaction] -> TestUserService.test_createTransactionalRequiredTimeout()
+
 ## Spring 操作数据库处理事务源码
+### 设置事务主要源码
+```
+AbstractPlatformTransactionManager.getTransaction(TransactionDefinition definition)
+	$child.doGetTransaction()
+```
 ### Spring JDBC 事务
 ```
 // 内部会去调用当前线程绑定的连接

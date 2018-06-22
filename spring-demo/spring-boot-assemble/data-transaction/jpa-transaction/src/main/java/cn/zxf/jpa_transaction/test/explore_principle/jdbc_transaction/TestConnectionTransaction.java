@@ -153,7 +153,7 @@ public class TestConnectionTransaction {
      */
     public static Connection getLocalConnection() {
         try {
-            String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&enableQueryTimeouts=true&connectTimeout=100";
             String user = "root";
             String password = "admin";
             Connection conn = DriverManager.getConnection( url, user, password );

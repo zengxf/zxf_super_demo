@@ -6,14 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.zxf.jdbc_transaction.test.user.UserService;
-
 @RunWith( SpringRunner.class )
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.NONE )
 public class TestUserService {
 
     @Autowired
     private UserService service;
+
+    // 测试事务超时
+    @Test
+    public void test_createTransactionalRequiredTimeout() {
+        try {
+            service.createTransactionalRequiredTimeout( "zxf-12", "ok" );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
 
     // 不能重复提交
     @Test
