@@ -9,6 +9,7 @@ import static java.util.concurrent.Executors.*;
 
 /**
  * 如果没有处理好异常，则当前的任务以后是不会执行的 <br>
+ * 即：任务之间不会有影响；但同一任务未处理异常时，将不会再继续执行 <br>
  * FixedRate() 从任务开始计时 <br>
  * FixedDelay() 从任务结束后才计时 <br>
  * 
@@ -18,7 +19,8 @@ import static java.util.concurrent.Executors.*;
 public class TestSchedule {
 
     public static void main( String[] args ) {
-        testFixedRate();
+        // testFixedRate();
+        testError();
     }
 
     static void testFixedRate() {
@@ -44,9 +46,10 @@ public class TestSchedule {
     }
 
     static void testError() {
-        ScheduledExecutorService pool = newScheduledThreadPool( 4 );
+        ScheduledExecutorService pool = newScheduledThreadPool( 1 );
         Runnable r = () -> {
-            System.out.println( "--------" );
+            System.out.println( "r1 -------- " + Thread.currentThread()
+                    .getName() );
             if ( System.currentTimeMillis() % 2 == 0 ) {
                 System.out.println( "--- error" );
                 System.out.println( 1 / 0 );
@@ -54,7 +57,16 @@ public class TestSchedule {
                 System.out.println( "--- ok" );
             }
         };
+        Runnable r2 = () -> {
+            System.out.println( "r2 -------- " + Thread.currentThread()
+                    .getName() );
+            try {
+                Thread.sleep( 1100 );
+            } catch ( InterruptedException e ) {
+            }
+        };
         pool.scheduleAtFixedRate( r, 1000, 1000, TimeUnit.MILLISECONDS );
+        pool.scheduleAtFixedRate( r2, 1000, 1000, TimeUnit.MILLISECONDS );
     }
 
 }
