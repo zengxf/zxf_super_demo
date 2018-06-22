@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="user" class="cn.zxf.configuration.test.config.user.User">
+	<bean id="user" class="cn.zxf.custom_configuration.test.config.user.User">
 		<property name="name" value="zxf"></property>
 		<property name="age" value="22"></property>
 	</bean>

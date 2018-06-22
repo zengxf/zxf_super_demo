@@ -3,6 +3,7 @@ package cn.zxf.custom_configuration.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -19,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest
-@ActiveProfiles( "dev" )
+@ActiveProfiles( profiles = { "dev", "dubbo", "dubbo-test" } )
 @RunWith( SpringRunner.class )
 @SuppressWarnings( "deprecation" )
 public class TestConfig {
@@ -39,7 +40,9 @@ public class TestConfig {
     @Autowired
     private PrefileDevConfig.IConfig iConfig;
     @Autowired
-    private LogService logService;
+    private LogService               logService;
+    @Value( "${dubbo.name}" )
+    private String                   dubboName;
 
     @Test
     public void testPrint() {
@@ -50,6 +53,7 @@ public class TestConfig {
         log.info( "random-config: \n{}", randomConfig );
         log.info( "prefile-config: \n{}", prefileConfig );
         log.info( "prefile-i-config: \n{}", iConfig );
+        log.info( "dubbo-name: {}", dubboName );
         logService.testLog();
     }
 

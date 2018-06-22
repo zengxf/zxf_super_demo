@@ -13,3 +13,19 @@ spring:
   profiles: dev
 zxf:
   custom: custom-dev
+dubbo:
+  name: dubbo-dev
+  
+---
+# dubbo
+spring:
+  profiles: dubbo
+dubbo:
+  name: dubbo-dubbo
+
+---
+# dubbo-test
+spring:
+  profiles: dubbo-test
+dubbo:
+  name: dubbo-dubbo-test
