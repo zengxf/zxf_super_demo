@@ -1,7 +1,6 @@
 package cn.simple.test.jvm.gc;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <pre>
@@ -22,8 +21,7 @@ import java.util.List;
 public class TestGcLog {
     public static void main( String[] args ) {
         while ( true ) {
-            List<String> list = new ArrayList<>( 200 );
-            System.out.println( list );
+            new ArrayList<>( 200 );
         }
     }
 }
