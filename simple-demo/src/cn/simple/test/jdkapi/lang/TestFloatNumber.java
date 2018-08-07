@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * 测试浮点数
+ * 测试浮点数 <br>
  * 
  * <pre>
  * IEEE 754：(-1)^s * 2^E * M;
@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
  * 示例：
  * 
  * <pre>
- * 浮点数9.0等于二进制的1001.0，即1.001×2^3
+ * 简单 =>：浮点数9.0等于二进制的1001.0，即1.001×2^3
  *   符号位s=0
  *   指数E等于3+127=130，即10000010
  *   有效数字M等于001后面再加20个0（是直接转成小数，所以是在后面追加）
@@ -71,10 +71,13 @@ public class TestFloatNumber {
     // = 2.125F;
 
     public static void main( String[] args ) {
-        testBitsToFloat();
-        testBitsToDouble();
-        testFloatBinary();
-        testDoubleBinary();
+        // testBitsToFloat();
+        // testBitsToDouble();
+        // testFloatBinary();
+        // testDoubleBinary();
+
+        // illustration_209_125F();
+        illustrationTo_209_125F();
     }
 
     static void testBitsToFloat() {
@@ -171,13 +174,13 @@ public class TestFloatNumber {
         int s = 0;
         int E = Integer.valueOf( "10000110", 2 ) - 127;
         double M = 1.0D; // 10100010010000000000000
-        M += 1D / ( 1 << 1 );
-        M += 1D / ( 1 << 3 );
-        M += 1D / ( 1 << 7 );
-        M += 1D / ( 1 << 10 );
-        System.out.println( s );
-        System.out.println( E );
-        System.out.println( M );
+        M += 1D / ( 1 << 1 ); // 1，第一个 1
+        M += 1D / ( 1 << 3 ); // 101 的 1，第三个 1
+        M += 1D / ( 1 << 7 ); // 1010001 的 1，第七个 1
+        M += 1D / ( 1 << 10 ); // 1010001001 的 1，第十个 1
+        System.out.println( "s: " + s );
+        System.out.println( "E: " + E );
+        System.out.println( "M: " + M );
         int base = (int) Math.pow( -1, s );
         double nv = base * Math.pow( 2, E ) * M; // -1^s * 2^E * m
         System.out.println( nv );

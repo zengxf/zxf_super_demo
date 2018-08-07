@@ -8,6 +8,11 @@
 */*/*/.settings
 */*/*/*/.settings
 
+*/target
+*/*/target
+*/*/*/target
+*/*/*/*/target
+
 */bin
 */*/bin
 */*/*/bin

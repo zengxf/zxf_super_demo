@@ -31,6 +31,30 @@ public class UserService {
     }
 
     @Transactional( propagation = Propagation.REQUIRED )
+    public User createByRuntimeException( String name ) {
+        User user = User.builder()
+                .name( name )
+                .age( 24 )
+                .build();
+        dao.save( user );
+
+        log.info( "user: {}", user );
+        throw new RuntimeException( "测试 RuntimeException" );
+    }
+
+    @Transactional( propagation = Propagation.REQUIRED )
+    public User createByException( String name ) throws Exception {
+        User user = User.builder()
+                .name( name )
+                .age( 24 )
+                .build();
+        dao.save( user );
+
+        log.info( "user: {}", user );
+        throw new Exception( "测试 Exception" );
+    }
+
+    @Transactional( propagation = Propagation.REQUIRED )
     public User createTransactionalRequired( String name, String sign ) {
         User user = User.builder()
                 .name( name )

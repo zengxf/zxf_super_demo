@@ -18,6 +18,24 @@ public class TestUserService {
         service.createNonTransaction( "zxf-02" );
     }
 
+    @Test
+    public void test_createByRuntimeException() {
+        try {
+            service.createByRuntimeException( "zxf-bb-1" );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test_createByException() {
+        try {
+            service.createByException( "zxf-bb-0021" );
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
+
     // 不能重复提交
     @Test
     public void test_createTransactionalRequired() {

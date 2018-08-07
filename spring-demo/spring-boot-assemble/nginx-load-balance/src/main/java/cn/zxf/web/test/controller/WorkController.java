@@ -1,5 +1,7 @@
 package cn.zxf.web.test.controller;
 
+import java.util.Random;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +28,26 @@ public class WorkController {
     @GetMapping( "hello" )
     public String hello() {
         return "hello " + appId;
+    }
+
+    @GetMapping( "hello-sleep" )
+    public String helloSleep() {
+        int r = new Random().nextInt( 2 );
+        int millis = 1010 + r * 1000;
+
+        System.out.println( appId + "\t" + serverPort + "\t" + millis );
+        this.sleep( millis );
+        System.out.println( appId + "\t" + serverPort + "\t" + millis + "\t OK!" );
+
+        return "hello " + appId + "  " + millis;
+    }
+
+    private void sleep( long millis ) {
+        try {
+            Thread.sleep( millis );
+        } catch ( InterruptedException e ) {
+            e.printStackTrace();
+        }
     }
 
 }

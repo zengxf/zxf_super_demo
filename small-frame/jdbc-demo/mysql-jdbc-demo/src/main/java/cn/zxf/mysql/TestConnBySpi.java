@@ -18,16 +18,26 @@ public class TestConnBySpi {
         System.out.println( conn );
     }
 
+    static String url      = "jdbc:mysql://localhost:3306/zxf_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
+    static String user     = "root";
+    static String password = "admin";
+
     static Connection getLocalConnection() {
         try {
-            String url = "jdbc:mysql://localhost:3306/zxf_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
-            String user = "root";
-            String password = "admin";
-
             Connection conn = DriverManager.getConnection( url, user, password );
-
             return conn;
         } catch ( SQLException e ) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    static Connection getLocalConnectionByOld() {
+        try {
+            Class.forName( "com.mysql.cj.jdbc.Driver" ); // 手动初始化类
+            Connection conn = DriverManager.getConnection( url, user, password );
+            return conn;
+        } catch ( SQLException | ClassNotFoundException e ) {
             e.printStackTrace();
         }
         return null;
