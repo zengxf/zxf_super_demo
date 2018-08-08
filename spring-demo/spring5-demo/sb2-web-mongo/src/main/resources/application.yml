@@ -1,0 +1,6 @@
+server:
+  port: 9090
+spring:
+  data:
+    mongodb:
+      uri: mongodb://120.25.56.45:9091/zxf_test
