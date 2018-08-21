@@ -21,8 +21,8 @@ getBean: Person(name=jack)
 
 关闭容器
 
-destory被调用
-myDestroy被调用
+destory 被调用
+myDestroy 被调用
 ```
 ## Bean Factory
 ```
@@ -45,4 +45,44 @@ getBean: Person(name=jack)
 
 DisposableBean.destory()被调用
 myDestroy()被调用
+```
+
+## 生命周期
+```
+-> InstantiationAwareBeanPostProcessor:
+		postProcessBeforeInstantiation() ->
+		
+-> Bean 实例化：
+		通知带参或缺省的构造函数创建 Bean 实例  -> 
+		
+-> InstantiationAwareBeanPostProcessor:
+		postProcessAfterInstantiation() -> 
+		postProcessPropertyValues() -> 
+	
+-> 	BeanNameAware:
+  		setBeanName() -> 
+  		
+->	BeanFactoryAware:
+		setBeanFactory() -> 
+		
+->	BeanPostProcessor:
+		postProcessBeforeInitialization() -> 
+		
+-> Bean 初始化：
+		调用用户自定义的初始化方法 -> 
+		
+->	BeanPostProcessor:
+		postProcessAfterInitialization() -> 
+```
+### 延伸
+#### Sp 处理注入
+```
+InstantiationAwareBeanPostProcessor.postProcessPropertyValues()：
+	实现 @Autowired 注解。
+	把 Bean 依赖的其他对象注入进来。
+```
+#### Sp 代理
+```
+BeanPostProcessor.postProcessAfterInitialization()：
+	创建对象代理，封装返回。
 ```
