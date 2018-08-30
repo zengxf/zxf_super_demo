@@ -4,17 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class VerifyExceptionHandler {
 
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
     @ExceptionHandler( value = MethodArgumentNotValidException.class )
-    public ResponseEntity<Map<String, Object>> errorHandle( MethodArgumentNotValidException exception ) {
+    public Map<String, Object> errorHandle( MethodArgumentNotValidException exception ) {
         StringBuilder sb = new StringBuilder();
         for ( ObjectError error : exception.getBindingResult()
                 .getAllErrors() ) {
@@ -26,7 +27,7 @@ public class VerifyExceptionHandler {
         Map<String, Object> json = new HashMap<>();
         json.put( "error", "表单校验失败" );
         json.put( "fieldError", sb.toString() );
-        return new ResponseEntity<>( json, HttpStatus.BAD_REQUEST );
+        return json;
     }
 
 }

@@ -15,3 +15,7 @@
 - `@NotEmpty` # 可指定到字段和参数上。
 - 需要依赖 `hibernate-validator` 包。
 - 处理异常：`MethodArgumentNotValidException`。
+
+### 自定义消息
+- 可不设置 `LocalValidatorFactoryBean`，
+- 只要将文件命名为 `messages.properties` 即可。
