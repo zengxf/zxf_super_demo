@@ -8,9 +8,9 @@ import java.util.concurrent.locks.Lock;
 /**
  * <pre>
  * 共享：重写 
- *      tryAcquireShared(n) 返回 >= 0，表示成功 
+ *      tryAcquireShared(n) 返回 >= 0，表示获取成功 
  *      和 
- *      tryReleaseShared(n) 返回 true，表示成功
+ *      tryReleaseShared(n) 返回 true，表示释放成功
  * 调用：
  *      获取锁：acquireShared(n)
  *      释放锁：releaseShared(n)
