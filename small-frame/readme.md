@@ -1,7 +1,6 @@
 ## akka-demo
 ## apache-poi-demo
 ## asm-demo
-## BTrace-demo
 ## cobertura-demo
 测试覆盖率
 ## disruptor-demo
@@ -42,6 +41,14 @@ Java 序列化测试，包括：kryo
 连接池测试，包含高性能`HikariCP`，提供强大的监控和扩展功能`druid`
 ## test-log-frame
 测试日志框架
+
+## trace-test
+- 跟踪有关
+- `BTrace-demo`
+- `SkyWalking-demo`
+- `test-Arthas`
+- `test-Greys`
+
 ## multi-thread
 - 多线程相关
 - `thread-affinity-demo` 线程绑定 cpu

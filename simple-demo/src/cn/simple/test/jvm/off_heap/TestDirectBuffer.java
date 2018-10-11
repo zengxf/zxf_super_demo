@@ -17,7 +17,7 @@ import sun.nio.ch.DirectBuffer;
  * <p>
  * Created by zengxf on 2017-09-08
  */
-// @SuppressWarnings( "restriction" )
+ @SuppressWarnings( "restriction" )
 public class TestDirectBuffer {
     static int k = 1024;
 

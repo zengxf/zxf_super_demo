@@ -1,14 +1,12 @@
 
 package cn.simple.test.temp;
 
-import java.util.stream.Stream;
+import java.util.Date;
 
 // M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
 public class TempTest {
-
     public static void main( String[] args ) {
-        Stream.of( "ab  \ta\r大  df　中　　在".split( "[ 　]+" ) )
-                .forEach( System.out::println );
+        String s = String.format( "%tY%<tm%<td-%tY%<tm%<td", new Date(), new Date() );
+        System.out.println( s );
     }
-
 }

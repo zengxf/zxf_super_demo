@@ -1,0 +1,12 @@
+server:
+  port: 8088
+test:
+  str: zxf-test
+
+---
+spring:
+  profiles: dev
+server:
+  port: 9099
+test:
+  str: zxf-test-dev

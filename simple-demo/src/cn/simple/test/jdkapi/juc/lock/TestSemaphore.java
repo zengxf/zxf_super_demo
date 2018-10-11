@@ -15,7 +15,43 @@ public class TestSemaphore {
     public static void main( String[] args ) {
         // test_common();
         // test_throwError();
-        test_fair();
+        // test_fair();
+        test_aqs();
+    }
+
+    static void test_aqs() {
+        int count = 1;
+        Semaphore sp = new Semaphore( count, false );
+
+        Runnable r1 = () -> {
+            try {
+                sp.acquire();
+                System.out.println( Thread.currentThread()
+                        .getName() + " --------- 1" );
+                sp.acquire();
+                System.out.println( Thread.currentThread()
+                        .getName() + " --------- 2" );
+            } catch ( InterruptedException e ) {
+            }
+        };
+        new Thread( r1, "----test-acquire-[获取-1]------" ).start();
+
+        Runnable r2 = () -> {
+            try {
+                sp.acquire();
+                System.out.println( Thread.currentThread()
+                        .getName() + " --------- 1" );
+            } catch ( InterruptedException e ) {
+            }
+        };
+        new Thread( r2, "----test-acquire-[获取-2]------" ).start();
+
+        Runnable r3 = () -> {
+            sp.release();
+            System.out.println( Thread.currentThread()
+                    .getName() + " --------- 1" );
+        };
+        new Thread( r3, "----test-acquire-[释放]------" ).start();
     }
 
     static void test_throwError() {
@@ -98,7 +134,7 @@ public class TestSemaphore {
             }
         };
 
-        IntStream.rangeClosed( 1, 1 )
+        IntStream.rangeClosed( 1, 2 )
                 .forEach( i -> {
                     new Thread( r, "test-" + i ).start();
                 } );

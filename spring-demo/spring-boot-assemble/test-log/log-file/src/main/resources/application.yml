@@ -1,0 +1,11 @@
+server:
+  port: 9080
+management:
+  security:
+    enabled: false
+
+logging:
+  file: ./logs/core.log
+  path: ./logs
+  level:
+    root: INFO

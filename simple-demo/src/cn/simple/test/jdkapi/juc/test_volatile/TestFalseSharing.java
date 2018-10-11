@@ -77,6 +77,7 @@ public class TestFalseSharing implements Runnable {
 
     // jdk8新特性，Contended注解避免false sharing
     // Unlock: -XX:-RestrictContended
+    @SuppressWarnings( "restriction" )
     @sun.misc.Contended
     public final static class VolatileLong4Java8 {
         public volatile long value = 0L;
