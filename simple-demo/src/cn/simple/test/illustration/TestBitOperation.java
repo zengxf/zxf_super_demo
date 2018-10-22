@@ -12,6 +12,16 @@ public class TestBitOperation {
         // testShift();
         // testReverseCode();
         // testTotalSort();
+
+        // 相当于 << | >> | >>> (v % 32)
+        System.out.println( Integer.toBinaryString( 1 << 34 ) );
+        System.out.println( ( -1024 >> 4 ) );
+        System.out.println( Integer.toBinaryString( -1024 ) );
+        System.out.println( Integer.toBinaryString( -1024 >> 36 ) );
+        System.out.println( Integer.toBinaryString( -1024 >> 4 ) ); // 右移完后，再从 0 | 1 填充左边的
+        System.out.println( ( -1 >>> 40 ) );
+        System.out.println( Integer.toBinaryString( -1 >>> 40 ) );
+        System.out.println( Integer.toBinaryString( -1 >>> 8 ) );
     }
 
     /** 先 "!" 再 "&&" 然后 "||" */

@@ -3,7 +3,8 @@ package cn.simple.test.jdkapi.juc.structure;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * key 不能为 null
+ * key 不能为 null<br>
+ * 源码阅读：https://mp.weixin.qq.com/s?__biz=MzUyNjg2ODgyMg==&mid=2247483783&idx=1&sn=5579c3bfd5045df7395b603e8503a58a
  * 
  * <p>
  * Created by zengxf on 2018-03-06
