@@ -29,8 +29,13 @@ RxJava 异步编程。但 java8 基本够用了
 用来确定文件编码。但并不成功
 ## test-greys
 阿里性能诊断工具 greys 测试
-## vertx-demo
-vertx 微服务-响应式
+
+## micro-services 微服务框架测试
+### vertx-demo
+- vertx 微服务-响应式框架(Eclipse 项目)
+### helidon-demo
+- helidon 微服务-响应式框架(Oracle 开源)
+
 ## speedment-demo
 流式操作数据库
 ## serialize-test

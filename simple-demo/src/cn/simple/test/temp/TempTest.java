@@ -1,16 +1,24 @@
-
 package cn.simple.test.temp;
 
-import java.util.Date;
-
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.stream.LongStream;
 
 // M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\temp
-@Slf4j
 public class TempTest {
     public static void main( String[] args ) {
-         String s = String.format("%tY-%<tm", new Date(System.currentTimeMillis()- 30L*24*60*60*1000));
-         System.out.println( s );
-        log.error( "test: {}", "bb", new Exception( "ttt" ) );
+        LocalDate start = LocalDate.parse( "2018-09-23" );
+        LocalDate end = LocalDate.parse( "2018-10-23" );
+        Period until = start.until( end );
+        System.out.println( until );
+        long days = ChronoUnit.DAYS.between(start, end);
+        System.out.println( days );
+        LongStream.rangeClosed( 0, days )
+                .boxed()
+                .map( start::plusDays )
+                .map( LocalDate::toString )
+                .forEach( System.out::println );
     }
+
 }
