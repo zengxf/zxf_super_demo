@@ -18,6 +18,12 @@ import cn.simple.util.SleepUtils;
     -Dcom.sun.management.jmxremote.port=8888
     -Dcom.sun.management.jmxremote.authenticate=false
     -Dcom.sun.management.jmxremote.ssl=false
+    
+    -Djava.rmi.server.hostname=xx.xx.xx.xx
+    -Dcom.sun.management.jmxremote 
+    -Dcom.sun.management.jmxremote.authenticate=false 
+    -Dcom.sun.management.jmxremote.ssl=false
+    -Dcom.sun.management.jmxremote.port=7969
  * </pre>
  * 
  * 设置密码
