@@ -14,8 +14,8 @@ public class UserController {
 
     @GetMapping( "/get-user" )
     public User getUser() {
-	User user = service.getUser();
-	return user;
+        User user = service.getUser();
+        return user;
     }
 
 }

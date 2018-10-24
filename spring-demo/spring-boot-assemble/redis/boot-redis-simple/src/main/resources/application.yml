@@ -4,8 +4,8 @@ server:
 spring:
   redis:
     database: 0  
-    host: localhost
-    port: 6379  
+    host: 120.25.93.177
+    port: 27003  
     timeout: 0  # 连接超时时间（毫秒）
     pool:
       max-active: 8  # 连接池最大连接数（使用负值表示没有限制）
@@ -14,4 +14,5 @@ spring:
       min-idle: 0  # 连接池中的最小空闲连接
 
 
+    # url: redis://120.25.93.177:27003
 # test url: http://localhost:8088/api/user/get-user
