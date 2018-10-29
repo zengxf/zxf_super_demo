@@ -1,5 +1,6 @@
 package cn.zxf.redisson;
 
+import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
@@ -12,7 +13,7 @@ public class TestMap {
     }
 
     static void testLock() {
-        RedissonClient redisson = GetRedissonClient.get();
+        Redisson redisson = GetRedissonClient.get();
 
         RMap<String, Integer> map = redisson.getMap( "test-map" );
         String key = "k1";

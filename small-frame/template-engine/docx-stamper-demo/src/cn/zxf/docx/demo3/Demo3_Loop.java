@@ -51,10 +51,8 @@ public class Demo3_Loop {
                 .build();
 
         long start = System.currentTimeMillis();
-        for ( int i = 0; i < 5; i++ ) {
-            out( context, "recommend_default.docx", "C:/Users/Administrator/Desktop/rec-test-1.docx" );
-            System.out.println( "\n\n=====================\n\n" );
-        }
+        out( context, "recommend_default.docx", "C:/Users/Administrator/Desktop/rec-test-1.docx" );
+        System.out.println( "\n\n=====================\n\n" );
         log.info( "use time: {} ms", System.currentTimeMillis() - start );
 
         log.info( "context: {}", context );

@@ -41,9 +41,34 @@ public class TestCompletableFuture {
         // testWhenComplete();
         // test_runAsync();
 
-        solveCallbackHell();
+        // solveCallbackHell();
+
+        test_get();
+        // test_getNow();
 
         executor.shutdown();
+    }
+
+    // 会等待
+    static void test_get() throws InterruptedException, ExecutionException {
+        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync( () -> {
+            System.out.println( "------ 1" );
+            SleepUtils.second( 1 );
+            System.out.println( "------ 2" );
+            return 100;
+        } );
+        System.out.println( "res: " + cf.get() );
+    }
+
+    // 不等待，直接返回默认值
+    static void test_getNow() throws InterruptedException, ExecutionException {
+        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync( () -> {
+            System.out.println( "------ 1" );
+            SleepUtils.second( 1 );
+            System.out.println( "------ 2" );
+            return 100;
+        } );
+        System.out.println( "res: " + cf.getNow( 0 ) );
     }
 
     // 解决**回调地狱**问题

@@ -1,6 +1,20 @@
 ## 简介
-- 基于 Redis 实现 集合、原子数据、锁，
+- 基于 Redis 实现 集合、原子数据、锁
 - GitHub: https://github.com/redisson/redisson [/wiki]
+
+## 源码分析
+### 一部分
+- 连接在初始化 `Redisson` 时，会初始化池 `ConfigSupport.createConnectionManager(xx)`
+- 获取连接返回 `RFuture`，可添加监听器，在监听器里面执行命令 `CommandAsyncService.async(xx)`
+- 发送命令 `CommandAsyncService.sendCommand(xx)`，在连接的 `RFuture` 监听器中调用
+- 关闭连接方法 `CommandAsyncService.releaseConnection(xx)`，也是，相当于命令发送完后就关闭
+- `sendCommand(xx)` 方法会传递 `getAttemptPromise()` 给命令，命令的处理会进一步设置 `RPromise` 的结果
+
+### 源码分析反思
+- 一是逆向查看调用栈 `Ctrl+H`
+- 二是清楚 JDK 中 API 的原理
+- 三是间断阅读（如隔个一、两天）
+- 四、像 netty 不熟，则发送命令的具体实现可以忽略
 
 ## 功能
 ### 锁

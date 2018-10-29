@@ -23,24 +23,25 @@ public class TestFileWatch {
 
     public static void main( String[] args ) throws IOException {
 
-	Path path = Paths.get( "C:/Users/Administrator/Desktop" );
-	WatchService watcher = FileSystems.getDefault().newWatchService();
-	path.register( watcher, StandardWatchEventKinds.ENTRY_MODIFY ); // 只监听修改
+        Path path = Paths.get( "C:/Users/Administrator/Desktop" );
+        WatchService watcher = FileSystems.getDefault()
+                .newWatchService();
+        path.register( watcher, StandardWatchEventKinds.ENTRY_MODIFY ); // 只监听修改
 
-	new Thread( () -> {
-	    while ( true ) {
-		try {
-		    WatchKey key = watcher.take();
-		    List<WatchEvent<?>> events = key.pollEvents();
-		    events.forEach( event -> {
-			log.info( "watch event: {} - {}", event.kind(), event.context() );
-		    } );
-		    key.reset();
-		} catch ( InterruptedException e ) {
-		    e.printStackTrace();
-		}
-	    }
-	} ).start();
+        new Thread( () -> {
+            while ( true ) {
+                try {
+                    WatchKey key = watcher.take();
+                    List<WatchEvent<?>> events = key.pollEvents();
+                    events.forEach( event -> {
+                        log.info( "watch event: {} - {}", event.kind(), event.context() );
+                    } );
+                    key.reset();
+                } catch ( InterruptedException e ) {
+                    e.printStackTrace();
+                }
+            }
+        } ).start();
 
     }
 
