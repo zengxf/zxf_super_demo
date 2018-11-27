@@ -14,13 +14,15 @@ import java.util.stream.IntStream;
  */
 public class TestMultilThreadLoop {
     public static void main( String[] args ) {
-        System.out.println( ManagementFactory.getRuntimeMXBean().getName() );
+        System.out.println( ManagementFactory.getRuntimeMXBean()
+                .getName() );
 
-        IntStream.rangeClosed( 1, 5 ).forEach( i -> {
-            Thread t = new Thread( new Run() );
-            t.setName( "test-zxf-" + i );
-            t.start();
-        } );
+        IntStream.rangeClosed( 1, 5 )
+                .forEach( i -> {
+                    Thread t = new Thread( new Run() );
+                    t.setName( "test-zxf-" + i );
+                    t.start();
+                } );
         while ( true ) {
             kill();
         }
@@ -47,6 +49,10 @@ public class TestMultilThreadLoop {
     }
 
     static void kill() {
-
+        try {
+            Thread.sleep( 1L );
+        } catch ( InterruptedException e ) {
+            e.printStackTrace();
+        }
     }
 }

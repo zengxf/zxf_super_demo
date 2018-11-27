@@ -59,6 +59,7 @@ public class TestJvmRemoteMonitor {
 
     public static void main( String[] args ) {
         new Thread( new HoldMemoryTask(), "test-001" ).start();
+        System.out.println( "test start" );
     }
 
 }

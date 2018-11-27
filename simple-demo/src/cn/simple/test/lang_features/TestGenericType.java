@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * 测试泛型<br>
+ * 测试泛型(桥接方法)<br>
  * 编译时类型擦除，相差类型自动转换<br>
  * 可反编译查看
  */
