@@ -3,6 +3,7 @@ package cn.simple.test.jvm.ygc;
 import java.util.UUID;
 
 /**
+ * <a href="http://lovestblog.cn/blog/2016/11/06/string-intern/">原文参考</a> <br>
  * 测试 String.intern() 引起的 YGC 越来越慢 <br>
  * JVM 参数
  * 
@@ -25,7 +26,9 @@ public class StringTable {
     public static void main( String[] args ) throws InterruptedException {
         Thread.sleep( 5_000L );
         for ( int i = 0; i < 1000_0000; i++ ) {
-            UUID.randomUUID().toString().intern();
+            UUID.randomUUID()
+                    .toString()
+                    .intern();
         }
     }
 
