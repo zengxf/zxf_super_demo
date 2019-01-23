@@ -13,10 +13,10 @@
 */*/*/target
 */*/*/*/target
 
-*/target
-*/*/target
-*/*/*/target
-*/*/*/*/target
+*/build
+*/*/build
+*/*/*/build
+*/*/*/*/build
 
 */bin
 */*/bin

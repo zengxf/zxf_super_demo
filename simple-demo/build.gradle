@@ -28,6 +28,6 @@ dependencies {
 	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
 	
-	compile files('lib/tools.jar')
-	compile files('lib/sa-jdi.jar')
+	compile files('K:\\install\\jdk\\jdk-8u131-x64\\lib\\tools.jar')
+	compile files('K:\\install\\jdk\\jdk-8u131-x64\\lib\\sa-jdi.jar')
 }
