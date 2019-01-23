@@ -9,6 +9,11 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 
+/**
+ * <a href="https://juejin.im/post/5c01532ef265da61362232ed">加锁原理</a>
+ * <p>
+ * Created by zengxf on 2018-12-14
+ */
 public class TestLock {
 
     public static void main( String[] args ) throws Exception {

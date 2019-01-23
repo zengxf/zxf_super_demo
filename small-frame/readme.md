@@ -26,13 +26,13 @@ java 9 demo
 ## jsqlparser-demo
 
 ## junit-demo
-其中包含微基准测试
+- 其中包含微基准测试
 
 ## librec-demo
-推荐系统框架
+- 推荐系统框架
 
 ## neuroph-demo
-神经网络框架
+- 神经网络框架
 
 ## tensorflow-demo
 
@@ -41,13 +41,13 @@ java 9 demo
 - 嵌入式 tomcat 测试
 
 ## rxjava-demo
-RxJava 异步编程。但 java8 基本够用了
+- RxJava 异步编程。但 java8 基本够用了
 
 ## guess-encoding
-用来确定文件编码。但并不成功
+- 用来确定文件编码。但并不成功
 
 ## test-greys
-阿里性能诊断工具 greys 测试
+- 阿里性能诊断工具 greys 测试
 
 
 ## micro-services 微服务框架测试
@@ -67,11 +67,16 @@ Java 序列化测试，包括：kryo
 ## jexl3-demo
 字符串表达式解析和执行
 
-## connection-pool-test
-连接池测试，包含高性能`HikariCP`，提供强大的监控和扩展功能`druid`
+## java-op-db
+### connection-pool-test
+- 连接池测试，包含高性能`HikariCP`，提供强大的监控和扩展功能`druid`
+
+### MyBatis-demo
+- MyBatis 测试
+
 
 ## test-log-frame
-测试日志框架
+- 测试日志框架
 
 ## trace-test
 - 跟踪有关

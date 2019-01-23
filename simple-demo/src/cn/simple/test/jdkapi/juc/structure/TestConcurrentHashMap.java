@@ -12,6 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TestConcurrentHashMap {
 
     public static void main( String[] args ) {
+        // testCommon();
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+        map.computeIfAbsent( "AaAa", key -> map.computeIfAbsent( "BBBB", key2 -> "value" ) );
+        System.out.println( "=================" );
+    }
+
+    static void testCommon() {
         ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
         map.put( "a", 1 );
         map.put( "b", 2 );
