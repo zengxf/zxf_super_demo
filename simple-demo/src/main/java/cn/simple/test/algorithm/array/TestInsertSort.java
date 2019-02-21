@@ -17,7 +17,19 @@ public class TestInsertSort {
         System.out.println( Arrays.toString( arr ) );
     }
 
-    public static void insertSort( int[] numbers ) {
+    public static void insertSort( int[] array ) {
+        for ( int i = 0; i < array.length - 1; i++ ) {
+            int currentNum = array[i + 1];
+            int preIndex = i;
+            while ( preIndex >= 0 && currentNum < array[preIndex] ) {
+                array[preIndex + 1] = array[preIndex];
+                preIndex--;
+            }
+            array[preIndex + 1] = currentNum;
+        }
+    }
+
+    public static void insertSortA( int[] numbers ) {
         for ( int i = 1; i < numbers.length; i++ ) {
             int currentNumber = numbers[i];
             int j = i - 1;

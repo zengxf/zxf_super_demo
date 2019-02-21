@@ -30,4 +30,17 @@ public class TestBubbleSort {
         }
     }
 
+    public static int[] bubbleSortA( int[] array ) {
+        int len = array.length;
+        if ( len == 0 )
+            return array;
+        for ( int i = 0; i < len; i++ )
+            for ( int j = 0; j < len - 1 - i; j++ )
+                if ( array[j + 1] < array[j] ) {
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+        return array;
+    }
 }

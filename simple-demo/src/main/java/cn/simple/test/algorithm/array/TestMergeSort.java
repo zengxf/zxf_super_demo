@@ -17,8 +17,35 @@ public class TestMergeSort {
         System.out.println( Arrays.toString( sorted ) );
     }
 
+    public static int[] mergeSort( int[] array ) {
+        if ( array.length < 2 )
+            return array;
+        int mid = array.length / 2; // 长度 >= 2
+        int[] left = Arrays.copyOfRange( array, 0, mid );
+        int[] right = Arrays.copyOfRange( array, mid, array.length );
+        return merge( mergeSort( left ), mergeSort( right ) ); // 递归
+    }
+
+    public static int[] merge( int[] left, int[] right ) {
+        int[] result = new int[left.length + right.length];
+        for ( int index = 0, li = 0, ri = 0; index < result.length; index++ ) {
+            if ( li >= left.length ) // 右边数据长
+                result[index] = right[ri++];
+            else if ( ri >= right.length ) // 左边数据长
+                result[index] = left[li++];
+            else if ( left[li] > right[ri] )
+                result[index] = right[ri++];
+            else
+                result[index] = left[li++];
+        }
+        return result;
+    }
+
+    // ----------------------
+    // ----------------------
+
     // 归并排序
-    public static int[] mergeSort( int[] arr ) {
+    public static int[] mergeSort1( int[] arr ) {
         int[] temp = new int[arr.length];
         internalMergeSort( arr, temp, 0, arr.length - 1 );
         return temp;

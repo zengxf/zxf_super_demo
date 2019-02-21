@@ -17,7 +17,7 @@ public class TestSelectionSort {
         System.out.println( Arrays.toString( arr ) );
     }
 
-    public static void selectionSort( int[] a ) {
+    public static void selectionSortA( int[] a ) {
         for ( int i = 0; i < a.length; i++ ) {
             int minValue = a[i];
             int minIndex = i; // 将当前下标定义为最小值下标
@@ -31,6 +31,19 @@ public class TestSelectionSort {
                 a[minIndex] = a[i];
                 a[i] = minValue;
             }
+        }
+    }
+
+    public static void selectionSort( int[] array ) {
+        for ( int i = 0; i < array.length; i++ ) {
+            int minIndex = i;
+            for ( int j = i; j < array.length; j++ ) {
+                if ( array[j] < array[minIndex] ) // 找到最小的数
+                    minIndex = j; // 将最小数的索引保存
+            }
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
         }
     }
 
