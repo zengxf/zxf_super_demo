@@ -18,6 +18,12 @@ java 9 demo
 
 ## javaee7-demo
 
+## jdk-demo
+- `APT-demo` 注册处理
+- `instrument-demo` Java Agent 测试 
+- `java-9-demo` Java 9
+- `spi-demo`
+
 ## jol-demo
 计算 java 对象大小
 

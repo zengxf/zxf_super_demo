@@ -5,10 +5,10 @@ import java.io.IOException;
 
 public class AppendWriteFile {
     public static void main( String[] args ) throws IOException {
-	String file = "C:/Users/Administrator/Desktop/test.txt";
-	FileWriter fw = new FileWriter( file, true );
-	fw.write( "bbb" );
-	fw.flush();
-	fw.close();
+        String file = "C:/Users/Administrator/Desktop/test.txt";
+        FileWriter fw = new FileWriter( file, true );
+        fw.write( "bbb" );
+        fw.flush();
+        fw.close();
     }
 }
