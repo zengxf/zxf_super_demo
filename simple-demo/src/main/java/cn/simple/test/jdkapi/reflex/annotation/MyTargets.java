@@ -7,10 +7,10 @@ import java.lang.annotation.Target;
 
 @Target( ElementType.TYPE )
 @Retention( RetentionPolicy.RUNTIME )
-public @interface TestB {
+public @interface MyTargets {
 
-    String value();
+    MyTarget[] value(); // 类型要相互对应上
 
-    String name();
+    // String name(); // 不能有其他属性
 
 }
