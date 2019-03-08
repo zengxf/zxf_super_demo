@@ -1,6 +1,5 @@
 # Reactor demo
 - [原文参考](https://www.ibm.com/developerworks/cn/java/j-cn-with-reactor-response-encode/index.html)
-- [web-flux 参考](https://www.ibm.com/developerworks/cn/java/spring5-webflux-reactive/index.html)
 
 ## 介绍
 ### Flux 和 Mono
