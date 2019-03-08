@@ -8,6 +8,7 @@ public class TestMain {
         log.info( "test info" );
         log.warn( "test warn" );
         log.error( "test error" );
+        System.out.println( "cn.zxf.log4j2.test.TestMain".length() );
     }
 
 }

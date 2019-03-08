@@ -46,8 +46,10 @@ java 9 demo
 ### tomcat-embed-demo
 - 嵌入式 tomcat 测试
 
-## rxjava-demo
-- RxJava 异步编程。但 java8 基本够用了
+## reactive-test
+- rxjava-demo
+  - RxJava 异步编程。但 java8 基本够用了
+- reactor-demo
 
 ## guess-encoding
 - 用来确定文件编码。但并不成功

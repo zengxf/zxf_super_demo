@@ -9,6 +9,9 @@
 */bin
 */*/*/bin
 
+*/gradle
+*/*/*/gradle
+
 */.classpath
 */*/*/.classpath
 

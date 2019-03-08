@@ -29,6 +29,10 @@ public class MainApplication {
                         .filters( f -> f.addRequestHeader( "Hello", "World" )
                                 .rewritePath( "/test/(?<segment>.*)", "/${segment}" ) )
                         .uri( "http://localhost:9001" ) )
+                // test baidu load balancer
+                .route( "test-baidu-lb", p -> p.path( "/baidu-lb/**" )
+                        .filters( f -> f.addRequestHeader( "Hello", "World" ) )
+                        .uri( "lb://test-baidu" ) )
                 // test baidu
                 .route( "test-baidu", p -> p.path( "/baidu/**" )
                         .filters( f -> f.addRequestHeader( "Hello", "World" ) )

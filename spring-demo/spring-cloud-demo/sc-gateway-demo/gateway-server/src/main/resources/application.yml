@@ -4,3 +4,11 @@ server:
 logging:
   level:
     root: DEBUG
+
+ribbon:
+  eureka:
+   enabled: false
+
+test-baidu:
+  ribbon:
+    listOfServers: www.baidu.com, www.jd.com
