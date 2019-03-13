@@ -1,4 +1,4 @@
-package cn.zxf.netty_test;
+package cn.zxf.netty_test.tcp;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

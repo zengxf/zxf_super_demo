@@ -1,4 +1,4 @@
-package cn.zxf.netty_test;
+package cn.zxf.netty_test.tcp;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

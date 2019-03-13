@@ -11,10 +11,10 @@ import java.util.Arrays;
 public class TestQuickSort {
 
     public static void main( String[] args ) {
-        int[] arr = { 23, 54, 2, 43, 65, 3 };
+        int[] arr = { 99, 88, 77, 66, 55, 44, 67, 22, 11 };
         System.out.println( Arrays.toString( arr ) );
-         quickSort( arr, 0, arr.length - 1 );
-//        quickSort1( arr );
+        quickSort( arr, 0, arr.length - 1 );
+        // quickSort1( arr );
         System.out.println( Arrays.toString( arr ) );
     }
 
@@ -29,7 +29,8 @@ public class TestQuickSort {
     }
 
     public static int partition( int[] array, int start, int end ) {
-        int pivot = (int) ( start + Math.random() * ( end - start + 1 ) );
+        // int pivot = (int) ( start + Math.random() * ( end - start + 1 ) );
+        int pivot = start + ( end - start ) / 2;
         int smallIndex = start - 1;
         swap( array, pivot, end );
         for ( int i = start; i <= end; i++ )
