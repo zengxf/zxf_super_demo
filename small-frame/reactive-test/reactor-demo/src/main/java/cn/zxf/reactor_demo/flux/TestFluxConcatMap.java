@@ -1,14 +1,14 @@
-package cn.zxf.reactor_demo;
+package cn.zxf.reactor_demo.flux;
 
 import java.time.Duration;
 
 import reactor.core.publisher.Flux;
 
-public class TestFluxFlatMap {
+public class TestFluxConcatMap {
 
     public static void main( String[] args ) {
         Flux.just( 5, 10 )
-                .flatMapSequential( x -> intervalMillis( x * 10, 100 ).take( x ) )
+                .concatMap( x -> intervalMillis( x * 10, 100 ).take( x ) )
                 .toStream()
                 .forEach( System.out::println );
     }

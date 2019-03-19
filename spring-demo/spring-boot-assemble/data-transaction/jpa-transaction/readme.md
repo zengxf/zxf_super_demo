@@ -76,7 +76,7 @@
 - - 只有外部事务结束后它才会被提交；本质是一个 savepoint
 - - JTA 不支持，创建保存点时出错，所以不会执行子方法
 
-## 线 JDBC 事务操作
+## 直接 JDBC 事务操作
 ```
 conn.setAutoCommit( false ); // 要设置为 false
 conn.rollback();

@@ -1,4 +1,4 @@
-package cn.zxf.reactor_demo;
+package cn.zxf.reactor_demo.flux;
 
 import java.time.Duration;
 import java.util.Arrays;

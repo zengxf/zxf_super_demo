@@ -6,6 +6,10 @@
 - [Netty 实战(精髓)](https://waylau.gitbooks.io/essential-netty-in-action/content/)
 
 ## 简单概念
+### OIO、NIO
+- OIO：Old-IO，即阻塞式 IO
+- NIO: New-IO，即非阻塞 IO
+
 ### Channel - 数据传输流
 - `Channel` 表示一个连接，可以理解为每一个请求，就是一个 Channel
   - 一个客户端与服务器通信的通道
@@ -25,6 +29,16 @@
 ### ByteBuf
 - 存储字节的容器，特点是使用方便
   - 有读索引和写索引，方便对整段字节缓存进行读写
+- 可用 `Unpooled.copiedBuffer` 等创建
+- 使用引用计数判断何时释放
+- 利用池提高性能和降低内存消耗
+
+#### ByteBuf 索引
+- 有两个索引(读和写索引)，可同时进行读和写
+- 写入索引和读取索引相同时，变为不可读
+- "read"、"write" 方法都会提升相应索引
+- "set"、"get" 方法不会移动索引位置
+- 符合 `0 <= readerIndex <= writerIndex <= capacity - 1`
 
 #### 三种使用模式
 - Heap Buffer 堆缓冲区
@@ -33,8 +47,32 @@
   - 直接堆外内存，有两个好处：
   - - 避免中间交换的内存拷贝, 提升 IO 处理速度
   - - 避免频繁 GC 对应用线程的中断影响 
+  - 内存空间的分配和释放上比堆缓冲区更复杂
 - Composite Buffer 复合缓冲区
-  - 复合缓冲区相当于多个不同 ByteBuf 的视图
+  - 相当于组合多个不同 ByteBuf
+  - 避免组装消息时重新分配新的缓冲区
+
+#### 方法说明
+- `getMedium()` 返回当前索引的 24-bit 中间值
+- `duplicate()`、`slice()` 创建一个展示内容的“视图”
+- `copy()` 创建一个全新的有数据的副本
+
+#### ByteBufHolder
+- 对数据的一种封装
+- `content()` 返回数据
+- `copy()` 深复制，不共享数据，数据也是拷贝
+
+#### ByteBufAllocator
+- 用于分配 ByteBuf
+- 提供池化和非池化
+
+#### Unpooled
+- 非池化缓存工具类
+- 提供静态方法创建非池化的 ByteBuf 实例
+
+#### ByteBufUtil
+- 静态方法操作 ByteBuf，与使用池无关
+- 最有价值的方法是 `hexDump()`，返回可读字节的十六进制字符串
 
 ### ChannelFuture
 - 允许多个监听者 `ChannelFutureListener` 实例

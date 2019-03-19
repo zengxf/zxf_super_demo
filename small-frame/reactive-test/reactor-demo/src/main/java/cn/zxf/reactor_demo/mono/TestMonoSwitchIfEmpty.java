@@ -1,16 +1,14 @@
-package cn.zxf.reactor_demo;
-
-import java.time.Duration;
+package cn.zxf.reactor_demo.mono;
 
 import reactor.core.publisher.Mono;
 
-public class TestMono {
+public class TestMonoSwitchIfEmpty {
 
     public static void main( String[] args ) throws InterruptedException {
         System.out.println( "--" );
-        Mono.delay( Duration.ofMillis( 1000 ) )
+        Mono.justOrEmpty( null )
+                .switchIfEmpty( Mono.error( new Exception("null-error") ) )
                 .subscribe( System.out::println );
-        Thread.sleep( 2000 );
     }
 
 }
