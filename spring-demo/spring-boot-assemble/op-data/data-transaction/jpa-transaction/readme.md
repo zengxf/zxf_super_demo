@@ -97,6 +97,7 @@ conn.rollback( spUserLog ); // 回滚到指定的保存点。回滚之后所有�
 				determineTransactionManager(TransactionAttribute txAttr) // #return TransactionManager
 				createTransactionIfNecessary(PlatformTransactionManager tm, TransactionAttribute txAttr, final String joinpointIdentification) // #return 状态 
 					PlatformTransactionManager.getTransaction(TransactionDefinition definition) // #return 事务状态
+						$child.doBegin() // 初始化连接并设置到 ThreadLocal 中
 				commitTransactionAfterReturning(TransactionInfo txInfo) // commit
 				completeTransactionAfterThrowing(TransactionInfo txInfo, Throwable ex) // rollback
 ```
@@ -120,6 +121,8 @@ JdbcTemplate.execute(PreparedStatementCreator psc, PreparedStatementCallback<T> 
 	DataSourceUtils.getConnection(DataSource dataSource)
 		doGetConnection(DataSource dataSource) 
 			TransactionSynchronizationManager.getResource(Object key) // 以 dataSource 为
+				doGetResource(key)
+					resources.get() -> 即：ThreadLocal.get()
 ```
 ### Spring JPA 事务
 ```

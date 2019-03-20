@@ -23,7 +23,7 @@ dependencies {
 	
 	// mysql-jdbc
 	//compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
-	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
-	//compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+	//compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
 
 }

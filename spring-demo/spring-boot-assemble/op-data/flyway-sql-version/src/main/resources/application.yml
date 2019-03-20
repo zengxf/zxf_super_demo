@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: abc
+  flyway:
+    locations: classpath:/sql
+    baseline-on-migrate: true
+    baseline-version: 0.0.1

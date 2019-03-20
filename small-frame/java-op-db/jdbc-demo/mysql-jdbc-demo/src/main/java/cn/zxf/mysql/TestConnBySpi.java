@@ -18,9 +18,9 @@ public class TestConnBySpi {
         System.out.println( conn );
     }
 
-    static String url      = "jdbc:mysql://localhost:3306/zxf_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
+    static String url      = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false";
     static String user     = "root";
-    static String password = "admin";
+    static String password = "abc";
 
     static Connection getLocalConnection() {
         try {

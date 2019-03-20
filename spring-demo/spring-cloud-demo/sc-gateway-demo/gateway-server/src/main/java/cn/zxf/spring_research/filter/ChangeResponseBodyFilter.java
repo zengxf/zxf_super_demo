@@ -9,9 +9,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
-import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.core.io.buffer.DataBufferUtils;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.http.server.reactive.ServerHttpResponseDecorator;
 import org.springframework.stereotype.Component;
@@ -35,19 +33,20 @@ public class ChangeResponseBodyFilter implements GlobalFilter, Ordered {
         log.info( "ChangeResponseBodyFilter entry ..." );
 
         ServerHttpResponse originalResponse = exchange.getResponse();
-        DataBufferFactory bufferFactory = originalResponse.bufferFactory();
+        // DataBufferFactory bufferFactory = originalResponse.bufferFactory();
 
         ServerHttpResponseDecorator decoratedResponse = new ServerHttpResponseDecorator( originalResponse ) {
             @Override
             public Mono<Void> writeWith( Publisher<? extends DataBuffer> body ) {
                 if ( body instanceof Flux ) {
-                    HttpHeaders headers = super.getHeaders();
+                    // HttpHeaders headers = super.getHeaders();
                     Flux<? extends DataBuffer> fluxBody = (Flux<? extends DataBuffer>) body;
                     Flux<DataBuffer> data = fluxBody.map( dataBuffer -> {
-                        String returnStr = returnContent( dataBuffer );
-                        byte[] returnArr = returnStr.getBytes();
-                        headers.setContentLength( returnArr.length );
-                        return bufferFactory.wrap( returnArr );
+                        // String returnStr = returnContent( dataBuffer );
+                        // byte[] returnArr = returnStr.getBytes();
+                        // headers.setContentLength( returnArr.length );
+                        // return bufferFactory.wrap( returnArr );
+                        return dataBuffer;
                     } );
                     return super.writeWith( data );
                 }
@@ -59,8 +58,8 @@ public class ChangeResponseBodyFilter implements GlobalFilter, Ordered {
                 .build() );
     }
 
-    private static String returnContent( DataBuffer dataBuffer ) {
-        byte[] content = new byte[dataBuffer.readableByteCount()];
+    static String returnContent( DataBuffer dataBuffer ) {
+        byte[] content = new byte[dataBuffer.capacity()];
         dataBuffer.read( content );
         DataBufferUtils.release( dataBuffer ); // 释放掉内存
 
@@ -72,7 +71,7 @@ public class ChangeResponseBodyFilter implements GlobalFilter, Ordered {
         try {
             returnStr = new JSONObject() //
                     .put( "status", "ok" )
-                    .put( "content", contentStr )
+                    .put( "content", new JSONObject( contentStr ) )
                     .toString();
         } catch ( JSONException e ) {
             log.error( "json-error", e );

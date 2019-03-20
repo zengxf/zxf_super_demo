@@ -1,0 +1,1 @@
+INSERT INTO USER(name, age) VALUES('zxf-test-01', 33);

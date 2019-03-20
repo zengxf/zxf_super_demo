@@ -15,7 +15,7 @@ public class ConnectionUtil {
         try {
             String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC";
             String user = "root";
-            String password = "admin";
+            String password = "abc";
             Connection conn = DriverManager.getConnection( url, user, password );
             return conn;
         } catch ( SQLException e ) {
