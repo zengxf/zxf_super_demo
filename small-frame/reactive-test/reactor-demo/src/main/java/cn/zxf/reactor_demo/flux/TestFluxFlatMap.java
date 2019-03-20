@@ -8,7 +8,8 @@ public class TestFluxFlatMap {
 
     public static void main( String[] args ) {
         Flux.just( 5, 10 )
-                .flatMapSequential( x -> intervalMillis( x * 10, 100 ).take( x ) )
+                .flatMap( x -> intervalMillis( x * 10, 100 ).take( x ) )
+                // .flatMapSequential( x -> intervalMillis( x * 10, 100 ).take( x ) )
                 .toStream()
                 .forEach( System.out::println );
     }

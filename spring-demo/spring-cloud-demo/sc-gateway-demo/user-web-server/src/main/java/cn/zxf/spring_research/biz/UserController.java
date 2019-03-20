@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping( "/api/user" )
 public class UserController {
@@ -14,6 +17,7 @@ public class UserController {
     public String hello( //
             @RequestHeader( name = "Hello", required = false ) String content //
     ) {
+        log.info( "UserController entry ..." );
         return "hello! header-hello: " + content;
     }
 
