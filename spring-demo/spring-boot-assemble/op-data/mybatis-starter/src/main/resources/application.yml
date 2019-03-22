@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: abc
+
+logging:
+  level:
+    root: INFO
+    cn.zxf.mybatis_starter.test.user: TRACE
