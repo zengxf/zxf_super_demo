@@ -1,5 +1,7 @@
 package cn.zxf.mybatis_starter.test.user;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,12 @@ public class TestUserMapper {
         log.info( "truly-user: {}", user );
         mapper.update( user );
         log.info( "updated-user: {}", mapper.findById( 1L ) );
+    }
+
+    @Test
+    public void findListByKey() {
+        List<User> list = mapper.findListByKey( "zxf" );
+        list.forEach( user -> log.info( "user: {}", user ) );
     }
 
     @Test

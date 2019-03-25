@@ -1,5 +1,7 @@
 package cn.zxf.mybatis_starter.test.user;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -17,6 +19,9 @@ public interface UserMapper {
 
     @Select( "SELECT id, name, age, login_mobile loginMobile FROM user WHERE id = #{id}" )
     User findById( long id );
+
+    @Select( "SELECT id, name, age, login_mobile loginMobile FROM user WHERE name = #{key} OR login_mobile = #{key}" )
+    List<User> findListByKey( String key );
 
     @Update( "UPDATE user SET name=#{name}, age=#{age}, login_mobile=#{loginMobile} WHERE id = #{id}" )
     void update( User user );
