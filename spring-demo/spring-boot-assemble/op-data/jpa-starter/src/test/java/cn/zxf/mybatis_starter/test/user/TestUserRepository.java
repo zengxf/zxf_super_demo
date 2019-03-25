@@ -1,5 +1,7 @@
 package cn.zxf.mybatis_starter.test.user;
 
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,10 @@ public class TestUserRepository {
         log.info( "insert-user: {}", user );
         log.info( "find-list-user: {}", repos.findByName( name ) );
         user.setLoginMobile( "bb-cc" );
+        user.setLastLoginDate( new Date() );
         repos.save( user );
         log.info( "find-list-user: {}", repos.findByName( name ) );
-        repos.deleteById( user.getId() );
+        // repos.deleteById( user.getId() );
         log.info( "find-list-user: {}", repos.findByName( name ) );
     }
 
