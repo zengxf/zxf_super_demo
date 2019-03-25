@@ -26,6 +26,30 @@
 - 事件传递给 `ChannelPipeline` 的第一个 `ChannelHandler`
 - `Handler` 通过关联的 `Context` 传递事件给 `Pipeline` 中下一个 `Handler`
 
+#### Channel 生命周期
+- `channelUnregistered` channel 创建但未注册到 EventLoop
+- `channelRegistered` channel 注册到 EventLoop
+- `channelActive` channel 活动(连接到了 remote peer（远程对等方）)，可以接收和发送数据
+- `channelInactive` channel 没有连接到 remote peer（远程对等方）
+
+#### ChannelHandler 生命周期
+- `handlerAdded` 当 ChannelHandler 添加到 ChannelPipeline 调用
+- `handlerRemoved` 当 ChannelHandler 从 ChannelPipeline 移除时调用
+- `exceptionCaught` 当 ChannelPipeline 执行发生错误时调用
+
+##### 释放资源
+- `SimpleChannelInboundHandler` 自动实现
+- 其他实现 `ChannelInboundHandler`，要在 `channelRead()` 方法中
+  - 通过 `ReferenceCountUtil.release(msg)` 释放
+  - 或者用 `ctx.fireChannelRead(msg)` 传递到下个进行释放
+- 出站时，除了释放外，还要通过 `promise.setSuccess()` 进行通知
+- 泄漏检测工具类：`ResourceLeakDetector`
+
+#### ChannelPipeline 
+- 每一个新的 Channel，分配一个新的 ChannelPipeline
+- 这个关联是永久性的
+  - Channel 既不能附上另一个 ChannelPipeline，也不能分离当前这个
+
 ### ByteBuf
 - 存储字节的容器，特点是使用方便
   - 有读索引和写索引，方便对整段字节缓存进行读写
