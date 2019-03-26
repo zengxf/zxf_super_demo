@@ -27,6 +27,7 @@ public class User extends AbstractEntity {
 
     private String  name;
     private Integer age;
+    private Integer status;
 
     @Column( length = 20 )
     private String  loginMobile;

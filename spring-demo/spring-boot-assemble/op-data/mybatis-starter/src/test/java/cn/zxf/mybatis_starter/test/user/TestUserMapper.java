@@ -30,6 +30,18 @@ public class TestUserMapper {
     }
 
     @Test
+    public void findStatus() {
+        User user = User.builder()
+                .name( "zxf" )
+                .age( 66 )
+                .status( 1 )
+                .build();
+        mapper.insert( user );
+        log.info( "inserted-user: {}", user );
+        log.info( "user-status: {}", mapper.findStatus( user.getId() ) );
+    }
+
+    @Test
     public void update() {
         User user = User.builder()
                 .id( 1L )

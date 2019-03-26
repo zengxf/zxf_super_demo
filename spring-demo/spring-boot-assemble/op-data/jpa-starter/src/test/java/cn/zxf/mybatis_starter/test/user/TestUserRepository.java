@@ -38,4 +38,17 @@ public class TestUserRepository {
         log.info( "find-list-user: {}", user );
     }
 
+    @Test
+    public void findStatus() {
+        User user = new User().name( "zxf" )
+                .status( 1 )
+                .loginMobile( "888" );
+        repos.save( user );
+        log.info( "inserted-user: {}", user );
+        Integer id = user.id();
+
+        Integer status = repos.findStatus( id );
+        log.info( "user-status: {}", status );
+    }
+
 }

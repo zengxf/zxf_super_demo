@@ -13,9 +13,12 @@ import org.apache.ibatis.jdbc.SQL;
 @Mapper
 public interface UserMapper {
 
-    @Insert( "INSERT INTO user (name, age, login_mobile) VALUES(#{name}, #{age}, #{loginMobile})" )
+    @Insert( "INSERT INTO user (name, age, login_mobile, status) VALUES(#{name}, #{age}, #{loginMobile}, #{status})" )
     @Options( useGeneratedKeys = true, keyProperty = "id" )
     void insert( User user );
+
+    @Select( "SELECT status FROM user WHERE id = #{id}" )
+    Integer findStatus( long id );
 
     @Select( "SELECT id, name, age, login_mobile loginMobile FROM user WHERE id = #{id}" )
     User findById( long id );
