@@ -10,6 +10,18 @@
 ## @MappedSuperclass
 - 设置从父类继承字段
 
-## 时区
+## MySQL 时区
 - `GMT%2B8` 东八区
 - `UTC` 全球标准时间
+
+## 动态 SQL
+- `@DynamicInsert`、`@DynamicUpdate` 
+  - 要放在子类，注解没有被继承
+- 使用时要先 `findById()` 获取新对象，再设置值，然后再保存
+
+## 字段命名
+- 自动遵循数据库规范 `xx_yy`，不用自己通过 `name` 设置
+
+## 实体类
+- 可直接使用 lombok 的 `@Accessors(fluent = true)`
+- 字段不需要 get/set 方法

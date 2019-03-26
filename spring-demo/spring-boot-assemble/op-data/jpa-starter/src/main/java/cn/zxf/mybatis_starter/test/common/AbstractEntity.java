@@ -9,19 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 @MappedSuperclass
 @Data
+@Accessors( fluent = true )
 public class AbstractEntity {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     protected Integer id;
 
-    @Column( name = "create_date", columnDefinition = "DATETIME default CURRENT_TIMESTAMP" )
+    @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP", insertable = true )
     protected Date    createDate;
 
-    @Column( name = "update_date", columnDefinition = "DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" )
+    @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" )
     protected Date    updateDate;
 
 }

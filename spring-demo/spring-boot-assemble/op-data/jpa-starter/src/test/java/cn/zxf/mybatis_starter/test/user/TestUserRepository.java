@@ -21,19 +21,21 @@ public class TestUserRepository {
     @Test
     public void findCURD() {
         String name = "zxf-aa";
-        User user = User.builder()
-                .name( name )
-                .loginMobile( "bb" )
-                .build();
+        User user = new User().name( name )
+                .loginMobile( "bb" );
         repos.save( user );
-        log.info( "insert-user: {}", user );
-        log.info( "find-list-user: {}", repos.findByName( name ) );
-        user.setLoginMobile( "bb-cc" );
-        user.setLastLoginDate( new Date() );
+        log.info( "inserted-user: {}", user );
+        Integer id = user.id();
+
+        user = repos.findById( id )
+                .get()
+                .loginMobile( "bb-cc" )
+                .lastLoginDate( new Date() );
         repos.save( user );
-        log.info( "find-list-user: {}", repos.findByName( name ) );
-        // repos.deleteById( user.getId() );
-        log.info( "find-list-user: {}", repos.findByName( name ) );
+
+        user = repos.findById( id )
+                .get();
+        log.info( "find-list-user: {}", user );
     }
 
 }
