@@ -51,4 +51,18 @@ public class TestUserRepository {
         log.info( "user-status: {}", status );
     }
 
+    @SuppressWarnings( "deprecation" )
+    @Test
+    public void findOneOnlyStatus() {
+        User user = new User().name( "zxf" )
+                .status( 1 )
+                .loginMobile( "888" );
+        repos.save( user );
+        log.info( "inserted-user: {}", user );
+        Integer id = user.id();
+
+        user = repos.findOneOnlyStatus( id );
+        log.info( "user-status: {}", user );
+    }
+
 }
