@@ -17,6 +17,8 @@ public class TestUserRepository {
 
     @Autowired
     private UserRepository repos;
+    @Autowired
+    private UserDao        dao;
 
     @Test
     public void findCURD() {
@@ -61,7 +63,7 @@ public class TestUserRepository {
         log.info( "inserted-user: {}", user );
         Integer id = user.id();
 
-        user = repos.findOneOnlyStatus( id );
+        user = dao.findOneOnlyColumn( id );
         log.info( "user-status: {}", user );
     }
 

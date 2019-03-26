@@ -12,8 +12,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query( value = "SELECT status FROM user WHERE id = ?1", nativeQuery = true )
     Integer findStatus( Integer id );
 
-    @Deprecated
-    @Query( value = "SELECT u.id, u.status FROM User u WHERE u.id = ?1" )
-    User findOneOnlyStatus( Integer id );
-
 }
