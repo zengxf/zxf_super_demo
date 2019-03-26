@@ -25,3 +25,7 @@
 ## 实体类
 - 可直接使用 lombok 的 `@Accessors(fluent = true)`
 - 字段不需要 get/set 方法
+
+## 直接 JPA 查询限制返回列
+- native 直接返回对应数组，用实体类映射时，要返回所有列
+- JPA 查实体类要用对应的构造器

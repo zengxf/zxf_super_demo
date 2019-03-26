@@ -53,7 +53,6 @@ public class TestUserRepository {
         log.info( "user-status: {}", status );
     }
 
-    @SuppressWarnings( "deprecation" )
     @Test
     public void findOneOnlyStatus() {
         User user = new User().name( "zxf" )
@@ -63,8 +62,12 @@ public class TestUserRepository {
         log.info( "inserted-user: {}", user );
         Integer id = user.id();
 
-        user = dao.findOneOnlyColumn( id );
+        // user = dao.findOneOnlyColumnA( id );
+        // user = dao.findOneOnlyColumnB( id );
         log.info( "user-status: {}", user );
+
+        Object userVo = dao.findOneOnlyColumn( id );
+        log.info( "user-status: {}", userVo );
     }
 
 }

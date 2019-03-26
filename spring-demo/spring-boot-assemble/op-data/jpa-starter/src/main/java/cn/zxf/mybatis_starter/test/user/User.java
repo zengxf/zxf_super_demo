@@ -33,4 +33,12 @@ public class User extends AbstractEntity {
     private String  loginMobile;
     private Date    lastLoginDate;
 
+    public User() {
+    }
+
+    public User( Integer id, Integer status ) {
+        this.id = id;
+        this.status = status;
+    }
+
 }
