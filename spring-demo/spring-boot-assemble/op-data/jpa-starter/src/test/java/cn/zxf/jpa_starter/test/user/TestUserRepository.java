@@ -1,4 +1,4 @@
-package cn.zxf.mybatis_starter.test.user;
+package cn.zxf.jpa_starter.test.user;
 
 import java.util.Date;
 
@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import cn.zxf.jpa_starter.test.user.User;
+import cn.zxf.jpa_starter.test.user.UserDao;
+import cn.zxf.jpa_starter.test.user.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -19,6 +22,11 @@ public class TestUserRepository {
     private UserRepository repos;
     @Autowired
     private UserDao        dao;
+
+    @Test
+    public void find_repos() {
+        log.info( "repos: {}", repos );
+    }
 
     @Test
     public void findCURD() {
@@ -51,6 +59,19 @@ public class TestUserRepository {
 
         Integer status = repos.findStatus( id );
         log.info( "user-status: {}", status );
+    }
+
+    @Test
+    public void findStatusAndId() {
+        User user = new User().name( "zxf" )
+                .status( 1 )
+                .loginMobile( "888" );
+        repos.save( user );
+        log.info( "inserted-user: {}", user );
+        Integer id = user.id();
+
+        Object statusObj = repos.findStatusAndId( id );
+        log.info( "user-status: {}", statusObj );
     }
 
     @Test

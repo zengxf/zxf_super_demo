@@ -1,4 +1,4 @@
-package cn.zxf.mybatis_starter.test.user;
+package cn.zxf.jpa_starter.test.user;
 
 import java.util.List;
 
@@ -11,5 +11,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query( value = "SELECT status FROM user WHERE id = ?1", nativeQuery = true )
     Integer findStatus( Integer id );
+
+    @Query( value = "SELECT id, status FROM user WHERE id = ?1", nativeQuery = true )
+    Object findStatusAndId( Integer id );
 
 }

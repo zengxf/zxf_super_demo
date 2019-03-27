@@ -1,4 +1,4 @@
-package cn.zxf.mybatis_starter.test.common;
+package cn.zxf.jpa_starter.test.common;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ public class AbstractEntity {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     protected Integer id;
 
-    @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP", insertable = true )
+    @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP" )
     protected Date    createDate;
 
     @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" )

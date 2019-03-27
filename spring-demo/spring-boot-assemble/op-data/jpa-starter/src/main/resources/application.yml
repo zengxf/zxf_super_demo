@@ -6,12 +6,11 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      dialect:
-        storage_engine: innodb
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:
       hibernate:
-        format_sql: true 
+        format_sql: true
 
 logging:
   level:
