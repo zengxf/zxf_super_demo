@@ -167,6 +167,10 @@
 - 处理复杂的业务逻辑，完成 Message 和 Message 的相互转换
 - HTTP 协议的处理，就用到很多 MessageToMessage 的派生类
 
+#### CombinedChannelDuplexHandler
+- 组合解码器和编码器，即：输入和输出
+- 提高便利性
+
 ----
 ---
 ### HttpServer
@@ -190,12 +194,21 @@
   - 这样就能在一个 ChannelHandler 中处理一个完整的 HTTP 请求
 
 #### HTTP ChannelHandler
-- `HttpRequestDecoder`，用于解码 request
-- `HttpResponseEncoder`，用于编码 response
-- `HttpObjectAggregator`，消息聚合器，组装 `FullHttpRequest`、`FullHttpResponse`
+- `HttpRequestEncoder`，客户端-用于编码 request
+- `HttpRequestDecoder`，服务端-用于解码 request
+- `HttpResponseEncoder`，服务端-用于编码 response
+- `HttpResponseDecoder`，客户端-用于解码 response
+- 可参考：`HttpClientCodec`、`HttpServerCodec`，一次解决
+
+#### HttpObjectAggregator
+- 消息聚合器，组装 `FullHttpRequest`、`FullHttpResponse`
   - 聚合的消息内容长度不能超过指定参数
   - 注释掉并将自定义的泛型去掉测试时，会出现多个 channel 处理
 - 自定义的在最后
+
+#### HTTP 压缩/解压
+- 客户端 `HttpContentDecompressor`
+- 服务端 `HttpContentCompressor`
 
 #### 自定义 HTTP ChannelHandler
 - 追加到最后
@@ -204,8 +217,15 @@
 - 设置 HTTP 头 `content-length`，否则前端会一直刷新
 - 最后调用 `ctx.flush()` 刷完，否则前端同样会一直刷新
 
+----
+---
 ### 定时调度
 #### 自动关闭没有心跳的连接
 - 利用 `ScheduledFuture`
 - 可通过 `ChannelHandlerContext.executor().schedule(call, delay, unit)` 创建
 - 支持延时提交，和取消任务 `Future.cancel(true)`
+
+#### 空闲连接以及超时
+- `IdleStateHandler` 连接闲置时间过长，触发 `IdleStateEvent` 事件
+- `ReadTimeoutHandler` 在指定的时间内没收到入站数据则抛出 `ReadTimeoutException` 并关闭 Channel
+- `WriteTimeoutHandler`
