@@ -1,5 +1,0 @@
-// sourceCompatibility = 9
-// targetCompatibility = 9
-dependencies {
-    compile project(':test-m1')
-}

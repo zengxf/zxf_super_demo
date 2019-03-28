@@ -1,6 +1,0 @@
-// sourceCompatibility = 9
-// targetCompatibility = 9
-dependencies {
-    compile project(':spi-server')
-    compile project(':spi-server-impl')
-}
