@@ -30,6 +30,32 @@ public class TestUserMapper {
     }
 
     @Test
+    public void replace() {
+        User user = User.builder()
+                .id( 22 )
+                .name( "zxf" )
+                .age( 22 )
+                .build();
+        log.info( "truly-user: {}", user );
+        mapper.replace( user );
+
+        user = User.builder()
+                .id( 22 )
+                .name( "zxf-ff" )
+                .age( 44 )
+                .build();
+        log.info( "truly-user: {}", user );
+        mapper.replace( user );
+
+        log.info( "inserted-user: {}", mapper.findById( user.getId() ) );
+    }
+
+    @Test
+    public void findById() {
+        log.info( "inserted-user: {}", mapper.findById( 22 ) );
+    }
+
+    @Test
     public void findStatus() {
         User user = User.builder()
                 .name( "zxf" )
@@ -44,14 +70,14 @@ public class TestUserMapper {
     @Test
     public void update() {
         User user = User.builder()
-                .id( 1L )
+                .id( 1 )
                 .name( "zxf" )
                 .age( 22 )
                 .loginMobile( "134-0000-3333" )
                 .build();
         log.info( "truly-user: {}", user );
         mapper.update( user );
-        log.info( "updated-user: {}", mapper.findById( 1L ) );
+        log.info( "updated-user: {}", mapper.findById( 1 ) );
     }
 
     @Test
@@ -63,19 +89,19 @@ public class TestUserMapper {
     @Test
     public void updateFieldNullable() {
         User user = User.builder()
-                .id( 1L )
+                .id( 1 )
                 .name( "ss" )
                 .age( 32 )
                 .build();
         log.info( "truly-user: {}", user );
         mapper.updateFieldNullable( user );
-        log.info( "updated-user: {}", mapper.findById( 1L ) );
+        log.info( "updated-user: {}", mapper.findById( 1 ) );
 
         user.setName( null );
         user.setAge( 33 );
         log.info( "truly-user: {}", user );
         mapper.updateFieldNullable( user );
-        log.info( "updated-user: {}", mapper.findById( 1L ) );
+        log.info( "updated-user: {}", mapper.findById( 1 ) );
     }
 
     // -------------
@@ -83,7 +109,7 @@ public class TestUserMapper {
 
     static void getUpdateSql() {
         User user = User.builder()
-                .id( 1L )
+                .id( 1 )
                 .name( "zxf" )
                 .age( 22 )
                 .build();
