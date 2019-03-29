@@ -26,7 +26,7 @@ public class TestUserMapper {
                 .build();
         log.info( "truly-user: {}", user );
         mapper.insert( user );
-        log.info( "inserted-user: {}", mapper.findById( user.getId() ) );
+        log.info( "inserted-user: {}", mapper.findById( user.id() ) );
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TestUserMapper {
         log.info( "truly-user: {}", user );
         mapper.replace( user );
 
-        log.info( "inserted-user: {}", mapper.findById( user.getId() ) );
+        log.info( "inserted-user: {}", mapper.findById( user.id() ) );
     }
 
     @Test
@@ -64,7 +64,7 @@ public class TestUserMapper {
                 .build();
         mapper.insert( user );
         log.info( "inserted-user: {}", user );
-        log.info( "user-status: {}", mapper.findStatus( user.getId() ) );
+        log.info( "user-status: {}", mapper.findStatus( user.id() ) );
     }
 
     @Test
@@ -97,8 +97,8 @@ public class TestUserMapper {
         mapper.updateFieldNullable( user );
         log.info( "updated-user: {}", mapper.findById( 1 ) );
 
-        user.setName( null );
-        user.setAge( 33 );
+        user.name( null );
+        user.age( 33 );
         log.info( "truly-user: {}", user );
         mapper.updateFieldNullable( user );
         log.info( "updated-user: {}", mapper.findById( 1 ) );
@@ -114,7 +114,7 @@ public class TestUserMapper {
                 .age( 22 )
                 .build();
         log.info( "sql: \n{}", UserMapper.SqlBuilder.buildUpdate( user ) );
-        user.setName( null );
+        user.name( null );
         log.info( "sql: \n{}", UserMapper.SqlBuilder.buildUpdate( user ) );
     }
 
