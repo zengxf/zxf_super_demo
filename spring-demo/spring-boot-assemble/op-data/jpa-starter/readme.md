@@ -29,3 +29,7 @@
 ## 直接 JPA 查询限制返回列
 - native 直接返回对应数组，用实体类映射时，要返回所有列
 - JPA 查实体类要用对应的构造器
+
+## JPA @Query 更改、删除
+- 要指定  `@Modifying` 和 `@Transactional`
+- 参数是对象，可以用 SpEL 表达式

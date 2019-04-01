@@ -25,13 +25,13 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode( callSuper = true )
 public class User extends AbstractEntity {
 
-    private String  name;
-    private Integer age;
-    private Integer status;
+    public String  name;
+    public Integer age;
+    public Integer status;
 
     @Column( length = 20 )
-    private String  loginMobile;
-    private Date    lastLoginDate;
+    public String  loginMobile;
+    public Date    lastLoginDate;
 
     public User() {
     }
@@ -39,6 +39,11 @@ public class User extends AbstractEntity {
     public User( Integer id, Integer status ) {
         this.id = id;
         this.status = status;
+    }
+
+    public User id( Integer id ) {
+        super.id( id );
+        return this;
     }
 
 }

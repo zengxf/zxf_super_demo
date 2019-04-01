@@ -18,7 +18,7 @@ public class AbstractEntity {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    protected Integer id;
+    public Integer id;
 
     @Column( columnDefinition = "DATETIME default CURRENT_TIMESTAMP" )
     protected Date    createDate;

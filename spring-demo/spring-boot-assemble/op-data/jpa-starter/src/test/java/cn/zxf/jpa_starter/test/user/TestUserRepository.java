@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import cn.zxf.jpa_starter.test.user.User;
-import cn.zxf.jpa_starter.test.user.UserDao;
-import cn.zxf.jpa_starter.test.user.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -59,6 +56,27 @@ public class TestUserRepository {
 
         Integer status = repos.findStatus( id );
         log.info( "user-status: {}", status );
+    }
+
+    @Test
+    public void replace() {
+        User user = new User() //
+                .id( 100 )
+                .name( "zxf" )
+                .status( 1 )
+                .loginMobile( "888" );
+        log.info( "replace-user: {}", user );
+        repos.replace( user );
+    }
+
+    @Test
+    public void replaceParams() {
+        repos.replace( 101, "zxf", "999", 1 );
+    }
+
+    @Test
+    public void insert() {
+        repos.insert( 102, "zxf", "999", 1 );
     }
 
     @Test
