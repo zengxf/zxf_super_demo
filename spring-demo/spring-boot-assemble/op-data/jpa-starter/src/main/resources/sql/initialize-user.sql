@@ -1,1 +1,1 @@
-REPLACE INTO user (id, name, login_mobile, status) VALUE(555, 'f', 'xx', 1);
+REPLACE INTO user (id, name, login_mobile, status, type) VALUE(555, 'f', 'xx', 1, 2);

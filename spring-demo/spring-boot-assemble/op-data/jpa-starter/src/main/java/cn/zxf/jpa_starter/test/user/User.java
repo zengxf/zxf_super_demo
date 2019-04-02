@@ -28,6 +28,7 @@ public class User extends AbstractEntity {
     public String  name;
     public Integer age;
     public Integer status;
+    public Integer type;
 
     @Column( length = 20 )
     public String  loginMobile;
