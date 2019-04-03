@@ -11,6 +11,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+          batch_versioned_data: true
 
 logging:
   level:
