@@ -1,0 +1,1 @@
+REPLACE INTO security_token_user(id, name, login_account, login_mobile, login_password) VALUE (1, 'f', 'zxf', '132', '2Prkg9AxIvaa/8Ftc9igvg==' );

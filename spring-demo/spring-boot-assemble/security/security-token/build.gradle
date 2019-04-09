@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+    }
+}
+
+plugins {
+    id "io.freefair.lombok" version "3.1.0"
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1'
+group = 'cn.zxf'
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+mainClassName = 'cn.zxf.simple_note_server.SimpleNoteApplication'
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies { 
+
+    // spring 
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
+
+    // db
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+
+    // log4j2
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-jcl', version: '2.11.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+	// commons
+	compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+
+    // test
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    testCompile group: 'io.projectreactor', name: 'reactor-test'
+
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
