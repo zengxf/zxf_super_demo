@@ -1,6 +1,0 @@
-server:
-  port: 9080
-spring:
-  mvc:
-    favicon:
-      enabled: false

@@ -1,8 +1,0 @@
-server:
-  port: 8088
-  
-spring:
-  profiles: default
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/test

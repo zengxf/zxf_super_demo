@@ -1,5 +1,0 @@
-spring:
-  ldap:
-    embedded:
-      ldif: ldap-server.ldif
-      base-dn: dc=zxf,dc=com

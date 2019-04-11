@@ -1,6 +1,0 @@
-server:
-  port: 9001
-
-logging:
-  level:
-    root: INFO

@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
-    username: root
-    password: abc
-    schema: table.sql
-    data: data.sql # insert 0，id 会自动变为 1
-    initialize: true
-    continueOnError: false
