@@ -5,16 +5,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TestMath {
     public static void main( String[] args ) {
-//        addExact();
-//        subtractExact();
-//        multiplyExact();
-//        incrementExact();
-//        decrementExact();
-//        negateExact();
-//        toIntExact();
-//        System.out.println( Math.log( 0.0001 ) );
+        // addExact();
+        // subtractExact();
+        // multiplyExact();
+        // incrementExact();
+        // decrementExact();
+        // negateExact();
+        // toIntExact();
+        // System.out.println( Math.log( 0.0001 ) );
         System.out.println( Math.sqrt( 4 ) );
-        System.out.println( Math.pow( 4 ,2) );
+        System.out.println( Math.pow( 4, 2 ) );
+        System.out.println( Math.toRadians( 0 ) );
     }
 
     // to int

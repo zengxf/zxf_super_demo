@@ -1,8 +1,6 @@
 package cn.simple.test.jdkapi.awt.watermarks;
 
 import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -16,22 +14,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  * 用文字生成水印
  * <p>
  * Created by zengxf on 2019-04-16
  */
-public class GenerateWatermarkUseText {
+public class GenerateWatermarkUseImage {
 
     public static void main( String[] args ) throws IOException {
         String targetPath = "C:\\Users\\Administrator\\Desktop\\aa";
-        String outPath = targetPath + "\\文字水印";
-        String[] texts = { "昵称：雪 花", "QQ：1549070207", "微信：A2968769411" };
+        String outPath = targetPath + "\\图片水印";
+        String logo = "C:\\Users\\Administrator\\Desktop\\aa\\水印图\\logo2.png";
+        File logoPath = Paths.get( logo )
+                .toFile();
         mkdir( outPath );
 
         Files.find( Paths.get( targetPath ), 1, ( p, a ) -> {
-            boolean endsWith = p.getFileName()
+            boolean endsWith = !Files.isDirectory( p ) && p.getFileName()
                     .toString()
                     .endsWith( ".jpg" );
             return endsWith;
@@ -45,18 +46,18 @@ public class GenerateWatermarkUseText {
                     File srcImgFile = jpg.toFile();
                     File outImageFile = Paths.get( outPath, fileName )
                             .toFile();
-                    createWaterMarkByText( srcImgFile, texts, outImageFile );
+                    createWaterMarkByIcon( srcImgFile, logoPath, outImageFile );
                 } );
 
     }
 
-    static void createWaterMarkByText( File srcImgFile, String[] texts, File outputImageFile ) {
-        float alpha = 0.2f;
-        double angdeg = 350;
+    static void createWaterMarkByIcon( File srcImageFile, File logoImageFile, File outputImageFile ) {
+        float alpha = 0.8f;
 
         OutputStream os = null;
         try {
-            Image srcImg = ImageIO.read( srcImgFile );
+            Image logoImg = new ImageIcon( ImageIO.read( logoImageFile ) ).getImage();
+            Image srcImg = ImageIO.read( srcImageFile );
             int width = srcImg.getWidth( null );
             int height = srcImg.getHeight( null );
 
@@ -65,17 +66,14 @@ public class GenerateWatermarkUseText {
             Graphics2D graphics = buffImg.createGraphics();
             graphics.setRenderingHint( RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR );
             graphics.drawImage( srcImg.getScaledInstance( width, height, Image.SCALE_SMOOTH ), 0, 0, null );
-            graphics.rotate( Math.toRadians( angdeg ), width / 2, height / 2 ); // 旋转
-            graphics.setColor( Color.pink ); // 颜色
-            graphics.setFont( new Font( "宋体", Font.BOLD, 60 ) ); // 字体
             graphics.setComposite( AlphaComposite.getInstance( AlphaComposite.SRC_ATOP, alpha ) ); // 透明度
 
-            // 写字
-            int i = 0;
-            for ( int w = 0; w < width; w += 600 ) {
-                for ( int h = 200; h < height; h += 240 ) {
-                    String text = texts[i++ % texts.length];
-                    graphics.drawString( text, w, h );
+            // 图片水印
+            int betaW = (int) ( logoImg.getWidth( null ) * 1.5 );
+            int betaH = (int) ( logoImg.getHeight( null ) * 1.5 );
+            for ( int w = 10; w < width; w += betaW ) {
+                for ( int h = 10; h < height; h += betaH ) {
+                    graphics.drawImage( logoImg, w, h, null );
                 }
             }
 
