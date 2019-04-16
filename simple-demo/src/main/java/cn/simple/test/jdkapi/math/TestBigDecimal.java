@@ -30,6 +30,7 @@ public class TestBigDecimal {
                 .setScale( 2, RoundingMode.HALF_EVEN ) );
     }
 
+    @SuppressWarnings( "deprecation" )
     static void divide() {
         BigDecimal value1 = BigDecimal.valueOf( 23.324543 );
         BigDecimal total = BigDecimal.valueOf( 55.324543 );

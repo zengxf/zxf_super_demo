@@ -27,9 +27,13 @@ public class JavaClassObject extends SimpleJavaFileObject {
         return bos;
     }
 
+    @SuppressWarnings( "deprecation" )
     @Override
     protected void finalize() throws Throwable {
-        super.finalize();
-        bos.close();
+        try {
+            bos.close();
+        } finally {
+            super.finalize();
+        }
     }
 }

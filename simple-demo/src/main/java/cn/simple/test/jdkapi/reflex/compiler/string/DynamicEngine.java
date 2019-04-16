@@ -71,7 +71,8 @@ public class DynamicEngine {
             JavaClassObject jco = fileManager.getJavaClassObject();
             DynamicClassLoader classLoader = new DynamicClassLoader( this.parentClassLoader );
             Class<?> clazz = classLoader.loadClass( fullClassName, jco );
-            instance = clazz.newInstance();
+            instance = clazz.getDeclaredConstructor()
+                    .newInstance();
             classLoader.close();
         } else {
             // 如果想得到具体的编译错误，可以对Diagnostics进行扫描
