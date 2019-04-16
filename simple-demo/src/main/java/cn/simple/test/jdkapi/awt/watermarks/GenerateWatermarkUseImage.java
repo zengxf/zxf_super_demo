@@ -52,7 +52,7 @@ public class GenerateWatermarkUseImage {
     }
 
     static void createWaterMarkByIcon( File srcImageFile, File logoImageFile, File outputImageFile ) {
-        float alpha = 0.8f;
+        float alpha = 1.0f;
 
         OutputStream os = null;
         try {
