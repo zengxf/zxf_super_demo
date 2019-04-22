@@ -3,15 +3,15 @@ package cn.simple.test.string.encrypt.md5.des;
 public class DESEncryptTest {
 
     public static void main( String[] args ) throws Exception {
-	String key = "abcabc======$$$$$$111000";
-	DESEncrypt encrypt = new DESEncrypt();
+        String key = "abcabc======$$$$$$111000";
+        DESEncrypt encrypt = new DESEncrypt();
 
-	encrypt.initialize_encryptKey( key );
-	String root = "D:/test/md5/";
-	encrypt.encrypt( root + "a.txt", root + "b.txt" );
+        encrypt.initialize_encryptKey( key );
+        String root = "D:/test/md5/";
+        encrypt.encrypt( root + "a.txt", root + "b.txt" );
 
-	encrypt.initalize_dencryptkey( key );
-	encrypt.decrypt( root + "b.txt", root + "a1.txt" );
+        encrypt.initalize_dencryptkey( key );
+        encrypt.decrypt( root + "b.txt", root + "a1.txt" );
     }
 
 }

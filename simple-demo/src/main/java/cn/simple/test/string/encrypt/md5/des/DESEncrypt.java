@@ -19,15 +19,15 @@ public class DESEncrypt {
     private Cipher decryptCipher = null;
 
     public void initialize_encryptKey( String keyValue ) throws Exception {
-	Key key = getKey( keyValue.getBytes() );
-	encryptCipher = Cipher.getInstance( "DES" );
-	encryptCipher.init( Cipher.ENCRYPT_MODE, key );
+        Key key = getKey( keyValue.getBytes() );
+        encryptCipher = Cipher.getInstance( "DES" );
+        encryptCipher.init( Cipher.ENCRYPT_MODE, key );
     }
 
     public void initalize_dencryptkey( String keyValue ) throws Exception {
-	Key key = getKey( keyValue.getBytes() );
-	decryptCipher = Cipher.getInstance( "DES" );
-	decryptCipher.init( Cipher.DECRYPT_MODE, key );
+        Key key = getKey( keyValue.getBytes() );
+        decryptCipher = Cipher.getInstance( "DES" );
+        decryptCipher.init( Cipher.DECRYPT_MODE, key );
     }
 
     /**
@@ -39,16 +39,16 @@ public class DESEncrypt {
      * @throws java.lang.Exception
      */
     private Key getKey( byte[] arrBTmp ) throws Exception {
-	// 创建一个空的8位字节数组（默认值为0）
-	byte[] arrB = new byte[8];
+        // 创建一个空的8位字节数组（默认值为0）
+        byte[] arrB = new byte[8];
 
-	// 将原始字节数组转换为8位
-	for ( int i = 0; i < arrBTmp.length && i < arrB.length; i++ ) {
-	    arrB[i] = arrBTmp[i];
-	}
-	// 生成密钥
-	Key key = new javax.crypto.spec.SecretKeySpec( arrB, "DES" );
-	return key;
+        // 将原始字节数组转换为8位
+        for ( int i = 0; i < arrBTmp.length && i < arrB.length; i++ ) {
+            arrB[i] = arrBTmp[i];
+        }
+        // 生成密钥
+        Key key = new javax.crypto.spec.SecretKeySpec( arrB, "DES" );
+        return key;
     }
 
     /**
@@ -60,7 +60,7 @@ public class DESEncrypt {
      * @throws Exception
      */
     public byte[] encrypt( byte[] arrB ) throws Exception {
-	return encryptCipher.doFinal( arrB );
+        return encryptCipher.doFinal( arrB );
     }
 
     /**
@@ -72,7 +72,7 @@ public class DESEncrypt {
      * @throws Exception
      */
     public byte[] decrypt( byte[] arrB ) throws Exception {
-	return decryptCipher.doFinal( arrB );
+        return decryptCipher.doFinal( arrB );
     }
 
     /**
@@ -84,17 +84,17 @@ public class DESEncrypt {
      *            加密后存放的文件名 如c:/加密后文件.txt
      */
     public void encrypt( String sourceFileName, String diminationFileName ) throws Exception {
-	InputStream is = new FileInputStream( sourceFileName );
-	OutputStream out = new FileOutputStream( diminationFileName );
-	CipherInputStream cis = new CipherInputStream( is, encryptCipher );
-	byte[] buffer = new byte[1024];
-	int r;
-	while ( ( r = cis.read( buffer ) ) > 0 ) {
-	    out.write( buffer, 0, r );
-	}
-	cis.close();
-	is.close();
-	out.close();
+        InputStream is = new FileInputStream( sourceFileName );
+        OutputStream out = new FileOutputStream( diminationFileName );
+        CipherInputStream cis = new CipherInputStream( is, encryptCipher );
+        byte[] buffer = new byte[1024];
+        int r;
+        while ( ( r = cis.read( buffer ) ) > 0 ) {
+            out.write( buffer, 0, r );
+        }
+        cis.close();
+        is.close();
+        out.close();
     }
 
     /**
@@ -106,17 +106,17 @@ public class DESEncrypt {
      *            解密后存放的文件名 如c:/ test/解密后文件.txt
      */
     public void decrypt( String sourceFileName, String diminationFileName ) throws Exception {
-	InputStream is = new FileInputStream( sourceFileName );
-	OutputStream out = new FileOutputStream( diminationFileName );
-	CipherOutputStream cos = new CipherOutputStream( out, decryptCipher );
-	byte[] buffer = new byte[1024];
-	int r;
-	while ( ( r = is.read( buffer ) ) >= 0 ) {
-	    cos.write( buffer, 0, r );
-	}
-	cos.close();
-	out.close();
-	is.close();
+        InputStream is = new FileInputStream( sourceFileName );
+        OutputStream out = new FileOutputStream( diminationFileName );
+        CipherOutputStream cos = new CipherOutputStream( out, decryptCipher );
+        byte[] buffer = new byte[1024];
+        int r;
+        while ( ( r = is.read( buffer ) ) >= 0 ) {
+            cos.write( buffer, 0, r );
+        }
+        cos.close();
+        out.close();
+        is.close();
     }
 
 }
