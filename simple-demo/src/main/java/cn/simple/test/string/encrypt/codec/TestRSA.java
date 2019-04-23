@@ -1,4 +1,4 @@
-package cn.simple.test.string.encrypt;
+package cn.simple.test.string.encrypt.codec;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;

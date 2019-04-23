@@ -1,4 +1,4 @@
-package cn.simple.test.string.encrypt;
+package cn.simple.test.string.encrypt.codec;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

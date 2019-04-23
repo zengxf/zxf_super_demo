@@ -1,4 +1,4 @@
-package cn.simple.test.string.encrypt;
+package cn.simple.test.string.encrypt.codec;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
