@@ -1,4 +1,4 @@
-package image_hundle;
+package cn.simple.test.jdkapi.awt.watermarks;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
@@ -17,11 +17,11 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
- * 用文字生成水印
+ * 用递归用图片生成水印（以支持内部文件夹）
  * <p>
  * Created by zengxf on 2019-04-16
  */
-public class GenerateWatermarkUseImage {
+public class GenerateWatermarkUseImageNew {
 
 	static String LOGO_PATH = "G:\\水印\\水印1.png";
 	static File LOGO_FILE = Paths.get(LOGO_PATH).toFile();

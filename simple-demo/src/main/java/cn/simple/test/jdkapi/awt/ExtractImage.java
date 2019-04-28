@@ -1,4 +1,4 @@
-package image_hundle;
+package cn.simple.test.jdkapi.awt;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * 用文字生成水印
+ * 提取图片文件
  * <p>
  * Created by zengxf on 2019-04-16
  */

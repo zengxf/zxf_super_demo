@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
- * 用文字生成水印
+ * 用图片生成水印
  * <p>
  * Created by zengxf on 2019-04-16
  */
