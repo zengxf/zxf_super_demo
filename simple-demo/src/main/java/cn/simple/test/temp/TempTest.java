@@ -4,10 +4,7 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) {
-       System.out.println(  String.format( "%02x", 244 ) );
-       System.out.println(  String.format( "%02x", 23 ) );
-       byte b = 12;
-       System.out.println(  String.format( "%x", b ) );
+       System.out.println( "test/t.dd/dd.dd".matches( ".+" ) );
     }
 
 }
