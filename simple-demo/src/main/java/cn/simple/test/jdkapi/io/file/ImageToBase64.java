@@ -10,8 +10,7 @@ import java.util.Base64;
 
 public class ImageToBase64 {
     public static void main( String[] args ) throws URISyntaxException, IOException {
-        Path src = Paths.get( ImageToBase64.class.getResource( "hunterplus.png" )
-                .toURI() );
+        Path src = Paths.get( "test.png" );
         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
         Files.copy( src, byteOut );
         byte[] content = byteOut.toByteArray();
