@@ -7,16 +7,12 @@ import java.io.InputStreamReader;
 
 public class ReadLineLength {
     public static void main( String[] args ) throws IOException {
-        String path = ReadLineLength.class.getResource( "" )
-                .getPath() + "common.txt";
-
-        BufferedReader br = new BufferedReader( new InputStreamReader( new FileInputStream( path ) ) );
-
+        String file = "C:\\Users\\Administrator\\Desktop\\aa\\month-note\\test.md";
+        BufferedReader br = new BufferedReader( new InputStreamReader( new FileInputStream( file ) ) );
         String line;
         while ( ( line = br.readLine() ) != null ) {
             System.out.println( line.length() );
         }
-
         br.close();
     }
 }
