@@ -11,7 +11,8 @@ docker build -t rabbitmq:3.7-my ./
 
 # 运行
 docker run -d -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=hunterplus123 \
- --rm \
- --name rabbit-test \
+ --name rabbit \
+ --hostname rabbit-test \
+ -v /data/software/rabbitmq/data:/var/lib/rabbitmq \
  -p 15600:15672 -p 5600:5672 \
  rabbitmq:3.7-my
