@@ -9,15 +9,22 @@ import java.util.function.Function;
  * 编译时类型擦除，相差类型自动转换<br>
  * 可反编译查看
  */
-// M:\project\zxf_super_demo\simple-demo\bin\cn\simple\test\lang_features
+// M:\project\zxf_super_demo\simple-demo\bin\main\cn\simple\test\lang_features
 public class TestGenericType {
 
     public interface Fun {
         void test();
     }
 
-    public static class MyFun implements Fun, Runnable {
+    public static class ListUtils {
+        public static < T > T one( List<T> list ) {
+            if ( list == null || list.isEmpty() )
+                return null;
+            return list.get( 0 );
+        }
+    }
 
+    public static class MyFun implements Fun, Runnable {
         @Override
         public void run() {
         }
@@ -25,7 +32,6 @@ public class TestGenericType {
         @Override
         public void test() {
         }
-
     }
 
     public < T > void test1( T t ) {
@@ -44,15 +50,14 @@ public class TestGenericType {
         list.add( "" );
         String a = list.get( 0 );
         a.isEmpty();
+        a = ListUtils.one( list );
     }
 
     public static class MyFunction implements Function<String, Integer> {
-
         @Override
         public Integer apply( String t ) {
             return null;
         }
-
     }
 
 }
