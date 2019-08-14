@@ -4,6 +4,7 @@ package cn.simple.test.temp;
 public class TempTest {
 
     public static void main( String[] args ) {
+        System.out.println( Integer.parseInt( "08" ) );
     }
 
 }
