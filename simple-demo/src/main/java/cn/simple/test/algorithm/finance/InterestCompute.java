@@ -3,12 +3,12 @@ package cn.simple.test.algorithm.finance;
 public class InterestCompute {
 
     public static void main( String[] args ) {
-        // double rate = 1.035;
+//         double rate = 1.035;
         double rate = 1.10;
         double sum = 0;
         int year = 500 * 12;
         // int year = 53 * 80;
-        int yNum = 13;
+        int yNum = 1;
         int ydNum = 20;
 
         System.out.printf( "每年定投：【%d】，预计利息：【%.2f%%】%n", year, ( rate - 1.0d ) * 100d );
