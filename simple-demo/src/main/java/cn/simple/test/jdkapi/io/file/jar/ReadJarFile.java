@@ -10,8 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
-import org.apache.commons.io.IOUtils;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -29,7 +27,7 @@ public class ReadJarFile {
             URI uri = ReadJarFile.class.getResource( "jar-content.txt" )
                     .toURI();
             log.info( "readByIO uri 1: [{}]", uri );
-            String template = IOUtils.toString( uri, "GBK" );
+            String template = "";
             System.out.println( template );
         } catch ( Exception e ) {
             e.printStackTrace();
