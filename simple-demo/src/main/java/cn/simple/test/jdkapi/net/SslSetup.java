@@ -1,11 +1,89 @@
 package cn.simple.test.jdkapi.net;
 
+import java.net.http.HttpClient;
+import java.security.GeneralSecurityException;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.time.Duration;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class SslSetup {
 
+    static {
+        TrustManager[] trustAllCertificates = new TrustManager[] { new X509TrustManager() {
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return null;
+            }
+
+            @Override
+            public void checkClientTrusted( X509Certificate[] certs, String authType ) {
+            }
+
+            @Override
+            public void checkServerTrusted( X509Certificate[] certs, String authType ) {
+            }
+        } };
+        HostnameVerifier trustAllHostnames = new HostnameVerifier() {
+            @Override
+            public boolean verify( String hostname, SSLSession session ) {
+                return true; // Just allow them all.
+            }
+        };
+        try {
+            System.setProperty( "jsse.enableSNIExtension", "false" );
+            SSLContext sc = SSLContext.getInstance( "SSL" );
+            sc.init( null, trustAllCertificates, new SecureRandom() );
+            HttpsURLConnection.setDefaultSSLSocketFactory( sc.getSocketFactory() );
+            HttpsURLConnection.setDefaultHostnameVerifier( trustAllHostnames );
+        } catch ( GeneralSecurityException e ) {
+            throw new ExceptionInInitializerError( e );
+        }
+    }
+
+    /*** 允许不安全的 HTTPS 连接 */
+    public static HttpClient httpClient() throws Exception {
+        TrustManager[] trustAllCertificates = new TrustManager[] { new X509TrustManager() {
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return null;
+            }
+
+            @Override
+            public void checkClientTrusted( X509Certificate[] arg0, String arg1 ) throws CertificateException {
+            }
+
+            @Override
+            public void checkServerTrusted( X509Certificate[] arg0, String arg1 ) throws CertificateException {
+            }
+        } };
+
+        System.setProperty( "jdk.internal.httpclient.disableHostnameVerification", "true" ); // 取消主机名验证
+
+        SSLParameters params = new SSLParameters();
+        params.setEndpointIdentificationAlgorithm( "" );
+        SSLContext sc = SSLContext.getInstance( "SSL" );
+        sc.init( null, trustAllCertificates, new SecureRandom() );
+
+        HttpClient client = HttpClient.newBuilder()
+                .connectTimeout( Duration.ofSeconds( 60 ) )
+                .followRedirects( HttpClient.Redirect.ALWAYS )
+                .sslContext( sc )
+                .sslParameters( params )
+                .build();
+
+        return client;
+    }
+
+    /*** JDK11 HttpClient 没用 */
     public static void notVerfiy() {
         try {
             trustAllHttpsCertificates();

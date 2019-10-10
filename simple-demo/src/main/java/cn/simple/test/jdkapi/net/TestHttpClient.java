@@ -1,31 +1,28 @@
 package cn.simple.test.jdkapi.net;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.Duration;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TestHttpClient {
 
-    public static void main( String[] args ) throws IOException, InterruptedException {
-        SslSetup.notVerfiy();
-
+    public static void main( String[] args ) throws Exception {
         // String url = "http://openjdk.java.net/"; // 合法证书测试
         String url = "https://591234x.com/788789/31139.html"; // 未知证书测试
 
-        HttpClient client = HttpClient.newBuilder()
-                .connectTimeout( Duration.ofMillis( 3000 ) )
-                .followRedirects( HttpClient.Redirect.ALWAYS )
-                .build();
+        HttpClient http = SslSetup.httpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri( URI.create( url ) )
-                .timeout( Duration.ofMillis( 5000 ) )
+                .GET()
                 .build();
-        HttpResponse<String> response = client.send( request, HttpResponse.BodyHandlers.ofString() );
-        
-        System.out.println( response.body() );
+        HttpResponse<String> response = http.send( request, HttpResponse.BodyHandlers.ofString() );
+
+        log.info( "status: [{}]", response.statusCode() );
+        log.info( "body: [{}]", response.body() );
     }
 
 }
