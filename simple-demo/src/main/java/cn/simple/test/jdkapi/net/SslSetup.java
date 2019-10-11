@@ -1,7 +1,6 @@
 package cn.simple.test.jdkapi.net;
 
 import java.net.http.HttpClient;
-import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -16,38 +15,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 public class SslSetup {
-
-    static {
-        TrustManager[] trustAllCertificates = new TrustManager[] { new X509TrustManager() {
-            @Override
-            public X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
-
-            @Override
-            public void checkClientTrusted( X509Certificate[] certs, String authType ) {
-            }
-
-            @Override
-            public void checkServerTrusted( X509Certificate[] certs, String authType ) {
-            }
-        } };
-        HostnameVerifier trustAllHostnames = new HostnameVerifier() {
-            @Override
-            public boolean verify( String hostname, SSLSession session ) {
-                return true; // Just allow them all.
-            }
-        };
-        try {
-            System.setProperty( "jsse.enableSNIExtension", "false" );
-            SSLContext sc = SSLContext.getInstance( "SSL" );
-            sc.init( null, trustAllCertificates, new SecureRandom() );
-            HttpsURLConnection.setDefaultSSLSocketFactory( sc.getSocketFactory() );
-            HttpsURLConnection.setDefaultHostnameVerifier( trustAllHostnames );
-        } catch ( GeneralSecurityException e ) {
-            throw new ExceptionInInitializerError( e );
-        }
-    }
 
     /*** 允许不安全的 HTTPS 连接 */
     public static HttpClient httpClient() throws Exception {
