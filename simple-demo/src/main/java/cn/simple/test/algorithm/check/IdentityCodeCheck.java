@@ -8,10 +8,10 @@ import lombok.extern.slf4j.Slf4j;
  * Created by zengxf on 2019-05-30
  */
 @Slf4j
-public class CheckIdCode {
+public class IdentityCodeCheck {
 
     public static void main( String[] args ) {
-        String code = "430524199210237735";
+        String code = "430524199201237792";
         if ( check( code ) ) {
             log.info( "[{}] 身份证号码格式正确", code );
         } else {
