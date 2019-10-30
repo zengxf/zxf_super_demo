@@ -8,6 +8,6 @@ public class TempTest {
         int n = 200;
         long v = (long) ( -n * Math.log( p ) / ( Math.log( 2 ) * Math.log( 2 ) ) );
         System.out.println( v );
-    }
+    } 
 
 }
