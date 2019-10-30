@@ -10,9 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class ReadJarFile {
     public static void main( String[] args ) throws MalformedURLException {
         readByIO();
@@ -26,7 +23,7 @@ public class ReadJarFile {
         try {
             URI uri = ReadJarFile.class.getResource( "jar-content.txt" )
                     .toURI();
-            log.info( "readByIO uri 1: [{}]", uri );
+            System.out.println( "readByIO uri 1: [" + uri + "]" );
             String template = "";
             System.out.println( template );
         } catch ( Exception e ) {
@@ -39,9 +36,9 @@ public class ReadJarFile {
         try {
             URI uri = ReadJarFile.class.getResource( "jar-content.txt" )
                     .toURI();
-            log.info( "readByUri uri 1: [{}]", uri );
+            System.out.println( "readByUri uri 1: [" + uri + "]" );
             Path path = Paths.get( uri );
-            String template = Files.readAllLines( path, Charset.forName( "GBK" ) )
+            String template = Files.readAllLines( path, Charset.forName( "UTF-8" ) )
                     .stream()
                     .collect( Collectors.joining( "\n" ) );
             System.out.println( template );
@@ -54,7 +51,7 @@ public class ReadJarFile {
         try {
             URI path = ReadJarFile.class.getResource( "jar-content.txt" )
                     .toURI();
-            log.info( "readByUrl uri 1: [{}]", path );
+            System.out.println( "readByUrl uri 1: [" + path + "]" );
             URL url = path.toURL();
             InputStream is = url.openStream();
             byte[] bys = new byte[1024_00];
