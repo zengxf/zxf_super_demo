@@ -1,38 +1,62 @@
 package cn.simple.test.temp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // M:\zxf-demo-github\zxf_super_demo\simple-demo\bin\main\cn\simple\test\temp
 public class TempTest {
 
     public static void main( String[] args ) {
 
-        System.out.println( test5() );
+//        System.out.println(test4());
+        System.out.println(getMap().get("KEY").toString());
     }
 
-    public static int test5() {
+    public static Map<String, String> getMap() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("KEY", "INIT");
+
+        try {
+            map.put("KEY", "TRY");
+            return map;
+        }
+        catch (Exception e) {
+            map.put("KEY", "CATCH");
+        }
+        finally {
+            map.put("KEY", "FINALLY");
+            map = null;
+        }
+
+        return map;
+    }
+
+    public static int test4() {
         int b = 20;
 
         try {
-            System.out.println( "try block" );
+            System.out.println("try block");
 
             b = b / 0;
 
             return b += 80;
-        } catch ( Exception e ) {
+        } catch (Exception e) {
 
-            System.out.println( "catch block" );
-            return b += 15;
+            b += 15;
+            System.out.println("catch block");
         } finally {
 
-            System.out.println( "finally block" );
+            System.out.println("finally block");
 
-            if ( b > 25 ) {
-                System.out.println( "b>25, b = " + b );
+            if (b > 25) {
+                System.out.println("b>25, b = " + b);
             }
-            // 说明了发生异常后，catch中的return语句先执行，确定了返回值后再去执行finally块，执行完了catch再返回，finally里对b的改变对返回值无影响
+
             b += 50;
         }
 
-        // return b;
+        return 204;
     }
+
 
 }
