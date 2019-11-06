@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 // 参考：https://www.cnblogs.com/lanxuezaipiao/p/3440471.html
+// 用 XJad 反编译查看更直观
+// M:\zxf-demo-github\zxf_super_demo\simple-demo\bin\main\cn\simple\test\lang_features
 public class TestFinallyBlock {
     public static void main( String[] args ) {
         // System.out.println( test1() );
