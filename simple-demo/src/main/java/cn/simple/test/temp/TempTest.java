@@ -7,7 +7,7 @@ public class TempTest {
         double p = 0.001;
         int n = 200;
         long v = (long) ( -n * Math.log( p ) / ( Math.log( 2 ) * Math.log( 2 ) ) );
-        System.out.println( v );
+        System.out.println( v ); 
     } 
 
 }
