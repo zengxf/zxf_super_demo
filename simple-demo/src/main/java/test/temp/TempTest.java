@@ -1,30 +1,38 @@
 package test.temp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 // M:\zxf-demo-github\zxf_super_demo\simple-demo\bin\main\test\temp
 public class TempTest {
 
     public static void main( final String[] args ) {
-        printTotal( 4 );
+        List<int[]> list = new ArrayList<>();
+        printTotal( 4, list );
+        List<String> strList = list.stream()
+                .map( Arrays::toString )
+                .collect( Collectors.toList() );
+        System.out.println( strList );
+        System.out.println( strList.size() );
     }
 
-    public static final void printTotal( final int n ) {
-        for ( int i = 1; i < n; i++ ) {
-            print_nCr( n, i );
+    public static final void printTotal( final int n, List<int[]> list ) {
+        for ( int i = 1; i <= n; i++ ) {
+            print_nCr( n, i, list );
         }
     }
 
-    public static final void print_nCr( final int n, final int r ) {
+    public static final void print_nCr( final int n, final int r, List<int[]> list ) {
         int[] res = new int[r];
         for ( int i = 0; i < res.length; i++ ) {
             res[i] = i + 1;
         }
         boolean done = false;
         while ( !done ) {
-            String v = Arrays.toString( res )
-                    .replace( ", ", "" );
-            System.out.print( v );
+            int[] newArr = Arrays.copyOf( res, res.length );
+            list.add( newArr );
             done = getNext( res, n, r );
         }
     }
