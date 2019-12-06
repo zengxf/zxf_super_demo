@@ -1,4 +1,4 @@
-package test.reload_class.agent;
+package test.jvm.reload_class.agent;
 
 public class TargetFunction {
 

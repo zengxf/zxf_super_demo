@@ -1,4 +1,4 @@
-package test.reload_class.myCL;
+package test.jvm.reload_class.myCL;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

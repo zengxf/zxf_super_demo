@@ -1,4 +1,4 @@
-package test.reload_class.netCL;
+package test.jvm.reload_class.netCL;
 
 public class NewworkClassLoaderTest {
     public static void main( String[] args ) {

@@ -1,4 +1,4 @@
-package test.reload_class.myCL;
+package test.jvm.reload_class.myCL;
 
 import java.io.IOException;
 import java.io.InputStream;

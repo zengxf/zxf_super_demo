@@ -1,4 +1,4 @@
-package test.reload_class.extCL;
+package test.jvm.reload_class.extCL;
 
 public class ExtMain {
     public static void main( String[] args ) {

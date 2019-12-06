@@ -1,4 +1,4 @@
-package test.reload_class.myCL;
+package test.jvm.reload_class.myCL;
 
 public interface IFunction {
 
