@@ -48,6 +48,8 @@ public class TestSemaphore {
 
         Runnable r3 = () -> {
             sp.release();
+            sp.release();
+            sp.release();
             System.out.println( Thread.currentThread()
                     .getName() + " --------- 1" );
         };

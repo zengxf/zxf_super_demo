@@ -32,15 +32,17 @@ public class TestCountDownLatch {
             new Thread() {
                 @Override
                 public void run() {
-                    System.out.println( "thread " + i + " exec ..." );
+                    System.out.println( "countDown thread " + i + " exec ..." );
                     latch.countDown();
                 }
             }.start();
         } );
 
         latch.await();
-        
-        System.out.println( "main done" );
+        System.out.println( "main done 1" );
+
+        latch.await();
+        System.out.println( "main done 2" );
     }
 
 }
