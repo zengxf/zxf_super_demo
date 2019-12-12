@@ -13,10 +13,10 @@ import java.util.stream.IntStream;
 public class TestSemaphore {
 
     public static void main( String[] args ) {
-        // test_common();
+        test_common();
         // test_throwError();
         // test_fair();
-        test_aqs();
+        // test_aqs();
     }
 
     static void test_aqs() {
@@ -86,19 +86,17 @@ public class TestSemaphore {
 
         Runnable r = () -> {
             try {
+                Thread currentThread = Thread.currentThread();
                 sp.acquire();
-                System.out.println( Thread.currentThread()
-                        .getName() + " --------- 1" );
+                System.out.println( currentThread.getName() + " --------- 1" );
                 sp.release();
 
                 sp.acquire();
-                System.out.println( Thread.currentThread()
-                        .getName() + " --------- 2" );
+                System.out.println( currentThread.getName() + " --------- 2" );
                 sp.release();
 
                 sp.acquire();
-                System.out.println( Thread.currentThread()
-                        .getName() + " --------- 3" );
+                System.out.println( currentThread.getName() + " --------- 3" );
                 sp.release();
             } catch ( InterruptedException e ) {
             }
