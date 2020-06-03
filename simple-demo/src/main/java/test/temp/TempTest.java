@@ -4,6 +4,7 @@ package test.temp;
 public class TempTest {
 
     public static void main( String[] args ) throws Exception {
-
+        System.out.println( "sssssss" );
     }
+    
 }
