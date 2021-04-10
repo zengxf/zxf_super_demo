@@ -1,6 +1,9 @@
-.gradle/*
-bin/*
-.settings/*
+.gradle
+bin
+.settings
 .classpath
 .project
 *.log
+.idea
+gradlew.bat
+gradlew

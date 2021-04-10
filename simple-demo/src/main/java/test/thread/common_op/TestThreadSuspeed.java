@@ -10,7 +10,6 @@ import util.SleepUtils;
  * <p>
  * Created by zengxf on 2018-02-23
  */
-@SuppressWarnings( "deprecation" )
 public class TestThreadSuspeed {
 
     static Object lock = new Object();
@@ -20,6 +19,7 @@ public class TestThreadSuspeed {
         testStatus();
     }
 
+    @SuppressWarnings( "removal" )
     static void testStatus() {
         Runnable r1 = () -> {
             int i = 0;
@@ -36,16 +36,21 @@ public class TestThreadSuspeed {
         System.out.println( "================= 1" );
     }
 
+    @SuppressWarnings( "removal" )
     static void testNotUnlock() {
         Runnable r1 = () -> {
             synchronized ( lock ) {
-                System.out.println( Thread.currentThread().getName() + " ----------- 1" );
+                System.out.println( Thread.currentThread()
+                        .getName() + " ----------- 1" );
                 SleepUtils.second( 1 );
-                System.out.println( Thread.currentThread().getName() + " ----------- 2" );
+                System.out.println( Thread.currentThread()
+                        .getName() + " ----------- 2" );
                 SleepUtils.second( 1 );
-                System.out.println( Thread.currentThread().getName() + " ----------- 3" );
+                System.out.println( Thread.currentThread()
+                        .getName() + " ----------- 3" );
                 SleepUtils.second( 1 );
-                System.out.println( Thread.currentThread().getName() + " ----------- 4" );
+                System.out.println( Thread.currentThread()
+                        .getName() + " ----------- 4" );
             }
         };
 
