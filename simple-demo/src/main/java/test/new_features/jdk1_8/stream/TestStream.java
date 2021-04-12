@@ -28,7 +28,8 @@ public class TestStream {
         // test_iterate();
         // test_multilevelGrouping();
         // test_collectingAndThen();
-        test_partitioningBy();
+        // test_partitioningBy();
+        test_toArray();
     }
 
     static Supplier<Stream<User>> sup = () -> Stream.of( //
@@ -38,6 +39,16 @@ public class TestStream {
             new User( "sy", 22, "er33" ), //
             new User( "sy", 22, "ds" ) //
     );
+
+    // 测试：转数组
+    static void test_toArray() {
+        Stream<User> stream = sup.get();
+        User[] users = stream.toArray( length -> {
+            System.out.println( "length = " + length );
+            return new User[length];
+        } );
+        System.out.println( users.length );
+    }
 
     // 以布尔值分组
     static void test_partitioningBy() {
