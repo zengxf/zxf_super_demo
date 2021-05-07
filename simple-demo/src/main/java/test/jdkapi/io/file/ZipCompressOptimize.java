@@ -18,35 +18,24 @@ import java.util.zip.ZipOutputStream;
  */
 public class ZipCompressOptimize {
 
-
-    //要压缩的图片文件所在所存放位置
+    // 要压缩的图片文件所在所存放位置
     public static String JPG_FILE_PATH = "C:\\Users\\Administrator\\Desktop\\aa\\image\\test\\test-big.jpg";
-
-    //zip压缩包所存放的位置
-    public static String ZIP_FILE = "C:\\Users\\Administrator\\Desktop\\aa\\image\\test\\test-big.zip";
-
-    //所要压缩的文件
-    public static File JPG_FILE = null;
-
-    //文件大小
-    public static long FILE_SIZE = 0;
-
-    //文件名
-    public static String FILE_NAME = "";
-
-    //文件后缀名
-    public static String SUFFIX_FILE = "";
+    // zip压缩包所存放的位置
+    public static String ZIP_FILE      = "C:\\Users\\Administrator\\Desktop\\aa\\image\\test\\test-big.zip";
+    // 所要压缩的文件
+    public static File   JPG_FILE      = null;
+    // 文件大小
+    public static long   FILE_SIZE     = 0;
+    // 文件名
+    public static String FILE_NAME     = "";
+    // 文件后缀名
+    public static String SUFFIX_FILE   = "";
 
     static {
-
         File file = new File(JPG_FILE_PATH);
-
         JPG_FILE = file;
-
         FILE_NAME = file.getName();
-
         FILE_SIZE = file.length();
-
         SUFFIX_FILE = file.getName().substring(file.getName().indexOf('.'));
     }
 
@@ -58,14 +47,14 @@ public class ZipCompressOptimize {
 //                .build();
 //        new Runner(opt).run();
 
-        System.out.println("------NoBuffer");
-        zipFileNoBuffer();
+//        System.out.println("------NoBuffer");
+//        zipFileNoBuffer();
 
 //        System.out.println("------Buffer");
 //        zipFileBuffer();
 
-//        System.out.println("------Channel");
-//        zipFileChannel();
+        System.out.println("------Channel");
+        zipFileChannel();
 
 //        System.out.println("---------Map");
 //        zipFileMap();
@@ -82,13 +71,16 @@ public class ZipCompressOptimize {
         try (ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipFile))) {
             //开始时间
             long beginTime = System.currentTimeMillis();
-
-            for (int i = 0; i < 10; i++) {
+            byte[] arr = new byte[1024];
+            for (int i = 0; i < 1; i++) {
                 try (InputStream input = new FileInputStream(JPG_FILE)) {
                     zipOut.putNextEntry(new ZipEntry(FILE_NAME + i));
                     int temp = 0;
-                    while ((temp = input.read()) != -1) {
-                        zipOut.write(temp);
+//                    while ((temp = input.read()) != -1) { // 这是一次读写一个字节
+//                        zipOut.write(temp); 
+//                    }
+                    while ((temp = input.read(arr)) != -1) { // 这是一次读写 1k
+                        zipOut.write(arr, 0, temp);
                     }
                 }
             }
@@ -104,71 +96,20 @@ public class ZipCompressOptimize {
         long beginTime = System.currentTimeMillis();
         File zipFile = new File(ZIP_FILE);
         try {
-            ZipOutputStream zipOut = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zipFile)));
+//            ZipOutputStream zipOut = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zipFile)));
+            ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipFile));
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(zipOut);
             for (int i = 0; i < 10; i++) {
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(JPG_FILE));
                 zipOut.putNextEntry(new ZipEntry(i + SUFFIX_FILE));
                 int temp = 0;
-                while ((temp = bufferedInputStream.read()) != -1) {
+                while ((temp = bufferedInputStream.read()) != -1) { // 默认一次读写 8k
                     bufferedOutputStream.write(temp);
                 }
                 zipOut.closeEntry();
                 bufferedInputStream.close();
             }
             zipOut.close();
-            printInfo(beginTime);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void test(){
-        FileOutputStream fos = null;
-        ZipOutputStream zos = null;
-        try {
-            byte[] buffer = new byte[1024];
-
-            fos = new FileOutputStream(ZIP_FILE);
-
-            zos = new ZipOutputStream(fos);
-            for (int i=0; i < 10; i++) {
-                File srcFile = JPG_FILE;
-                FileInputStream fis = new FileInputStream(srcFile);
-                zos.putNextEntry(new ZipEntry(i + SUFFIX_FILE));
-                int length;
-                while ((length = fis.read(buffer)) > 0) {
-                    zos.write(buffer, 0, length);
-                }
-                zos.closeEntry();
-                fis.close();
-            }
-//            zos.close();
-        }
-        catch (IOException ioe) {
-            System.out.println("Error creating zip file: " + ioe);
-        } finally {
-            try {
-                zos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-
-    public static void zipFileChannelBuffer() {
-        //开始时间
-        long beginTime = System.currentTimeMillis();
-        File zipFile = new File(ZIP_FILE);
-        try (ZipOutputStream zipOut = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zipFile)));
-                WritableByteChannel writableByteChannel = Channels.newChannel(zipOut)) {
-            for (int i = 0; i < 10; i++) {
-                try (FileChannel fileChannel = new FileInputStream(JPG_FILE).getChannel()) {
-                    zipOut.putNextEntry(new ZipEntry(i + SUFFIX_FILE));
-                    fileChannel.transferTo(0, FILE_SIZE, writableByteChannel);
-                }
-            }
             printInfo(beginTime);
         } catch (Exception e) {
             e.printStackTrace();
@@ -282,16 +223,11 @@ public class ZipCompressOptimize {
         }
     }
 
-
-
-    private static void printInfo(long beginTime) {
-        //耗时
-        long timeConsum = (System.currentTimeMillis() - beginTime);
-
-        System.out.println("fileSize: " + FILE_SIZE / 1024 / 1024 * 10 + " M");
-        System.out.println("consum time: " + timeConsum + " ms");
+    private static void printInfo( long beginTime ) {
+        long timeConsum = ( System.currentTimeMillis() - beginTime ); // 耗时
+        System.out.println( "fileSize: " + FILE_SIZE / 1024 + " K" );
+        System.out.println( "consum time: " + timeConsum + " ms" );
     }
-
 
 
     //Version 6 使用Pip+Map
